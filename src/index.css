@@ -1,0 +1,213 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* -------------------------------------------------------
+   GLOBAL CSS VARIABLES (used by your custom classes)
+------------------------------------------------------- */
+:root {
+  --font-heading: "ITC Avant Garde Gothic Pro", Avant Garde, system-ui, sans-serif;
+  --font-body: "Open Sans", system-ui, sans-serif;
+
+  --color-brand-primary: #005680;
+  --color-brand-accent: #F28B00;
+  --color-brand-soft: #F5F7FB;
+
+  --shadow-soft: 0 18px 45px rgba(15, 23, 42, 0.12);
+
+  --bg: #ffffff;
+  --bg-soft: #f5f7fb;
+  --text: #0f172a;
+
+  --cat-elearning: #3b82f6;
+  --cat-storyline: #a855f7;
+  --cat-react: #22c55e;
+  --cat-video: #f97316;
+}
+
+/* -------------------------------------------------------
+   DARK MODE (Tailwind v3 “class” strategy)
+------------------------------------------------------- */
+html.dark {
+  --bg: #0b0f19;           /* deep navy-black */
+  --bg-soft: #111827;      /* soft surface */
+  --text: #e5e7eb;         /* soft grey-white */
+
+  /* Optional – richer brand accent in dark mode */
+  --color-brand-primary: #38bdf8;   /* Sky-blue for links/accents */
+  --color-brand-accent: #f472b6;    /* Soft pink accent */
+
+  /* Dark mode shadow tuning */
+  --shadow-soft: 0 22px 55px rgba(0, 0, 0, 0.45);
+}
+
+/* Atmospheric vignette overlay for dark mode */
+html.dark body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+
+  background: radial-gradient(
+    circle at center,
+    rgba(255, 255, 255, 0.02) 0%,
+    rgba(0, 0, 0, 0.45) 100%
+  );
+}
+
+/* -------------------------------------------------------
+   GLOBAL BASE STYLES
+------------------------------------------------------- */
+body {
+  font-family: var(--font-body);
+  background-color: var(--bg);
+  color: var(--text);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Optional container utility for layout alignment */
+.container {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 72rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+* {
+  transition:
+    background-color 0.35s ease,
+    color 0.35s ease,
+    border-color 0.35s ease,
+    box-shadow 0.35s ease;
+}
+/* ============================
+   Project card fade-in
+============================= */
+@keyframes fadeSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.card-animate {
+  animation: fadeSlideIn 0.6s ease forwards;
+}
+/* Fade-in soft */
+.fade-in {
+  animation: fadeIn 0.6s ease both;
+}
+
+.fade-in-up {
+  opacity: 0;
+  animation: fadeInUp 0.55s ease both;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0 }
+  to { opacity: 1 }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+/* Reveal animations */
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.reveal-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Progress bar animation (updated via JS) */
+@keyframes slide-up {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-slide-up {
+  animation: slide-up 0.3s ease-out;
+}
+@keyframes pop {
+  0% { transform: scale(0.4); opacity: 0; }
+  70% { transform: scale(1.15); opacity: 1; }
+  100% { transform: scale(1); }
+}
+
+.animate-pop {
+  animation: pop 0.3s ease-out;
+}
+/* Slide-up toast / page reveal */
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.fade-in-up {
+  animation: fade-in-up 0.6s ease forwards;
+}
+
+/* Pop animation (success icon) */
+@keyframes pop {
+  0% {
+    transform: scale(0.6);
+    opacity: 0;
+  }
+  70% {
+    transform: scale(1.08);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+.animate-pop {
+  animation: pop 0.45s cubic-bezier(0.2, 0.6, 0.4, 1.4) both;
+}
+.prose a {
+  color: var(--brand-primary);
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.prose a:hover {
+  opacity: 0.75;
+}
+
+.prose img {
+  border-radius: 1rem;
+}
+
+.prose blockquote {
+  border-left: 4px solid var(--brand-primary);
+  padding-left: 1rem;
+  color: var(--text);
+  opacity: 0.8;
+}
