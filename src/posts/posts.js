@@ -1,12 +1,12 @@
 // src/posts/posts.js
 
-// Vite loads all markdown files as raw text:
-const markdownFiles = import.meta.glob("../../posts/*.md", {
+// Load all markdown files inside /src/posts
+const markdownFiles = import.meta.glob("./*.md", {
   eager: true,
   as: "raw",
 });
 
-// Very tiny frontmatter reader (no gray-matter, browser-safe)
+// Very tiny frontmatter reader (browser-safe)
 function parseFrontmatter(raw) {
   if (!raw.startsWith("---")) {
     return { data: {}, content: raw };
@@ -35,7 +35,7 @@ export const posts = Object.keys(markdownFiles).map((filePath) => {
     slug,
     title: data.title || slug,
     date: data.date || "",
-    category: data.category || "general",
+    category: data.category || "General",
     summary: data.summary || "",
     content,
   };

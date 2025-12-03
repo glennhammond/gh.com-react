@@ -31,13 +31,7 @@ export default function Home() {
           {/* Left: hero text */}
           <div className="space-y-8">
             <h1 className="font-heading text-5xl md:text-6xl leading-tight text-[var(--text)]">
-              Elevating learning
-              <br />
-              through clean
-              <br />
-              design, clarity,
-              <br />
-              and creativity.
+             Better Learning by Design
             </h1>
 
             <p className="text-[var(--text)]/75 leading-relaxed max-w-md">

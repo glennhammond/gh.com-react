@@ -2,7 +2,9 @@
 import React from "react";
 import { Routes, Route } from "react-router-dom";
 
-import SiteLayout from "./components/layout/SiteLayout";
+import Header from "./components/layout/Header.jsx";      // ✔ updated
+import Footer from "./components/layout/Footer.jsx";      // ✔ updated
+import SiteLayout from "./components/layout/SiteLayout.jsx";
 
 import Home from "./pages/Home.jsx";
 import Work from "./pages/Work.jsx";
@@ -28,23 +30,29 @@ function NotFound() {
 
 export default function App() {
   return (
-    <SiteLayout>
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/work" element={<Work />} />
-        <Route path="/work/:slug" element={<ProjectPage />} />
+    <>
+      <Header />
 
-        <Route path="/blog" element={<Blog />} />
-        <Route path="/blog/:slug" element={<Post />} />
+      <SiteLayout>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/work" element={<Work />} />
+          <Route path="/work/:slug" element={<ProjectPage />} />
 
-        <Route path="/about" element={<About />} />
-        <Route path="/services" element={<Services />} />
-        <Route path="/contact" element={<Contact />} />
-        <Route path="/contact/success" element={<ContactSuccess />} />
-        <Route path="/youtube" element={<YouTube />} />
+          <Route path="/blog" element={<Blog />} />
+          <Route path="/blog/:slug" element={<Post />} />
 
-        <Route path="*" element={<NotFound />} />
-      </Routes>
-    </SiteLayout>
+          <Route path="/about" element={<About />} />
+          <Route path="/services" element={<Services />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/contact/success" element={<ContactSuccess />} />
+          <Route path="/youtube" element={<YouTube />} />
+
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+      </SiteLayout>
+
+      <Footer />
+    </>
   );
 }

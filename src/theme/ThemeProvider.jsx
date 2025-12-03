@@ -8,18 +8,25 @@ export function useTheme() {
 }
 
 export default function ThemeProvider({ children }) {
+  // Load initial theme safely
   const [theme, setTheme] = useState(() => {
-    // SSR-safe + localStorage safe
     if (typeof window === "undefined") return "light";
     return localStorage.getItem("theme") || "light";
   });
 
+  // Apply theme to <html> and persist
   useEffect(() => {
-    document.documentElement.setAttribute("data-theme", theme);
+    const root = document.documentElement;
+
+    // Toggle the actual Tailwind dark-mode class
+    root.classList.toggle("dark", theme === "dark");
+
+    // Optional: persist theme for next load
     localStorage.setItem("theme", theme);
   }, [theme]);
 
-  const toggleTheme = () => setTheme((t) => (t === "light" ? "dark" : "light"));
+  const toggleTheme = () =>
+    setTheme((prev) => (prev === "light" ? "dark" : "light"));
 
   return (
     <ThemeContext.Provider value={{ theme, toggleTheme }}>
