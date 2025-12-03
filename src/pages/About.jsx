@@ -1,5 +1,4 @@
 // src/pages/About.jsx
-
 import React from "react";
 import { Link } from "react-router-dom";
 
@@ -7,10 +6,16 @@ import PageWrapper from "../components/layout/PageWrapper";
 import PageHeader from "../components/layout/PageHeader";
 import Section from "../components/layout/Section";
 import Container from "../components/layout/Container";
+import SEO from "../components/ui/SEO.jsx";
 
 export default function About() {
   return (
     <PageWrapper>
+    <SEO
+  title="About Glenn Hammond – eLearning, UX, Analytics, Video"
+  description="Learn more about Glenn Hammond: eLearning specialist, designer, and video producer based in Brisbane."
+/>
+
       {/* ============================
           PAGE HEADER
       ============================= */}
@@ -18,13 +23,9 @@ export default function About() {
         title="I design and build learning experiences that actually feel good to use."
         subtitle="I’m Glenn Hammond — an eLearning specialist, designer, and videographer based in Brisbane. I design professional learning for teachers at Independent Schools Queensland, and create selected projects through my own practice and partners like Corporate Yoga Australia."
       >
-        {/* Breadcrumb (optional) */}
+        {/* Breadcrumb */}
         <nav className="text-sm text-[var(--text)]/60 flex items-center gap-2 mt-4">
-          <Link to="/" className="hover:text-brand-primary">
-            
-            Home
-          
-          </Link>
+          <Link to="/" className="hover:text-brand-primary">Home</Link>
           <span>/</span>
           <span>About</span>
         </nav>

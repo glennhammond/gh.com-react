@@ -15,7 +15,7 @@ import About from "./pages/About.jsx";
 import Services from "./pages/Services.jsx";
 import Contact from "./pages/Contact.jsx";
 import ContactSuccess from "./pages/ContactSuccess.jsx";
-import YouTube from "./pages/YouTube.jsx";
+
 
 function NotFound() {
   return (
@@ -46,8 +46,6 @@ export default function App() {
           <Route path="/services" element={<Services />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/contact/success" element={<ContactSuccess />} />
-          <Route path="/youtube" element={<YouTube />} />
-
           <Route path="*" element={<NotFound />} />
         </Routes>
       </SiteLayout>

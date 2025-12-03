@@ -211,3 +211,105 @@ body {
   color: var(--text);
   opacity: 0.8;
 }
+/* Blog category colours */
+:root {
+  --cat-design: #3B82F6;
+  --cat-education: #22C55E;
+  --cat-music: #F59E0B;
+  --cat-xapi: #8B5CF6;
+  --cat-storyline: #0EA5E9;
+  --cat-creativity: #EC4899;
+  --cat-workflow: #6B7280;
+  --cat-general: #475569;
+}
+html.dark {
+  --cat-design: #60A5FA;
+  --cat-education: #4ADE80;
+  --cat-music: #FDBA74;
+  --cat-xapi: #A78BFA;
+  --cat-storyline: #38BDF8;
+  --cat-creativity: #F472B6;
+  --cat-workflow: #9CA3AF;
+  --cat-general: #94A3B8;
+}
+/* Category badge */
+.blog-badge {
+  display: inline-block;
+  padding: 0.25rem 0.65rem;
+  border-radius: 9999px;
+  font-size: 0.70rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: white;
+}
+
+.blog-badge.design      { background: var(--cat-design); }
+.blog-badge.education   { background: var(--cat-education); }
+.blog-badge.music       { background: var(--cat-music); }
+.blog-badge.xapi        { background: var(--cat-xapi); }
+.blog-badge.storyline   { background: var(--cat-storyline); }
+.blog-badge.creativity  { background: var(--cat-creativity); }
+.blog-badge.workflow    { background: var(--cat-workflow); }
+.blog-badge.general     { background: var(--cat-general); }
+/* Blog category badge base */
+.blog-badge {
+  display: inline-block;
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+}
+
+/* Category colours — restore the strong palette */
+.blog-badge.design {
+  background: #2962ff20;
+  color: #2962ff;
+}
+
+.blog-badge.education {
+  background: #00897b20;
+  color: #00897b;
+}
+
+.blog-badge.music {
+  background: #ff6f0020;
+  color: #ff6f00;
+}
+
+.blog-badge.xapi {
+  background: #8e24aa20;
+  color: #8e24aa;
+}
+
+.blog-badge.storyline {
+  background: #9575cd20;
+  color: #9575cd;
+}
+
+.blog-badge.creativity {
+  background: #fdd83520;
+  color: #fdd835;
+}
+
+.blog-badge.workflow {
+  background: #43a04720;
+  color: #43a047;
+}
+
+.blog-badge.ai {
+  background: #00acc120;
+  color: #00acc1;
+}
+
+.blog-badge.ux {
+  background: #1a237e20;
+  color: #1a237e;
+}
+
+/* Neutral / fallback */
+.blog-badge.general {
+  background: #37474f20;
+  color: #37474f;
+}

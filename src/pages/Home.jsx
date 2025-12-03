@@ -9,7 +9,7 @@ import Container from "../components/layout/Container";
 import { projects } from "../data/projects";
 import { posts } from "../posts/posts";
 import ProjectImage from "../components/ProjectImage";
-import SEO from "../components/SEO";
+import SEO from "../components/ui/SEO.jsx";
 
 export default function Home() {
   const featuredProjects = projects.slice(0, 3);
@@ -21,7 +21,7 @@ export default function Home() {
     <PageWrapper>
       <SEO
         title="Glenn Hammond — eLearning Specialist, Designer & Developer"
-        description="Modern, evidence-informed digital learning design, xAPI analytics, Storyline development, and video production."
+        description="Modern, evidence-informed digital learning design, xAPI analytics, Storyline and Rise development, and video production."
         url="https://glennhammond.com/"
       />
 
@@ -31,7 +31,7 @@ export default function Home() {
           {/* Left: hero text */}
           <div className="space-y-8">
             <h1 className="font-heading text-5xl md:text-6xl leading-tight text-[var(--text)]">
-             Better Learning by Design
+              Better Learning by Design
             </h1>
 
             <p className="text-[var(--text)]/75 leading-relaxed max-w-md">
@@ -48,12 +48,12 @@ export default function Home() {
                 View my work
               </Link>
 
-              <Link
-                to="/contact"
-                className="px-6 py-3 rounded-xl border border-black/10 dark:border-white/10 bg-[var(--bg)] hover:bg-[var(--bg-soft)] text-sm font-medium"
-              >
-                Get in touch
-              </Link>
+            <Link
+              to="/contact"
+              className="px-6 py-3 rounded-xl border border-black/10 dark:border-white/10 bg-[var(--bg)] hover:bg-[var(--bg-soft)] text-sm font-medium"
+            >
+              Get in touch
+            </Link>
             </div>
           </div>
 
@@ -64,9 +64,14 @@ export default function Home() {
               bg-[var(--bg)] shadow-sm p-6 fade-in-up
             "
           >
-            <div className="rounded-2xl overflow-hidden mb-6 bg-[var(--bg-soft)] h-48 flex items-center justify-center text-xs text-[var(--text)]/40">
-              Image placeholder
-            </div>
+            {/* 🔹 Replace plain placeholder with real image */}
+          <div className="rounded-2xl overflow-hidden mb-6 bg-[var(--bg-soft)]">
+  <img
+    src="/images/portfolio-elearning-design-system.jpg"
+    alt="ISQ eLearning Design System – interface tiles"
+    className="w-full h-auto object-cover"
+  />
+</div>
 
             <h3 className="font-heading text-lg text-[var(--text)]">
               Featured project
@@ -101,7 +106,11 @@ export default function Home() {
                 className="rounded-3xl border border-black/10 dark:border-white/10 overflow-hidden bg-[var(--bg)] hover:-translate-y-[2px] hover:shadow-md transition"
               >
                 <ProjectImage
-                  src={project.image || placeholderImg}
+                  src={
+                    project.image ||
+                    project.previewImage ||
+                    placeholderImg
+                  }
                   alt={project.title}
                 />
                 <div className="p-6 space-y-3">

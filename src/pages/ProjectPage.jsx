@@ -6,7 +6,7 @@ import PageWrapper from "../components/layout/PageWrapper";
 import Section from "../components/layout/Section";
 import Container from "../components/layout/Container";
 import ProjectImage from "../components/ProjectImage";
-import SEO from "../components/SEO";
+import SEO from "../components/ui/SEO.jsx";
 
 import { projects } from "../data/projects";
 
@@ -19,6 +19,10 @@ export default function ProjectPage() {
   if (!project) {
     return (
       <PageWrapper>
+        <SEO
+  title={`${project.title} – Glenn Hammond`}
+  description={project.summary || "A detailed case study from Glenn Hammond’s learning design and development work."}
+/>
         <Section>
           <Container className="py-24 text-center space-y-4">
             <h1 className="font-heading text-3xl text-[var(--text)]">

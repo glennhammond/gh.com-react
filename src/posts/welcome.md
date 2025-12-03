@@ -5,7 +5,7 @@ summary: "Sharing thoughts on eLearning, design systems, xAPI, and creative work
 tags: ["Intro"]
 ---
 
-# Welcome 👋
+# Welcome
 
 This is the first post on my new blog.
 

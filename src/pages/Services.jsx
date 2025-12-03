@@ -3,7 +3,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-import SEO from "../components/SEO";
+import SEO from "../components/ui/SEO.jsx";
 import PageWrapper from "../components/layout/PageWrapper";
 import PageHeader from "../components/layout/PageHeader";
 import Section from "../components/layout/Section";

@@ -11,9 +11,15 @@ import Container from "../components/layout/Container";
 import { projects } from "../data/projects";
 import ProjectImage from "../components/ProjectImage";
 
+import SEO from "../components/ui/SEO.jsx";
+
 export default function Work() {
   return (
     <PageWrapper>
+      <SEO
+  title="Selected Work – Glenn Hammond"
+  description="A collection of projects across eLearning, design systems, xAPI, and interactive learning experiences."
+/>
       {/* ============================
           PAGE HEADER (using new system)
       ============================= */}
