@@ -1,9 +1,8 @@
 import React, { useState } from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, Link } from "react-router-dom";
 import ThemeToggle from "./ThemeToggle.jsx";
 
 const navItems = [
-  { to: "/", label: "Home" },
   { to: "/work", label: "Work" },
   { to: "/about", label: "About" },
   { to: "/blog", label: "Blog" },
@@ -25,17 +24,13 @@ export default function Header() {
       "
     >
       <div className="container flex items-center justify-between py-4">
-        {/* LEFT: Branding */}
-        <div className="flex items-center gap-3">
-          <span
-            className="
-              h-9 w-9 rounded-xl 
-              bg-brand-primary text-white 
-              font-bold flex items-center justify-center text-sm shadow-soft
-            "
-          >
-            GH
-          </span>
+        {/* LEFT: Branding (links to home) */}
+        <Link to="/" className="flex items-center gap-3 group">
+          <img
+            src="/images/favicon.svg"
+            alt="Glenn Hammond logo"
+            className="h-9 w-9 shadow-soft"
+          />
 
           <div className="leading-tight">
             <div className="font-heading text-[var(--text)] tracking-wide text-sm">
@@ -45,7 +40,7 @@ export default function Header() {
               eLearning · design · video
             </div>
           </div>
-        </div>
+        </Link>
 
         {/* RIGHT: Navigation (Desktop) */}
         <nav className="hidden md:flex items-center gap-8 text-sm font-medium">

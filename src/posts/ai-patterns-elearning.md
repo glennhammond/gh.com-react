@@ -1,11 +1,11 @@
 ---
-title: "AI Patterns That Actually Improve Digital Learning"
-summary: "AI isn’t a magic trick — it’s a set of patterns. Here are the AI workflows that genuinely enhance learning design rather than distract from it."
-date: "2025-03-02"
-category: "AI"
-categoryColor: "#3F51B5"
-tags: ["ai", "learning-design", "workflows", "design"]
-image: "/images/img-placeholder-1200.jpg"
+title: AI Patterns That Actually Improve Digital Learning
+summary: AI isn’t a magic trick — it’s a set of patterns. Here are the AI workflows that genuinely enhance learning design rather than distract from it.
+date: 2025-03-02
+category: AI
+categoryColor: #3F51B5
+tags: [ai, learning-design, workflows, design]
+image: /images/img-placeholder-1200.jpg
 ---
 
 # AI Patterns That Actually Improve Digital Learning
@@ -29,7 +29,7 @@ AI is exceptional at generating:
 - content scaffolds  
 - question pools  
 
-Not final text — *momentum*.
+Not final text  *momentum*.
 
 A screen that took 40 minutes now takes eight.  
 The time saved is enormous.

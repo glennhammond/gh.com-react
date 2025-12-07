@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "test:visual": "node ./scripts/visual-smoke-test.js"
   },
   "keywords": [],
   "author": "",
@@ -17,6 +18,7 @@
     "@vitejs/plugin-react": "^4.2.0",
     "autoprefixer": "^10.4.22",
     "postcss": "^8.5.6",
+    "puppeteer": "^21.11.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "tailwindcss": "^3.4.18",

@@ -1,7 +1,8 @@
 // src/pages/Contact.jsx
 import React, { useState, useRef, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import SEO from "../components/ui/SEO.jsx";
+import Breadcrumb from "../components/ui/Breadcrumb.jsx";
 
 export default function Contact() {
   const [status, setStatus] = useState("idle");
@@ -35,10 +36,8 @@ export default function Contact() {
       setStatus("success");
       setToast(true);
 
-      // Highlight the form area
       formRef.current?.scrollIntoView({ behavior: "smooth", block: "center" });
 
-      // Slight wait → redirect to success page
       setTimeout(() => navigate("/contact-success"), 800);
     } else {
       setStatus("error");
@@ -54,7 +53,16 @@ export default function Contact() {
 
       <div className="w-full flex justify-center">
         <div className="container py-24 space-y-24">
-          {/* MAIN GRID */}
+
+          {/* ==================== BREADCRUMB ==================== */}
+          <Breadcrumb
+            items={[
+              { label: "Home", href: "/" },
+              { label: "Contact" },
+            ]}
+          />
+
+          {/* ==================== MAIN GRID ==================== */}
           <section
             ref={formRef}
             className="grid grid-cols-1 lg:grid-cols-3 gap-16 fade-in-up"
@@ -177,7 +185,6 @@ export default function Contact() {
                 </button>
               </div>
 
-              {/* Error */}
               {status === "error" && (
                 <p className="md:col-span-2 text-sm text-red-500 pt-2">
                   Something went wrong — please try again.

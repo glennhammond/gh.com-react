@@ -1,16 +1,17 @@
 ---
-title: "Understanding xAPI for Learning Designers"
-description: "A clear and friendly guide to xAPI fundamentals."
-date: "2025-03-04"
+description: A clear and friendly guide to xAPI fundamentals.
+title: Understanding xAPI for Learning Designers
+date: 2025-03-04
+category: xAPI
+categoryColor: #00AEEF
+tags: [xapi, analytics, lrs, learning-data]
 ---
 
 # Understanding xAPI for Learning Designers
-
 xAPI used to feel complicated — but once you understand the fundamentals, it becomes one of the most powerful tools you can use to improve learning experiences.
 
 This article is a simple, friendly introduction for learning designers and developers who want to take their skills further.
 
----
 
 ## What xAPI actually is
 

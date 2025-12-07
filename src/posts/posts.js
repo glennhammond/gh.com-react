@@ -8,11 +8,15 @@ const markdownFiles = import.meta.glob("./*.md", {
 
 // Very tiny frontmatter reader (browser-safe)
 function parseFrontmatter(raw) {
-  if (!raw.startsWith("---")) {
+  // Match a single frontmatter block at the start of the file and capture the rest as content.
+  // This avoids splitting on other '---' sequences in the markdown body.
+  const m = raw.match(/^---\s*\n([\s\S]*?)\n---\s*\n?([\s\S]*)$/);
+  if (!m) {
     return { data: {}, content: raw };
   }
 
-  const [, front, body] = raw.split(/^-{3,}\s*$/m);
+  const front = m[1];
+  const body = m[2] || "";
 
   const lines = front.split("\n").filter(Boolean);
   const data = {};

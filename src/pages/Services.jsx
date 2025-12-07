@@ -1,77 +1,76 @@
 // src/pages/Services.jsx
-
 import React from "react";
-import { Link } from "react-router-dom";
 
-import SEO from "../components/ui/SEO.jsx";
 import PageWrapper from "../components/layout/PageWrapper";
-import PageHeader from "../components/layout/PageHeader";
+import PageIntro from "../components/layout/PageIntro";
 import Section from "../components/layout/Section";
 import Container from "../components/layout/Container";
+import SEO from "../components/ui/SEO.jsx";
 
 export default function Services() {
   return (
     <PageWrapper>
       <SEO
-        title="Services — Glenn Hammond"
-        description="eLearning design, Storyline development, xAPI analytics, design systems, and video production."
-        url="https://glennhammond.com/services"
+        title="Services – Glenn Hammond"
+        description="eLearning design, xAPI analytics, and video services to support modern digital learning."
       />
 
-      <PageHeader
-        title="Services"
-        subtitle="Support across instructional design, analytics, design systems, and multimedia production."
-      >
-        <nav className="text-sm text-[var(--text)]/60 flex items-center gap-2 mt-4">
-          <Link to="/" className="hover:text-brand-primary">
-            Home
-          </Link>
-          <span>/</span>
-          <span>Services</span>
-        </nav>
-      </PageHeader>
-
+      {/* PAGE INTRO */}
       <Section>
-        <Container className="grid grid-cols-1 md:grid-cols-2 gap-10 fade-in-up">
-          <div className="rounded-3xl border border-black/10 dark:border-white/10 bg-[var(--bg)]/95 p-8 space-y-4">
-            <h3 className="font-heading text-2xl text-[var(--text)]">
-              eLearning Design
-            </h3>
-            <p className="text-[var(--text)]/75 leading-relaxed">
-              Full instructional design services including scripting,
-              storyboards, content builds, scenario writing, and modern
-              workflows using Storyline, Rise, and H5P.
-            </p>
-          </div>
+        <Container>
+          <PageIntro
+            breadcrumb={[
+              { label: "Home", href: "/" },
+              { label: "Services" },
+            ]}
+            title="Services"
+            intro="I help organisations design, build, and refine digital learning experiences — from early concept through to launch and analytics."
+          />
+        </Container>
+      </Section>
 
-          <div className="rounded-3xl border border-black/10 dark:border-white/10 bg-[var(--bg)]/95 p-8 space-y-4">
-            <h3 className="font-heading text-2xl text-[var(--text)]">
-              xAPI & Analytics
-            </h3>
-            <p className="text-[var(--text)]/75 leading-relaxed">
-              Clean, structured xAPI statements, ActivityID strategy, Veracity
-              integration, and Looker Studio dashboards grounded in real data.
-            </p>
-          </div>
+      {/* SERVICES GRID */}
+      <Section>
+        <Container>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 fade-in-up">
+            {/* eLearning */}
+            <div className="rounded-3xl border border-black/10 dark:border-white/10 bg-[var(--bg)]/95 p-8 space-y-4">
+              <h3 className="font-heading text-xl text-[var(--text)]">
+                eLearning design & Storyline
+              </h3>
+              <ul className="text-sm text-[var(--text)]/75 space-y-2">
+                <li>End-to-end course design and development</li>
+                <li>Storyline templates and component libraries</li>
+                <li>Scenario-based learning and branching</li>
+                <li>Accessibility-minded layouts and flows</li>
+              </ul>
+            </div>
 
-          <div className="rounded-3xl border border-black/10 dark:border-white/10 bg-[var(--bg)]/95 p-8 space-y-4">
-            <h3 className="font-heading text-2xl text-[var(--text)]">
-              Design Systems
-            </h3>
-            <p className="text-[var(--text)]/75 leading-relaxed">
-              Scalable Figma design systems for learning, slides, UI kits,
-              typography, patterns, and reusable components.
-            </p>
-          </div>
+            {/* xAPI */}
+            <div className="rounded-3xl border border-black/10 dark:border-white/10 bg-[var(--bg)]/95 p-8 space-y-4">
+              <h3 className="font-heading text-xl text-[var(--text)]">
+                xAPI & learning analytics
+              </h3>
+              <ul className="text-sm text-[var(--text)]/75 space-y-2">
+                <li>xAPI statement design and debugging</li>
+                <li>LRS setup (Veracity, Learning Locker)</li>
+                <li>Dashboards and reporting (Looker Studio, Sheets)</li>
+                <li>Using data to improve learning experiences</li>
+              </ul>
+            </div>
 
-          <div className="rounded-3xl border border-black/10 dark:border-white/10 bg-[var(--bg)]/95 p-8 space-y-4">
-            <h3 className="font-heading text-2xl text-[var(--text)]">
-              Video & Media
-            </h3>
-            <p className="text-[var(--text)]/75 leading-relaxed">
-              Filming, editing, audio mastering, colour grading, motion, and
-              microlearning content for PD and marketing.
-            </p>
+            {/* Media */}
+            <div className="rounded-3xl border border-black/10 dark:border-white/10 bg-[var(--bg)]/95 p-8 space-y-4">
+              <h3 className="font-heading text-xl text-[var(--text)]">
+                Video & media
+              </h3>
+              <ul className="text-sm text-[var(--text)]/75 space-y-2">
+                <li>Interview and classroom filming</li>
+                <li>Microlearning edits and explainer videos</li>
+                <li>Audio cleaning and loudness normalisation</li>
+                <li>Graphics, titles, and simple motion</li>
+              </ul>
+            </div>
           </div>
         </Container>
       </Section>

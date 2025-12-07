@@ -1,8 +1,10 @@
 ---
-title: "Welcome to my new blog"
-date: "2025-01-10"
-summary: "Sharing thoughts on eLearning, design systems, xAPI, and creative workflow."
-tags: ["Intro"]
+title: Welcome
+date: 2025-01-10
+summary: Sharing thoughts on eLearning, design systems, xAPI, and creative workflow.
+tags: [Intro]
+category: General
+categoryColor: #00AEEF
 ---
 
 # Welcome
