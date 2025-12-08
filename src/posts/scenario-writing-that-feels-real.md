@@ -1,20 +1,12 @@
 ---
-title: "Scenario Writing That Feels Real (Not Wooden)"
-summary: "Most workplace scenarios feel artificial. Here’s how to write scenarios that feel human, believable, and emotionally grounded."
-date: "2025-03-08"
-category: "Design"
-categoryColor: "#FF7A66"
-tags: ["scenario-writing", "elearning", "ux", "storytelling"]
-image: "/images/img-placeholder-1200.jpg"
+title: Scenario Writing That Feels Real
+summary: Most workplace scenarios feel artificial. Here’s how to write scenarios that feel human, believable, and emotionally grounded.
+date: 2025-03-08
+category: Design
+categoryColor: #FF7A66
+tags: [scenario-writing, elearning, ux, storytelling]
+image: /images/img-placeholder-1200.jpg
 ---
-
-# Scenario Writing That Feels Real (Not Wooden)
-
-Writing good scenarios is one of the fastest ways to elevate a digital learning experience.  
-But here’s the catch: most scenarios feel stiff, predictable, or painfully scripted.
-
-Real people don’t speak in bullet points.  
-Real situations are messy.  
 Real decisions rarely have a perfect answer.
 
 Here’s how to write scenarios that feel alive.

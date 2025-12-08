@@ -11,6 +11,30 @@ import { posts } from "../posts/posts";
 import ProjectImage from "../components/ProjectImage";
 import SEO from "../components/ui/SEO.jsx";
 
+// Client logos (make sure these paths match your files in /public/images/logos)
+const clients = [
+  {
+    name: "Independent Schools Queensland",
+    src: "/images/logos/logo-independent-schools-queensland.png",
+  },
+  {
+    name: "Civil Aviation Safety Authority",
+    src: "/images/logos/logo-casa_1.png",
+  },
+  {
+    name: "Seqwater",
+    src: "/images/logos/logo-seqwater_1.png",
+  },
+  {
+    name: "TAFE Queensland",
+    src: "/images/logos/logo-tafe-queensland.png",
+  },
+  {
+    name: "Torres and Cape Hospital and Health Service",
+    src: "/images/logos/logo-Torres and Cape Hospital and Health Service.png",
+  },
+];
+
 export default function Home() {
   const featuredProjects = projects.slice(0, 3);
   const latestPosts = posts.slice(0, 3);
@@ -65,22 +89,50 @@ export default function Home() {
             {/* Image */}
             <img
               src="/images/portfolio-elearning-design-system.jpg"
-              alt="Featured project preview"
+              alt="eLearning Design System preview"
               className="w-full h-auto block"
             />
 
             {/* Text content */}
             <div className="p-6">
-              <h3 className="text-sm font-semibold mb-2">Featured project</h3>
+              <h3 className="font-heading text-xl md:text-2xl font-semibold text-[var(--text)] mb-2">
+                eLearning Design System
+              </h3>
               <p className="text-sm text-slate-600 mb-3">
-                A complete redesign of ISQ’s Child Protection learning suite —
-                built for clarity, navigation, and accessibility.
+                A reusable eLearning design system – templates, components and
+                assets for faster, more consistent builds.
               </p>
               <span className="text-sm font-medium text-sky-700 group-hover:text-sky-800">
                 Explore project →
               </span>
             </div>
           </Link>
+        </Container>
+      </Section>
+
+{/* CLIENT LOGOS */}
+      <Section>
+        <Container className="fade-in-up">
+          <div className="space-y-4">
+            <p className="text-xs uppercase tracking-[0.18em] text-[var(--text)]/50">
+              Organisations I’ve worked with
+            </p>
+
+            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-8 items-center">
+              {clients.map((client) => (
+                <div
+                  key={client.name}
+                  className="h-10 flex items-center justify-center opacity-70 hover:opacity-100 transition"
+                >
+                  <img
+                    src={client.src}
+                    alt={client.name}
+                    className="h-full w-auto max-w-[180px] object-contain"
+                  />
+                </div>
+              ))}
+            </div>
+          </div>
         </Container>
       </Section>
 
@@ -156,7 +208,7 @@ export default function Home() {
       <Section>
         <Container className="space-y-10 fade-in-up">
           <h2 className="font-heading text-2xl text-[var(--text)]">
-            Featured work
+            eLearning Design System
           </h2>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">

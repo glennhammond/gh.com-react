@@ -77,20 +77,26 @@ export default function About() {
               </div>
             </div>
 
-         {/* Meta card */}
-<aside
-  className="
-    rounded-3xl border border-black/10 dark:border-white/10
-    bg-[var(--bg)]/95 shadow-sm p-6 space-y-6
-  "
->
-  <div className="overflow-hidden rounded-2xl border border-black/10 dark:border-white/10 shadow-sm">
-    <img
-      src="/images/glenn-hammond-instructional-design-storyline-elearning-development-australia-uk-producer.jpg"
-      alt="Glenn Hammond"
-      className="w-full h-full object-cover aspect-[4/3]"
-    />
-  </div>
+            {/* Meta card */}
+            <aside
+              className="
+                rounded-3xl border border-black/10 dark:border-white/10
+                bg-[var(--bg)]/95 shadow-sm
+                p-5 md:p-6 space-y-6
+              "
+            >
+              <div className="flex items-center justify-center">
+                <img
+                  src="/images/glenn-hammond-instructional-design-storyline-elearning-development-australia-uk-producer.jpg"
+                  alt="Glenn Hammond"
+                  className="
+                    w-full max-w-[300px] md:max-w-[320px]
+                    aspect-[4/3]
+                    rounded-2xl object-cover
+                    border border-black/10 dark:border-white/10 shadow-sm
+                  "
+                />
+              </div>
 
               <div className="space-y-2">
                 <p className="text-xs uppercase tracking-[0.18em] text-[var(--text)]/60">

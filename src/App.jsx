@@ -2,8 +2,8 @@
 import React from "react";
 import { Routes, Route } from "react-router-dom";
 
-import Header from "./components/layout/Header.jsx";      // ✔ updated
-import Footer from "./components/layout/Footer.jsx";      // ✔ updated
+import Header from "./components/layout/Header.jsx";
+import Footer from "./components/layout/Footer.jsx";
 import SiteLayout from "./components/layout/SiteLayout.jsx";
 
 import Home from "./pages/Home.jsx";
@@ -16,6 +16,8 @@ import Services from "./pages/Services.jsx";
 import Contact from "./pages/Contact.jsx";
 import ContactSuccess from "./pages/ContactSuccess.jsx";
 
+// ✅ new import for the Colours page
+import Colours from "./pages/design-system/Colours.jsx";
 
 function NotFound() {
   return (
@@ -35,17 +37,32 @@ export default function App() {
 
       <SiteLayout>
         <Routes>
+          {/* Home */}
           <Route path="/" element={<Home />} />
+
+          {/* Work + projects */}
           <Route path="/work" element={<Work />} />
+
+          {/* ✅ specific colours page for the design system */}
+          <Route
+            path="/work/elearning-design-system/colours"
+            element={<Colours />}
+          />
+
+          {/* generic project detail route */}
           <Route path="/work/:slug" element={<ProjectPage />} />
 
+          {/* Blog */}
           <Route path="/blog" element={<Blog />} />
           <Route path="/blog/:slug" element={<Post />} />
 
+          {/* Static pages */}
           <Route path="/about" element={<About />} />
           <Route path="/services" element={<Services />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/contact/success" element={<ContactSuccess />} />
+
+          {/* 404 */}
           <Route path="*" element={<NotFound />} />
         </Routes>
       </SiteLayout>

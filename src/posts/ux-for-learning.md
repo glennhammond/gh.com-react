@@ -1,31 +1,14 @@
 ---
-title: "UX for Learning: The Small Details That Shape Big Outcomes"
-summary: "UX isn’t decoration — it’s the invisible structure behind every good learning experience. Here are the small UX decisions that quietly transform learner engagement."
-date: "2025-03-14"
-category: "UX"
-categoryColor: "#4CAF50"
-tags: ["ux", "design", "elearning", "product-thinking"]
-image: "/images/img-placeholder-1200.jpg"
+title: UX for Learning: Small Details Shape Big Outcomes
+summary: UX isn’t decoration — it’s the invisible structure behind every good learning experience. Here are the small UX decisions that quietly transform learner engagement.
+date: 2025-03-14
+category: UX
+categoryColor: #4CAF50
+tags: [ux, design, elearning, product-thinking]
+image: /images/img-placeholder-1200.jpg
 ---
 
-# UX for Learning: The Small Details That Shape Big Outcomes
-
-We often talk about UX like it’s a bonus — something “nice to have” if the timeline allows.  
-But UX *is* learning. It’s the way a learner feels, interprets, and moves through content.
-
-UX makes the difference between:
-
-- “I get this” and  
-- “I’m lost.”  
-
-Between:
-
-- “This makes sense” and  
-- “I can’t be bothered.”  
-
-Let’s break down the UX decisions that matter most in digital learning.
-
-## 1. **The first 10 seconds decide everything**
+## **The first 10 seconds decide everything**
 
 When learners open a module, they instantly decide whether:
 
@@ -128,7 +111,7 @@ Feedback can be:
 Uncertainty kills engagement.  
 Feedback restores it.
 
-## UX isn’t bells and whistles — it’s emotional design
+## UX is emotional design
 
 When learning feels calm, clear, and predictable, the learner has more mental energy for *thinking*.
 
