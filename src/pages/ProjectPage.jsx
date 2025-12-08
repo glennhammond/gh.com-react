@@ -17,55 +17,56 @@ const elearningSections = [
     slug: "overview",
     title: "eLearning Design System",
     href: "/work/elearning-design-system/overview",
-    image: "/images/elearning/overview.png",
+    // use the main design system image here
+    image: "/images/elearning-design-system.png",
   },
   {
     slug: "atomic-design",
     title: "Atomic Design",
     href: "/work/elearning-design-system/atomic-design",
-    image: "/images/elearning/atomic-design.png",
+    image: "/images/atomic-design.png",
   },
   {
     slug: "core-more-bore",
     title: "Core, More & Bore",
     href: "/work/elearning-design-system/core-more-bore",
-    image: "/images/elearning/core-more-bore.png",
+    image: "/images/core-more-bore.png",
   },
   {
     slug: "colours",
     title: "Colours",
     href: "/work/elearning-design-system/colours",
-    image: "/images/elearning/colours.png",
+    image: "/images/colours.png",
   },
   {
     slug: "typography",
     title: "Typography",
     href: "/work/elearning-design-system/typography",
-    image: "/images/elearning/typography.png",
+    image: "/images/typography.png",
   },
   {
     slug: "images-icons",
     title: "Images & Icons",
     href: "/work/elearning-design-system/images-icons",
-    image: "/images/elearning/images-icons.png",
+    image: "/images/icons.png",
   },
   {
     slug: "course-structure",
     title: "Course Structure",
     href: "/work/elearning-design-system/course-structure",
-    image: "/images/elearning/course-structure.png",
+    image: "/images/course-structure.png",
   },
   {
     slug: "asset-register",
     title: "Asset Register",
     href: "/work/elearning-design-system/asset-register",
-    image: "/images/elearning/asset-register.png",
+    image: "/images/asset-register.png",
   },
   {
     slug: "storyline",
     title: "Storyline",
     href: "/work/elearning-design-system/storyline",
-    image: "/images/elearning/storyline.png",
+    image: "/images/storyline.png",
   },
 ];
 
@@ -91,25 +92,17 @@ export default function ProjectPage() {
     );
   }
 
-  // For main body copy – no subtitle fallback to avoid duplication
   const description =
-    project.longDescription || project.description || "";
+    project.longDescription || project.description || project.subtitle || "";
 
-  // For SEO meta description, we *can* fall back to subtitle
-  const seoDescription = (
-    project.longDescription ||
-    project.description ||
-    project.subtitle ||
-    ""
-  ).slice(0, 160);
-
+  // Only special-case the eLearning Design System page
   const isElearningDesignSystem = slug === "elearning-design-system";
 
   return (
     <PageWrapper>
       <SEO
         title={`${project.title} — Glenn Hammond`}
-        description={seoDescription}
+        description={description.slice(0, 160)}
       />
 
       <Section>
@@ -136,32 +129,23 @@ export default function ProjectPage() {
             )}
           </header>
 
-          {/* Hero image (all projects except eLearning Design System) */}
+          {/* Hero image – shown for all projects EXCEPT eLearning Design System */}
           {!isElearningDesignSystem && (
             <div className="rounded-3xl overflow-hidden border border-black/10 dark:border-white/10 shadow-sm">
               <ProjectImage src={project.image} alt={project.title} />
             </div>
           )}
 
-          {/* Body */}
+          {/* Body copy */}
           {description && (
             <article className="text-[var(--text)]/80 leading-relaxed space-y-4">
               <p>{description}</p>
             </article>
           )}
 
-          {/* eLearning Design System grid + custom image */}
+          {/* eLearning Design System grid */}
           {isElearningDesignSystem && (
             <div className="pt-10 border-t border-slate-200/70 space-y-6">
-              {/* New image specific to this project */}
-              <div className="rounded-3xl overflow-hidden border border-black/10 dark:border-white/10 bg-slate-50">
-                <img
-                  src="/images/elearning-design-system.png"
-                  alt="eLearning Design System overview"
-                  className="w-full h-auto block"
-                />
-              </div>
-
               <h2 className="font-heading text-2xl text-[var(--text)]">
                 Explore the system
               </h2>

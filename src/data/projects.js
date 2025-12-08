@@ -1,3 +1,4 @@
+// src/data/projects.js
 export const projects = [
   {
     slug: "child-protection-training-suite",
@@ -5,6 +6,7 @@ export const projects = [
     subtitle: "A multi-audience training redesign for clarity and accessibility.",
     category: "eLearning",
     meta: "ISQ · Storyline · Moodle",
+    // make sure this file exists in public/images
     image: "/images/portfolio-ecec-2.jpg",
   },
   {
@@ -13,6 +15,7 @@ export const projects = [
     subtitle: "A reusable design system for fast, consistent builds.",
     category: "Design-system",
     meta: "Figma · Storyline · Templates",
+    // you’re now using this PNG elsewhere, so point to it here too
     image: "/images/portfolio-elearning-design-system.jpg",
   },
   {
@@ -23,8 +26,6 @@ export const projects = [
     meta: "React · xAPI · Prototypes",
     image: "/images/portfolio-react-learning.jpg",
   },
-
-  // 👉 New video production example
   {
     slug: "video-production",
     title: "Video Production for Learning & Events",
@@ -32,6 +33,6 @@ export const projects = [
       "Filming and editing that supports professional learning, case studies and events.",
     category: "Media",
     meta: "Filming · Editing · Audio",
-    image: "/images/portfolio-video-placeholder.jpg", // placeholder is fine for now
+    image: "/images/portfolio-video-placeholder.jpg",
   },
 ];

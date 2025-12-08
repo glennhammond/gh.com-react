@@ -19,9 +19,9 @@ export default function Work() {
         description="Selected projects across eLearning, UX for learning, Storyline templates, xAPI, and digital media."
       />
 
-      {/* PAGE INTRO – matches About/Services/Blog */}
+      {/* PAGE INTRO + PROJECT GRID TOGETHER */}
       <Section>
-        <Container>
+        <Container className="space-y-14 md:space-y-16">
           <PageIntro
             breadcrumb={[
               { label: "Home", href: "/" },
@@ -30,12 +30,8 @@ export default function Work() {
             title="Selected work"
             intro="A few projects that show how I bring learning design, UX, xAPI, and media together."
           />
-        </Container>
-      </Section>
 
-      {/* PROJECTS GRID */}
-      <Section>
-        <Container>
+          {/* PROJECTS GRID */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-10 xl:gap-12 fade-in-up">
             {projects.map((project) => (
               <Link

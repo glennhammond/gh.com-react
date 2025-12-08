@@ -28,11 +28,12 @@ export default function Home() {
         <Container className="py-24 grid grid-cols-1 md:grid-cols-2 gap-16 items-center fade-in-up">
           {/* Left */}
           <div className="space-y-8">
-         <h1 className="font-heading text-5xl md:text-6xl leading-tight text-[var(--text)] font-semibold">
-  Better Learning by Design
-</h1>
+            <h1 className="font-heading text-5xl md:text-6xl leading-tight text-[var(--text)] font-semibold">
+              Better Learning by Design
+            </h1>
             <p className="text-[var(--text)]/75 max-w-md leading-relaxed">
-              I design digital learning experiences. Blending instructional design, media production and learning analytics.
+              I design digital learning experiences. Blending instructional
+              design, media production and learning analytics.
             </p>
 
             <div className="flex flex-wrap gap-4">
@@ -52,33 +53,36 @@ export default function Home() {
             </div>
           </div>
 
-          {/* Right */}
-<div className="rounded-3xl border border-black/10 dark:border-white/10 bg-white shadow-sm fade-in-up overflow-hidden">
-  {/* Image sits directly in the card and controls its own aspect ratio */}
-  <img
-    src="/images/portfolio-elearning-design-system.jpg"
-    alt="Featured project preview"
-    className="w-full h-auto block"
-  />
+          {/* Right – whole card is now a Link */}
+          <Link
+            to="/work/elearning-design-system"
+            className="
+              group rounded-3xl border border-black/10 dark:border-white/10
+              bg-white shadow-sm fade-in-up overflow-hidden block
+              hover:-translate-y-[2px] hover:shadow-md transition
+            "
+          >
+            {/* Image */}
+            <img
+              src="/images/portfolio-elearning-design-system.jpg"
+              alt="Featured project preview"
+              className="w-full h-auto block"
+            />
 
-  {/* Your existing text content goes inside here */}
-  <div className="p-6">
-    <h3 className="text-sm font-semibold mb-2">Featured project</h3>
-    <p className="text-sm text-slate-600 mb-3">
-      A complete redesign of ISQ’s Child Protection learning suite — built for
-      clarity, navigation, and accessibility.
-    </p>
-    <a
-      href="work/elearning-design-system"
-      className="text-sm font-medium text-sky-700 hover:text-sky-800"
-    >
-      Explore project →
-    </a>
-  </div>
-</div>
+            {/* Text content */}
+            <div className="p-6">
+              <h3 className="text-sm font-semibold mb-2">Featured project</h3>
+              <p className="text-sm text-slate-600 mb-3">
+                A complete redesign of ISQ’s Child Protection learning suite —
+                built for clarity, navigation, and accessibility.
+              </p>
+              <span className="text-sm font-medium text-sky-700 group-hover:text-sky-800">
+                Explore project →
+              </span>
+            </div>
+          </Link>
         </Container>
       </Section>
-
 
       {/* SERVICES PREVIEW */}
       <Section>
@@ -131,7 +135,9 @@ export default function Home() {
                 <h3 className="font-heading text-lg text-[var(--text)]">
                   {post.title}
                 </h3>
-                <p className="text-sm text-[var(--text)]/70">{post.summary}</p>
+                <p className="text-sm text-[var(--text)]/70">
+                  {post.summary}
+                </p>
                 <span className="text-sm text-brand-primary">Read more →</span>
               </Link>
             ))}
@@ -145,7 +151,8 @@ export default function Home() {
           </Link>
         </Container>
       </Section>
-          {/* FEATURED WORK */}
+
+      {/* FEATURED WORK */}
       <Section>
         <Container className="space-y-10 fade-in-up">
           <h2 className="font-heading text-2xl text-[var(--text)]">
@@ -159,10 +166,7 @@ export default function Home() {
                 to={`/work/${project.slug}`}
                 className="rounded-3xl border border-black/10 dark:border-white/10 bg-[var(--bg)] overflow-hidden hover:-translate-y-[2px] hover:shadow-md transition"
               >
-                <ProjectImage
-                  src={project.image}
-                  alt={project.title}
-                />
+                <ProjectImage src={project.image} alt={project.title} />
                 <div className="p-6 space-y-3">
                   <h3 className="font-heading text-xl">{project.title}</h3>
                   <p className="text-sm opacity-70">{project.subtitle}</p>

@@ -37,7 +37,7 @@ export default function Header() {
               Glenn Hammond
             </div>
             <div className="text-[var(--text)]/60 text-xs">
-              eLearning · design · video
+              eLearning Specialist
             </div>
           </div>
         </Link>
