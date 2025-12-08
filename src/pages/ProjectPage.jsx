@@ -91,17 +91,25 @@ export default function ProjectPage() {
     );
   }
 
+  // For main body copy – no subtitle fallback to avoid duplication
   const description =
-    project.longDescription || project.description || project.subtitle || "";
+    project.longDescription || project.description || "";
 
-  // Use the URL segment directly so we’re not relying on anything else
+  // For SEO meta description, we *can* fall back to subtitle
+  const seoDescription = (
+    project.longDescription ||
+    project.description ||
+    project.subtitle ||
+    ""
+  ).slice(0, 160);
+
   const isElearningDesignSystem = slug === "elearning-design-system";
 
   return (
     <PageWrapper>
       <SEO
         title={`${project.title} — Glenn Hammond`}
-        description={description.slice(0, 160)}
+        description={seoDescription}
       />
 
       <Section>
@@ -142,9 +150,18 @@ export default function ProjectPage() {
             </article>
           )}
 
-          {/* eLearning Design System grid */}
+          {/* eLearning Design System grid + custom image */}
           {isElearningDesignSystem && (
             <div className="pt-10 border-t border-slate-200/70 space-y-6">
+              {/* New image specific to this project */}
+              <div className="rounded-3xl overflow-hidden border border-black/10 dark:border-white/10 bg-slate-50">
+                <img
+                  src="/images/elearning-design-system.png"
+                  alt="eLearning Design System overview"
+                  className="w-full h-auto block"
+                />
+              </div>
+
               <h2 className="font-heading text-2xl text-[var(--text)]">
                 Explore the system
               </h2>

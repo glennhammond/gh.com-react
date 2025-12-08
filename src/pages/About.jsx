@@ -16,39 +16,34 @@ export default function About() {
         description="I design and build modern learning experiences, blending instructional design, UX, xAPI, and media."
       />
 
-      {/* PAGE INTRO */}
+      {/* PAGE INTRO + HERO GRID TOGETHER */}
       <Section>
-        <Container>
+   <Container className="space-y-14 md:space-y-16">
           <PageIntro
             breadcrumb={[
               { label: "Home", href: "/" },
               { label: "About" },
             ]}
             title="I design and build learner-centric learning experiences"
-            intro="I’m Glenn Hammond — an eLearning specialist, designer, and videographer based in Brisbane. I design professional learning for teachers at Independent Schools Queensland, and create selected projects through my own practice and partners like Corporate Yoga Australia."
           />
-        </Container>
-      </Section>
 
-      {/* HERO GRID */}
-      <Section>
-        <Container>
           <div className="grid grid-cols-1 md:grid-cols-[minmax(0,2fr)_minmax(0,1.2fr)] gap-12 items-start fade-in-up">
             {/* Text */}
             <div className="space-y-6">
               <p className="text-[var(--text)]/75 leading-relaxed">
-                My work sits at the intersection of{" "}
-                <span className="font-medium">
-                  pedagogy, UX, learning analytics, and media.
-                </span>{" "}
-                I care about experiences that are clear, respectful of people’s
-                time, and grounded in evidence.
+                I’m Glenn Hammond, an eLearning specialist, designer and
+                videographer based in Brisbane. I design professional learning
+                for teachers in Queensland’s independent schools and take on
+                selected projects through my own practice and partners like
+                Corporate Yoga Australia.
               </p>
 
               <p className="text-[var(--text)]/75 leading-relaxed">
-                I help organisations design meaningful, modern learning —
+                My work sits at the intersection of pedagogy, UX, learning
+                analytics and media. I care about learning experiences that are
+                clear, respectful of people’s time and grounded in evidence,
                 blending instructional design, scenario development, multimedia,
-                xAPI, and thoughtful visual design to support real performance.
+                xAPI and thoughtful visual design to support real performance.
               </p>
 
               <div className="flex flex-wrap gap-3 pt-4">
@@ -89,7 +84,7 @@ export default function About() {
             >
               <div className="flex items-center justify-center">
                 <img
-                  src="/images/gh-profile.jpg"
+                  src="/images/glenn-hammond-instructional-design-storyline-elearning-development-australia-uk-producer.jpg"
                   alt="Glenn Hammond"
                   className="w-56 h-56 rounded-2xl object-cover border border-black/10 dark:border-white/10 shadow-sm"
                 />
@@ -109,9 +104,13 @@ export default function About() {
 
               <div className="space-y-3 text-sm">
                 <div className="flex items-start gap-3">
-                  <span className="mt-[3px] text-xs text-[var(--text)]/50">📍</span>
+                  <span className="mt-[3px] text-xs text-[var(--text)]/50">
+                    📍
+                  </span>
                   <div>
-                    <p className="font-medium text-[var(--text)]/90">Location</p>
+                    <p className="font-medium text-[var(--text)]/90">
+                      Location
+                    </p>
                     <p className="text-[var(--text)]/70">
                       Brisbane, Australia (AEST)
                     </p>
@@ -119,7 +118,9 @@ export default function About() {
                 </div>
 
                 <div className="flex items-start gap-3">
-                  <span className="mt-[3px] text-xs text-[var(--text)]/50">🎓</span>
+                  <span className="mt-[3px] text-xs text-[var(--text)]/50">
+                    🎓
+                  </span>
                   <div>
                     <p className="font-medium text-[var(--text)]/90">
                       Focus areas
