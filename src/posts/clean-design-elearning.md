@@ -1,16 +1,29 @@
 ---
-title: Why Clean Design Makes Learning Feel Effortless
-summary: Good learning design isn’t about decoration — it’s about removing friction. Here’s how clarity, spacing, and rhythm shape learner attention.
-date: 2025-02-12
-category: Design
-categoryColor: #FF7A66
-tags: [design, elearning, ux, layout]
-image: /images/img-placeholder-1200.jpg
+title: "Why Clean Design Makes Learning Feel Effortless"
+summary: "Good learning design isn’t about decoration — it’s about removing friction. Here’s how clarity, spacing, and rhythm shape learner attention."
+date: "2025-02-12"
+category: "Design"
+categoryColor: "#FF7A66"
+tags: ["design", "elearning", "ux", "layout"]
+image: "/images/img-placeholder-1200.jpg"
 ---
 
 # Why Clean Design Makes Learning Feel Effortless
 
-If theres one thing Ive learned after years of building digital learning, its this: **clarity beats cleverness every time**.
+If there’s one thing I’ve learned after years of building digital learning, it’s this: **clarity beats cleverness every time**.
+
+We don’t design modules so people can admire our layouts. We design so people can *understand things faster*, *retain them longer*, and *feel confident* while they move through the experience.
+
+And that’s where clean design quietly does extraordinary work.
+
+## 1. Clean design is cognitive kindness
+
+When a learner lands on a slide, a screen, or a section, their brain immediately begins sorting:
+
+- Where am I?
+- What matters?
+- What do I do next?
+- Is this worth my attention?
 
 A cluttered design forces them to spend energy just parsing the environment.
 

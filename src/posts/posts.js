@@ -6,28 +6,38 @@ const markdownFiles = import.meta.glob("./*.md", {
   as: "raw",
 });
 
-// Use gray-matter for robust frontmatter parsing (handles YAML, arrays, and '---' inside code fences)
-import matter from "gray-matter";
+// Very tiny frontmatter reader (browser-safe)
+function parseFrontmatter(raw) {
+  if (!raw.startsWith("---")) {
+    return { data: {}, content: raw };
+  }
 
+  const [, front, body] = raw.split(/^-{3,}\s*$/m);
+
+  const lines = front.split("\n").filter(Boolean);
+  const data = {};
+
+  for (let line of lines) {
+    const [key, ...rest] = line.split(":");
+    data[key.trim()] = rest.join(":").trim();
+  }
+
+  return { data, content: body.trim() };
+}
 
 export const posts = Object.keys(markdownFiles).map((filePath) => {
   const raw = markdownFiles[filePath];
-  const parsed = matter(raw);
-  const data = parsed.data || {};
-  const content = parsed.content || "";
+  const { data, content } = parseFrontmatter(raw);
 
   const slug = filePath.split("/").pop().replace(".md", "");
 
   return {
     slug,
-  title: data.title || slug,
-  date: data.date || "",
-  category: data.category || "General",
-  categoryColor: data.categoryColor || "",
-  summary: data.summary || "",
-  tags: Array.isArray(data.tags) ? data.tags : (data.tags ? String(data.tags).split(/,\s*/) : []),
-  image: data.image || "/images/img-placeholder-1200.jpg",
-  content,
+    title: data.title || slug,
+    date: data.date || "",
+    category: data.category || "General",
+    summary: data.summary || "",
+    content,
   };
 });
 

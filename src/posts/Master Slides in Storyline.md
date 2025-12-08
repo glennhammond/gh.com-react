@@ -164,12 +164,9 @@ Use your master for **feedback design**, not just colour consistency.
 
 Create layers named:
 
-- `Correct`
-- `Incorrect`
-- `Try Again`
 
 Each layer can include consistent visuals, transitions, and sound cues.
 
 They’ll be inherited by all quiz and knowledge check slides automatically.
-
+<!-- Removed stray closing code fence -->
 ---

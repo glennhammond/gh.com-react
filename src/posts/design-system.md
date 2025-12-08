@@ -1,20 +1,16 @@
 ---
-title: Building the eLearning Design System
-summary: This post breaks down how I approached building a unified design system for eLearning, why it matters, and what Ive learned.
-date: 2025-02-10
-category: UX
-categoryColor: #4CAF50
-tags: [ux, design, elearning, product-thinking]
-image: /images/img-placeholder-1200.jpg
+title: "Building the ISQ eLearning Design System"
+description: "A look at the design foundations behind the ISQ eLearning ecosystem."
+date: "2025-02-10"
 ---
 
-# Building the eLearning Design System
+# Building the ISQ eLearning Design System
 
-For years I was rebuilding the same UI components, layouts, and interactions every time we started a new course. Different colours. Different text styles. Slightly different grids. Everything worked, but nothing was consistent  and time was getting wasted.
+For years I was rebuilding the same UI components, layouts, and interactions every time we started a new course. Different colours. Different text styles. Slightly different grids. Everything worked, but nothing was consistent — and time was getting wasted.
 
 So I decided to fix it.
 
-This post breaks down how I approached building a unified design system for eLearning, why it matters, and what Ive learned.
+This post breaks down how I approached building a unified design system for ISQ’s eLearning, why it matters, and what I’ve learned.
 
 ---
 

@@ -1,15 +1,24 @@
 ---
-title: Helpful Storyline Tips
-summary: Storyline is powerful, but it’s easy to overcomplicate things. Here are the practical techniques I use every day to build cleaner, faster, more reliable modules.
-date: 2025-02-21
-category: Storyline
-categoryColor: #9C27B0
-tags: [storyline, authoring-tools, production, development]
-image: /images/img-placeholder-1200.jpg
+title: "Storyline Tips That Actually Make Your Life Easier"
+summary: "Storyline is powerful, but it’s easy to overcomplicate things. Here are the practical techniques I use every day to build cleaner, faster, more reliable modules."
+date: "2025-02-21"
+category: "Storyline"
+categoryColor: "#9C27B0"
+tags: ["storyline", "authoring-tools", "production", "development"]
+image: "/images/img-placeholder-1200.jpg"
 ---
 
-When I open a fresh file, I dont start by dropping text on slides.  
+# Storyline Tips That Actually Make Your Life Easier
+
+Storyline is an incredibly flexible tool — almost too flexible. It lets you build anything from simple click-through modules to fully interactive branching experiences. And because of that freedom, it’s easy to end up with messy projects that slow down production.
+
+These are the Storyline practices that genuinely make development smoother.
+
+## 1. Build your structure before your content
+
+When I open a fresh file, I don’t start by dropping text on slides.  
 I build the *bones*:
+
 - variables  
 - triggers that will definitely exist  
 - navigation logic  
