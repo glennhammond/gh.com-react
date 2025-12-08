@@ -18,32 +18,34 @@ export default function About() {
 
       {/* PAGE INTRO + HERO GRID TOGETHER */}
       <Section>
-   <Container className="space-y-14 md:space-y-16">
+        <Container className="space-y-14 md:space-y-16">
           <PageIntro
             breadcrumb={[
               { label: "Home", href: "/" },
               { label: "About" },
             ]}
-            title="I design and build learner-centric learning experiences"
+            title="I design and build learning experiences"
           />
 
           <div className="grid grid-cols-1 md:grid-cols-[minmax(0,2fr)_minmax(0,1.2fr)] gap-12 items-start fade-in-up">
             {/* Text */}
             <div className="space-y-6">
               <p className="text-[var(--text)]/75 leading-relaxed">
-                I’m Glenn Hammond, an eLearning specialist, designer and
-                videographer based in Brisbane. I design professional learning
-                for teachers in Queensland’s independent schools and take on
-                selected projects through my own practice and partners like
-                Corporate Yoga Australia.
+                I’m Glenn Hammond – an eLearning specialist, designer and video
+                producer based in Brisbane. I design professional learning for
+                teachers in Queensland’s independent schools through my role at
+                Independent Schools Queensland, and take on selected projects
+                through my own practice and partners like Corporate Yoga
+                Australia.
               </p>
 
               <p className="text-[var(--text)]/75 leading-relaxed">
-                My work sits at the intersection of pedagogy, UX, learning
-                analytics and media. I care about learning experiences that are
-                clear, respectful of people’s time and grounded in evidence,
-                blending instructional design, scenario development, multimedia,
-                xAPI and thoughtful visual design to support real performance.
+                My work sits where pedagogy, UX, learning analytics and media
+                overlap. I care about learning experiences that are clear,
+                respectful of people’s time and grounded in evidence – blending
+                instructional design, scenario writing, multimedia, xAPI and
+                thoughtful visual design to actually support performance on the
+                job.
               </p>
 
               <div className="flex flex-wrap gap-3 pt-4">
@@ -75,20 +77,20 @@ export default function About() {
               </div>
             </div>
 
-            {/* Meta card */}
-            <aside
-              className="
-                rounded-3xl border border-black/10 dark:border-white/10
-                bg-[var(--bg)]/95 shadow-sm p-6 space-y-6
-              "
-            >
-              <div className="flex items-center justify-center">
-                <img
-                  src="/images/glenn-hammond-instructional-design-storyline-elearning-development-australia-uk-producer.jpg"
-                  alt="Glenn Hammond"
-                  className="w-56 h-56 rounded-2xl object-cover border border-black/10 dark:border-white/10 shadow-sm"
-                />
-              </div>
+         {/* Meta card */}
+<aside
+  className="
+    rounded-3xl border border-black/10 dark:border-white/10
+    bg-[var(--bg)]/95 shadow-sm p-6 space-y-6
+  "
+>
+  <div className="overflow-hidden rounded-2xl border border-black/10 dark:border-white/10 shadow-sm">
+    <img
+      src="/images/glenn-hammond-instructional-design-storyline-elearning-development-australia-uk-producer.jpg"
+      alt="Glenn Hammond"
+      className="w-full h-full object-cover aspect-[4/3]"
+    />
+  </div>
 
               <div className="space-y-2">
                 <p className="text-xs uppercase tracking-[0.18em] text-[var(--text)]/60">
