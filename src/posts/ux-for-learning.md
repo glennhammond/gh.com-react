@@ -7,7 +7,6 @@ categoryColor: #4CAF50
 tags: [ux, design, elearning, product-thinking]
 image: /images/img-placeholder-1200.jpg
 ---
----
 
 # UX for Learning: The Small Details That Shape Big Outcomes
 Between:
