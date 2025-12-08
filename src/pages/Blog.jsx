@@ -180,16 +180,22 @@ export default function Blog() {
                     <img
                       src={thumbnail}
                       alt={post.title}
-                      className="w-full h-full object-cover"
-                      onError={(e) => (e.currentTarget.src = FALLBACK_IMG)}
+                      loading="lazy"
+                      decoding="async"
+                      className="w-full h-full object-cover transition-opacity duration-300 opacity-0"
+                      onLoad={(e) => (e.currentTarget.style.opacity = '1')}
+                      onError={(e) => {
+                        const el = e.currentTarget;
+                        if (el.dataset.errorHandled) return;
+                        el.dataset.errorHandled = '1';
+                        el.src = FALLBACK_IMG;
+                      }}
                     />
                   </div>
 
                   {/* Content */}
                   <div className="p-6 space-y-4">
-                    <span
-                      className={`uppercase tracking-wider text-xs px-3 py-1 rounded-full ${colorClass}`}
-                    >
+                    <span className={`blog-badge ${mapped}`}>
                       {post.category}
                     </span>
 

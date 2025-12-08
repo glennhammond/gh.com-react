@@ -8,9 +8,66 @@ import Container from "../components/layout/Container";
 import ProjectImage from "../components/ProjectImage";
 import SEO from "../components/ui/SEO.jsx";
 import Breadcrumb from "../components/ui/Breadcrumb.jsx";
-import PageHeader from "../components/layout/PageHeader";
 
 import { projects } from "../data/projects";
+
+// Sections for the eLearning Design System grid
+const elearningSections = [
+  {
+    slug: "overview",
+    title: "eLearning Design System",
+    href: "/work/elearning-design-system/overview",
+    image: "/images/elearning/overview.png",
+  },
+  {
+    slug: "atomic-design",
+    title: "Atomic Design",
+    href: "/work/elearning-design-system/atomic-design",
+    image: "/images/elearning/atomic-design.png",
+  },
+  {
+    slug: "core-more-bore",
+    title: "Core, More & Bore",
+    href: "/work/elearning-design-system/core-more-bore",
+    image: "/images/elearning/core-more-bore.png",
+  },
+  {
+    slug: "colours",
+    title: "Colours",
+    href: "/work/elearning-design-system/colours",
+    image: "/images/elearning/colours.png",
+  },
+  {
+    slug: "typography",
+    title: "Typography",
+    href: "/work/elearning-design-system/typography",
+    image: "/images/elearning/typography.png",
+  },
+  {
+    slug: "images-icons",
+    title: "Images & Icons",
+    href: "/work/elearning-design-system/images-icons",
+    image: "/images/elearning/images-icons.png",
+  },
+  {
+    slug: "course-structure",
+    title: "Course Structure",
+    href: "/work/elearning-design-system/course-structure",
+    image: "/images/elearning/course-structure.png",
+  },
+  {
+    slug: "asset-register",
+    title: "Asset Register",
+    href: "/work/elearning-design-system/asset-register",
+    image: "/images/elearning/asset-register.png",
+  },
+  {
+    slug: "storyline",
+    title: "Storyline",
+    href: "/work/elearning-design-system/storyline",
+    image: "/images/elearning/storyline.png",
+  },
+];
 
 export default function ProjectPage() {
   const { slug } = useParams();
@@ -36,6 +93,9 @@ export default function ProjectPage() {
 
   const description =
     project.longDescription || project.description || project.subtitle || "";
+
+  // Use the URL segment directly so we’re not relying on anything else
+  const isElearningDesignSystem = slug === "elearning-design-system";
 
   return (
     <PageWrapper>
@@ -68,16 +128,53 @@ export default function ProjectPage() {
             )}
           </header>
 
-          {/* Hero image */}
-          <div className="rounded-3xl overflow-hidden border border-black/10 dark:border-white/10 shadow-sm">
-            <ProjectImage src={project.image} alt={project.title} />
-          </div>
+          {/* Hero image (all projects except eLearning Design System) */}
+          {!isElearningDesignSystem && (
+            <div className="rounded-3xl overflow-hidden border border-black/10 dark:border-white/10 shadow-sm">
+              <ProjectImage src={project.image} alt={project.title} />
+            </div>
+          )}
 
           {/* Body */}
           {description && (
             <article className="text-[var(--text)]/80 leading-relaxed space-y-4">
               <p>{description}</p>
             </article>
+          )}
+
+          {/* eLearning Design System grid */}
+          {isElearningDesignSystem && (
+            <div className="pt-10 border-t border-slate-200/70 space-y-6">
+              <h2 className="font-heading text-2xl text-[var(--text)]">
+                Explore the system
+              </h2>
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                {elearningSections.map((item) => (
+                  <Link
+                    key={item.slug}
+                    to={item.href}
+                    className="group flex flex-col rounded-2xl bg-white shadow-sm border border-slate-200 overflow-hidden transition-transform transition-shadow hover:-translate-y-0.5 hover:shadow-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-primary/70"
+                  >
+                    {/* Image area */}
+                    <div className="flex-1 flex items-center justify-center px-8 pt-8 pb-4 bg-slate-50">
+                      <img
+                        src={item.image}
+                        alt={item.title}
+                        className="max-h-24 w-auto object-contain"
+                      />
+                    </div>
+
+                    {/* Label area */}
+                    <div className="px-6 py-4 bg-white border-t border-slate-200">
+                      <h3 className="font-semibold text-base text-[var(--text)]">
+                        {item.title}
+                      </h3>
+                    </div>
+                  </Link>
+                ))}
+              </div>
+            </div>
           )}
 
           <Link

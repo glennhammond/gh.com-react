@@ -32,9 +32,7 @@ export default function Home() {
   Better Learning by Design
 </h1>
             <p className="text-[var(--text)]/75 max-w-md leading-relaxed">
-              I design thoughtful digital learning experiences — blending
-              instructional design, UX patterns, learning analytics, and media
-              production.
+              I design digital learning experiences. Blending instructional design, media production and learning analytics.
             </p>
 
             <div className="flex flex-wrap gap-4">
