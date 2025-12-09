@@ -70,7 +70,7 @@ export default function Home() {
                   inline-flex items-center gap-2 text-sm font-medium font-heading transition
                 "
               >
-                View my work
+                Some work
               </Link>
 
               <Link

@@ -1,13 +1,13 @@
 // src/data/projects.js
 export const projects = [
   {
-    slug: "child-protection-training-suite",
-    title: "Child Protection Training Suite",
-    subtitle: "A multi-audience training redesign for clarity and accessibility.",
-    category: "eLearning",
-    meta: "ISQ · Storyline · Moodle",
-    // make sure this file exists in public/images
-    image: "/images/portfolio-ecec-2.jpg",
+    slug: "tafe-qld-pathways", // this becomes /work/tafe-qld-pathways
+    title: "TAFE QLD Pathways",
+    category: "Elearning",
+    subtitle:
+      "Interactive pathways for construction and data students, blending UX with practical course info.",
+    meta: "TAFE Queensland · Pathways · UX & eLearning",
+    image: "/images/elearning-tafe-pathways-construction-data.jpg",
   },
   {
     slug: "elearning-design-system",

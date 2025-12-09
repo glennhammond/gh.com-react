@@ -17,7 +17,6 @@ const elearningSections = [
     slug: "overview",
     title: "eLearning Design System",
     href: "/work/elearning-design-system/overview",
-    // use the main design system image here
     image: "/images/elearning-design-system.png",
   },
   {
@@ -106,7 +105,8 @@ export default function ProjectPage() {
       />
 
       <Section>
-        <Container className="space-y-12 fade-in-up max-w-4xl">
+        {/* slightly tighter vertical spacing for this page overall */}
+        <Container className="space-y-10 fade-in-up max-w-4xl">
           <Breadcrumb
             items={[
               { label: "Home", href: "/" },
@@ -116,9 +116,12 @@ export default function ProjectPage() {
           />
 
           <header className="space-y-4">
-            <p className="text-xs uppercase tracking-[0.18em] text-[var(--text)]/60">
-              {project.category || "Project"}
-            </p>
+            {/* Hide the small category label on the eLearning Design System page */}
+            {!isElearningDesignSystem && (
+              <p className="text-xs uppercase tracking-[0.18em] text-[var(--text)]/60">
+                {project.category || "Project"}
+              </p>
+            )}
             <h1 className="font-heading text-4xl text-[var(--text)]">
               {project.title}
             </h1>
@@ -136,14 +139,12 @@ export default function ProjectPage() {
             </div>
           )}
 
-  
-
           {/* eLearning Design System grid */}
           {isElearningDesignSystem && (
-            <div className="pt-10 border-t border-slate-200/70 space-y-6">
-              <h2 className="font-heading text-2xl text-[var(--text)]">
-                Explore the system
-              </h2>
+            <div className="space-y-5">
+                  <h2 className="font-heading text-2xl text-[var(--brand-primary)]">
+      Explore the system
+    </h2>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
                 {elearningSections.map((item) => (

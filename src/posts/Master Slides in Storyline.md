@@ -1,5 +1,5 @@
 ---
-title: Using Master Slides in Storyline
+title: Master Slides in Storyline
 summary: Storyline master slides drive consistency, scalability, and brand control across every course you build.
 date: 2025-11-30
 category: Storyline

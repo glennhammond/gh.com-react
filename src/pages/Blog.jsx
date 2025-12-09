@@ -157,68 +157,79 @@ export default function Blog() {
           />
         </Container>
       </Section>
-
-      {/* POSTS GRID */}
-      <Section>
-        <Container className="fade-in-up">
+{/* POSTS GRID */}
+<Section className="pt-0 md:pt-4">
+  <Container className="fade-in-up">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
-            {filteredPosts.map((post) => {
-              const mapped = mapCategory(post.category);
-              const colorClass =
-                CATEGORY_STYLES[mapped] || CATEGORY_STYLES.general;
+           {filteredPosts.map((post) => {
+  const mapped = mapCategory(post.category);
+  const colorClass =
+    CATEGORY_STYLES[mapped] || CATEGORY_STYLES.general;
 
-              const thumbnail = `/images/${post.slug}.jpg`;
+  const thumbnail = `/images/${post.slug}.jpg`;
+  const formattedDate = new Date(post.date).toLocaleDateString("en-AU", {
+    day: "numeric",
+    month: "short",
+    year: "numeric",
+  });
 
-              return (
-                <Link
-                  key={post.slug}
-                  to={`/blog/${post.slug}`}
-                  className="group rounded-3xl border border-black/10 dark:border-white/10 bg-[var(--bg)] shadow-sm hover:shadow-md hover:-translate-y-[2px] transition overflow-hidden"
-                >
-                  {/* Thumbnail */}
-                  <div className="h-40 bg-[var(--bg-soft)] overflow-hidden">
-                    <img
-                      src={thumbnail}
-                      alt={post.title}
-                      loading="lazy"
-                      decoding="async"
-                      className="w-full h-full object-cover transition-opacity duration-300 opacity-0"
-                      onLoad={(e) => (e.currentTarget.style.opacity = '1')}
-                      onError={(e) => {
-                        const el = e.currentTarget;
-                        if (el.dataset.errorHandled) return;
-                        el.dataset.errorHandled = '1';
-                        el.src = FALLBACK_IMG;
-                      }}
-                    />
-                  </div>
+  return (
+    <Link
+      key={post.slug}
+      to={`/blog/${post.slug}`}
+      className="group rounded-3xl border border-black/10 dark:border-white/10 bg-[var(--bg)] shadow-sm hover:shadow-md hover:-translate-y-[2px] transition overflow-hidden"
+    >
+      {/* Thumbnail strip */}
+      <div className="h-44 bg-[var(--bg-soft)] border-b border-black/5 overflow-hidden">
+        <img
+          src={thumbnail}
+          alt={post.title}
+          loading="lazy"
+          decoding="async"
+          className="w-full h-full object-cover transition-opacity duration-300 opacity-0"
+          onLoad={(e) => (e.currentTarget.style.opacity = "1")}
+          onError={(e) => {
+            const el = e.currentTarget;
+            if (el.dataset.errorHandled) return;
+            el.dataset.errorHandled = "1";
+            el.src = FALLBACK_IMG;
+          }}
+        />
+      </div>
 
-                  {/* Content */}
-                  <div className="p-6 space-y-4">
-                    <span className={`blog-badge ${mapped}`}>
-                      {post.category}
-                    </span>
+      {/* Content */}
+      <div className="p-6 space-y-4">
+        {/* Category badge */}
+        <span
+          className={`
+            inline-flex items-center px-3 py-1 rounded-full
+            text-[11px] font-semibold tracking-[0.16em] uppercase
+            ${colorClass}
+          `}
+        >
+          {post.category}
+        </span>
 
-                    <h3 className="font-heading text-xl text-[var(--text)]">
-                      {post.title}
-                    </h3>
+        <h3 className="font-heading text-xl text-[var(--text)]">
+          {post.title}
+        </h3>
 
-                    <p className="text-sm text-[var(--text)]/70 leading-relaxed">
-                      {post.summary}
-                    </p>
+        <p className="text-sm text-[var(--text)]/70 leading-relaxed">
+          {post.summary}
+        </p>
 
-                    <div className="flex justify-between items-center pt-2">
-                      <span className="text-sm opacity-60">
-                        {new Date(post.date).toLocaleDateString("en-AU")}
-                      </span>
-                      <span className="text-sm text-brand-primary group-hover:underline">
-                        Read →
-                      </span>
-                    </div>
-                  </div>
-                </Link>
-              );
-            })}
+        <div className="flex justify-between items-center pt-2">
+          <span className="text-xs opacity-60">
+            {formattedDate}
+          </span>
+          <span className="text-sm text-brand-primary group-hover:underline">
+            Read →
+          </span>
+        </div>
+      </div>
+    </Link>
+  );
+})}
           </div>
         </Container>
       </Section>
