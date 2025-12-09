@@ -117,7 +117,7 @@ export default function Blog() {
               { label: "Home", href: "/" },
               { label: "Blog" },
             ]}
-            title="I mostly think about design, education, and music"
+            title="I mostly think about design, education, AI and music"
             intro="Writing about design systems, learning, xAPI, creativity, interface clarity, and making things that feel considered."
             meta={
               <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">

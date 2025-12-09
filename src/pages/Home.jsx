@@ -18,6 +18,10 @@ const clients = [
     src: "/images/logos/logo-independent-schools-queensland.png",
   },
   {
+    name: "Torres and Cape Hospital and Health Service",
+    src: "/images/logos/logo-Torres and Cape Hospital and Health Service.png",
+  },
+  {
     name: "Civil Aviation Safety Authority",
     src: "/images/logos/logo-casa_1.png",
   },
@@ -28,10 +32,6 @@ const clients = [
   {
     name: "TAFE Queensland",
     src: "/images/logos/logo-tafe-queensland.png",
-  },
-  {
-    name: "Torres and Cape Hospital and Health Service",
-    src: "/images/logos/logo-Torres and Cape Hospital and Health Service.png",
   },
 ];
 
@@ -48,9 +48,8 @@ export default function Home() {
       />
 
       {/* HERO */}
-      <Section noPadding>
-        <Container className="py-24 grid grid-cols-1 md:grid-cols-2 gap-16 items-center fade-in-up">
-          {/* Left */}
+      <Section noPadding className="bg-[#F5F4F2] dark:bg-slate-950">
+<Container className="pt-12 pb-10 md:pt-16 md:pb-12 grid grid-cols-1 md:grid-cols-2 gap-14 items-center fade-in-up">          {/* Left */}
           <div className="space-y-8">
             <h1 className="font-heading text-5xl md:text-6xl leading-tight text-[var(--text)] font-semibold">
               Better Learning by Design
@@ -63,61 +62,71 @@ export default function Home() {
             <div className="flex flex-wrap gap-4">
               <Link
                 to="/work"
-                className="px-6 py-3 rounded-xl bg-[var(--text)] text-[var(--bg)] shadow-sm hover:opacity-90 text-sm font-medium"
+                className="
+                  px-6 py-3 rounded-xl
+                  bg-[var(--text)] text-[var(--bg)] border border-[#F97316]
+                  dark:bg-[#F97316] dark:text-slate-900 dark:border-[#F97316]
+                  shadow-sm hover:opacity-95 hover:-translate-y-0.5
+                  inline-flex items-center gap-2 text-sm font-medium font-heading transition
+                "
               >
                 View my work
               </Link>
 
               <Link
                 to="/contact"
-                className="px-6 py-3 rounded-xl border border-black/10 dark:border-white/10 bg-[var(--bg)] hover:bg-[var(--bg-soft)] text-sm font-medium"
+                className="
+                  px-6 py-3 rounded-xl
+                  border border-[#F97316] text-[#F97316]
+                  bg-[var(--bg)] hover:bg-[#FFF1E0]
+                  dark:bg-transparent dark:hover:bg-slate-900
+                  text-sm font-medium font-heading transition
+                "
               >
                 Get in touch
               </Link>
             </div>
           </div>
 
-          {/* Right – whole card is now a Link */}
-          <Link
-            to="/work/elearning-design-system"
-            className="
-              group rounded-3xl border border-black/10 dark:border-white/10
-              bg-white shadow-sm fade-in-up overflow-hidden block
-              hover:-translate-y-[2px] hover:shadow-md transition
-            "
-          >
-            {/* Image */}
-            <img
-              src="/images/portfolio-elearning-design-system.jpg"
-              alt="eLearning Design System preview"
-              className="w-full h-auto block"
-            />
+          {/* Right – feature panel with clickable card */}
+          <div className="rounded-3xl border border-[#CFD8EC] bg-[#E8F1FF] dark:bg-slate-900 dark:border-slate-700 p-3 md:p-4 shadow-sm fade-in-up">
+            <Link
+              to="/work/elearning-design-system"
+              className="
+                group block rounded-2xl border border-black/10 dark:border-white/10
+                bg-white shadow-sm overflow-hidden
+                hover:-translate-y-[2px] hover:shadow-md transition
+              "
+            >
+              {/* Image */}
+              <img
+                src="/images/portfolio-elearning-design-system.jpg"
+                alt="eLearning Design System preview"
+                className="w-full h-auto block"
+              />
 
-            {/* Text content */}
-            <div className="p-6">
-              <h3 className="font-heading text-xl md:text-2xl font-semibold text-[var(--text)] mb-2">
-                eLearning Design System
-              </h3>
-              <p className="text-sm text-slate-600 mb-3">
-                A reusable eLearning design system – templates, components and
-                assets for faster, more consistent builds.
-              </p>
-              <span className="text-sm font-medium text-sky-700 group-hover:text-sky-800">
-                Explore project →
-              </span>
-            </div>
-          </Link>
+              {/* Text content */}
+              <div className="p-6">
+                <h3 className="font-heading text-xl md:text-2xl font-semibold text-[var(--text)] mb-2">
+                  eLearning Design System
+                </h3>
+                <p className="text-sm text-slate-600 mb-3">
+                  A reusable eLearning design system – templates, components and
+                  assets for faster, more consistent builds.
+                </p>
+                <span className="text-sm font-medium font-heading text-[#F97316] group-hover:text-[#EA580C]">
+                  Explore project →
+                </span>
+              </div>
+            </Link>
+          </div>
         </Container>
       </Section>
 
-{/* CLIENT LOGOS */}
-      <Section>
-        <Container className="fade-in-up">
-          <div className="space-y-4">
-            <p className="text-xs uppercase tracking-[0.18em] text-[var(--text)]/50">
-              Organisations I’ve worked with
-            </p>
-
+      {/* CLIENT LOGOS – logos only */}
+      <Section className="-mt-4 md:-mt-6">
+        <Container className="pt-4 md:pt-6 fade-in-up">
+          <div>
             <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-8 items-center">
               {clients.map((client) => (
                 <div
@@ -137,30 +146,41 @@ export default function Home() {
       </Section>
 
       {/* SERVICES PREVIEW */}
-      <Section>
+      <Section className="bg-white">
         <Container className="space-y-8 fade-in-up">
-          <h2 className="font-heading text-2xl text-[var(--text)]">
-            What I do
-          </h2>
+          <div className="space-y-2">
+            <span className="text-xs uppercase tracking-[0.18em] text-[var(--text)]/50">
+              Services
+            </span>
+            <h2 className="font-heading text-2xl text-[var(--text)]">
+              What I do
+            </h2>
+          </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
             <ServiceCard
               title="eLearning design"
               text="Instructional design, Storyline development, scenario writing, and learning systems."
+              icon="SL"
+              tag="Courses"
             />
             <ServiceCard
               title="xAPI & analytics"
               text="xAPI strategy, debugging, Veracity/Learning Locker setup, and dashboards that reveal insight."
+              icon="⨉"
+              tag="Data"
             />
             <ServiceCard
               title="Video & media"
               text="Interview filming, microlearning content, editing, colour grading, and audio mastering."
+              icon="▶"
+              tag="Media"
             />
           </div>
 
           <Link
             to="/services"
-            className="text-sm text-brand-primary hover:underline inline-block"
+            className="text-sm text-brand-primary hover:underline inline-block font-heading"
           >
             View all services →
           </Link>
@@ -168,36 +188,52 @@ export default function Home() {
       </Section>
 
       {/* LATEST POSTS */}
-      <Section>
+      <Section className="bg-[var(--bg-soft)]">
         <Container className="space-y-8 fade-in-up">
-          <h2 className="font-heading text-2xl text-[var(--text)]">
-            Latest writing
-          </h2>
+          <div className="space-y-2">
+            <span className="text-xs uppercase tracking-[0.18em] text-[var(--text)]/50">
+              Insights
+            </span>
+            <h2 className="font-heading text-2xl text-[var(--text)]">
+              Latest writing
+            </h2>
+          </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {latestPosts.map((post) => (
               <Link
                 key={post.slug}
                 to={`/blog/${post.slug}`}
-                className="rounded-2xl border border-black/10 dark:border-white/10 bg-[var(--bg)] p-6 space-y-3 hover:-translate-y-1 hover:shadow-md transition"
+                className="
+                  rounded-2xl border border-slate-200 bg-white
+                  p-6 space-y-3 hover:-translate-y-1 hover:shadow-md
+                  hover:border-[#F97316] transition
+                "
               >
-                <span className="text-xs uppercase tracking-[0.18em] text-[var(--text)]/60">
-                  Blog
-                </span>
+                <div className="flex items-center gap-3 text-[11px] uppercase tracking-[0.18em] text-[var(--text)]/60">
+                  {post.date && <span>{post.date}</span>}
+                  {post.category && (
+                    <span className="inline-flex items-center rounded-full border border-slate-200 px-2 py-0.5">
+                      {post.category}
+                    </span>
+                  )}
+                </div>
                 <h3 className="font-heading text-lg text-[var(--text)]">
                   {post.title}
                 </h3>
                 <p className="text-sm text-[var(--text)]/70">
                   {post.summary}
                 </p>
-                <span className="text-sm text-brand-primary">Read more →</span>
+                <span className="text-sm font-heading text-brand-primary">
+                  Read more →
+                </span>
               </Link>
             ))}
           </div>
 
           <Link
             to="/blog"
-            className="text-sm text-brand-primary hover:underline inline-block"
+            className="text-sm text-brand-primary hover:underline inline-block font-heading"
           >
             View all posts →
           </Link>
@@ -232,7 +268,7 @@ export default function Home() {
 
           <Link
             to="/work"
-            className="text-sm text-brand-primary hover:underline inline-block"
+            className="text-sm text-brand-primary hover:underline inline-block font-heading"
           >
             View all projects →
           </Link>
@@ -242,10 +278,25 @@ export default function Home() {
   );
 }
 
-function ServiceCard({ title, text }) {
+function ServiceCard({ title, text, icon, tag }) {
   return (
-    <div className="rounded-3xl border border-black/10 dark:border-white/10 p-8 bg-[var(--bg)]/95 space-y-4">
-      <h3 className="font-heading text-xl text-[var(--text)]">{title}</h3>
+    <div className="rounded-3xl border border-slate-200 bg-white/95 p-8 space-y-4 shadow-sm hover:shadow-md hover:-translate-y-1 hover:border-[#F97316] transition">
+      <div className="flex items-center gap-3">
+        {icon && (
+          <div className="h-10 w-10 rounded-full bg-[#FFF1E0] flex items-center justify-center text-[#F97316] text-lg font-heading">
+            {icon}
+          </div>
+        )}
+        <div className="space-y-1">
+          <h3 className="font-heading text-xl text-[var(--text)]">{title}</h3>
+          {tag && (
+            <span className="inline-flex items-center rounded-full border border-slate-200 px-3 py-0.5 text-[11px] uppercase tracking-[0.18em] text-[var(--text)]/60">
+              {tag}
+            </span>
+          )}
+        </div>
+      </div>
+
       <p className="text-sm opacity-75">{text}</p>
     </div>
   );

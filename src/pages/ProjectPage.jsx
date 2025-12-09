@@ -136,12 +136,7 @@ export default function ProjectPage() {
             </div>
           )}
 
-          {/* Body copy */}
-          {description && (
-            <article className="text-[var(--text)]/80 leading-relaxed space-y-4">
-              <p>{description}</p>
-            </article>
-          )}
+  
 
           {/* eLearning Design System grid */}
           {isElearningDesignSystem && (

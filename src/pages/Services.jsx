@@ -16,7 +16,7 @@ export default function Services() {
       />
 
       {/* PAGE INTRO */}
-      <Section>
+      <Section className="pb-4 md:pb-6">
         <Container>
           <PageIntro
             breadcrumb={[
@@ -30,50 +30,90 @@ export default function Services() {
       </Section>
 
       {/* SERVICES GRID */}
-      <Section>
+      <Section className="pt-0">
         <Container>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 fade-in-up">
-            {/* eLearning */}
-            <div className="rounded-3xl border border-black/10 dark:border-white/10 bg-[var(--bg)]/95 p-8 space-y-4">
-              <h3 className="font-heading text-xl text-[var(--text)]">
-                eLearning design & Storyline
-              </h3>
-              <ul className="text-sm text-[var(--text)]/75 space-y-2">
-                <li>End-to-end course design and development</li>
-                <li>Storyline templates and component libraries</li>
-                <li>Scenario-based learning and branching</li>
-                <li>Accessibility-minded layouts and flows</li>
-              </ul>
-            </div>
+            <ServiceCard
+              title="eLearning design & Storyline"
+              tag="Courses"
+              icon="SL"
+              items={[
+                "End-to-end course design and development",
+                "Storyline templates and component libraries",
+                "Scenario-based learning and branching",
+                "Accessibility-minded layouts and flows",
+              ]}
+            />
 
-            {/* xAPI */}
-            <div className="rounded-3xl border border-black/10 dark:border-white/10 bg-[var(--bg)]/95 p-8 space-y-4">
-              <h3 className="font-heading text-xl text-[var(--text)]">
-                xAPI & learning analytics
-              </h3>
-              <ul className="text-sm text-[var(--text)]/75 space-y-2">
-                <li>xAPI statement design and debugging</li>
-                <li>LRS setup (Veracity, Learning Locker)</li>
-                <li>Dashboards and reporting (Looker Studio, Sheets)</li>
-                <li>Using data to improve learning experiences</li>
-              </ul>
-            </div>
+            <ServiceCard
+              title="xAPI & learning analytics"
+              tag="Data"
+              icon="⨉"
+              items={[
+                "xAPI statement design and debugging",
+                "LRS setup (Veracity, Learning Locker)",
+                "Dashboards and reporting (Looker Studio, Sheets)",
+                "Using data to improve learning experiences",
+              ]}
+            />
 
-            {/* Media */}
-            <div className="rounded-3xl border border-black/10 dark:border-white/10 bg-[var(--bg)]/95 p-8 space-y-4">
-              <h3 className="font-heading text-xl text-[var(--text)]">
-                Video & media
-              </h3>
-              <ul className="text-sm text-[var(--text)]/75 space-y-2">
-                <li>Interview and classroom filming</li>
-                <li>Microlearning edits and explainer videos</li>
-                <li>Audio cleaning and loudness normalisation</li>
-                <li>Graphics, titles, and simple motion</li>
-              </ul>
-            </div>
+            <ServiceCard
+              title="Video & media"
+              tag="Media"
+              icon="▶"
+              items={[
+                "Interview and classroom filming",
+                "Microlearning edits and explainer videos",
+                "Audio cleaning and loudness normalisation",
+                "Graphics, titles, and simple motion",
+              ]}
+            />
+          </div>
+
+          {/* Soft CTA under the grid */}
+          <div className="mt-10 text-sm text-[var(--text)]/70">
+            <p>
+              Not sure where your project fits?{" "}
+              <a
+                href="/contact"
+                className="font-heading text-brand-primary hover:underline"
+              >
+                Get in touch
+              </a>{" "}
+              and we can map out the right mix of design, xAPI, and media
+              support.
+            </p>
           </div>
         </Container>
       </Section>
     </PageWrapper>
+  );
+}
+
+function ServiceCard({ title, tag, icon, items }) {
+  return (
+    <div className="rounded-3xl border border-slate-200 bg-white/95 p-8 space-y-4 shadow-sm hover:shadow-md hover:-translate-y-1 hover:border-[#F97316] transition">
+      <div className="flex items-center gap-3">
+        {icon && (
+          <div className="h-10 w-10 rounded-full bg-[#FFF1E0] flex items-center justify-center text-[#F97316] text-lg font-heading">
+            {icon}
+          </div>
+        )}
+        <div className="space-y-1">
+          <h3 className="font-heading text-xl text-[var(--text)]">{title}</h3>
+          {tag && (
+            <span className="inline-flex items-center rounded-full border border-slate-200 px-3 py-0.5 text-[11px] uppercase tracking-[0.18em] text-[var(--text)]/60">
+              {tag}
+            </span>
+          )}
+        </div>
+      </div>
+
+      <ul className="mt-4 text-sm text-[var(--text)]/75 space-y-2">
+        {items.map((item) => (
+          <li key={item}>{item}</li>
+        ))}
+      </ul>
+    </div>
   );
 }

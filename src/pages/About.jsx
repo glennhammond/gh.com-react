@@ -18,62 +18,63 @@ export default function About() {
 
       {/* PAGE INTRO + HERO GRID TOGETHER */}
       <Section>
-        <Container className="space-y-14 md:space-y-16">
-          <PageIntro
-            breadcrumb={[
-              { label: "Home", href: "/" },
-              { label: "About" },
-            ]}
-            title="I design and build learning experiences"
-          />
-
+        <Container className="space-y-12 md:space-y-0">
           <div className="grid grid-cols-1 md:grid-cols-[minmax(0,2fr)_minmax(0,1.2fr)] gap-12 items-start fade-in-up">
-            {/* Text */}
-            <div className="space-y-6">
-              <p className="text-[var(--text)]/75 leading-relaxed">
-                I’m Glenn Hammond – an eLearning specialist, designer and video
-                producer based in Brisbane. I design professional learning for
-                teachers in Queensland’s independent schools through my role at
-                Independent Schools Queensland, and take on selected projects
-                through my own practice and partners like Corporate Yoga
-                Australia.
-              </p>
+            <div className="space-y-8">
+              <PageIntro
+                breadcrumb={[
+                  { label: "Home", href: "/" },
+                  { label: "About" },
+                ]}
+                title="I design and build learning experiences"
+              />
 
-              <p className="text-[var(--text)]/75 leading-relaxed">
-                My work sits where pedagogy, UX, learning analytics and media
-                overlap. I care about learning experiences that are clear,
-                respectful of people’s time and grounded in evidence – blending
-                instructional design, scenario writing, multimedia, xAPI and
-                thoughtful visual design to actually support performance on the
-                job.
-              </p>
+              <div className="space-y-6">
+                <p className="text-[var(--text)]/75 leading-relaxed">
+                  I’m Glenn Hammond – an eLearning specialist, designer and video
+                  producer based in Brisbane. I design professional learning for
+                  teachers in Queensland’s independent schools through my role at
+                  Independent Schools Queensland, and take on selected projects
+                  through my own practice and partners like Corporate Yoga
+                  Australia.
+                </p>
 
-              <div className="flex flex-wrap gap-3 pt-4">
-                <Link
-                  to="/contact"
-                  className="
-                    inline-flex items-center justify-center
-                    px-6 py-3 rounded-xl
-                    bg-[var(--text)] text-[var(--bg)]
-                    text-sm font-medium hover:opacity-90 transition shadow-sm
-                  "
-                >
-                  Let’s talk about a project →
-                </Link>
+                <p className="text-[var(--text)]/75 leading-relaxed">
+                  My work sits where pedagogy, UX, learning analytics and media
+                  overlap. I care about learning experiences that are clear,
+                  respectful of people’s time and grounded in evidence – blending
+                  instructional design, scenario writing, multimedia, xAPI and
+                  thoughtful visual design to actually support performance on the
+                  job.
+                </p>
 
-                <Link
-                  to="/work"
-                  className="
-                    inline-flex items-center justify-center
-                    px-6 py-3 rounded-xl
-                    border border-black/10 dark:border-white/15
-                    text-sm font-medium text-[var(--text)]
-                    bg-[var(--bg)] hover:bg-[var(--bg-soft)]
-                    transition
-                  "
-                >
-                  View selected work
-                </Link>
+                <div className="flex flex-wrap gap-3 pt-4">
+                  <Link
+                    to="/contact"
+                    className="
+                      inline-flex items-center justify-center
+                      px-6 py-3 rounded-xl
+                      bg-[var(--text)] text-[var(--bg)]
+                      text-sm font-medium hover:opacity-90 transition shadow-sm
+                    "
+                  >
+                    Let’s talk about a project →
+                  </Link>
+
+                  <Link
+                    to="/work"
+                    className="
+                      inline-flex items-center justify-center
+                      px-6 py-3 rounded-xl
+                      border border-black/10 dark:border-white/15
+                      text-sm font-medium text-[var(--text)]
+                      bg-[var(--bg)] hover:bg-[var(--bg-soft)]
+                      transition
+                    "
+                  >
+                    View selected work
+                  </Link>
+                </div>
               </div>
             </div>
 
