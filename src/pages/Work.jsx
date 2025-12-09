@@ -130,7 +130,7 @@ export default function Work() {
               { label: "Work" },
             ]}
             title="Work"
-            intro="Examples of the work I’ve done with organisations like ISQ, CASA, Goodstart, Corporate Yoga Australia and LMIT, blending instructional design, UX for learning and media."
+            intro="A sample of the projects I’ve delivered over the past 15+ years across education, aviation, health and corporate training, combining instructional design, UX for learning, media production and analytics."
           />
 
           {/* PROJECTS GRID */}
