@@ -17,6 +17,8 @@ import Contact from "./pages/Contact.jsx";
 import ContactSuccess from "./pages/ContactSuccess.jsx";
 import ElearningDesignSystemOverview from "./pages/ElearningDesignSystemOverview";
 import AtomicDesign from "./pages/design-system/AtomicDesign.jsx";
+import AtomicDesign from "./pages/design-system/AtomicDesign.jsx";
+import CoreMoreBore from "./pages/design-system/CoreMoreBore.jsx";
 // ✅ new import for the Colours page
 import Colours from "./pages/design-system/Colours.jsx";
 
@@ -66,6 +68,32 @@ export default function App() {
   path="/work/elearning-design-system/atomic-design"
   element={<AtomicDesign />}
 />
+{/* specific design system overview page */}
+<Route
+  path="/work/elearning-design-system/overview"
+  element={<ElearningDesignSystemOverview />}
+/>
+
+{/* specific colours page for the design system */}
+<Route
+  path="/work/elearning-design-system/colours"
+  element={<Colours />}
+/>
+
+{/* specific atomic design page */}
+<Route
+  path="/work/elearning-design-system/atomic-design"
+  element={<AtomicDesign />}
+/>
+
+{/* specific Core, More & Bore page */}
+<Route
+  path="/work/elearning-design-system/core-more-bore"
+  element={<CoreMoreBore />}
+/>
+
+{/* generic project detail route */}
+<Route path="/work/:slug" element={<ProjectPage />} />
 
 {/* generic project detail route */}
 <Route path="/work/:slug" element={<ProjectPage />} />
