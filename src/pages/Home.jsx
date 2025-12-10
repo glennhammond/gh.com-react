@@ -52,6 +52,9 @@ export default function Home() {
         <Container className="pt-12 pb-10 md:pt-16 md:pb-12 grid grid-cols-1 md:grid-cols-2 gap-14 items-center fade-in-up">
           {/* Left */}
           <div className="space-y-8">
+            <p className="text-xs md:text-sm font-semibold tracking-[0.2em] uppercase text-[var(--text-muted)] mb-3">
+  Award-winning eLearning design
+</p>
             <h1 className="font-heading text-5xl md:text-6xl leading-tight text-[var(--text)] font-semibold">
               Better Learning by Design
             </h1>
@@ -127,9 +130,6 @@ export default function Home() {
           {/* CLIENT LOGOS */}
       <Section className="-mt-4 md:-mt-6">
         <Container className="pt-6 md:pt-8 fade-in-up">
-          <p className="mb-4 text-xs uppercase tracking-[0.18em] text-[var(--text)]/50">
-            Selected clients
-          </p>
 
           <div className="grid grid-cols-1 gap-y-6 sm:grid-cols-3 sm:gap-x-8 sm:gap-y-8 md:grid-cols-5 md:gap-x-10 md:gap-y-0">
             {clients.map((client) => (
