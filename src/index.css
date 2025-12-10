@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 /* -------------------------------------------------------
-   GLOBAL CSS VARIABLES
+   GLOBAL CSS VARIABLES — LIGHT MODE
 ------------------------------------------------------- */
 :root {
   /* Typography — Adobe Fonts */
@@ -13,26 +13,32 @@
   --font-body: "open-sans", "Open Sans", system-ui, sans-serif;
 
   /* Core colour system */
-  --bg: #f3f4f8;        /* page background */
+  --bg: #f9f5ff;        /* very light lavender, almost white */
   --bg-soft: #ffffff;   /* cards, panels */
-  --text: #0f172a;      /* main text */
-  --muted: #6b7280;     /* secondary text */
+  --text: #0f172a;
+  --muted: #6b7280;
+  --text-muted: #6b7280;
 
-  /* Brand colours */
-  --color-brand-primary: #005680;
-  --color-brand-accent: #f28b00;
-  --color-brand-soft: #f5f7fb;
+  /* Brand colours — deep, quality purple */
+  --color-brand-primary: #6d28d9;      /* rich royal purple */
+  --color-brand-accent: #8b5cf6;       /* lighter accent purple */
+  --color-brand-soft: #f3e8ff;         /* soft lilac for hovers/chips */
+
+  /* Short aliases */
+  --brand-primary: var(--color-brand-primary);
+  --brand-primary-dark: #5b21b6;       /* slightly deeper for hover */
+  --brand-primary-soft: var(--color-brand-soft);
 
   /* Accent aliases used in components */
   --accent: var(--color-brand-primary);
-  --accent-strong: #004463;
-  --accent-soft: #e6f2f7;
-  --accent-soft-2: #d2e5f0;
-  --accent-warm: var(--color-brand-accent);
+  --accent-strong: #5b21b6;
+  --accent-soft: rgba(109, 40, 217, 0.08);
+  --accent-soft-2: rgba(109, 40, 217, 0.16);
+  --accent-warm: var(--color-brand-primary);
 
   --shadow-soft: 0 18px 45px rgba(15, 23, 42, 0.12);
 
-  /* CATEGORY COLOURS (cleaned + unified) */
+  /* CATEGORY COLOURS (leave as they are) */
   --cat-design: #2962ff;
   --cat-education: #00897b;
   --cat-music: #ff6f00;
@@ -54,18 +60,24 @@ html.dark {
   --bg-soft: #020617;
   --text: #e5e7eb;
   --muted: #9ca3af;
+  --text-muted: #9ca3af;
 
-  /* Brand colours — shifted for dark mode */
-  --color-brand-primary: #38bdf8;
-  --color-brand-accent: #f472b6;
+  /* Brand colours — purple in dark mode */
+  --color-brand-primary: #a78bfa;      /* light indigo/purple on dark */
+  --color-brand-accent: #c4b5fd;
   --color-brand-soft: #020617;
+
+  /* Short aliases */
+  --brand-primary: var(--color-brand-primary);
+  --brand-primary-dark: #8b5cf6;
+  --brand-primary-soft: rgba(167, 139, 250, 0.18);
 
   /* Accent aliases used in components */
   --accent: var(--color-brand-primary);
-  --accent-strong: #0ea5e9;
-  --accent-soft: rgba(56, 189, 248, 0.12);
-  --accent-soft-2: rgba(56, 189, 248, 0.2);
-  --accent-warm: #fb7185;
+  --accent-strong: #8b5cf6;
+  --accent-soft: rgba(139, 92, 246, 0.2);
+  --accent-soft-2: rgba(139, 92, 246, 0.3);
+  --accent-warm: #a78bfa;
 
   --shadow-soft: 0 22px 55px rgba(0, 0, 0, 0.45);
 
@@ -82,7 +94,7 @@ html.dark {
   --cat-general: #94a3b8;
 }
 
-/* Atmospheric vignette */
+/* Atmospheric vignette for dark mode */
 html.dark body::before {
   content: "";
   position: fixed;
@@ -197,26 +209,20 @@ body {
 /* Soft background colour system */
 .blog-badge.design     { background: color-mix(in srgb, var(--cat-design) 20%, transparent);     color: var(--cat-design); }
 .blog-badge.education  { background: color-mix(in srgb, var(--cat-education) 20%, transparent);  color: var(--cat-education); }
-.blog-badge.music      { background: color-mix(in srgb, var(--cat-music) 20%, transparent);       color: var(--cat-music); }
-.blog-badge.xapi       { background: color-mix(in srgb, var(--cat-xapi) 20%, transparent);        color: var(--cat-xapi); }
-.blog-badge.storyline  { background: color-mix(in srgb, var(--cat-storyline) 20%, transparent);   color: var(--cat-storyline); }
-.blog-badge.creativity { background: color-mix(in srgb, var(--cat-creativity) 20%, transparent);  color: var(--cat-creativity); }
-.blog-badge.workflow   { background: color-mix(in srgb, var(--cat-workflow) 20%, transparent);    color: var(--cat-workflow); }
-.blog-badge.ai         { background: color-mix(in srgb, var(--cat-ai) 20%, transparent);          color: var(--cat-ai); }
-.blog-badge.ux         { background: color-mix(in srgb, var(--cat-ux) 20%, transparent);          color: var(--cat-ux); }
-.blog-badge.general    { background: color-mix(in srgb, var(--cat-general) 20%, transparent);     color: var(--cat-general); }  
+.blog-badge.music      { background: color-mix(in srgb, var(--cat-music) 20%, transparent);      color: var(--cat-music); }
+.blog-badge.xapi       { background: color-mix(in srgb, var(--cat-xapi) 20%, transparent);       color: var(--cat-xapi); }
+.blog-badge.storyline  { background: color-mix(in srgb, var(--cat-storyline) 20%, transparent);  color: var(--cat-storyline); }
+.blog-badge.creativity { background: color-mix(in srgb, var(--cat-creativity) 20%, transparent); color: var(--cat-creativity); }
+.blog-badge.workflow   { background: color-mix(in srgb, var(--cat-workflow) 20%, transparent);   color: var(--cat-workflow); }
+.blog-badge.ai         { background: color-mix(in srgb, var(--cat-ai) 20%, transparent);         color: var(--cat-ai); }
+.blog-badge.ux         { background: color-mix(in srgb, var(--cat-ux) 20%, transparent);         color: var(--cat-ux); }
+.blog-badge.general    { background: color-mix(in srgb, var(--cat-general) 20%, transparent);    color: var(--cat-general); }  
 
 /* -------------------------------------------------------
    Header spacing normalization
-   Reduce very large top padding on header elements that use pt-24
-   so page-level headers align more closely across pages. This is a
-   low-risk override that adjusts only large-screen padding.
 ------------------------------------------------------- */
 @media (min-width: 768px) {
   header.pt-24 {
-    padding-top: 3rem; /* 48px -> 48px kept for clarity but we reduce to 3rem if necessary */
+    padding-top: 3rem; /* tighten oversized header padding if used */
   }
-
-  /* If some headers render with a raw pt-24 class from Tailwind,
-     tighten them slightly to better match page hero spacing. */
 }

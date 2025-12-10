@@ -1,5 +1,8 @@
 // src/posts/posts.js
 
+// Default image for posts without a specific hero image
+const DEFAULT_POST_IMAGE = "/images/placeholders/placeholder-post.jpg";
+
 // Load all markdown files inside /src/posts as raw strings
 const markdownFiles = import.meta.glob("./*.md", {
   eager: true,
@@ -45,6 +48,7 @@ export const posts = Object.entries(markdownFiles).map(
       date: data.date || "",
       category: data.category || "General",
       summary: data.summary || "",
+      image: data.image || DEFAULT_POST_IMAGE,
       content,
     };
   }

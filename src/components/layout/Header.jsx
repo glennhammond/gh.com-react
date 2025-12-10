@@ -1,3 +1,4 @@
+// src/components/layout/Header.jsx
 import React, { useState } from "react";
 import { NavLink, Link } from "react-router-dom";
 import ThemeToggle from "./ThemeToggle.jsx";
@@ -5,7 +6,7 @@ import ThemeToggle from "./ThemeToggle.jsx";
 const navItems = [
   { to: "/about", label: "About" },
   { to: "/blog", label: "Blog" },
-    { to: "/work", label: "Work" },
+  { to: "/work", label: "Work" },
   { to: "/services", label: "Services" },
   { to: "/contact", label: "Contact" },
 ];
@@ -16,91 +17,98 @@ export default function Header() {
   return (
     <header
       className="
-        sticky top-0 z-40 
-        border-b border-black/10 dark:border-white/10 
-        bg-[var(--bg)]/80 dark:bg-[var(--bg)]/60 
-        backdrop-blur-md 
+        sticky top-0 z-40
+        border-b border-black/5 dark:border-white/10
+        bg-white/90 dark:bg-[#020617]/90
+        backdrop-blur-md
         transition-colors
       "
     >
+      {/* MAIN BAR (aligned to site container) */}
       <div className="container flex items-center justify-between py-4">
-        {/* LEFT: Branding (links to home) */}
-        <Link to="/" className="flex items-center gap-3 group">
+        {/* LEFT: Logo / Branding */}
+        <Link
+          to="/"
+          className="flex items-center gap-3 group ml-2 md:ml-4"
+        >
+          {/* Light-mode logo (dark text) */}
           <img
-            src="/images/favicon.svg"
-            alt="Glenn Hammond logo"
-            className="h-9 w-9 shadow-soft"
+            src="/images/logos/logo-glennhammond-dark.svg"
+            alt="Glenn Hammond — eLearning Specialist"
+            className="h-9 md:h-10 block dark:hidden"
           />
-
-          <div className="leading-tight">
-            <div className="font-heading text-[var(--text)] tracking-wide text-sm">
-              Glenn Hammond
-            </div>
-            <div className="text-[var(--text)]/60 text-xs">
-              eLearning Specialist
-            </div>
-          </div>
+          {/* Dark-mode logo (light text) */}
+          <img
+            src="/images/logos/logo-glennhammond-light.svg"
+            alt="Glenn Hammond — eLearning Specialist"
+            className="h-9 md:h-10 hidden dark:block"
+          />
         </Link>
 
-        {/* RIGHT: Navigation (Desktop) */}
-        <nav className="hidden md:flex items-center gap-8 text-sm font-medium">
-          {navItems.map((item) => (
-            <NavLink
-              key={item.to}
-              to={item.to}
-              className={`
-                text-[var(--text)]/80 
-                hover:text-brand-primary 
-                dark:hover:text-brand-accent 
-                transition-colors
-              `}
-            >
-              {item.label}
-            </NavLink>
-          ))}
+        {/* RIGHT: Desktop nav + theme toggle */}
+        <div className="hidden md:flex items-center gap-8">
+          <nav className="flex items-center gap-6">
+            {navItems.map((item) => (
+              <NavLink
+                key={item.to}
+                to={item.to}
+                className={({ isActive }) =>
+                  [
+                    "font-heading text-sm tracking-wide",
+                    "text-slate-900 hover:text-[var(--brand-primary)]",
+                    "dark:text-slate-100 dark:hover:text-[var(--brand-primary)]",
+                    isActive ? "text-[var(--brand-primary)]" : "",
+                  ].join(" ")
+                }
+              >
+                {item.label}
+              </NavLink>
+            ))}
+          </nav>
 
           <ThemeToggle />
-        </nav>
+        </div>
 
-        {/* RIGHT: Mobile hamburger */}
-        <button
-          className="md:hidden text-[var(--text)] text-xl px-2"
-          onClick={() => setMobileOpen(!mobileOpen)}
-        >
-          {mobileOpen ? "✕" : "☰"}
-        </button>
+        {/* MOBILE: burger + theme toggle */}
+        <div className="flex items-center gap-2 md:hidden">
+          <ThemeToggle />
+          <button
+            type="button"
+            onClick={() => setMobileOpen((open) => !open)}
+            className="inline-flex items-center justify-center rounded-md border border-black/10 dark:border-white/20 px-3 py-2"
+            aria-label="Toggle navigation"
+          >
+            <span className="sr-only">Toggle navigation</span>
+            <div className="space-y-1">
+              <span className="block h-0.5 w-4 bg-current" />
+              <span className="block h-0.5 w-4 bg-current" />
+              <span className="block h-0.5 w-4 bg-current" />
+            </div>
+          </button>
+        </div>
       </div>
 
-      {/* MOBILE MENU */}
+      {/* MOBILE NAV PANEL */}
       {mobileOpen && (
-        <div
-          className="
-            md:hidden border-t border-black/10 dark:border-white/10 
-            bg-[var(--bg)]/95 dark:bg-[var(--bg)]/70 
-            backdrop-blur-md
-          "
-        >
-          <nav className="flex flex-col gap-3 p-6 text-sm">
+        <div className="md:hidden border-t border-black/5 dark:border-white/10 bg-white dark:bg-[#020617]">
+          <nav className="container py-3 flex flex-col gap-2">
             {navItems.map((item) => (
               <NavLink
                 key={item.to}
                 to={item.to}
                 onClick={() => setMobileOpen(false)}
-                className="
-                  py-1 
-                  text-[var(--text)] 
-                  hover:text-brand-primary 
-                  dark:hover:text-brand-accent
-                  transition-colors
-                "
+                className={({ isActive }) =>
+                  [
+                    "font-heading text-sm py-1",
+                    "text-slate-900 hover:text-[var(--brand-primary)]",
+                    "dark:text-slate-100 dark:hover:text-[var(--brand-primary)]",
+                    isActive ? "text-[var(--brand-primary)]" : "",
+                  ].join(" ")
+                }
               >
                 {item.label}
               </NavLink>
             ))}
-
-            <div className="pt-4">
-              <ThemeToggle />
-            </div>
           </nav>
         </div>
       )}

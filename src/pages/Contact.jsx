@@ -74,8 +74,7 @@ export default function Contact() {
               </h2>
 
               <p className="text-[var(--text)]/70 leading-relaxed">
-                Based in Brisbane. Available for remote work and select in-person
-                engagements.
+                Based in Brisbane. Work everywhere
               </p>
 
               <div className="space-y-2">

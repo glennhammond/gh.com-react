@@ -11,7 +11,7 @@ import PageIntro from "../components/layout/PageIntro";
 
 import { posts } from "../posts/posts";
 
-const FALLBACK_IMG = "/images/placeholder-post.jpg";
+const FALLBACK_IMG = "/images/placeholders/placeholder-post.jpg";
 
 /* ---------------------------------------------------
    CATEGORY MAP → always returns a stable category key

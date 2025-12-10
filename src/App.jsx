@@ -5,6 +5,7 @@ import { Routes, Route } from "react-router-dom";
 import Header from "./components/layout/Header.jsx";
 import Footer from "./components/layout/Footer.jsx";
 import SiteLayout from "./components/layout/SiteLayout.jsx";
+import PageWrapper from "./components/layout/PageWrapper.jsx";
 
 import Home from "./pages/Home.jsx";
 import Work from "./pages/Work.jsx";
@@ -40,7 +41,7 @@ function NotFound() {
 
 export default function App() {
   return (
-    <>
+    <PageWrapper>
       <Header />
 
       <SiteLayout>
@@ -108,6 +109,6 @@ export default function App() {
       </SiteLayout>
 
       <Footer />
-    </>
+    </PageWrapper>
   );
 }

@@ -13,7 +13,7 @@ import Breadcrumb from "../components/ui/Breadcrumb.jsx";
 import { posts } from "../posts/posts";
 
 // 🔧 FIXED — use public path instead of import
-const fallbackImage = "/images/placeholder-post.jpg";  
+const fallbackImage = "/images/placeholders/placeholder-post.jpg";  
 
 // Category mapper (matches Blog.jsx logic)
 function mapCategory(category = "") {
