@@ -13,42 +13,46 @@ export default function ElearningDesignSystemOverview() {
     <PageWrapper>
       <SEO
         title="eLearning Design System Overview – Glenn Hammond"
-        description="How a reusable eLearning design system streamlines Storyline, Rise, and H5P development while keeping ISQ courses on brand, accessible, and data-ready."
+        description="How a reusable eLearning design system streamlines Storyline, Rise, and H5P development."
         url="https://glennhammond.com/work/elearning-design-system/overview"
       />
 
       {/* HERO / INTRO */}
-      <Section>
+      <Section className="pb-4 md:pb-6">
         <Container>
-          <PageIntro
-            breadcrumb={[
-              { label: "Home", href: "/" },
-              { label: "Work", href: "/work" },
-              {
-                label: "eLearning Design System",
-                href: "/work/elearning-design-system",
-              },
-              { label: "Overview" },
-            ]}
-            title="eLearning Design System Overview"
-            intro="A reusable design system for Storyline, Rise, and H5P that standardises UI, improves learner experience, and speeds up development of ISQ’s professional learning catalogue."
-            meta={
-              <div className="grid gap-4 md:grid-cols-3">
-                <MetaPill label="Scope" value="Storyline, Rise, H5P" />
-                <MetaPill
-                  label="Focus"
-                  value="Consistency, UX, Accessibility"
+          <div className="grid gap-10 md:grid-cols-[minmax(0,1.5fr)_minmax(0,1fr)] items-center">
+            <div>
+              <PageIntro
+                breadcrumb={[
+                  { label: "Home", href: "/" },
+                  { label: "Work", href: "/work" },
+                  {
+                    label: "eLearning Design System",
+                    href: "/work/elearning-design-system",
+                  },
+                  { label: "Overview" },
+                ]}
+                title="eLearning Design System Overview"
+                intro="A reusable design system for Storyline, Rise, and H5P that standardises UI, improves learner experience, and speeds up course development."
+              />
+            </div>
+
+            <div className="relative">
+              <div className="rounded-3xl border border-black/10 dark:border-white/10 bg-[var(--bg-soft)] overflow-hidden shadow-sm">
+                <img
+                  src="/images/elearning-design-system.png"
+                  alt="Preview of the eLearning Design System layouts"
+                  className="w-full h-auto object-cover"
                 />
-                <MetaPill label="Standard" value="WCAG 2.1 AA" />
               </div>
-            }
-          />
+            </div>
+          </div>
         </Container>
       </Section>
 
       {/* OBJECTIVES */}
-      <Section>
-        <Container className="space-y-8 fade-in-up">
+      <Section className="pt-0 md:pt-2">
+        <Container className="space-y-6 md:space-y-7 fade-in-up">
           <h2 className="font-heading text-2xl text-[var(--text)]">
             Objectives
           </h2>
@@ -269,17 +273,6 @@ export default function ElearningDesignSystemOverview() {
 /* ──────────────────────────────────────────────
    SMALL PRESENTATIONAL COMPONENTS
 ────────────────────────────────────────────── */
-
-function MetaPill({ label, value }) {
-  return (
-    <div className="rounded-2xl border border-black/10 dark:border-white/10 bg-[var(--bg-soft)] px-4 py-3">
-      <p className="text-[11px] uppercase tracking-[0.18em] text-[var(--text)]/60">
-        {label}
-      </p>
-      <p className="mt-1 text-sm font-medium text-[var(--text)]">{value}</p>
-    </div>
-  );
-}
 
 function ObjectiveCard({ title, items }) {
   return (
