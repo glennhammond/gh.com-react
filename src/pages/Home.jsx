@@ -27,7 +27,7 @@ const clients = [
   },
   {
     name: "Seqwater",
-    src: "/images/logos/logo-seqwater_1.png",
+    src: "/images/logos/logo-seqwater.png",
   },
   {
     name: "TAFE Queensland",
@@ -49,7 +49,8 @@ export default function Home() {
 
       {/* HERO */}
       <Section noPadding className="bg-[#F5F4F2] dark:bg-slate-950">
-<Container className="pt-12 pb-10 md:pt-16 md:pb-12 grid grid-cols-1 md:grid-cols-2 gap-14 items-center fade-in-up">          {/* Left */}
+        <Container className="pt-12 pb-10 md:pt-16 md:pb-12 grid grid-cols-1 md:grid-cols-2 gap-14 items-center fade-in-up">
+          {/* Left */}
           <div className="space-y-8">
             <h1 className="font-heading text-5xl md:text-6xl leading-tight text-[var(--text)] font-semibold">
               Better Learning by Design
@@ -123,24 +124,26 @@ export default function Home() {
         </Container>
       </Section>
 
-      {/* CLIENT LOGOS – logos only */}
+          {/* CLIENT LOGOS */}
       <Section className="-mt-4 md:-mt-6">
-        <Container className="pt-4 md:pt-6 fade-in-up">
-          <div>
-            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-8 items-center">
-              {clients.map((client) => (
-                <div
-                  key={client.name}
-                  className="h-10 flex items-center justify-center opacity-70 hover:opacity-100 transition"
-                >
-                  <img
-                    src={client.src}
-                    alt={client.name}
-                    className="h-full w-auto max-w-[180px] object-contain"
-                  />
-                </div>
-              ))}
-            </div>
+        <Container className="pt-6 md:pt-8 fade-in-up">
+          <p className="mb-4 text-xs uppercase tracking-[0.18em] text-[var(--text)]/50">
+            Selected clients
+          </p>
+
+          <div className="grid grid-cols-1 gap-y-6 sm:grid-cols-3 sm:gap-x-8 sm:gap-y-8 md:grid-cols-5 md:gap-x-10 md:gap-y-0">
+            {clients.map((client) => (
+              <div
+                key={client.name}
+                className="flex h-16 items-center justify-center opacity-70 hover:opacity-100 transition"
+              >
+                <img
+                  src={client.src}
+                  alt={client.name}
+                  className="max-h-10 w-auto max-w-[180px] object-contain"
+                />
+              </div>
+            ))}
           </div>
         </Container>
       </Section>
@@ -284,7 +287,7 @@ function ServiceCard({ title, text, icon, tag }) {
       <div className="flex items-center gap-3">
         {icon && (
           <div className="h-10 w-10 rounded-full bg-[#FFF1E0] flex items-center justify-center text-[#F97316] text-lg font-heading">
-            {icon}
+          {icon}
           </div>
         )}
         <div className="space-y-1">
