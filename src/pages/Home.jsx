@@ -72,31 +72,21 @@ export default function Home() {
               </p>
 
               {/* CTAs */}
-              <div className="flex flex-wrap gap-4">
-                <Link
-                  to="/work"
-                  className="
-                    px-6 py-3 rounded-xl
-                    bg-[var(--brand-primary)] text-white border border-[var(--brand-primary)]
-                    shadow-sm hover:bg-[var(--brand-primary-dark)] hover:-translate-y-0.5
-                    inline-flex items-center gap-2 text-sm font-medium font-heading transition
-                  "
-                >
-                  View some work
-                </Link>
+            <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center sm:gap-4">
+  <Link
+    to="/work"
+    className="w-full sm:w-auto inline-flex items-center justify-center rounded-full px-6 py-3 text-sm font-semibold tracking-tight bg-[var(--accent)] text-white shadow-sm transition hover:-translate-y-[1px]"
+  >
+    View some work
+  </Link>
 
-                <Link
-                  to="/contact"
-                  className="
-                    px-6 py-3 rounded-xl
-                    border border-[var(--brand-primary)] text-[var(--brand-primary)]
-                    bg-[var(--bg)] hover:bg-[var(--brand-primary-soft)]
-                    text-sm font-medium font-heading transition
-                  "
-                >
-                  Get in touch
-                </Link>
-              </div>
+  <Link
+    to="/contact"
+    className="w-full sm:w-auto inline-flex items-center justify-center rounded-full px-6 py-3 text-sm font-semibold tracking-tight border border-[var(--accent)] text-[var(--accent)] bg-transparent transition hover:bg-[var(--accent-soft)]"
+  >
+    Get in touch
+  </Link>
+</div>
             </div>
 
             {/* Right – feature panel with clickable card */}

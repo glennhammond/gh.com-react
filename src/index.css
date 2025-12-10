@@ -116,7 +116,19 @@ body {
   font-family: var(--font-body);
   background-color: var(--bg);
   color: var(--text);
+
+  /* 🔹 New: larger base size + comfy line-height */
+  font-size: 1.05rem;
+  line-height: 1.7;
+
   transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* 🔹 New: slightly larger again from tablet up */
+@media (min-width: 768px) {
+  body {
+    font-size: 1.1rem;
+  }
 }
 
 .container {
