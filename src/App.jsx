@@ -15,12 +15,12 @@ import About from "./pages/About.jsx";
 import Services from "./pages/Services.jsx";
 import Contact from "./pages/Contact.jsx";
 import ContactSuccess from "./pages/ContactSuccess.jsx";
-import ElearningDesignSystemOverview from "./pages/ElearningDesignSystemOverview";
-import AtomicDesign from "./pages/design-system/AtomicDesign.jsx";
+import ElearningDesignSystemOverview from "./pages/ElearningDesignSystemOverview.jsx";
+
+// design system pages
+import Colours from "./pages/design-system/Colours.jsx";
 import AtomicDesign from "./pages/design-system/AtomicDesign.jsx";
 import CoreMoreBore from "./pages/design-system/CoreMoreBore.jsx";
-// ✅ new import for the Colours page
-import Colours from "./pages/design-system/Colours.jsx";
 
 function NotFound() {
   return (
@@ -46,58 +46,19 @@ export default function App() {
           {/* Work + projects */}
           <Route path="/work" element={<Work />} />
 
-          {/* ✅ specific design system overview page */}
+          {/* eLearning design system sub-pages */}
           <Route
             path="/work/elearning-design-system/overview"
             element={<ElearningDesignSystemOverview />}
           />
-{/* specific design system overview page */}
-<Route
-  path="/work/elearning-design-system/overview"
-  element={<ElearningDesignSystemOverview />}
-/>
-
-{/* specific colours page for the design system */}
-<Route
-  path="/work/elearning-design-system/colours"
-  element={<Colours />}
-/>
-
-{/* specific atomic design page for the design system */}
-<Route
-  path="/work/elearning-design-system/atomic-design"
-  element={<AtomicDesign />}
-/>
-{/* specific design system overview page */}
-<Route
-  path="/work/elearning-design-system/overview"
-  element={<ElearningDesignSystemOverview />}
-/>
-
-{/* specific colours page for the design system */}
-<Route
-  path="/work/elearning-design-system/colours"
-  element={<Colours />}
-/>
-
-{/* specific atomic design page */}
-<Route
-  path="/work/elearning-design-system/atomic-design"
-  element={<AtomicDesign />}
-/>
-
-{/* specific Core, More & Bore page */}
-<Route
-  path="/work/elearning-design-system/core-more-bore"
-  element={<CoreMoreBore />}
-/>
-
-{/* generic project detail route */}
-<Route path="/work/:slug" element={<ProjectPage />} />
-
-{/* generic project detail route */}
-<Route path="/work/:slug" element={<ProjectPage />} />
-          {/* ✅ specific colours page for the design system */}
+          <Route
+            path="/work/elearning-design-system/atomic-design"
+            element={<AtomicDesign />}
+          />
+          <Route
+            path="/work/elearning-design-system/core-more-bore"
+            element={<CoreMoreBore />}
+          />
           <Route
             path="/work/elearning-design-system/colours"
             element={<Colours />}
