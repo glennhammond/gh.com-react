@@ -25,36 +25,124 @@ export default function Work() {
               { label: "Work" },
             ]}
             title="Work"
-            intro="A selection of projects across aviation, education, and community challenges – from leading national programmes to playful prototypes that sparked conversations."
+            intro="A selection of projects across aviation, education, health and business – leading national programmes and making prototypes to spark conversations."
           />
         </Container>
       </Section>
 
-      {/* ISQ + CASA SECTION */}
+      {/* FEATURED: eLearning Design System */}
       <Section>
-        <Container className="space-y-10 md:space-y-12">
-          <div className="grid gap-6 md:grid-cols-2">
-            {/* ISQ – Ecosystem (TOP, FULL WIDTH) */}
-            <Link
-              to="/work/isq-professional-learning"
-              className="group flex flex-col overflow-hidden rounded-2xl border border-black/5 bg-white/80 p-6 shadow-sm backdrop-blur-sm transition hover:-translate-y-1 hover:shadow-md dark:border-white/10 dark:bg-neutral-900/80 md:col-span-2"
-            >
+        <Container>
+          <Link
+            to="/work/elearning-design-system"
+            className="group flex flex-col items-stretch overflow-hidden rounded-2xl border border-black/5 bg-white/80 shadow-sm backdrop-blur-sm transition hover:-translate-y-1 hover:shadow-md dark:border-white/10 dark:bg-neutral-900/80 md:flex-row"
+          >
+            {/* TEXT SIDE */}
+            <div className="flex-1 p-6">
               <div className="mb-4 text-xs font-semibold uppercase tracking-[0.18em] text-neutral-500 dark:text-neutral-400">
-                Independent Schools Queensland
+                Glenn Hammond · eLearning design system
               </div>
               <h3 className="text-xl font-semibold leading-snug md:text-2xl">
-                Professional learning ecosystem – design system, Child Protection & xAPI
+                eLearning Design System for modern professional learning
               </h3>
-              <p className="mt-3 text-sm text-neutral-700 dark:text-neutral-200 max-w-3xl">
-                Designing a coherent professional learning ecosystem for Queensland’s non-state schools –
-                from a full eLearning design system and Child Protection courses to xAPI-powered analytics
-                and scalable templates across Storyline, Rise, and H5P.
+              <p className="mt-3 max-w-3xl text-sm text-neutral-700 dark:text-neutral-200">
+                A reusable eLearning design system I created to speed up course builds, improve
+                consistency, and support WCAG-aligned layouts across Storyline, Rise, and H5P. It
+                underpins ISQ’s growing catalogue of professional learning, but is designed to be
+                portable across clients and platforms.
               </p>
               <p className="mt-3 text-xs font-medium uppercase tracking-[0.16em] text-neutral-500 dark:text-neutral-400">
-                Role: Lead eLearning specialist · Design system · Data & xAPI · Video & media
+                Role: System architect · Lead eLearning specialist · Visual design · Governance
               </p>
               <div className="mt-4 text-sm font-medium text-neutral-900/80 group-hover:underline dark:text-white">
                 View project →
+              </div>
+            </div>
+
+            {/* IMAGE SIDE */}
+            <div className="flex w-full items-center justify-center bg-neutral-50 p-4 md:w-[40%] md:p-6 dark:bg-neutral-900/60">
+              <img
+                src="/images/portfolio-elearning-design-system.jpg"
+                alt="Glenn Hammond eLearning Design System overview"
+                className="h-auto w-full max-h-72 object-contain md:max-h-80 transition-transform duration-300 group-hover:scale-[1.01]"
+              />
+            </div>
+          </Link>
+        </Container>
+      </Section>
+
+      {/* CYA + CASA SECTION */}
+      <Section>
+        <Container className="space-y-10 md:space-y-12">
+          <div className="grid gap-6 md:grid-cols-2">
+            {/* CYA – Website (WordPress) */}
+            <Link
+              to="/work/corporate-yoga-australia-website"
+              className="group flex flex-col overflow-hidden rounded-2xl border border-black/5 bg-white/80 shadow-sm backdrop-blur-sm transition hover:-translate-y-1 hover:shadow-md dark:border-white/10 dark:bg-neutral-900/80"
+            >
+              {/* FULL-WIDTH IMAGE */}
+              <div className="relative w-full overflow-hidden">
+                <img
+                  src="/images/work/glenn-hammond-site-assets-website-corporate-yoga-australia.jpg"
+                  alt="Corporate Yoga Australia WordPress website"
+                  className="w-full object-cover transition-transform duration-300 group-hover:scale-[1.02]"
+                />
+              </div>
+
+              {/* TEXT BLOCK */}
+              <div className="flex flex-1 flex-col p-6">
+                <div className="mb-2 text-xs font-semibold uppercase tracking-[0.18em] text-neutral-500 dark:text-neutral-400">
+                  Corporate Yoga Australia
+                </div>
+                <h3 className="text-xl font-semibold leading-snug md:text-2xl">
+                  Corporate Yoga Australia website (WordPress)
+                </h3>
+                <p className="mt-3 text-sm text-neutral-700 dark:text-neutral-200">
+                  Designing and rebuilding the public-facing website for Corporate Yoga Australia –
+                  clarifying the offer, improving mobile usability, and supporting ongoing content, SEO and
+                  campaign work.
+                </p>
+                <p className="mt-3 text-xs font-medium uppercase tracking-[0.16em] text-neutral-500 dark:text-neutral-400">
+                  Role: UX & visual design · WordPress · Ongoing marketing support
+                </p>
+                <div className="mt-4 text-sm font-medium text-neutral-900/80 group-hover:underline dark:text-white">
+                  View project →
+                </div>
+              </div>
+            </Link>
+
+            {/* CYA – Kajabi Online Wellness Courses */}
+            <Link
+              to="/work/corporate-yoga-australia-kajabi"
+              className="group flex flex-col overflow-hidden rounded-2xl border border-black/5 bg-white/80 shadow-sm backdrop-blur-sm transition hover:-translate-y-1 hover:shadow-md dark:border-white/10 dark:bg-neutral-900/80"
+            >
+              {/* FULL-WIDTH IMAGE */}
+              <div className="relative w-full overflow-hidden">
+                <img
+                  src="/images/work/glenn-hammond-site-assets-kajabi-corporate-yoga-australia.jpg"
+                  alt="Corporate Yoga Australia Kajabi online wellness courses"
+                  className="w-full object-cover transition-transform duration-300 group-hover:scale-[1.02]"
+                />
+              </div>
+
+              {/* TEXT BLOCK */}
+              <div className="flex flex-1 flex-col p-6">
+                <div className="mb-2 text-xs font-semibold uppercase tracking-[0.18em] text-neutral-500 dark:text-neutral-400">
+                  Corporate Yoga Australia
+                </div>
+                <h3 className="text-xl font-semibold leading-snug md:text-2xl">
+                  Online wellness courses on Kajabi
+                </h3>
+                <p className="mt-3 text-sm text-neutral-700 dark:text-neutral-200">
+                  Structuring and designing Corporate Yoga Australia’s online wellness courses in Kajabi –
+                  from course architecture and content flow to visuals that align with the wider CYA brand.
+                </p>
+                <p className="mt-3 text-xs font-medium uppercase tracking-[0.16em] text-neutral-500 dark:text-neutral-400">
+                  Role: Learning design · Platform build · Brand & campaign support
+                </p>
+                <div className="mt-4 text-sm font-medium text-neutral-900/80 group-hover:underline dark:text-white">
+                  View project →
+                </div>
               </div>
             </Link>
 
@@ -91,11 +179,11 @@ export default function Work() {
                 Civil Aviation Safety Authority
               </div>
               <h3 className="text-xl font-semibold leading-snug md:text-2xl">
-                CASA Learning Environment for Safer Skies - CLASS
+                CASA Learning Environment for Safer Skies – CLASS
               </h3>
               <p className="mt-3 text-sm text-neutral-700 dark:text-neutral-200">
-                Front-end LMS experience for Aviationworx and CLASS – CASA’s Learning Environment for
-                Safer Skies – including interface design, graphics, and a reusable eLearning template
+                Front-end LMS experience for Aviationworx and CLASS – CASA’s learning environment for
+                safer skies – including interface design, graphics, and a reusable eLearning template
                 system for the internal development team.
               </p>
               <p className="mt-3 text-xs font-medium uppercase tracking-[0.16em] text-neutral-500 dark:text-neutral-400">

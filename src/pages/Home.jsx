@@ -16,9 +16,11 @@ const clients = [
   {
     name: "Independent Schools Queensland",
     src: "/images/logos/logo-independent-schools-queensland.png",
+    className: "scale-110", // subtle size boost
   },
   {
     name: "Torres and Cape Hospital and Health Service",
+    // ensure the filename matches this (including spaces & caps)
     src: "/images/logos/logo-Torres and Cape Hospital and Health Service.png",
   },
   {
@@ -49,7 +51,8 @@ export default function Home() {
 
       {/* HERO */}
       <Section noPadding className="bg-[var(--bg)]">
-<Container className="min-h-[70vh] md:min-h-[72vh] py-8 md:py-10 flex items-center">         <div
+        <Container className="min-h-[60vh] md:min-h-[64vh] py-6 md:py-8 flex items-center">
+          <div
             className="
               w-full
               grid grid-cols-1 md:grid-cols-2
@@ -72,30 +75,39 @@ export default function Home() {
               </p>
 
               {/* CTAs */}
-            <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center sm:gap-4">
-  <Link
-    to="/work"
-    className="w-full sm:w-auto inline-flex items-center justify-center rounded-full px-6 py-3 text-sm font-semibold tracking-tight bg-[var(--accent)] text-white shadow-sm transition hover:-translate-y-[1px]"
-  >
-    View some work
-  </Link>
+              <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center sm:gap-4">
+                <Link
+                  to="/work"
+                  className="w-full sm:w-auto inline-flex items-center justify-center rounded-full px-6 py-3 text-sm font-semibold tracking-tight bg-[var(--accent)] text-white shadow-sm transition hover:-translate-y-[1px]"
+                >
+                  View some work
+                </Link>
 
-  <Link
-    to="/contact"
-    className="w-full sm:w-auto inline-flex items-center justify-center rounded-full px-6 py-3 text-sm font-semibold tracking-tight border border-[var(--accent)] text-[var(--accent)] bg-transparent transition hover:bg-[var(--accent-soft)]"
-  >
-    Get in touch
-  </Link>
-</div>
+                <Link
+                  to="/contact"
+                  className="w-full sm:w-auto inline-flex items-center justify-center rounded-full px-6 py-3 text-sm font-semibold tracking-tight border border-[var(--accent)] text-[var(--accent)] bg-transparent transition hover:bg-[var(--accent-soft)]"
+                >
+                  Get in touch
+                </Link>
+              </div>
             </div>
 
             {/* Right – feature panel with clickable card */}
-            <div className="rounded-3xl border border-[#CFD8EC] bg-[#E8F1FF] p-3 md:p-4 shadow-sm">
+            <div
+              className="
+                relative
+                rounded-[32px]
+                bg-[var(--bg-soft)]
+                border border-black/5 dark:border-white/10
+                shadow-[0_24px_80px_rgba(15,23,42,0.16)]
+                p-4 md:p-5
+              "
+            >
               <Link
                 to="/work/elearning-design-system"
                 className="
-                  group block rounded-2xl border border-black/10
-                  bg-white shadow-sm overflow-hidden
+                  group block rounded-2xl border border-black/5 dark:border-white/10
+                  bg-white dark:bg-[#020617] shadow-sm overflow-hidden
                   hover:-translate-y-[2px] hover:shadow-md transition
                 "
               >
@@ -107,7 +119,7 @@ export default function Home() {
                 />
 
                 {/* Text content */}
-                <div className="p-6">
+                <div className="px-5 py-4">
                   <h3 className="font-heading text-xl md:text-2xl font-semibold text-[var(--text)] mb-2">
                     eLearning Design System
                   </h3>
@@ -115,7 +127,7 @@ export default function Home() {
                     A reusable eLearning design system – templates, components
                     and assets for faster, more consistent builds.
                   </p>
-                  <span className="text-sm font-medium font-heading text-[var(--brand-primary)] group-hover:text-[var(--brand-primary-dark)]">
+                  <span className="text-sm font-heading text-[var(--accent)] group-hover:text-[var(--accent-strong)] inline-flex items-center gap-1">
                     Explore project →
                   </span>
                 </div>
@@ -126,18 +138,20 @@ export default function Home() {
       </Section>
 
       {/* CLIENT LOGOS */}
-      <Section className="-mt-4 md:-mt-6 bg-white">
-        <Container className="pt-6 md:pt-8 fade-in-up">
-          <div className="grid grid-cols-1 gap-y-6 sm:grid-cols-3 sm:gap-x-8 sm:gap-y-8 md:grid-cols-5 md:gap-x-10 md:gap-y-0">
+      <Section className="-mt-8 md:-mt-10 bg-white">
+        <Container className="py-6 md:py-8 fade-in-up">
+          <div className="flex flex-wrap items-center justify-center gap-x-10 gap-y-6">
             {clients.map((client) => (
               <div
                 key={client.name}
-                className="flex h-16 items-center justify-center opacity-70 hover:opacity-100 transition"
+                className="flex items-center justify-center basis-auto"
               >
                 <img
                   src={client.src}
                   alt={client.name}
-                  className="max-h-10 w-auto max-w-[180px] object-contain"
+                  className={`h-8 md:h-9 lg:h-10 opacity-70 object-contain ${
+                    client.className || ""
+                  }`}
                 />
               </div>
             ))}

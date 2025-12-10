@@ -13,27 +13,29 @@
   --font-body: "open-sans", "Open Sans", system-ui, sans-serif;
 
   /* Core colour system */
-  --bg: #f9f5ff;        /* very light lavender, almost white */
+  --bg: #f5f5f3;        /* soft neutral page background */
   --bg-soft: #ffffff;   /* cards, panels */
+  --hero-bg: #f9f5ff;   /* subtle lilac just for hero (optional) */
+
   --text: #0f172a;
   --muted: #6b7280;
   --text-muted: #6b7280;
 
-  /* Brand colours — deep, quality purple */
-  --color-brand-primary: #6d28d9;      /* rich royal purple */
-  --color-brand-accent: #8b5cf6;       /* lighter accent purple */
-  --color-brand-soft: #f3e8ff;         /* soft lilac for hovers/chips */
+  /* Brand colours — magenta / plum */
+  --color-brand-primary: #970067;      /* main brand / buttons */
+  --color-brand-accent: #c01e84;       /* brighter accent */
+  --color-brand-soft: #fde8f4;         /* soft tint for hovers/chips */
 
   /* Short aliases */
   --brand-primary: var(--color-brand-primary);
-  --brand-primary-dark: #5b21b6;       /* slightly deeper for hover */
+  --brand-primary-dark: #6f004c;       /* deeper for hover */
   --brand-primary-soft: var(--color-brand-soft);
 
-  /* Accent aliases used in components */
+  /* Accent aliases used in components (buttons, links, etc.) */
   --accent: var(--color-brand-primary);
-  --accent-strong: #5b21b6;
-  --accent-soft: rgba(109, 40, 217, 0.08);
-  --accent-soft-2: rgba(109, 40, 217, 0.16);
+  --accent-strong: #6f004c;
+  --accent-soft: rgba(151, 0, 103, 0.08);
+  --accent-soft-2: rgba(151, 0, 103, 0.16);
   --accent-warm: var(--color-brand-primary);
 
   --shadow-soft: 0 18px 45px rgba(15, 23, 42, 0.12);
@@ -58,26 +60,28 @@ html.dark {
   /* Core colour system — dark mode */
   --bg: #030712;
   --bg-soft: #020617;
+  --hero-bg: #030712; /* hero same as bg in dark mode */
+
   --text: #e5e7eb;
   --muted: #9ca3af;
   --text-muted: #9ca3af;
 
-  /* Brand colours — purple in dark mode */
-  --color-brand-primary: #a78bfa;      /* light indigo/purple on dark */
-  --color-brand-accent: #c4b5fd;
-  --color-brand-soft: #020617;
+  /* Brand colours — magenta on dark */
+  --color-brand-primary: #f9a8d4;      /* main accent on dark */
+  --color-brand-accent: #fbcfe8;       /* lighter accent */
+  --color-brand-soft: #020617;         /* keep cards dark */
 
   /* Short aliases */
   --brand-primary: var(--color-brand-primary);
-  --brand-primary-dark: #8b5cf6;
-  --brand-primary-soft: rgba(167, 139, 250, 0.18);
+  --brand-primary-dark: #f472b6;       /* deeper for hover */
+  --brand-primary-soft: rgba(249, 168, 212, 0.18);
 
   /* Accent aliases used in components */
   --accent: var(--color-brand-primary);
-  --accent-strong: #8b5cf6;
-  --accent-soft: rgba(139, 92, 246, 0.2);
-  --accent-soft-2: rgba(139, 92, 246, 0.3);
-  --accent-warm: #a78bfa;
+  --accent-strong: #f472b6;
+  --accent-soft: rgba(249, 168, 212, 0.2);
+  --accent-soft-2: rgba(249, 168, 212, 0.3);
+  --accent-warm: var(--color-brand-primary);
 
   --shadow-soft: 0 22px 55px rgba(0, 0, 0, 0.45);
 
