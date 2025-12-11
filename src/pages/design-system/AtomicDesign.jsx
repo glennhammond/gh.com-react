@@ -33,7 +33,7 @@ export default function AtomicDesign() {
                   { label: "Atomic Design" },
                 ]}
                 title="Atomic design in the eLearning system"
-                intro="The eLearning Design System is structured using atomic design principles. That means every screen in Storyline, Rise, and H5P is built from a small, reusable set of foundations and components."
+                lead="The eLearning Design System is structured using atomic design principles. That means every screen in Storyline, Rise, and H5P is built from a small, reusable set of foundations and components."
               />
             </div>
 
@@ -194,11 +194,9 @@ function ReasonBlock({ title, items }) {
   return (
     <div className="rounded-3xl border border-black/10 dark:border-white/10 bg-[var(--bg)]/95 p-6 space-y-3">
       <h3 className="font-heading text-lg text-[var(--text)]">{title}</h3>
-      <ul className="space-y-2 text-sm text-[var(--text)]/75">
+      <ul className="list-disc space-y-2 text-sm text-[var(--text)]/75">
         {items.map((item, idx) => (
-          <li key={idx} className="list-disc list-inside">
-            {item}
-          </li>
+          <li key={idx}>{item}</li>
         ))}
       </ul>
     </div>
@@ -217,11 +215,9 @@ function LevelBlock({ level, summary, examples }) {
         </p>
       </div>
       <p className="text-sm text-[var(--text)]/75">{summary}</p>
-      <ul className="space-y-2 text-sm text-[var(--text)]/75">
+      <ul className="list-disc space-y-2 text-sm text-[var(--text)]/75">
         {examples.map((item, idx) => (
-          <li key={idx} className="list-disc list-inside">
-            {item}
-          </li>
+          <li key={idx}>{item}</li>
         ))}
       </ul>
     </div>
@@ -232,11 +228,9 @@ function DetailBlock({ title, items }) {
   return (
     <div className="rounded-3xl border border-black/10 dark:border-white/10 bg-[var(--bg)]/95 p-6 space-y-3">
       <h3 className="font-heading text-lg text-[var(--text)]">{title}</h3>
-      <ul className="space-y-2 text-sm text-[var(--text)]/75">
+      <ul className="list-disc space-y-2 text-sm text-[var(--text)]/75">
         {items.map((item, idx) => (
-          <li key={idx} className="list-disc list-inside">
-            {item}
-          </li>
+          <li key={idx}>{item}</li>
         ))}
       </ul>
     </div>

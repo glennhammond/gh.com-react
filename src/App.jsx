@@ -16,7 +16,9 @@ import About from "./pages/About.jsx";
 import Services from "./pages/Services.jsx";
 import Contact from "./pages/Contact.jsx";
 import ContactSuccess from "./pages/ContactSuccess.jsx";
-import ElearningDesignSystemOverview from "./pages/ElearningDesignSystemOverview";
+
+import ElearningDesignSystemOverview from "./pages/ElearningDesignSystemOverview.jsx";
+import CorporateYogaAustraliaWebsite from "./pages/work/CorporateYogaAustraliaWebsite.jsx";
 
 // Design system sub-pages
 import Colours from "./pages/design-system/Colours.jsx";
@@ -51,6 +53,12 @@ export default function App() {
 
           {/* Work + projects */}
           <Route path="/work" element={<Work />} />
+
+          {/* Specific work case study pages */}
+          <Route
+            path="/work/corporate-yoga-australia-website"
+            element={<CorporateYogaAustraliaWebsite />}
+          />
 
           {/* eLearning Design System sub-pages */}
           <Route

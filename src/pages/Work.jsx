@@ -149,48 +149,72 @@ export default function Work() {
             {/* CASA – Flight Examiner Rating Course */}
             <Link
               to="/work/casa-flight-examiner-rating"
-              className="group flex flex-col overflow-hidden rounded-2xl border border-black/5 bg-white/80 p-6 shadow-sm backdrop-blur-sm transition hover:-translate-y-1 hover:shadow-md dark:border-white/10 dark:bg-neutral-900/80"
+              className="group flex flex-col overflow-hidden rounded-2xl border border-black/5 bg-white/80 shadow-sm backdrop-blur-sm transition hover:-translate-y-1 hover:shadow-md dark:border-white/10 dark:bg-neutral-900/80"
             >
-              <div className="mb-4 text-xs font-semibold uppercase tracking-[0.18em] text-neutral-500 dark:text-neutral-400">
-                Civil Aviation Safety Authority
+              {/* FULL-WIDTH IMAGE */}
+              <div className="relative w-full overflow-hidden">
+                <img
+                  src="/images/work/glenn-hammond-site-assets-casa-course-cover.jpg"
+                  alt="Civil Aviation Safety Authority Flight Examiner Rating course"
+                  className="w-full object-cover transition-transform duration-300 group-hover:scale-[1.02]"
+                />
               </div>
-              <h3 className="text-xl font-semibold leading-snug md:text-2xl">
-                Flight Examiner Rating Course
-              </h3>
-              <p className="mt-3 text-sm text-neutral-700 dark:text-neutral-200">
-                Designing and building the learning experience that supports flight examiners working at
-                the pinnacle of Australian aviation – aligning regulatory rigour with clear, usable digital
-                learning.
-              </p>
-              <p className="mt-3 text-xs font-medium uppercase tracking-[0.16em] text-neutral-500 dark:text-neutral-400">
-                Role: Learning experience designer · Visual design · Video · Template lead
-              </p>
-              <div className="mt-4 text-sm font-medium text-neutral-900/80 group-hover:underline dark:text-white">
-                View project →
+
+              {/* TEXT BLOCK */}
+              <div className="flex flex-1 flex-col p-6">
+                <div className="mb-2 text-xs font-semibold uppercase tracking-[0.18em] text-neutral-500 dark:text-neutral-400">
+                  Civil Aviation Safety Authority
+                </div>
+                <h3 className="text-xl font-semibold leading-snug md:text-2xl">
+                  Flight Examiner Rating Course
+                </h3>
+                <p className="mt-3 text-sm text-neutral-700 dark:text-neutral-200">
+                  Designing and building the learning experience that supports flight examiners working at
+                  the pinnacle of Australian aviation – aligning regulatory rigour with clear, usable digital
+                  learning.
+                </p>
+                <p className="mt-3 text-xs font-medium uppercase tracking-[0.16em] text-neutral-500 dark:text-neutral-400">
+                  Role: Learning experience designer · Visual design · Video · Template lead
+                </p>
+                <div className="mt-4 text-sm font-medium text-neutral-900/80 group-hover:underline dark:text-white">
+                  View project →
+                </div>
               </div>
             </Link>
 
             {/* CASA – CLASS */}
             <Link
               to="/work/casa-aviationworx-class"
-              className="group flex flex-col overflow-hidden rounded-2xl border border-black/5 bg-white/80 p-6 shadow-sm backdrop-blur-sm transition hover:-translate-y-1 hover:shadow-md dark:border-white/10 dark:bg-neutral-900/80"
+              className="group flex flex-col overflow-hidden rounded-2xl border border-black/5 bg-white/80 shadow-sm backdrop-blur-sm transition hover:-translate-y-1 hover:shadow-md dark:border-white/10 dark:bg-neutral-900/80"
             >
-              <div className="mb-4 text-xs font-semibold uppercase tracking-[0.18em] text-neutral-500 dark:text-neutral-400">
-                Civil Aviation Safety Authority
+              {/* FULL-WIDTH IMAGE */}
+              <div className="relative w-full overflow-hidden">
+                <img
+                  src="/images/work/glenn-hammond-site-assets-casa-class-lms-design-and-development.jpg"
+                  alt="CASA CLASS learning management system front-end design"
+                  className="w-full object-cover transition-transform duration-300 group-hover:scale-[1.02]"
+                />
               </div>
-              <h3 className="text-xl font-semibold leading-snug md:text-2xl">
-                CASA Learning Environment for Safer Skies – CLASS
-              </h3>
-              <p className="mt-3 text-sm text-neutral-700 dark:text-neutral-200">
-                Front-end LMS experience for Aviationworx and CLASS – CASA’s learning environment for
-                safer skies – including interface design, graphics, and a reusable eLearning template
-                system for the internal development team.
-              </p>
-              <p className="mt-3 text-xs font-medium uppercase tracking-[0.16em] text-neutral-500 dark:text-neutral-400">
-                Role: Product design · UX · Visual system · Video & interviews
-              </p>
-              <div className="mt-4 text-sm font-medium text-neutral-900/80 group-hover:underline dark:text-white">
-                View project →
+
+              {/* TEXT BLOCK */}
+              <div className="flex flex-1 flex-col p-6">
+                <div className="mb-2 text-xs font-semibold uppercase tracking-[0.18em] text-neutral-500 dark:text-neutral-400">
+                  Civil Aviation Safety Authority
+                </div>
+                <h3 className="text-xl font-semibold leading-snug md:text-2xl">
+                  CASA Learning Environment for Safer Skies – CLASS
+                </h3>
+                <p className="mt-3 text-sm text-neutral-700 dark:text-neutral-200">
+                  Front-end LMS experience for Aviationworx and CLASS – CASA’s learning environment for
+                  safer skies – including interface design, graphics, and a reusable eLearning template
+                  system for the internal development team.
+                </p>
+                <p className="mt-3 text-xs font-medium uppercase tracking-[0.16em] text-neutral-500 dark:text-neutral-400">
+                  Role: Product design · UX · Visual system · Video & interviews
+                </p>
+                <div className="mt-4 text-sm font-medium text-neutral-900/80 group-hover:underline dark:text-white">
+                  View project →
+                </div>
               </div>
             </Link>
           </div>

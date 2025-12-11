@@ -296,7 +296,7 @@ function ComponentGroup({ title, items }) {
       <h3 className="font-heading text-lg text-[var(--text)]">{title}</h3>
       <ul className="space-y-1.5 text-sm text-[var(--text)]/75">
         {items.map((item, idx) => (
-          <li key={idx}>• {item}</li>
+          <li key={idx}>{item}</li>
         ))}
       </ul>
     </div>
