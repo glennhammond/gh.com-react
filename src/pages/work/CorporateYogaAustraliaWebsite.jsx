@@ -66,7 +66,7 @@ export default function CorporateYogaAustraliaWebsite() {
                 <p>
                   All images on this page are using placeholder files under{" "}
                   <code className="font-mono text-[0.7rem] bg-black/5 dark:bg-white/10 px-1.5 py-0.5 rounded">
-                    /public/images/work/cya-website-*.jpg
+                    /public/images/work/glenn-hammond-site-assets-corporate-yoga-australia.webp
                   </code>{" "}
                   — update them as soon as your final screenshots are ready.
                 </p>

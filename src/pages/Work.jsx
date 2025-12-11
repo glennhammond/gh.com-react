@@ -16,17 +16,47 @@ export default function Work() {
         description="Selected work spanning aviation, education, and experimental eLearning prototypes."
       />
 
-      {/* PAGE INTRO */}
-      <Section className="pb-4 md:pb-6">
+      {/* PAGE INTRO / HERO */}
+      <Section className="pb-8 md:pb-10">
         <Container>
-          <PageIntro
-            breadcrumb={[
-              { label: "Home", href: "/" },
-              { label: "Work" },
-            ]}
-            title="Work"
-            intro="A selection of projects across aviation, education, health and business – leading national programmes and making prototypes to spark conversations."
-          />
+          <div className="grid gap-8 lg:grid-cols-[minmax(0,1.6fr)_minmax(0,1fr)] items-center">
+            {/* LEFT: Intro copy */}
+            <div className="space-y-5">
+              <PageIntro
+                breadcrumb={[
+                  { label: "Home", href: "/" },
+                  { label: "Work" },
+                ]}
+                eyebrow="Selected work"
+                title="Designing modern learning for complex environments"
+                lead="A mix of design systems, flagship courses, and playful prototypes built for regulators, school networks, and workplace wellbeing. This is the work that has shaped how I think about learning design."
+              />
+
+              {/* Sectors / focus chips */}
+              <div className="flex flex-wrap gap-2 pt-1">
+                <span className="inline-flex items-center rounded-full border border-black/10 dark:border-white/15 bg-[var(--bg-soft)] px-3 py-1 text-xs font-medium tracking-[0.12em] uppercase text-[var(--text)]/70">
+                  Aviation & safety
+                </span>
+                <span className="inline-flex items-center rounded-full border border-black/10 dark:border-white/15 bg-[var(--bg-soft)] px-3 py-1 text-xs font-medium tracking-[0.12em] uppercase text-[var(--text)]/70">
+                  K–12 & professional learning
+                </span>
+                <span className="inline-flex items-center rounded-full border border-black/10 dark:border-white/15 bg-[var(--bg-soft)] px-3 py-1 text-xs font-medium tracking-[0.12em] uppercase text-[var(--text)]/70">
+                  Workplace wellbeing
+                </span>
+              </div>
+            </div>
+
+            {/* RIGHT: Simple visual / case-study preview */}
+            <div className="hidden lg:block">
+              <div className="rounded-3xl border border-black/10 dark:border-white/10 bg-[var(--bg-soft)] overflow-hidden shadow-sm">
+                <img
+                  src="/images/work/glenn-hammond-site-assets-elearning-design-system-grid.jpg"
+                  alt="Preview of eLearning Design System tiles"
+                  className="h-full w-full object-cover"
+                />
+              </div>
+            </div>
+          </div>
         </Container>
       </Section>
 
@@ -83,7 +113,7 @@ export default function Work() {
               {/* FULL-WIDTH IMAGE */}
               <div className="relative w-full overflow-hidden">
                 <img
-                  src="/images/work/glenn-hammond-site-assets-website-corporate-yoga-australia.jpg"
+                  src="/images/work/glenn-hammond-site-assets-website-corporate-yoga-australia.webp"
                   alt="Corporate Yoga Australia WordPress website"
                   className="w-full object-cover transition-transform duration-300 group-hover:scale-[1.02]"
                 />

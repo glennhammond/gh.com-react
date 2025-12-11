@@ -32,7 +32,7 @@ export default function Typography() {
                   { label: "Typography" },
                 ]}
                 title="Typography"
-                intro="A simple, robust type system built around Century Gothic and Open Sans. It keeps course content readable, on brand, and accessible across all platforms."
+                lead="A simple, robust type system built around Century Gothic and Open Sans. It keeps course content readable, on brand, and accessible across all platforms."
               />
             </div>
 
@@ -179,9 +179,7 @@ function TypeCard({ label, font, usage }) {
       <p className="font-heading text-lg text-[var(--text)]">{font}</p>
       <ul className="space-y-2 text-sm text-[var(--text)]/75">
         {usage.map((item, idx) => (
-          <li key={idx} className="list-disc list-inside">
-            {item}
-          </li>
+          <li key={idx}>{item}</li>
         ))}
       </ul>
     </div>
@@ -194,9 +192,7 @@ function DetailBlock({ title, items }) {
       <h3 className="font-heading text-lg text-[var(--text)]">{title}</h3>
       <ul className="space-y-2 text-sm text-[var(--text)]/75">
         {items.map((item, idx) => (
-          <li key={idx} className="list-disc list-inside">
-            {item}
-          </li>
+          <li key={idx}>{item}</li>
         ))}
       </ul>
     </div>
