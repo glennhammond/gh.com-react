@@ -66,30 +66,70 @@ export default function Home() {
               <p className="text-xs md:text-sm font-semibold tracking-[0.2em] uppercase text-[var(--text-muted)] mb-3">
                 🏆 Award-winning eLearning
               </p>
-              <h1 className="font-heading text-5xl md:text-6xl leading-tight text-[var(--text)] font-semibold">
-                Better Learning by Design
-              </h1>
+<h1
+  className="
+    font-heading 
+    text-5xl md:text-6xl 
+    leading-tight 
+    tracking-[-0.02em] md:tracking-[-0.03em]
+    text-[var(--brand-primary)]
+  "
+>
+  Better Learning by Design
+</h1>
               <p className="text-[var(--text)]/75 max-w-md leading-relaxed">
                 I design digital learning experiences. Instructional design,
                 eLearning production and learning analytics.
               </p>
 
               {/* CTAs */}
-              <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center sm:gap-4">
-                <Link
-                  to="/work"
-                  className="w-full sm:w-auto inline-flex items-center justify-center rounded-full px-6 py-3 text-sm font-semibold tracking-tight bg-[var(--accent)] text-white shadow-sm transition hover:-translate-y-[1px]"
-                >
-                  View some work
-                </Link>
+   <div className="mt-8 flex flex-wrap gap-4">
+  {/* Primary – solid magenta */}
+  <Link
+    to="/work"
+    className="
+      inline-flex items-center justify-center
+      px-10 md:px-12
+      py-3.5 md:py-4
+      min-w-[210px]
+      text-sm md:text-base font-semibold
+      rounded-xl
+      bg-[var(--brand-primary)]
+      text-white
+      shadow-sm
+      hover:bg-[#7b0053]
+      focus-visible:outline-none
+      focus-visible:ring-2
+      focus-visible:ring-offset-2
+      focus-visible:ring-[var(--brand-primary)]
+    "
+  >
+    View some work
+  </Link>
 
-                <Link
-                  to="/contact"
-                  className="w-full sm:w-auto inline-flex items-center justify-center rounded-full px-6 py-3 text-sm font-semibold tracking-tight border border-[var(--accent)] text-[var(--accent)] bg-transparent transition hover:bg-[var(--accent-soft)]"
-                >
-                  Get in touch
-                </Link>
-              </div>
+  {/* Secondary – magenta outline */}
+  <Link
+    to="/contact"
+    className="
+      inline-flex items-center justify-center
+      px-10 md:px-12
+      py-3.5 md:py-4
+      min-w-[210px]
+      text-sm md:text-base font-semibold
+      rounded-xl
+      border border-[var(--brand-primary)]
+      text-[var(--brand-primary)]
+      bg-white
+      hover:bg-[#fdf4fb]
+      focus-visible:outline-none
+      focus-visible:ring-2
+      focus-visible:ring-offset-2
+      focus-visible:ring-[var(--brand-primary)]
+    "
+  >
+    Get in touch
+  </Link>
+</div>
             </div>
 
             {/* Right – feature panel with clickable card */}
