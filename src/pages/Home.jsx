@@ -89,7 +89,7 @@ export default function Home() {
                   className="
                     font-heading
                     inline-flex items-center justify-center
-                    w-full sm:w-auto
+                    w-full sm:w-[260px] md:w-[280px]
                     px-12 md:px-16
                     py-4 md:py-5
                     min-w-[240px]
@@ -114,7 +114,7 @@ export default function Home() {
                   className="
                     font-heading
                     inline-flex items-center justify-center
-                    w-full sm:w-auto
+                    w-full sm:w-[260px] md:w-[280px]
                     px-12 md:px-16
                     py-4 md:py-5
                     min-w-[240px]
