@@ -32,7 +32,8 @@ function Stat({ value, label }) {
 export default function FlightExaminerRatingCourse() {
   const project = {
     title: "CASA - Flight Examiner Rating Course",
-    subtitle: "End-to-end learning design and build for a high-stakes aviation assessment programme.",
+    subtitle:
+      "End-to-end learning design and build for a high-stakes aviation assessment programme.",
     breadcrumb: [
       { label: "Home", href: "/" },
       { label: "Work", href: "/work" },
@@ -51,15 +52,29 @@ export default function FlightExaminerRatingCourse() {
       "Designed for consistency, accessibility, and maintainability",
     ],
     brief: {
-      problem: "Deliver a high-trust digital learning experience that supports assessment readiness and consistent delivery.",
+      problem:
+        "Deliver a high-trust digital learning experience that supports assessment readiness and consistent delivery.",
       audience: "Aviation professionals (flight examiners and candidates).",
-      constraints: "High accuracy, clean UX, stakeholder review cycles, and reliable LMS behaviour.",
+      constraints:
+        "High accuracy, clean UX, stakeholder review cycles, and reliable LMS behaviour.",
     },
     approach: [
-      { title: "Discover", text: "Clarified outcomes, assessment requirements, and constraints." },
-      { title: "Design", text: "Mapped structure, UI patterns, and screen behaviours." },
-      { title: "Build", text: "Produced screens, interactions, and media-ready assets." },
-      { title: "Iterate", text: "Refined based on reviews and implementation feedback." },
+      {
+        title: "Discover",
+        text: "Clarified outcomes, assessment requirements, and constraints.",
+      },
+      {
+        title: "Design",
+        text: "Mapped structure, UI patterns, and screen behaviours.",
+      },
+      {
+        title: "Build",
+        text: "Produced screens, interactions, and media-ready assets.",
+      },
+      {
+        title: "Iterate",
+        text: "Refined based on reviews and implementation feedback.",
+      },
     ],
     results: [
       { value: "Template", label: "Reusable UI system for consistent delivery" },
@@ -88,16 +103,26 @@ export default function FlightExaminerRatingCourse() {
 
   return (
     <PageWrapper>
-      <SEO title={`${project.title} - Work - Glenn Hammond`} description={project.subtitle} />
+      <SEO
+        title={`${project.title} - Work - Glenn Hammond`}
+        description={project.subtitle}
+      />
 
+      {/* HERO */}
       <Section className="pt-10 md:pt-14 pb-6 md:pb-10">
         <Container>
           <div className="grid gap-10 md:grid-cols-[minmax(0,1.6fr)_minmax(0,1fr)] items-start">
             <div className="space-y-10">
-              <PageIntro breadcrumb={project.breadcrumb} title={project.title} subtitle={project.subtitle} />
+              <PageIntro
+                breadcrumb={project.breadcrumb}
+                title={project.title}
+                subtitle={project.subtitle}
+              />
 
               <div className="rounded-2xl border border-black/10 dark:border-white/10 bg-white/70 dark:bg-white/5 p-6">
-                <h2 className="font-heading text-xl text-[var(--brand-primary)]">Highlights</h2>
+                <h2 className="font-heading text-xl text-[var(--brand-primary)]">
+                  Highlights
+                </h2>
                 <ul className="mt-4 space-y-2 text-slate-700 dark:text-slate-300">
                   {project.highlights.map((h) => (
                     <li key={h}>{h}</li>
@@ -170,46 +195,87 @@ export default function FlightExaminerRatingCourse() {
         </Container>
       </Section>
 
+      {/* BRIEF */}
       <Section className="py-10">
         <Container>
           <div className="grid gap-6 md:grid-cols-3">
             <div className="rounded-2xl border border-black/10 dark:border-white/10 bg-white/70 dark:bg-white/5 p-6">
-              <h3 className="font-heading text-lg text-[var(--brand-primary)]">The brief</h3>
-              <p className="mt-3 text-slate-700 dark:text-slate-300">{project.brief.problem}</p>
+              <h3 className="font-heading text-lg text-[var(--brand-primary)]">
+                The brief
+              </h3>
+              <p className="mt-3 text-slate-700 dark:text-slate-300">
+                {project.brief.problem}
+              </p>
             </div>
             <div className="rounded-2xl border border-black/10 dark:border-white/10 bg-white/70 dark:bg-white/5 p-6">
-              <h3 className="font-heading text-lg text-[var(--brand-primary)]">Audience</h3>
-              <p className="mt-3 text-slate-700 dark:text-slate-300">{project.brief.audience}</p>
+              <h3 className="font-heading text-lg text-[var(--brand-primary)]">
+                Audience
+              </h3>
+              <p className="mt-3 text-slate-700 dark:text-slate-300">
+                {project.brief.audience}
+              </p>
             </div>
             <div className="rounded-2xl border border-black/10 dark:border-white/10 bg-white/70 dark:bg-white/5 p-6">
-              <h3 className="font-heading text-lg text-[var(--brand-primary)]">Constraints</h3>
-              <p className="mt-3 text-slate-700 dark:text-slate-300">{project.brief.constraints}</p>
+              <h3 className="font-heading text-lg text-[var(--brand-primary)]">
+                Constraints
+              </h3>
+              <p className="mt-3 text-slate-700 dark:text-slate-300">
+                {project.brief.constraints}
+              </p>
             </div>
           </div>
         </Container>
       </Section>
 
+      {/* APPROACH */}
       <Section className="py-10">
         <Container>
-          <h2 className="font-heading text-2xl text-[var(--brand-primary)]">Approach</h2>
+          <h2 className="font-heading text-2xl text-[var(--brand-primary)]">
+            Approach
+          </h2>
           <div className="mt-6 grid gap-4 md:grid-cols-2">
             {project.approach.map((a) => (
-              <div key={a.title} className="rounded-2xl border border-black/10 dark:border-white/10 bg-white/70 dark:bg-white/5 p-6">
-                <h3 className="font-heading text-lg text-slate-900 dark:text-white">{a.title}</h3>
-                <p className="mt-2 text-slate-700 dark:text-slate-300">{a.text}</p>
+              <div
+                key={a.title}
+                className="rounded-2xl border border-black/10 dark:border-white/10 bg-white/70 dark:bg-white/5 p-6"
+              >
+                <h3 className="font-heading text-lg text-slate-900 dark:text-white">
+                  {a.title}
+                </h3>
+                <p className="mt-2 text-slate-700 dark:text-slate-300">
+                  {a.text}
+                </p>
               </div>
             ))}
           </div>
         </Container>
       </Section>
 
+      {/* RESULTS */}
       <Section className="py-10">
         <Container>
-          <h2 className="font-heading text-2xl text-[var(--brand-primary)]">Results</h2>
+          <h2 className="font-heading text-2xl text-[var(--brand-primary)]">
+            Results
+          </h2>
           <div className="mt-6 grid gap-4 md:grid-cols-3">
             {project.results.map((r) => (
               <Stat key={r.label} value={r.value} label={r.label} />
             ))}
+          </div>
+
+          <div className="mt-10 flex items-center justify-between">
+            <Link
+              to="/work"
+              className="text-sm hover:text-[var(--brand-primary)] transition-colors"
+            >
+              ← Back to Work
+            </Link>
+            <Link
+              to={project.next.href}
+              className="text-sm hover:text-[var(--brand-primary)] transition-colors"
+            >
+              {project.next.label} →
+            </Link>
           </div>
         </Container>
       </Section>

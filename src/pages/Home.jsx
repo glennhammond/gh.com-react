@@ -75,7 +75,7 @@ export default function Home() {
     font-heading
     font-semibold
     text-[2.75rem] md:text-[3.5rem]
-    leading-[0.94] md:leading-[0.97]
+    leading-[0.94]
     tracking-[-0.03em] md:tracking-[-0.035em]
     text-[var(--brand-primary)]
   "
@@ -89,7 +89,7 @@ export default function Home() {
                   Instructional design and eLearning/media development - with xAPI and learning analytics.
                 </p>
                 <p className="text-[var(--text)]/75 max-w-md leading-relaxed">
-                  I build modern, high-quality eLearning with strong UX, reusable systems, and media production when needed.
+                  I build modern, high-quality eLearning with strong UX, reusable systems, and media production.
                 </p>
               </div>
 

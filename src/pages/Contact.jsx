@@ -81,9 +81,10 @@ export default function Contact() {
             <div className="space-y-6">
               {/* Removed Contact details heading */}
 
-              <p className="text-[var(--text)]/70 leading-relaxed">
-                Based in Brisbane. Work everywhere
-              </p>
+          <p className="text-[var(--text)]/70 leading-relaxed">
+  Based in Brisbane.<br />
+  Work everywhere.
+</p>
 
               <div className="space-y-2">
                 {/* Removed Email label */}
