@@ -61,7 +61,7 @@ export default function Home() {
             "
           >
             {/* Left */}
-            <div className="space-y-8 flex flex-col min-h-[70svh] md:min-h-0">
+            <div className="space-y-7 flex flex-col min-h-[calc(100svh-7rem)] md:min-h-0">
               <p className="text-xs md:text-sm font-bold tracking-[0.2em] uppercase text-[var(--text-muted)] mb-3">
                 🏆 Award-winning eLearning
               </p>
@@ -80,15 +80,17 @@ export default function Home() {
   <span className="block">by Design</span>
 </h1>
 
-              <p className="text-[var(--text)]/75 max-w-md leading-relaxed">
-                Instructional design, eLearning/media production and learning analytics.
-              </p>
-              <p className="text-[var(--text)]/75 max-w-md leading-relaxed">
-                I specialise in Storyline builds, clean UI systems, and practical learning analytics (SCORM/xAPI) - with video production when it helps the story land.
-              </p>
+              <div className="space-y-5">
+                <p className="text-[var(--text)]/75 max-w-md leading-relaxed">
+                  Instructional design, eLearning/media production, xAPI and learning analytics.
+                </p>
+                <p className="text-[var(--text)]/75 max-w-md leading-relaxed">
+                  I specialise in Storyline builds, clean UI systems, and practical learning analytics (SCORM/xAPI) - with video production when it helps the story land.
+                </p>
+              </div>
 
               {/* CTAs */}
-              <div className="mt-auto pt-8 pb-6 md:pb-0 flex flex-col items-start gap-4 sm:gap-5">
+              <div className="mt-auto pt-7 pb-6 md:pt-6 md:pb-0 flex flex-col items-start gap-3 sm:gap-4">
                 {/* Primary - solid magenta */}
                 <Link
                   to="/work"
@@ -97,7 +99,7 @@ export default function Home() {
                     inline-flex items-center justify-center
                     w-full sm:w-[420px]
                     px-12 md:px-16
-                    py-4 md:py-5
+                    py-4 md:py-4
                     text-base md:text-lg font-semibold
                     rounded-2xl
                     bg-[var(--brand-primary)]
@@ -121,7 +123,7 @@ export default function Home() {
                     inline-flex items-center justify-center
                     w-full sm:w-[420px]
                     px-12 md:px-16
-                    py-4 md:py-5
+                    py-4 md:py-4
                     text-base md:text-lg font-semibold
                     rounded-2xl
                     border border-[var(--brand-primary)]
@@ -138,43 +140,19 @@ export default function Home() {
                 </Link>
               </div>
 
-              {/* Mobile: eLearning Design System card */}
-              <Link
-                to="/work/elearning-design-system"
-                className="md:hidden mt-6 w-full rounded-3xl border border-black/10 dark:border-white/10 bg-white/90 dark:bg-white/5 overflow-hidden shadow-sm"
-              >
-                <img
-                  src="/images/portfolio-elearning-design-system.jpg"
-                  alt="eLearning Design System preview"
-                  className="w-full h-auto block"
-                />
-                <div className="p-5">
-                  <p className="text-xs font-bold tracking-[0.18em] uppercase text-[var(--text-muted)]">
-                    Featured
-                  </p>
-                  <h3 className="mt-2 font-heading text-xl font-semibold text-[var(--text)]">
-                    eLearning Design System
-                  </h3>
-                  <p className="mt-2 text-sm text-[var(--text)]/70">
-                    Templates, components and assets for faster, more consistent builds.
-                  </p>
-                  <span className="mt-3 inline-flex text-sm font-heading text-[var(--brand-primary)]">
-                    Explore project →
-                  </span>
-                </div>
-              </Link>
             </div>
 
             {/* Right - feature panel with clickable card */}
             <div
               className="
                 hidden md:block
+                md:mt-6
                 relative
                 rounded-[32px]
                 bg-[var(--bg-soft)]
                 border border-black/5 dark:border-white/10
                 shadow-[0_24px_80px_rgba(15,23,42,0.16)]
-                p-4 md:p-5
+                p-3 md:p-4
               "
             >
               <Link
@@ -206,8 +184,43 @@ export default function Home() {
                   </span>
                 </div>
               </Link>
+              <div className="mt-5 px-5">
+                <p className="text-sm text-[var(--text)]/70 leading-relaxed">
+                  Built to speed up production and keep quality consistent - UI patterns, templates, and ready-to-use assets.
+                </p>
+              </div>
             </div>
           </div>
+        </Container>
+      </Section>
+
+      {/* Mobile: eLearning Design System card (below hero CTAs) */}
+      <Section noPadding className="bg-[var(--bg)] md:hidden">
+        <Container className="pt-4 pb-10">
+          <Link
+            to="/work/elearning-design-system"
+            className="w-full rounded-3xl border border-black/10 dark:border-white/10 bg-white/90 dark:bg-white/5 overflow-hidden shadow-sm"
+          >
+            <img
+              src="/images/portfolio-elearning-design-system.jpg"
+              alt="eLearning Design System preview"
+              className="w-full h-auto block"
+            />
+            <div className="p-5">
+              <p className="text-xs font-bold tracking-[0.18em] uppercase text-[var(--text-muted)]">
+                Featured
+              </p>
+              <h3 className="mt-2 font-heading text-xl font-semibold text-[var(--text)]">
+                eLearning Design System
+              </h3>
+              <p className="mt-2 text-sm text-[var(--text)]/70">
+                Templates, components and assets for faster, more consistent builds.
+              </p>
+              <span className="mt-3 inline-flex text-sm font-heading text-[var(--brand-primary)]">
+                Explore project →
+              </span>
+            </div>
+          </Link>
         </Container>
       </Section>
 
