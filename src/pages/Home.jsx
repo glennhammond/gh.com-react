@@ -51,7 +51,7 @@ export default function Home() {
 
       {/* HERO */}
       <Section noPadding className="bg-[var(--bg)]">
-        <Container className="min-h-[72vh] md:min-h-[76vh] pt-12 pb-16 md:pt-16 md:pb-24 flex items-start md:items-center">
+        <Container className="min-h-[calc(100svh-5rem)] md:min-h-[76vh] pt-12 pb-16 md:pt-16 md:pb-24 flex items-start md:items-center">
           <div
             className="
               w-full
@@ -62,16 +62,20 @@ export default function Home() {
           >
             {/* Left */}
             <div className="space-y-7 flex flex-col min-h-[calc(100svh-7rem)] md:min-h-0">
-              <p className="text-xs md:text-sm font-bold tracking-[0.2em] uppercase text-[var(--text-muted)] mb-3">
-                🏆 Award-winning eLearning
-              </p>
+              <div className="w-full sm:w-[420px] flex items-center gap-3 mb-4">
+                <span aria-hidden="true">🏆</span>
+                <span className="text-sm font-semibold tracking-[0.18em] uppercase text-[var(--text-muted)] whitespace-nowrap">
+                  Award-winning eLearning
+                </span>
+                <span className="h-px flex-1 bg-black/10 dark:bg-white/10" />
+              </div>
 
            <h1
   className="
     font-heading
     font-semibold
     text-[2.75rem] md:text-[3.5rem]
-    leading-tight
+    leading-[0.94] md:leading-[0.97]
     tracking-[-0.03em] md:tracking-[-0.035em]
     text-[var(--brand-primary)]
   "
@@ -82,15 +86,15 @@ export default function Home() {
 
               <div className="space-y-5">
                 <p className="text-[var(--text)]/75 max-w-md leading-relaxed">
-                  Instructional design, eLearning/media production, xAPI and learning analytics.
+                  Instructional design and Storyline development - with xAPI and learning analytics.
                 </p>
                 <p className="text-[var(--text)]/75 max-w-md leading-relaxed">
-                  I specialise in Storyline builds, clean UI systems, and practical learning analytics (SCORM/xAPI) - with video production when it helps the story land.
+                  I build modern, high-quality eLearning with strong UX, reusable systems, and media production when needed.
                 </p>
               </div>
 
               {/* CTAs */}
-              <div className="mt-auto pt-7 pb-6 md:pt-6 md:pb-0 flex flex-col items-start gap-3 sm:gap-4">
+              <div className="mt-auto pt-7 pb-6 md:pt-6 md:pb-0 w-full sm:w-[420px] flex flex-col items-stretch gap-3 sm:gap-4">
                 {/* Primary - solid magenta */}
                 <Link
                   to="/work"
@@ -194,9 +198,9 @@ export default function Home() {
         </Container>
       </Section>
 
-      {/* Mobile: eLearning Design System card (below hero CTAs) */}
-      <Section noPadding className="bg-[var(--bg)] md:hidden">
-        <Container className="pt-4 pb-10">
+      {/* Mobile: eLearning Design System card (below hero) */}
+      <Section className="bg-[var(--bg)] md:hidden">
+        <Container className="pt-6 pb-10">
           <Link
             to="/work/elearning-design-system"
             className="w-full rounded-3xl border border-black/10 dark:border-white/10 bg-white/90 dark:bg-white/5 overflow-hidden shadow-sm"

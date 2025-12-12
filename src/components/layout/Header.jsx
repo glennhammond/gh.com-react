@@ -27,21 +27,18 @@ export default function Header() {
       {/* MAIN BAR (aligned to site container) */}
       <div className="container flex items-center justify-between py-4">
         {/* LEFT: Logo / Branding */}
-        <Link
-          to="/"
-          className="flex items-center gap-3 group ml-2 md:ml-4"
-        >
+        <Link to="/" className="flex items-center gap-3 group ml-2 md:ml-4">
           {/* Light-mode logo (dark text) */}
           <img
             src="/images/logos/logo-glennhammond-dark.svg"
-            alt="Glenn Hammond — eLearning Specialist"
-            className="h-9 md:h-10 block dark:hidden"
+            alt="Glenn Hammond - eLearning Specialist"
+            className="h-11 md:h-12 block dark:hidden"
           />
           {/* Dark-mode logo (light text) */}
           <img
             src="/images/logos/logo-glennhammond-light.svg"
-            alt="Glenn Hammond — eLearning Specialist"
-            className="h-9 md:h-10 hidden dark:block"
+            alt="Glenn Hammond - eLearning Specialist"
+            className="h-11 md:h-12 hidden dark:block"
           />
         </Link>
 
