@@ -177,10 +177,10 @@ export default function Blog() {
     <Link
       key={post.slug}
       to={`/blog/${post.slug}`}
-      className="group rounded-3xl border border-black/10 dark:border-white/10 bg-[var(--bg)] shadow-sm hover:shadow-md hover:-translate-y-[2px] transition overflow-hidden"
+      className="group rounded-3xl border border-black/10 dark:border-white/15 bg-white/95 dark:bg-white/10 backdrop-blur-md shadow-sm hover:shadow-md hover:-translate-y-[2px] hover:border-[#F5C84C] transition overflow-hidden"
     >
       {/* Thumbnail strip */}
-      <div className="h-44 bg-[var(--bg-soft)] border-b border-black/5 overflow-hidden">
+      <div className="h-44 bg-black/5 dark:bg-white/10 border-b border-black/5 dark:border-white/10 overflow-hidden">
         <img
           src={thumbnail}
           alt={post.title}

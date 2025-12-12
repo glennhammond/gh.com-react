@@ -43,26 +43,22 @@ export default function ThemeToggle() {
       onClick={toggleTheme}
       aria-label={theme === "dark" ? "Switch to light mode" : "Switch to dark mode"}
       className="
-        group inline-flex items-center gap-2
-        rounded-full border border-[var(--accent-soft-2)]
+        group inline-flex items-center justify-center
+        h-10 w-10
+        rounded-full
+        border border-[var(--accent-soft-2)]
         bg-[var(--bg-soft)]
-        px-3 py-1 text-xs font-medium text-[var(--muted)]
-        hover:border-[var(--accent)] hover:bg-[var(--accent-soft)]
-        transition-colors transition-transform duration-200 ease-out
+        text-[var(--text)]
+        shadow-sm backdrop-blur-sm
+        transition
+        hover:bg-[var(--accent-soft)]
+        hover:border-[#F5C84C]
+        focus-visible:outline-none
+        focus-visible:ring-2
+        focus-visible:ring-[#F5C84C]
       "
     >
-      <span className="hidden sm:inline">
-        {theme === "dark" ? "Dark" : "Light"}
-      </span>
-
-      <span
-        className="
-          inline-flex h-5 w-5 items-center justify-center
-          rounded-full bg-[var(--accent)] text-white shadow-sm
-        "
-      >
-        {theme === "dark" ? sunIcon : moonIcon}
-      </span>
+      {theme === "dark" ? sunIcon : moonIcon}
     </button>
   );
 }

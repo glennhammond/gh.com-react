@@ -53,10 +53,10 @@ export default function Work() {
         <Container>
           <Link
             to="/work/elearning-design-system"
-            className="group flex flex-col items-stretch overflow-hidden rounded-2xl border border-black/5 bg-white/80 shadow-sm backdrop-blur-sm transition hover:-translate-y-1 hover:shadow-md dark:border-white/10 dark:bg-neutral-900/80 md:flex-row-reverse"
+            className="group flex flex-col items-stretch overflow-hidden rounded-2xl border border-black/5 bg-white/80 shadow-sm backdrop-blur-sm transition hover:-translate-y-1 hover:shadow-md hover:border-[#F5C84C] dark:border-white/10 dark:bg-white/10 md:flex-row-reverse"
           >
             {/* IMAGE SIDE */}
-            <div className="flex w-full items-center justify-center bg-neutral-50 p-4 md:w-[40%] md:p-6 dark:bg-neutral-900/60">
+            <div className="flex w-full items-center justify-center bg-neutral-50 p-4 md:w-[40%] md:p-6 dark:bg-white/10">
               <img
                 src="/images/portfolio-elearning-design-system.jpg"
                 alt="Glenn Hammond eLearning Design System overview"
@@ -66,19 +66,19 @@ export default function Work() {
 
             {/* TEXT SIDE */}
             <div className="flex-1 p-6">
-              <div className="mb-4 text-xs font-semibold uppercase tracking-[0.18em] text-neutral-500 dark:text-neutral-400">
+              <div className="mb-4 text-xs font-semibold uppercase tracking-[0.18em] text-neutral-500 dark:text-white/70">
                 Glenn Hammond · eLearning design system
               </div>
               <h3 className="text-xl font-semibold leading-snug md:text-2xl">
                 eLearning Design System for modern professional learning
               </h3>
-              <p className="mt-3 max-w-3xl text-sm text-neutral-700 dark:text-neutral-200">
+              <p className="mt-3 max-w-3xl text-sm text-neutral-700 dark:text-white/85">
                 A reusable eLearning design system I created to speed up course builds, improve
                 consistency, and support WCAG-aligned layouts across Storyline, Rise, and H5P. It
                 underpins ISQ’s growing catalogue of professional learning, but is designed to be
                 portable across clients and platforms.
               </p>
-              <p className="mt-3 text-xs font-medium uppercase tracking-[0.16em] text-neutral-500 dark:text-neutral-400">
+              <p className="mt-3 text-xs font-medium uppercase tracking-[0.16em] text-neutral-500 dark:text-white/60">
                 Role: System architect · Lead eLearning specialist · Visual design · Governance
               </p>
               <div className="mt-4 text-sm font-medium text-neutral-900/80 group-hover:underline dark:text-white">
@@ -96,7 +96,7 @@ export default function Work() {
             {/* CASA – Flight Examiner Rating Course */}
             <Link
               to="/work/casa-flight-examiner-rating"
-              className="group flex flex-col overflow-hidden rounded-2xl border border-black/5 bg-white/80 shadow-sm backdrop-blur-sm transition hover:-translate-y-1 hover:shadow-md dark:border-white/10 dark:bg-neutral-900/80"
+              className="group flex flex-col overflow-hidden rounded-2xl border border-black/5 bg-white/80 shadow-sm backdrop-blur-sm transition hover:-translate-y-1 hover:shadow-md hover:border-[#F5C84C] dark:border-white/10 dark:bg-white/10"
             >
               {/* FULL-WIDTH IMAGE */}
               <div className="relative w-full overflow-hidden">
@@ -109,18 +109,18 @@ export default function Work() {
 
               {/* TEXT BLOCK */}
               <div className="flex flex-1 flex-col p-6">
-                <div className="mb-2 text-xs font-semibold uppercase tracking-[0.18em] text-neutral-500 dark:text-neutral-400">
+                <div className="mb-2 text-xs font-semibold uppercase tracking-[0.18em] text-neutral-500 dark:text-white/70">
                   Civil Aviation Safety Authority
                 </div>
                 <h3 className="text-xl font-semibold leading-snug md:text-2xl">
                   Flight Examiner Rating Course
                 </h3>
-                <p className="mt-3 text-sm text-neutral-700 dark:text-neutral-200">
+                <p className="mt-3 text-sm text-neutral-700 dark:text-white/85">
                   Designing and building the learning experience that supports flight examiners working at
                   the pinnacle of Australian aviation – aligning regulatory rigour with clear, usable digital
                   learning.
                 </p>
-                <p className="mt-3 text-xs font-medium uppercase tracking-[0.16em] text-neutral-500 dark:text-neutral-400">
+                <p className="mt-3 text-xs font-medium uppercase tracking-[0.16em] text-neutral-500 dark:text-white/60">
                   Role: Learning experience designer · Visual design · Video · Template lead
                 </p>
                 <div className="mt-4 text-sm font-medium text-neutral-900/80 group-hover:underline dark:text-white">
@@ -132,7 +132,7 @@ export default function Work() {
             {/* CASA – CLASS */}
             <Link
               to="/work/casa-aviationworx-class"
-              className="group flex flex-col overflow-hidden rounded-2xl border border-black/5 bg-white/80 shadow-sm backdrop-blur-sm transition hover:-translate-y-1 hover:shadow-md dark:border-white/10 dark:bg-neutral-900/80"
+              className="group flex flex-col overflow-hidden rounded-2xl border border-black/5 bg-white/80 shadow-sm backdrop-blur-sm transition hover:-translate-y-1 hover:shadow-md hover:border-[#F5C84C] dark:border-white/10 dark:bg-white/10"
             >
               {/* FULL-WIDTH IMAGE */}
               <div className="relative w-full overflow-hidden">
@@ -145,18 +145,18 @@ export default function Work() {
 
               {/* TEXT BLOCK */}
               <div className="flex flex-1 flex-col p-6">
-                <div className="mb-2 text-xs font-semibold uppercase tracking-[0.18em] text-neutral-500 dark:text-neutral-400">
+                <div className="mb-2 text-xs font-semibold uppercase tracking-[0.18em] text-neutral-500 dark:text-white/70">
                   Civil Aviation Safety Authority
                 </div>
                 <h3 className="text-xl font-semibold leading-snug md:text-2xl">
                   CASA Learning Environment for Safer Skies – CLASS
                 </h3>
-                <p className="mt-3 text-sm text-neutral-700 dark:text-neutral-200">
+                <p className="mt-3 text-sm text-neutral-700 dark:text-white/85">
                   Front-end LMS experience for Aviationworx and CLASS – CASA’s learning environment for
                   safer skies – including interface design, graphics, and a reusable eLearning template
                   system for the internal development team.
                 </p>
-                <p className="mt-3 text-xs font-medium uppercase tracking-[0.16em] text-neutral-500 dark:text-neutral-400">
+                <p className="mt-3 text-xs font-medium uppercase tracking-[0.16em] text-neutral-500 dark:text-white/60">
                   Role: Product design · UX · Visual system · Video & interviews
                 </p>
                 <div className="mt-4 text-sm font-medium text-neutral-900/80 group-hover:underline dark:text-white">
@@ -168,7 +168,7 @@ export default function Work() {
             {/* CYA – Website (WordPress) */}
             <Link
               to="/work/corporate-yoga-australia-website"
-              className="group flex flex-col overflow-hidden rounded-2xl border border-black/5 bg-white/80 shadow-sm backdrop-blur-sm transition hover:-translate-y-1 hover:shadow-md dark:border-white/10 dark:bg-neutral-900/80"
+              className="group flex flex-col overflow-hidden rounded-2xl border border-black/5 bg-white/80 shadow-sm backdrop-blur-sm transition hover:-translate-y-1 hover:shadow-md hover:border-[#F5C84C] dark:border-white/10 dark:bg-white/10"
             >
               {/* FULL-WIDTH IMAGE */}
               <div className="relative w-full overflow-hidden">
@@ -181,18 +181,18 @@ export default function Work() {
 
               {/* TEXT BLOCK */}
               <div className="flex flex-1 flex-col p-6">
-                <div className="mb-2 text-xs font-semibold uppercase tracking-[0.18em] text-neutral-500 dark:text-neutral-400">
+                <div className="mb-2 text-xs font-semibold uppercase tracking-[0.18em] text-neutral-500 dark:text-white/70">
                   Corporate Yoga Australia
                 </div>
                 <h3 className="text-xl font-semibold leading-snug md:text-2xl">
                   Corporate Yoga Australia website (WordPress)
                 </h3>
-                <p className="mt-3 text-sm text-neutral-700 dark:text-neutral-200">
+                <p className="mt-3 text-sm text-neutral-700 dark:text-white/85">
                   Designing and rebuilding the public-facing website for Corporate Yoga Australia –
                   clarifying the offer, improving mobile usability, and supporting ongoing content, SEO and
                   campaign work.
                 </p>
-                <p className="mt-3 text-xs font-medium uppercase tracking-[0.16em] text-neutral-500 dark:text-neutral-400">
+                <p className="mt-3 text-xs font-medium uppercase tracking-[0.16em] text-neutral-500 dark:text-white/60">
                   Role: UX & visual design · WordPress · Ongoing marketing support
                 </p>
                 <div className="mt-4 text-sm font-medium text-neutral-900/80 group-hover:underline dark:text-white">
@@ -204,7 +204,7 @@ export default function Work() {
             {/* CYA – Kajabi Online Wellness Courses */}
             <Link
               to="/work/corporate-yoga-australia-kajabi"
-              className="group flex flex-col overflow-hidden rounded-2xl border border-black/5 bg-white/80 shadow-sm backdrop-blur-sm transition hover:-translate-y-1 hover:shadow-md dark:border-white/10 dark:bg-neutral-900/80"
+              className="group flex flex-col overflow-hidden rounded-2xl border border-black/5 bg-white/80 shadow-sm backdrop-blur-sm transition hover:-translate-y-1 hover:shadow-md hover:border-[#F5C84C] dark:border-white/10 dark:bg-white/10"
             >
               {/* FULL-WIDTH IMAGE */}
               <div className="relative w-full overflow-hidden">
@@ -217,17 +217,17 @@ export default function Work() {
 
               {/* TEXT BLOCK */}
               <div className="flex flex-1 flex-col p-6">
-                <div className="mb-2 text-xs font-semibold uppercase tracking-[0.18em] text-neutral-500 dark:text-neutral-400">
+                <div className="mb-2 text-xs font-semibold uppercase tracking-[0.18em] text-neutral-500 dark:text-white/70">
                   Corporate Yoga Australia
                 </div>
                 <h3 className="text-xl font-semibold leading-snug md:text-2xl">
                   Online wellness courses on Kajabi
                 </h3>
-                <p className="mt-3 text-sm text-neutral-700 dark:text-neutral-200">
+                <p className="mt-3 text-sm text-neutral-700 dark:text-white/85">
                   Structuring and designing Corporate Yoga Australia’s online wellness courses in Kajabi –
                   from course architecture and content flow to visuals that align with the wider CYA brand.
                 </p>
-                <p className="mt-3 text-xs font-medium uppercase tracking-[0.16em] text-neutral-500 dark:text-neutral-400">
+                <p className="mt-3 text-xs font-medium uppercase tracking-[0.16em] text-neutral-500 dark:text-white/60">
                   Role: Learning design · Platform build · Brand & campaign support
                 </p>
                 <div className="mt-4 text-sm font-medium text-neutral-900/80 group-hover:underline dark:text-white">
@@ -264,17 +264,17 @@ export default function Work() {
             {/* Interactive video – rooftop */}
             <Link
               to="/work/elearning-heroes-experiments#interactive-video"
-              className="group flex flex-col overflow-hidden rounded-2xl border border-black/5 bg-white/80 p-5 shadow-sm backdrop-blur-sm transition hover:-translate-y-1 hover:shadow-md dark:border-white/10 dark:bg-neutral-900/80"
+              className="group flex flex-col overflow-hidden rounded-2xl border border-black/5 bg-white/80 p-5 shadow-sm backdrop-blur-sm transition hover:-translate-y-1 hover:shadow-md hover:border-[#F5C84C] dark:border-white/10 dark:bg-white/10"
             >
               <h3 className="text-lg font-semibold leading-snug">
                 “Don’t jump” – interactive video prototype
               </h3>
-              <p className="mt-2 text-sm text-neutral-700 dark:text-neutral-200">
+              <p className="mt-2 text-sm text-neutral-700 dark:text-white/85">
                 Early interactive video from around 2014–15: a man on a rooftop, the action pauses at key
                 points, and the learner chooses what happens next. Built before “interactive video” became
                 a buzzword.
               </p>
-              <p className="mt-3 text-xs font-medium uppercase tracking-[0.16em] text-neutral-500 dark:text-neutral-400">
+              <p className="mt-3 text-xs font-medium uppercase tracking-[0.16em] text-neutral-500 dark:text-white/70">
                 Articulate eLearning Heroes challenge · Branching · Video
               </p>
               <div className="mt-3 text-sm font-medium text-neutral-900/80 group-hover:underline dark:text-white">
@@ -285,17 +285,17 @@ export default function Work() {
             {/* Beer Advisor */}
             <Link
               to="/work/elearning-heroes-experiments#beer-advisor"
-              className="group flex flex-col overflow-hidden rounded-2xl border border-black/5 bg-white/80 p-5 shadow-sm backdrop-blur-sm transition hover:-translate-y-1 hover:shadow-md dark:border-white/10 dark:bg-neutral-900/80"
+              className="group flex flex-col overflow-hidden rounded-2xl border border-black/5 bg-white/80 p-5 shadow-sm backdrop-blur-sm transition hover:-translate-y-1 hover:shadow-md hover:border-[#F5C84C] dark:border-white/10 dark:bg-white/10"
             >
               <h3 className="text-lg font-semibold leading-snug">
                 Beer Advisor – decision support for the undecided drinker
               </h3>
-              <p className="mt-2 text-sm text-neutral-700 dark:text-neutral-200">
+              <p className="mt-2 text-sm text-neutral-700 dark:text-white/85">
                 A tongue-in-cheek advisor that recommends a beer based on a few quick questions. It sparked
                 comments like “this should be available in bars” – probably helped by a few years of
                 home-brewing under the YOBBO Brewing banner.
               </p>
-              <p className="mt-3 text-xs font-medium uppercase tracking-[0.16em] text-neutral-500 dark:text-neutral-400">
+              <p className="mt-3 text-xs font-medium uppercase tracking-[0.16em] text-neutral-500 dark:text-white/70">
                 Articulate eLearning Heroes challenge · Decision tool · Gamified quiz
               </p>
               <div className="mt-3 text-sm font-medium text-neutral-900/80 group-hover:underline dark:text-white">
@@ -306,16 +306,16 @@ export default function Work() {
             {/* Placeholder 3 */}
             <Link
               to="/work/elearning-heroes-experiments#prototype-3"
-              className="group flex flex-col overflow-hidden rounded-2xl border border-black/5 bg-white/80 p-5 shadow-sm backdrop-blur-sm transition hover:-translate-y-1 hover:shadow-md dark:border-white/10 dark:bg-neutral-900/80"
+              className="group flex flex-col overflow-hidden rounded-2xl border border-black/5 bg-white/80 p-5 shadow-sm backdrop-blur-sm transition hover:-translate-y-1 hover:shadow-md hover:border-[#F5C84C] dark:border-white/10 dark:bg-white/10"
             >
               <h3 className="text-lg font-semibold leading-snug">
                 Microlearning prototype – to be added
               </h3>
-              <p className="mt-2 text-sm text-neutral-700 dark:text-neutral-200">
+              <p className="mt-2 text-sm text-neutral-700 dark:text-white/85">
                 I’ll add another favourite Articulate challenge piece here – a compact, focused experience
                 built to test ideas around pacing, feedback, and visual storytelling.
               </p>
-              <p className="mt-3 text-xs font-medium uppercase tracking-[0.16em] text-neutral-500 dark:text-neutral-400">
+              <p className="mt-3 text-xs font-medium uppercase tracking-[0.16em] text-neutral-500 dark:text-white/70">
                 Articulate eLearning Heroes challenge
               </p>
               <div className="mt-3 text-sm font-medium text-neutral-900/80 group-hover:underline dark:text-white">
@@ -326,16 +326,16 @@ export default function Work() {
             {/* Placeholder 4 */}
             <Link
               to="/work/elearning-heroes-experiments#prototype-4"
-              className="group flex flex-col overflow-hidden rounded-2xl border border-black/5 bg-white/80 p-5 shadow-sm backdrop-blur-sm transition hover:-translate-y-1 hover:shadow-md dark:border-white/10 dark:bg-neutral-900/80"
+              className="group flex flex-col overflow-hidden rounded-2xl border border-black/5 bg-white/80 p-5 shadow-sm backdrop-blur-sm transition hover:-translate-y-1 hover:shadow-md hover:border-[#F5C84C] dark:border-white/10 dark:bg-white/10"
             >
               <h3 className="text-lg font-semibold leading-snug">
                 Accessible interaction prototype – to be added
               </h3>
-              <p className="mt-2 text-sm text-neutral-700 dark:text-neutral-200">
+              <p className="mt-2 text-sm text-neutral-700 dark:text-white/85">
                 A later challenge focused on accessibility, keyboard navigation, and clean layouts – a
                 useful counterpoint to the more playful experimental pieces.
               </p>
-              <p className="mt-3 text-xs font-medium uppercase tracking-[0.16em] text-neutral-500 dark:text-neutral-400">
+              <p className="mt-3 text-xs font-medium uppercase tracking-[0.16em] text-neutral-500 dark:text-white/70">
                 Articulate eLearning Heroes challenge · Accessibility
               </p>
               <div className="mt-3 text-sm font-medium text-neutral-900/80 group-hover:underline dark:text-white">

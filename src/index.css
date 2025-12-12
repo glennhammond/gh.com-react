@@ -19,7 +19,7 @@
     position: absolute;
     left: 0;
     top: 0.35em;             /* adjust vertical alignment as needed */
-    color: #970067;          /* brand star colour */
+    color: var(--color-brand-primary);          /* brand star colour */
     font-size: 0.85em;       /* slightly smaller than text */
   }
 
@@ -93,22 +93,22 @@
 ------------------------------------------------------- */
 html.dark {
   /* Core colour system — dark mode */
-  --bg: #030712;
-  --bg-soft: #020617;
-  --hero-bg: #030712; /* hero same as bg in dark mode */
+  --bg: #970067; /* brand magenta */
+  --bg-soft: rgba(255, 255, 255, 0.10); /* subtle panel on magenta */
+  --hero-bg: #970067; /* hero same as bg in dark mode */
 
-  --text: #e5e7eb;
-  --muted: #9ca3af;
-  --text-muted: #9ca3af;
+  --text: #ffffff;
+  --muted: rgba(255, 255, 255, 0.82);
+  --text-muted: rgba(255, 255, 255, 0.82);
 
-  /* Brand colours — magenta on dark */
-  --color-brand-primary: #f9a8d4;      /* main accent on dark */
-  --color-brand-accent: #fbcfe8;       /* lighter accent */
-  --color-brand-soft: #020617;         /* keep cards dark */
+  /* Brand colours — white on magenta */
+  --color-brand-primary: #ffffff;      /* headings / main copy */
+  --color-brand-accent: rgba(255, 255, 255, 0.92);
+  --color-brand-soft: rgba(255, 255, 255, 0.10);
 
   /* Short aliases */
   --brand-primary: var(--color-brand-primary);
-  --brand-primary-dark: #f472b6;       /* deeper for hover */
+  --brand-primary-dark: #6f004c;       /* deeper magenta for hover */
   --brand-primary-soft: rgba(249, 168, 212, 0.18);
 
   /* Accent aliases used in components */
@@ -131,21 +131,6 @@ html.dark {
   --cat-ai: #5fd4e4;
   --cat-ux: #818cf8;
   --cat-general: #94a3b8;
-}
-
-/* Atmospheric vignette for dark mode */
-html.dark body::before {
-  content: "";
-  position: fixed;
-  inset: 0;
-  pointer-events: none;
-  z-index: 0;
-
-  background: radial-gradient(
-    circle at center,
-    rgba(255, 255, 255, 0.02) 0%,
-    rgba(0, 0, 0, 0.45) 100%
-  );
 }
 
 /* -------------------------------------------------------

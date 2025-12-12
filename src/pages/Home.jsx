@@ -99,22 +99,25 @@ export default function Home() {
                 <Link
                   to="/work"
                   className="
-                    font-heading
-                    inline-flex items-center justify-center
-                    w-full sm:w-[420px]
-                    px-12 md:px-16
-                    py-4 md:py-4
-                    text-base md:text-lg font-semibold
-                    rounded-2xl
-                    bg-[var(--brand-primary)]
-                    text-white
-                    shadow-sm
-                    hover:bg-[#7b0053]
-                    focus-visible:outline-none
-                    focus-visible:ring-2
-                    focus-visible:ring-offset-2
-                    focus-visible:ring-[var(--brand-primary)]
-                  "
+  font-heading
+  inline-flex items-center justify-center
+  w-full sm:w-[420px]
+  px-12 md:px-16
+  py-4 md:py-5
+  text-base md:text-lg font-semibold
+  rounded-xl
+  bg-[#F5C84C]
+  text-[#3a0028]
+  shadow-[0_18px_45px_rgba(0,0,0,0.22)]
+  transition
+  hover:-translate-y-0.5
+  hover:bg-[#E6B83F]
+  hover:shadow-[0_22px_60px_rgba(0,0,0,0.28)]
+  active:translate-y-0
+  focus-visible:outline-none
+  focus-visible:ring-2
+  focus-visible:ring-white/80
+"
                 >
                   View some work
                 </Link>
@@ -123,22 +126,27 @@ export default function Home() {
                 <Link
                   to="/contact"
                   className="
-                    font-heading
-                    inline-flex items-center justify-center
-                    w-full sm:w-[420px]
-                    px-12 md:px-16
-                    py-4 md:py-4
-                    text-base md:text-lg font-semibold
-                    rounded-2xl
-                    border border-[var(--brand-primary)]
-                    text-[var(--brand-primary)]
-                    bg-white
-                    hover:bg-[#fdf4fb]
-                    focus-visible:outline-none
-                    focus-visible:ring-2
-                    focus-visible:ring-offset-2
-                    focus-visible:ring-[var(--brand-primary)]
-                  "
+  font-heading
+  inline-flex items-center justify-center
+  w-full sm:w-[420px]
+  px-12 md:px-16
+  py-4 md:py-5
+  text-base md:text-lg font-semibold
+  rounded-xl
+  border border-[#F5C84C]/70
+  bg-white/10
+  text-[#F5C84C]
+  backdrop-blur-sm
+  shadow-[0_12px_30px_rgba(0,0,0,0.12)]
+  transition
+  hover:-translate-y-0.5
+  hover:bg-white/16
+  hover:border-[#F5C84C]
+  active:translate-y-0
+  focus-visible:outline-none
+  focus-visible:ring-2
+  focus-visible:ring-[#F5C84C]
+"
                 >
                   Get in touch
                 </Link>
@@ -254,7 +262,7 @@ export default function Home() {
       <Section>
         <Container className="space-y-8 fade-in-up">
           <div className="space-y-2">
-            <span className="text-xs uppercase tracking-[0.18em] text-[var(--text)]/50">
+            <span className="text-xs uppercase tracking-[0.18em] text-white/70">
               Services
             </span>
             <h2 className="font-heading text-2xl text-[var(--text)]">What I do</h2>
@@ -262,28 +270,40 @@ export default function Home() {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
             <ServiceCard
-              title="eLearning design"
-              text="Instructional design, Storyline development, scenario writing, and learning systems."
-              icon="SL"
-              tag="Courses"
+              title="Consultancy & instructional design"
+              tag="Strategy"
+              icon="ID"
+              items={[
+                "Discovery, needs analysis, and learning strategy",
+                "Curriculum design, storyboards, and scenario writing",
+                "Stakeholder alignment and quality assurance",
+              ]}
             />
             <ServiceCard
-              title="xAPI & analytics"
-              text="xAPI strategy, debugging, Veracity/Learning Locker setup, and dashboards that reveal insight."
-              icon="⨉"
+              title="eLearning & media development"
+              tag="Build"
+              icon="DEV"
+              items={[
+                "Storyline/Rise builds with strong UX and accessibility",
+                "Reusable templates, components, and design systems",
+                "Video production, editing, and microlearning assets",
+              ]}
+            />
+            <ServiceCard
+              title="xAPI & learning analytics"
               tag="Data"
-            />
-            <ServiceCard
-              title="Video & media"
-              text="Interview filming, microlearning content, editing, colour grading, and audio mastering."
-              icon="▶"
-              tag="Media"
+              icon="xAPI"
+              items={[
+                "xAPI implementation, debugging, and statement design",
+                "Veracity/Learning Locker setup and reporting workflows",
+                "Dashboards that turn learning data into insight",
+              ]}
             />
           </div>
 
           <Link
             to="/services"
-            className="text-sm text-[var(--brand-primary)] hover:underline inline-block font-heading"
+            className="text-sm text-[#F5C84C] hover:text-white hover:underline inline-block font-heading"
           >
             View all services →
           </Link>
@@ -313,7 +333,7 @@ export default function Home() {
                   hover:border-[var(--brand-primary)] transition
                 "
               >
-                <div className="flex items-center gap-3 text-[11px] uppercase tracking-[0.18em] text-[var(--text)]/60">
+                <div className="flex items-center gap-3 text-[11px] uppercase tracking-[0.18em] text-slate-600">
                   {post.date && <span>{post.date}</span>}
                   {post.category && (
                     <span className="inline-flex items-center rounded-full border border-black/10 px-2 py-0.5">
@@ -321,11 +341,11 @@ export default function Home() {
                     </span>
                   )}
                 </div>
-                <h3 className="font-heading text-lg text-[var(--text)]">
+                <h3 className="font-heading text-lg text-slate-900">
                   {post.title}
                 </h3>
-                <p className="text-sm text-[var(--text)]/70">{post.summary}</p>
-                <span className="text-sm font-heading text-[var(--brand-primary)]">
+                <p className="text-sm text-slate-700">{post.summary}</p>
+                <span className="text-sm font-heading text-[#970067]">
                   Read more →
                 </span>
               </Link>
@@ -334,7 +354,7 @@ export default function Home() {
 
           <Link
             to="/blog"
-            className="text-sm text-[var(--brand-primary)] hover:underline inline-block font-heading"
+            className="text-sm text-[#F5C84C] hover:text-white hover:underline inline-block font-heading"
           >
             View all posts →
           </Link>
@@ -383,26 +403,40 @@ export default function Home() {
   );
 }
 
-function ServiceCard({ title, text, icon, tag }) {
+function ServiceCard({ title, text, items, icon, tag }) {
   return (
-    <div className="rounded-3xl border border-black/10 bg-white/95 p-8 space-y-4 shadow-sm hover:shadow-md hover:-translate-y-1 hover:border-[var(--brand-primary)] transition">
+    <div className="rounded-3xl border border-black/10 bg-white/95 p-8 space-y-4 shadow-sm hover:shadow-md hover:-translate-y-1 hover:border-[#F5C84C] transition">
       <div className="flex items-center gap-3">
         {icon && (
-          <div className="h-10 w-10 rounded-full bg-[var(--brand-primary-soft)] flex items-center justify-center text-[var(--brand-primary)] text-lg font-heading">
+          <div className="h-10 w-10 rounded-full bg-[#F5C84C]/25 flex items-center justify-center text-[#970067] text-lg font-heading">
             {icon}
           </div>
         )}
         <div className="space-y-1">
-          <h3 className="font-heading text-xl text-[var(--text)]">{title}</h3>
+          <h3 className="font-heading text-xl text-slate-900">{title}</h3>
           {tag && (
-            <span className="inline-flex items-center rounded-full border border-black/10 px-3 py-0.5 text-[11px] uppercase tracking-[0.18em] text-[var(--text)]/60">
+            <span className="inline-flex items-center rounded-full border border-black/10 px-3 py-0.5 text-[11px] uppercase tracking-[0.18em] text-slate-600">
               {tag}
             </span>
           )}
         </div>
       </div>
 
-      <p className="text-sm opacity-75 text-[var(--text)]/80">{text}</p>
+      {items?.length ? (
+        <ul className="space-y-2 text-sm text-slate-700">
+          {items.map((item) => (
+            <li key={item} className="flex items-start gap-3">
+              <span
+                aria-hidden="true"
+                className="mt-2 h-2 w-2 shrink-0 rounded-full bg-[#F5C84C]"
+              />
+              <span>{item}</span>
+            </li>
+          ))}
+        </ul>
+      ) : (
+        <p className="text-sm text-slate-700">{text}</p>
+      )}
     </div>
   );
 }
