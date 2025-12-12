@@ -86,7 +86,7 @@ export default function Home() {
 
               <div className="space-y-5">
                 <p className="text-[var(--text)]/75 max-w-md leading-relaxed">
-                  Instructional design and Storyline development - with xAPI and learning analytics.
+                  Instructional design and eLearning/media development - with xAPI and learning analytics.
                 </p>
                 <p className="text-[var(--text)]/75 max-w-md leading-relaxed">
                   I build modern, high-quality eLearning with strong UX, reusable systems, and media production when needed.
@@ -94,7 +94,7 @@ export default function Home() {
               </div>
 
               {/* CTAs */}
-              <div className="mt-auto pt-7 pb-6 md:pt-6 md:pb-0 w-full sm:w-[420px] flex flex-col items-stretch gap-3 sm:gap-4">
+              <div className="mt-auto pt-7 pb-6 md:pt-6 md:pb-0 w-full sm:w-[420px] flex flex-col items-stretch gap-4 sm:gap-5">
                 {/* Primary - solid magenta */}
                 <Link
                   to="/work"
