@@ -44,7 +44,7 @@ export default function Home() {
   return (
     <PageWrapper>
       <SEO
-        title="Glenn Hammond — eLearning Specialist, Designer & Developer"
+        title="Glenn Hammond - eLearning Specialist, Designer & Developer"
         description="Modern, evidence-informed learning design, Storyline development, xAPI analytics, and high-quality media for organisations."
         url="https://glennhammond.com/"
       />
@@ -62,37 +62,40 @@ export default function Home() {
           >
             {/* Left */}
             <div className="space-y-8">
-              <p className="text-xs md:text-sm font-semibold tracking-[0.2em] uppercase text-[var(--text-muted)] mb-3">
+              <p className="text-xs md:text-sm font-bold tracking-[0.2em] uppercase text-[var(--text-muted)] mb-3">
                 🏆 Award-winning eLearning
               </p>
-          <h1
+
+           <h1
   className="
     font-heading
+    font-semibold
     text-[2.75rem] md:text-[3.5rem]
     leading-tight
     tracking-[-0.03em] md:tracking-[-0.035em]
     text-[var(--brand-primary)]
   "
 >
-  Better Learning by Design
+  <span className="block">Better Learning</span>
+  <span className="block">by Design</span>
 </h1>
+
               <p className="text-[var(--text)]/75 max-w-md leading-relaxed">
                 I design digital learning experiences. Instructional design,
                 eLearning production and learning analytics.
               </p>
 
               {/* CTAs */}
-              <div className="mt-10 flex flex-col sm:flex-row flex-wrap gap-4 sm:gap-5">
-                {/* Primary – solid magenta */}
+              <div className="mt-10 flex flex-col items-start gap-4 sm:gap-5">
+                {/* Primary - solid magenta */}
                 <Link
                   to="/work"
                   className="
                     font-heading
                     inline-flex items-center justify-center
-                    w-full sm:w-[260px] md:w-[280px]
+                    w-full sm:w-[420px]
                     px-12 md:px-16
                     py-4 md:py-5
-                    min-w-[240px]
                     text-base md:text-lg font-semibold
                     rounded-2xl
                     bg-[var(--brand-primary)]
@@ -108,16 +111,15 @@ export default function Home() {
                   View some work
                 </Link>
 
-                {/* Secondary – magenta outline */}
+                {/* Secondary - magenta outline */}
                 <Link
                   to="/contact"
                   className="
                     font-heading
                     inline-flex items-center justify-center
-                    w-full sm:w-[260px] md:w-[280px]
+                    w-full sm:w-[420px]
                     px-12 md:px-16
                     py-4 md:py-5
-                    min-w-[240px]
                     text-base md:text-lg font-semibold
                     rounded-2xl
                     border border-[var(--brand-primary)]
@@ -135,7 +137,7 @@ export default function Home() {
               </div>
             </div>
 
-            {/* Right – feature panel with clickable card */}
+            {/* Right - feature panel with clickable card */}
             <div
               className="
                 relative
@@ -167,7 +169,7 @@ export default function Home() {
                     eLearning Design System
                   </h3>
                   <p className="text-sm text-[var(--text)]/70 mb-3">
-                    A reusable eLearning design system – templates, components
+                    A reusable eLearning design system - templates, components
                     and assets for faster, more consistent builds.
                   </p>
                   <span className="text-sm font-heading text-[var(--accent)] group-hover:text-[var(--accent-strong)] inline-flex items-center gap-1">
@@ -209,9 +211,7 @@ export default function Home() {
             <span className="text-xs uppercase tracking-[0.18em] text-[var(--text)]/50">
               Services
             </span>
-            <h2 className="font-heading text-2xl text-[var(--text)]">
-              What I do
-            </h2>
+            <h2 className="font-heading text-2xl text-[var(--text)]">What I do</h2>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
@@ -278,9 +278,7 @@ export default function Home() {
                 <h3 className="font-heading text-lg text-[var(--text)]">
                   {post.title}
                 </h3>
-                <p className="text-sm text-[var(--text)]/70">
-                  {post.summary}
-                </p>
+                <p className="text-sm text-[var(--text)]/70">{post.summary}</p>
                 <span className="text-sm font-heading text-[var(--brand-primary)]">
                   Read more →
                 </span>
