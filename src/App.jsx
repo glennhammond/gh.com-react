@@ -19,6 +19,8 @@ import ContactSuccess from "./pages/ContactSuccess.jsx";
 
 import ElearningDesignSystemOverview from "./pages/ElearningDesignSystemOverview.jsx";
 import CorporateYogaAustraliaWebsite from "./pages/work/CorporateYogaAustraliaWebsite.jsx";
+import FlightExaminerRatingCourse from "./pages/work/FlightExaminerRatingCourse.jsx";
+
 
 // Design system sub-pages
 import Colours from "./pages/design-system/Colours.jsx";
@@ -33,7 +35,7 @@ import Storyline from "./pages/design-system/Storyline.jsx";
 function NotFound() {
   return (
     <div className="p-10 text-center">
-      <h1 className="font-heading text-3xl">404 — Page not found</h1>
+      <h1 className="font-heading text-3xl">404 - Page not found</h1>
       <p className="mt-4 opacity-70">
         The page you're looking for doesn't exist.
       </p>
@@ -58,6 +60,10 @@ export default function App() {
           <Route
             path="/work/corporate-yoga-australia-website"
             element={<CorporateYogaAustraliaWebsite />}
+          />
+          <Route
+            path="/work/casa-flight-examiner-rating"
+            element={<FlightExaminerRatingCourse />}
           />
 
           {/* eLearning Design System sub-pages */}

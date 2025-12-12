@@ -51,7 +51,7 @@ export default function Home() {
 
       {/* HERO */}
       <Section noPadding className="bg-[var(--bg)]">
-        <Container className="min-h-[72vh] md:min-h-[76vh] pt-12 pb-16 md:pt-16 md:pb-24 flex items-center">
+        <Container className="min-h-[72vh] md:min-h-[76vh] pt-12 pb-16 md:pt-16 md:pb-24 flex items-start md:items-center">
           <div
             className="
               w-full
@@ -61,7 +61,7 @@ export default function Home() {
             "
           >
             {/* Left */}
-            <div className="space-y-8">
+            <div className="space-y-8 flex flex-col min-h-[70svh] md:min-h-0">
               <p className="text-xs md:text-sm font-bold tracking-[0.2em] uppercase text-[var(--text-muted)] mb-3">
                 🏆 Award-winning eLearning
               </p>
@@ -81,12 +81,14 @@ export default function Home() {
 </h1>
 
               <p className="text-[var(--text)]/75 max-w-md leading-relaxed">
-                I design digital learning experiences. Instructional design,
-                eLearning production and learning analytics.
+                Instructional design, eLearning/media production and learning analytics.
+              </p>
+              <p className="text-[var(--text)]/75 max-w-md leading-relaxed">
+                I specialise in Storyline builds, clean UI systems, and practical learning analytics (SCORM/xAPI) - with video production when it helps the story land.
               </p>
 
               {/* CTAs */}
-              <div className="mt-10 flex flex-col items-start gap-4 sm:gap-5">
+              <div className="mt-auto pt-8 pb-6 md:pb-0 flex flex-col items-start gap-4 sm:gap-5">
                 {/* Primary - solid magenta */}
                 <Link
                   to="/work"
@@ -135,11 +137,38 @@ export default function Home() {
                   Get in touch
                 </Link>
               </div>
+
+              {/* Mobile: eLearning Design System card */}
+              <Link
+                to="/work/elearning-design-system"
+                className="md:hidden mt-6 w-full rounded-3xl border border-black/10 dark:border-white/10 bg-white/90 dark:bg-white/5 overflow-hidden shadow-sm"
+              >
+                <img
+                  src="/images/portfolio-elearning-design-system.jpg"
+                  alt="eLearning Design System preview"
+                  className="w-full h-auto block"
+                />
+                <div className="p-5">
+                  <p className="text-xs font-bold tracking-[0.18em] uppercase text-[var(--text-muted)]">
+                    Featured
+                  </p>
+                  <h3 className="mt-2 font-heading text-xl font-semibold text-[var(--text)]">
+                    eLearning Design System
+                  </h3>
+                  <p className="mt-2 text-sm text-[var(--text)]/70">
+                    Templates, components and assets for faster, more consistent builds.
+                  </p>
+                  <span className="mt-3 inline-flex text-sm font-heading text-[var(--brand-primary)]">
+                    Explore project →
+                  </span>
+                </div>
+              </Link>
             </div>
 
             {/* Right - feature panel with clickable card */}
             <div
               className="
+                hidden md:block
                 relative
                 rounded-[32px]
                 bg-[var(--bg-soft)]
@@ -185,7 +214,7 @@ export default function Home() {
       {/* CLIENT LOGOS */}
       <Section className="bg-white">
         <Container className="py-6 md:py-8 fade-in-up">
-          <div className="flex flex-wrap items-center justify-center gap-x-10 gap-y-6">
+          <div className="flex flex-col items-center justify-center gap-y-6 sm:flex-row sm:flex-wrap sm:gap-x-10 sm:gap-y-6">
             {clients.map((client) => (
               <div
                 key={client.name}
