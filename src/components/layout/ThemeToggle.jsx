@@ -12,9 +12,23 @@ export default function ThemeToggle() {
   const [theme, setTheme] = useState(() => getPreferredTheme());
 
   useEffect(() => {
+    if (typeof document === "undefined") return;
+
     const isDark = theme === "dark";
+
+    // Tailwind + most setups
     document.documentElement.classList.toggle("dark", isDark);
+
+    // Some CSS variable/theme setups key off body.dark
+    document.body?.classList.toggle("dark", isDark);
+
+    // Some setups key off a data attribute
+    document.documentElement.dataset.theme = theme;
+
+    // Helps browser UI/form controls match theme
     document.documentElement.style.colorScheme = theme;
+
+    // Persist choice
     window.localStorage.setItem("theme", theme);
   }, [theme]);
 
