@@ -1,6 +1,6 @@
 // src/pages/Post.jsx
 import React, { useMemo } from "react";
-import { useParams, Link } from "react-router-dom";
+import { useParams, Link, Navigate } from "react-router-dom";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 
@@ -12,8 +12,41 @@ import Breadcrumb from "../components/ui/Breadcrumb.jsx";
 
 import { posts } from "../posts/posts";
 
-// 🔧 FIXED — use public path instead of import
-const fallbackImage = "/images/placeholders/placeholder-post.jpg";  
+// Use public path instead of import
+const fallbackImage = "/images/placeholders/placeholder-post.jpg";
+
+// Simple legacy slug redirects (keeps old shared links working)
+const SLUG_REDIRECTS = {
+  "Master Slides in Storyline": "master-slides-in-storyline",
+  "Master%20Slides%20in%20Storyline": "master-slides-in-storyline",
+};
+
+function stripMarkdown(md = "") {
+  return md
+    // remove code blocks
+    .replace(/```[\s\S]*?```/g, " ")
+    // remove inline code
+    .replace(/`[^`]*`/g, " ")
+    // remove images
+    .replace(/!\[[^\]]*\]\([^)]*\)/g, " ")
+    // remove links but keep text
+    .replace(/\[([^\]]+)\]\([^)]*\)/g, "$1")
+    // remove markdown headings/quotes/list markers
+    .replace(/^\s{0,3}(#{1,6}|>|\*|-|\d+\.)\s+/gm, "")
+    // collapse whitespace
+    .replace(/\s+/g, " ")
+    .trim();
+}
+
+function toIsoDateFromDdMmYyyy(value = "") {
+  // Accepts DD/MM/YYYY, returns YYYY-MM-DD, else empty string.
+  const m = value.match(/^(\d{1,2})\/(\d{1,2})\/(\d{4})$/);
+  if (!m) return "";
+  const dd = String(m[1]).padStart(2, "0");
+  const mm = String(m[2]).padStart(2, "0");
+  const yyyy = m[3];
+  return `${yyyy}-${mm}-${dd}`;
+}
 
 // Category mapper (matches Blog.jsx logic)
 function mapCategory(category = "") {
@@ -34,12 +67,32 @@ function mapCategory(category = "") {
 
 export default function Post() {
   const { slug } = useParams();
-  const post = posts.find((p) => p.slug === slug);
+
+  // Handle legacy slugs (eg old filenames with spaces)
+  const decodedSlug = useMemo(() => {
+    try {
+      return decodeURIComponent(slug || "");
+    } catch {
+      return slug || "";
+    }
+  }, [slug]);
+
+  const redirectTo = SLUG_REDIRECTS[slug] || SLUG_REDIRECTS[decodedSlug];
+  if (redirectTo) {
+    return <Navigate to={`/blog/${redirectTo}`} replace />;
+  }
+
+  const post = posts.find((p) => p.slug === slug || p.slug === decodedSlug);
+
+  const canonicalUrl = useMemo(() => {
+    // Always use the preferred non-www canonical.
+    return `https://glennhammond.com/blog/${slug}`;
+  }, [slug]);
 
   if (!post) {
     return (
       <PageWrapper>
-        <SEO title="Post not found – Glenn Hammond" />
+        <SEO title="Post not found - Glenn Hammond" />
         <Section>
           <Container className="py-24 text-center space-y-4">
             <h1 className="font-heading text-3xl">Post not found</h1>
@@ -69,36 +122,77 @@ export default function Post() {
   const categorySlug = mapCategory(post.category);
   const cleanedContent = post.content.replace(/^# .+\n/, ""); // remove first H1
 
+  const seoDescription = useMemo(() => {
+    const base = post.summary && String(post.summary).trim()
+      ? String(post.summary).trim()
+      : stripMarkdown(cleanedContent).slice(0, 200);
+
+    return base.length > 160 ? `${base.slice(0, 157).trim()}...` : base;
+  }, [post.summary, cleanedContent]);
+
+  const seoImage = useMemo(() => {
+    const raw = post.image || fallbackImage;
+    if (raw.startsWith("http://") || raw.startsWith("https://")) return raw;
+    return `https://glennhammond.com${raw.startsWith("/") ? raw : `/${raw}`}`;
+  }, [post.image]);
+
+  const jsonLd = useMemo(() => {
+    const isoDate = toIsoDateFromDdMmYyyy(post.date);
+    return {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      headline: post.title,
+      description: seoDescription,
+      image: [seoImage],
+      datePublished: isoDate || undefined,
+      dateModified: isoDate || undefined,
+      mainEntityOfPage: {
+        "@type": "WebPage",
+        "@id": canonicalUrl,
+      },
+      author: {
+        "@type": "Person",
+        name: "Glenn Hammond",
+      },
+      publisher: {
+        "@type": "Person",
+        name: "Glenn Hammond",
+      },
+    };
+  }, [post.title, post.date, seoDescription, seoImage, canonicalUrl]);
+
   return (
     <PageWrapper>
       <SEO
-        title={`${post.title} – Glenn Hammond`}
-        description={post.summary}
-        url={`https://glennhammond.com/blog/${post.slug}`}
+        title={`${post.title} - Glenn Hammond`}
+        description={seoDescription}
+        url={canonicalUrl}
+        image={seoImage}
+        type="article"
+      />
+
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
 
       <Section>
         <Container className="py-10 md:py-16 space-y-14 fade-in-up max-w-4xl">
-
           {/* Breadcrumb */}
           <Breadcrumb
             items={[
               { label: "Home", href: "/" },
               { label: "Blog", href: "/blog" },
-              { label: post.title }
+              { label: post.title },
             ]}
           />
 
           {/* HERO AREA */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-10 items-start">
-
             {/* LEFT: category, title, date */}
             <div className="md:col-span-2 space-y-5">
-
               {/* Category chip */}
-              <span className={`blog-badge ${categorySlug}`}>
-                {post.category}
-              </span>
+              <span className={`blog-badge ${categorySlug}`}>{post.category}</span>
 
               {/* Title */}
               <h1 className="font-heading text-4xl md:text-5xl leading-tight text-[var(--text)]">
@@ -115,13 +209,13 @@ export default function Post() {
                 src={post.image || fallbackImage}
                 alt={post.title}
                 className="w-full h-full object-cover"
+                loading="lazy"
               />
             </div>
           </div>
 
           {/* CONTENT */}
           <article className="prose lg:prose-lg dark:prose-invert max-w-none text-[var(--text)]/80 leading-relaxed">
-
             <ReactMarkdown
               remarkPlugins={[remarkGfm]}
               components={{
@@ -144,22 +238,21 @@ export default function Post() {
                     className="font-heading text-xl text-[var(--text)] mt-10 mb-3"
                   />
                 ),
-                p: ({ node, ...props }) => (
-                  <p {...props} className="mb-6" />
-                ),
+                p: ({ node, ...props }) => <p {...props} className="mb-6" />,
                 ul: ({ node, ...props }) => (
-                  <ul {...props} className="list-disc pl-6 space-y-2 mb-8 marker:text-brand-primary" />
+                  <ul
+                    {...props}
+                    className="list-disc pl-6 space-y-2 mb-8 marker:text-brand-primary"
+                  />
                 ),
                 img: ({ node, ...props }) => (
-                  <img {...props} className="rounded-2xl my-10 shadow-md" />
-                )
+                  <img {...props} className="rounded-2xl my-10 shadow-md" loading="lazy" />
+                ),
               }}
             >
               {cleanedContent}
             </ReactMarkdown>
-
           </article>
-
         </Container>
       </Section>
     </PageWrapper>
