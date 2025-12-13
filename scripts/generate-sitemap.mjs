@@ -1,6 +1,7 @@
 // scripts/generate-sitemap.mjs
 import fs from "node:fs";
 import path from "node:path";
+import { pathToFileURL } from "node:url";
 
 const site = "https://glennhammond.com";
 const appPath = path.resolve("src", "App.jsx");
@@ -9,6 +10,56 @@ const outPath = path.resolve("public", "sitemap.xml");
 const CANONICAL_ROUTE_MAP = {
   "/contact-success": "/contact/success",
 };
+
+function resolvePostsModulePath() {
+  const candidates = [
+    path.resolve("src", "posts", "posts.js"),
+    path.resolve("src", "posts", "posts.jsx"),
+    path.resolve("src", "posts", "posts.mjs"),
+    path.resolve("src", "posts", "posts.ts"),
+    path.resolve("src", "posts", "posts.tsx"),
+  ];
+  return candidates.find((p) => fs.existsSync(p)) ?? null;
+}
+
+function extractSlugsFromPostsSource(src) {
+  // Very simple fallback: look for slug: "..." or slug: '...'
+  const slugs = [];
+  const re = /\bslug\s*:\s*["']([^"']+)["']/g;
+  let m;
+  while ((m = re.exec(src))) {
+    const s = String(m[1] || "").trim();
+    if (s) slugs.push(s);
+  }
+  return slugs;
+}
+
+async function loadPostSlugs() {
+  const p = resolvePostsModulePath();
+  if (!p) return [];
+
+  // 1) Prefer importing the module (works if it’s plain data).
+  try {
+    const mod = await import(pathToFileURL(p).href);
+    const list = mod.posts ?? mod.default ?? [];
+    if (Array.isArray(list)) {
+      return list
+        .map((item) => item?.slug)
+        .filter((s) => typeof s === "string" && s.trim().length)
+        .map((s) => s.trim());
+    }
+  } catch {
+    // ignore and fall back to regex parsing
+  }
+
+  // 2) Fallback: parse the file text for slug fields.
+  try {
+    const src = fs.readFileSync(p, "utf8");
+    return extractSlugsFromPostsSource(src);
+  } catch {
+    return [];
+  }
+}
 
 function normalise(p) {
   if (!p.startsWith("/")) p = "/" + p;
@@ -50,6 +101,13 @@ let routes = extractRoutesFromAppJsx(appSrc)
   .filter(isSitemapWorthy);
 
 routes = uniq(routes).sort((a, b) => a.localeCompare(b));
+
+// Add individual blog post URLs (so /blog/:slug pages can be discovered/indexed).
+const postSlugs = await loadPostSlugs();
+if (postSlugs.length) {
+  const postRoutes = postSlugs.map((s) => normalise(`/blog/${s}`));
+  routes = uniq([...routes, ...postRoutes]).sort((a, b) => a.localeCompare(b));
+}
 
 const now = new Date().toISOString();
 
