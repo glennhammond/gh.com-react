@@ -2,6 +2,17 @@
 @tailwind components;
 @tailwind utilities;
 @layer base {
+  /* Force-disable default UL markers everywhere (incl. Tailwind prose / list-disc overrides) */
+  ul,
+  ul li {
+    list-style: none !important;
+  }
+
+  ul li::marker {
+    content: "" !important;
+    color: transparent !important;
+  }
+
   /* Global star bullets for all unordered lists */
   ul {
     list-style: none;        /* remove default bullets */
@@ -14,13 +25,22 @@
     padding-left: 1.5rem;    /* text lines up nicely after star */
   }
 
-  ul > li::before {
+ul > li::before {
     content: "★";
     position: absolute;
     left: 0;
     top: 0.35em;             /* adjust vertical alignment as needed */
-    color: var(--color-brand-primary);          /* brand star colour */
+    color: var(--secondary);       /* pink star bullets */
     font-size: 0.85em;       /* slightly smaller than text */
+  }
+
+  /* Hide any “manual dot” bullet elements inside list items so only the star remains */
+  ul > li > :is(span, i, em, strong, div).rounded-full.w-2.h-2,
+  ul > li > :is(span, i, em, strong, div).rounded-full.w-1\.5.h-1\.5,
+  ul > li > :is(span, i, em, strong, div).rounded-full.w-2\.5.h-2\.5,
+  ul > li > :is(span, i, em, strong, div).rounded-full.size-2,
+  ul > li > :is(span, i, em, strong, div).rounded-full.size-3 {
+    display: none !important;
   }
 
   /* Disable star bullets for nav/header/footer menus */
@@ -56,22 +76,37 @@
   --muted: #6b7280;
   --text-muted: #6b7280;
 
-  /* Brand colours — magenta / plum */
-  --color-brand-primary: #970067;      /* main brand / buttons */
-  --color-brand-accent: #c01e84;       /* brighter accent */
-  --color-brand-soft: #fde8f4;         /* soft tint for hovers/chips */
+  /* Brand colours — Royal Indigo */
+  --color-brand-primary: #1D4ED8;      /* main brand */
+  --color-brand-accent: #3B82F6;       /* brighter accent */
+  --color-brand-soft: #E8F0FF;         /* soft tint for hovers/chips */
+
+  /* Secondary colour — pink (replaces gold accents) */
+  --secondary: #FF3E7F;
+  --secondary-strong: #E82F6F;
+  --secondary-soft: rgba(255, 62, 127, 0.16);
+
+  /* Card tokens (used for consistent card styling across themes) */
+  --card-bg: #fbfdff;          /* slightly tinted white */
+  --card-bg-strong: #ffffff;
+  --card-border: rgba(15, 23, 42, 0.10);
+  --card-shadow: 0 18px 60px rgba(15, 23, 42, 0.14), 0 6px 16px rgba(15, 23, 42, 0.08);
+  --card-title: #1E3A8A;
+  --card-text: rgba(15, 23, 42, 0.86);
+  --card-muted: rgba(15, 23, 42, 0.66);
+  --card-link: #1E40AF;
 
   /* Short aliases */
   --brand-primary: var(--color-brand-primary);
-  --brand-primary-dark: #6f004c;       /* deeper for hover */
+  --brand-primary-dark: #1E40AF;       /* deeper for hover */
   --brand-primary-soft: var(--color-brand-soft);
 
   /* Accent aliases used in components (buttons, links, etc.) */
   --accent: var(--color-brand-primary);
-  --accent-strong: #6f004c;
-  --accent-soft: rgba(151, 0, 103, 0.08);
-  --accent-soft-2: rgba(151, 0, 103, 0.16);
-  --accent-warm: var(--color-brand-primary);
+  --accent-strong: #1E40AF;
+  --accent-soft: rgba(29, 78, 216, 0.08);
+  --accent-soft-2: rgba(29, 78, 216, 0.16);
+  --accent-warm: var(--secondary);
 
   --shadow-soft: 0 18px 45px rgba(15, 23, 42, 0.12);
 
@@ -93,9 +128,9 @@
 ------------------------------------------------------- */
 html.dark {
   /* Core colour system — dark mode */
-  --bg: #970067; /* brand magenta */
-  --bg-soft: rgba(255, 255, 255, 0.10); /* subtle panel on magenta */
-  --hero-bg: #970067; /* hero same as bg in dark mode */
+  --bg: #1B2F87; /* friendlier royal blue (reads "blue" instantly) */
+  --bg-soft: rgba(255, 255, 255, 0.08); /* subtle panels on blue */
+  --hero-bg: #172A73; /* slightly deeper hero base */
 
   --text: #ffffff;
   --muted: rgba(255, 255, 255, 0.82);
@@ -103,20 +138,35 @@ html.dark {
 
   /* Brand colours — white on magenta */
   --color-brand-primary: #ffffff;      /* headings / main copy */
-  --color-brand-accent: rgba(255, 255, 255, 0.92);
+  --color-brand-accent: #3B82F6;
   --color-brand-soft: rgba(255, 255, 255, 0.10);
+
+  /* Secondary colour — pink (replaces gold accents) */
+  --secondary: #FF4D8D;
+  --secondary-strong: #FF3E7F;
+  --secondary-soft: rgba(255, 77, 141, 0.20);
+
+  /* Card tokens (dark mode uses bright white cards on blue) */
+  --card-bg: rgba(247, 250, 255, 0.96);   /* faint blue-tinted white */
+  --card-bg-strong: #ffffff;
+  --card-border: rgba(29, 78, 216, 0.14); /* subtle indigo edge */
+  --card-shadow: 0 38px 110px rgba(0, 0, 0, 0.32), 0 14px 34px rgba(0, 0, 0, 0.18);
+  --card-title: #1E3A8A;
+  --card-text: rgba(15, 23, 42, 0.88);
+  --card-muted: rgba(15, 23, 42, 0.68);
+  --card-link: #1E40AF;
 
   /* Short aliases */
   --brand-primary: var(--color-brand-primary);
-  --brand-primary-dark: #6f004c;       /* deeper magenta for hover */
-  --brand-primary-soft: rgba(249, 168, 212, 0.18);
+  --brand-primary-dark: #1E40AF;       /* deeper blue for hover */
+  --brand-primary-soft: rgba(59, 130, 246, 0.18);
 
   /* Accent aliases used in components */
-  --accent: var(--color-brand-primary);
-  --accent-strong: #f472b6;
-  --accent-soft: rgba(249, 168, 212, 0.2);
-  --accent-soft-2: rgba(249, 168, 212, 0.3);
-  --accent-warm: var(--color-brand-primary);
+  --accent: #3B82F6;
+  --accent-strong: #1D4ED8;
+  --accent-soft: rgba(59, 130, 246, 0.18);
+  --accent-soft-2: rgba(59, 130, 246, 0.28);
+  --accent-warm: var(--secondary);
 
   --shadow-soft: 0 22px 55px rgba(0, 0, 0, 0.45);
 
@@ -132,6 +182,392 @@ html.dark {
   --cat-ux: #818cf8;
   --cat-general: #94a3b8;
 }
+
+/* Subtle indigo depth so the background reads "royal indigo" not black */
+html.dark body {
+  background-image:
+    radial-gradient(1000px circle at 18% 18%, rgba(59, 130, 246, 0.34), transparent 62%),
+    radial-gradient(900px circle at 82% 36%, rgba(29, 78, 216, 0.24), transparent 64%),
+    radial-gradient(1200px circle at 52% 95%, rgba(96, 165, 250, 0.16), transparent 66%);
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+}
+
+/* Dark mode - keep header + footer consistent, slightly darker than the page */
+html.dark header,
+html.dark footer {
+  background-color: rgba(20, 33, 95, 0.92) !important; /* slightly darker than --bg */
+}
+
+html.dark header {
+  border-color: rgba(255, 255, 255, 0.10) !important;
+}
+
+/* Map common "gold" utility colours to the new pink secondary (main content only) */
+html.dark main :is(
+  .bg-yellow-200, .bg-yellow-300, .bg-yellow-400,
+  .bg-amber-200, .bg-amber-300, .bg-amber-400,
+  .bg-orange-200, .bg-orange-300,
+  .dark\:bg-yellow-200, .dark\:bg-yellow-300, .dark\:bg-yellow-400,
+  .dark\:bg-amber-200, .dark\:bg-amber-300, .dark\:bg-amber-400,
+  .dark\:bg-orange-200, .dark\:bg-orange-300
+) {
+  background-color: var(--secondary) !important;
+  border-color: var(--secondary-strong) !important;
+}
+
+html.dark main :is(
+  .text-yellow-400, .text-yellow-500,
+  .text-amber-400, .text-amber-500,
+  .text-orange-400, .text-orange-500,
+  .dark\:text-yellow-400, .dark\:text-yellow-500,
+  .dark\:text-amber-400, .dark\:text-amber-500,
+  .dark\:text-orange-400, .dark\:text-orange-500
+) {
+  color: var(--secondary) !important;
+}
+
+html.dark main :is(
+  .border-yellow-300, .border-yellow-400,
+  .border-amber-300, .border-amber-400,
+  .border-orange-300, .border-orange-400,
+  .dark\:border-yellow-300, .dark\:border-yellow-400,
+  .dark\:border-amber-300, .dark\:border-amber-400,
+  .dark\:border-orange-300, .dark\:border-orange-400
+) {
+  border-color: var(--secondary-strong) !important;
+}
+
+/* Dark mode - force CTA buttons that use arbitrary Tailwind bg colours to use the pink secondary */
+html.dark main :is(a, button, [role="button"], input[type="submit"], input[type="button"])[class*="bg-["][class*="px-"][class*="py-"] {
+  background-color: var(--secondary) !important;
+  border-color: var(--secondary-strong) !important;
+  color: #ffffff !important;
+}
+
+html.dark main :is(a, button, [role="button"], input[type="submit"], input[type="button"])[class*="bg-["][class*="px-"][class*="py-"] :is(svg, path) {
+  stroke: currentColor;
+  fill: currentColor;
+}
+
+html.dark main :is(a, button, [role="button"], input[type="submit"], input[type="button"])[class*="bg-["][class*="px-"][class*="py-"]:hover {
+  filter: brightness(0.95);
+}
+
+/* Dark mode - replace harsh "true black" panels with deep indigo so cards feel cohesive */
+html.dark main :is(
+  .bg-black,
+  .bg-neutral-950,
+  .bg-slate-950,
+  .bg-zinc-950,
+  .bg-neutral-900,
+  .bg-slate-900,
+  .bg-zinc-900,
+  .dark\:bg-neutral-900\/80,
+  .dark\:bg-neutral-900\/90,
+  .dark\:bg-slate-900\/80,
+  .dark\:bg-slate-900\/90,
+  .bg-\[\#020617\],
+  .bg-\[\#020617\]\/95,
+  .bg-\[\#020617\]\/90,
+  .bg-\[\#020617\]\/80,
+  .bg-\[\#020617\]\/70,
+  .dark\:bg-\[\#020617\],
+  .dark\:bg-\[\#020617\]\/95,
+  .dark\:bg-\[\#020617\]\/90,
+  .dark\:bg-\[\#020617\]\/80,
+  .dark\:bg-\[\#020617\]\/70
+) {
+  background-color: var(--card-bg) !important;
+  background-image:
+    radial-gradient(900px circle at 12% 0%, rgba(59, 130, 246, 0.10), transparent 55%),
+    radial-gradient(800px circle at 100% 8%, rgba(255, 77, 141, 0.06), transparent 58%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.92), var(--card-bg));
+  border: 1px solid var(--card-border) !important;
+  box-shadow:
+    var(--card-shadow),
+    0 0 0 1px rgba(255, 255, 255, 0.45) inset;
+  color: var(--card-text) !important;
+}
+
+/* -------------------------------------------------------
+   DARK MODE - WHITE CARD SYSTEM (so cards pop on the blue)
+   Scope: main content only (not header/footer)
+------------------------------------------------------- */
+html.dark main :is(
+  .bg-\[var\(--bg-soft\)\],
+  .dark\:bg-\[var\(--bg-soft\)\],
+  .bg-white\/5,
+  .bg-white\/10,
+  .bg-white\/15,
+  .bg-white\/20,
+  .dark\:bg-white\/5,
+  .dark\:bg-white\/10,
+  .dark\:bg-white\/15,
+  .dark\:bg-white\/20,
+  .bg-white\/70,
+  .bg-white\/80,
+  .bg-white\/90,
+  .dark\:bg-white\/70,
+  .dark\:bg-white\/80,
+  .dark\:bg-white\/90
+):is(.rounded-xl, .rounded-2xl, .rounded-3xl) {
+  background-color: var(--card-bg) !important;
+  background-image:
+    radial-gradient(900px circle at 14% 6%, rgba(59, 130, 246, 0.12), transparent 54%),
+    radial-gradient(780px circle at 92% 0%, rgba(255, 77, 141, 0.07), transparent 56%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.94), var(--card-bg));
+  border: 1px solid var(--card-border) !important;
+  box-shadow:
+    var(--card-shadow),
+    0 0 0 1px rgba(255, 255, 255, 0.50) inset;
+  color: var(--card-text) !important;
+  position: relative;
+  transform: translateZ(0);
+  overflow: hidden;
+  border-radius: 1.25rem !important; /* slightly smaller than current */
+}
+
+/* Subtle highlight layer so cards feel premium, not flat */
+html.dark main :is(
+  .bg-\[var\(--bg-soft\)\],
+  .dark\:bg-\[var\(--bg-soft\)\],
+  .bg-white\/5,
+  .bg-white\/10,
+  .bg-white\/15,
+  .bg-white\/20,
+  .dark\:bg-white\/5,
+  .dark\:bg-white\/10,
+  .dark\:bg-white\/15,
+  .dark\:bg-white\/20,
+  .bg-white\/70,
+  .bg-white\/80,
+  .bg-white\/90,
+  .dark\:bg-white\/70,
+  .dark\:bg-white\/80,
+  .dark\:bg-white\/90
+):is(.rounded-xl, .rounded-2xl, .rounded-3xl)::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  background:
+    radial-gradient(900px circle at 14% 10%, rgba(59, 130, 246, 0.16), transparent 46%),
+    radial-gradient(650px circle at 88% 0%, rgba(255, 77, 141, 0.10), transparent 42%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.40), rgba(255, 255, 255, 0.00) 28%);
+  opacity: 0.7;
+}
+
+@media (hover: hover) {
+  html.dark main :is(
+    .bg-\[var\(--bg-soft\)\],
+    .dark\:bg-\[var\(--bg-soft\)\],
+    .bg-white\/5,
+    .bg-white\/10,
+    .bg-white\/15,
+    .bg-white\/20,
+    .dark\:bg-white\/5,
+    .dark\:bg-white\/10,
+    .dark\:bg-white\/15,
+    .dark\:bg-white\/20,
+    .bg-white\/70,
+    .bg-white\/80,
+    .bg-white\/90,
+    .dark\:bg-white\/70,
+    .dark\:bg-white\/80,
+    .dark\:bg-white\/90
+  ):is(.rounded-xl, .rounded-2xl, .rounded-3xl):hover {
+    transform: translateY(-6px);
+    box-shadow:
+      0 52px 150px rgba(0, 0, 0, 0.34),
+      0 18px 44px rgba(0, 0, 0, 0.18),
+      0 0 0 1px rgba(255, 255, 255, 0.58) inset;
+    border-color: rgba(15, 23, 42, 0.16) !important;
+  }
+}
+
+/* Typography inside white cards */
+html.dark main :is(
+  .bg-\[var\(--bg-soft\)\],
+  .dark\:bg-\[var\(--bg-soft\)\],
+  .bg-white\/5,
+  .bg-white\/10,
+  .bg-white\/15,
+  .bg-white\/20,
+  .dark\:bg-white\/5,
+  .dark\:bg-white\/10,
+  .dark\:bg-white\/15,
+  .dark\:bg-white\/20,
+  .bg-white\/70,
+  .bg-white\/80,
+  .bg-white\/90,
+  .dark\:bg-white\/70,
+  .dark\:bg-white\/80,
+  .dark\:bg-white\/90
+):is(.rounded-xl, .rounded-2xl, .rounded-3xl) :is(h1, h2, h3, h4) {
+  color: var(--card-title) !important; /* coloured titles */
+  font-family: var(--font-heading) !important;
+}
+
+/* Card titles (any headings inside card-like rounded containers) use Avant Garde */
+main :is(.rounded-xl, .rounded-2xl, .rounded-3xl) :is(h1, h2, h3, h4) {
+  font-family: var(--font-heading);
+}
+
+/* Remove the little circle badges (ID / DEV / xAPI) used on service cards */
+main :is(.rounded-xl, .rounded-2xl, .rounded-3xl) :is(span, div).rounded-full:is(
+  .size-10, .size-12, .size-14,
+  .w-10, .w-12, .w-14,
+  [class*="size-10"], [class*="size-12"], [class*="size-14"],
+  [class*="w-10"][class*="h-10"],
+  [class*="w-12"][class*="h-12"],
+  [class*="w-14"][class*="h-14"]
+)[class*="bg-yellow"],
+main :is(.rounded-xl, .rounded-2xl, .rounded-3xl) :is(span, div).rounded-full:is(
+  .size-10, .size-12, .size-14,
+  .w-10, .w-12, .w-14,
+  [class*="size-10"], [class*="size-12"], [class*="size-14"],
+  [class*="w-10"][class*="h-10"],
+  [class*="w-12"][class*="h-12"],
+  [class*="w-14"][class*="h-14"]
+)[class*="bg-amber"],
+main :is(.rounded-xl, .rounded-2xl, .rounded-3xl) :is(span, div).rounded-full:is(
+  .size-10, .size-12, .size-14,
+  .w-10, .w-12, .w-14,
+  [class*="size-10"], [class*="size-12"], [class*="size-14"],
+  [class*="w-10"][class*="h-10"],
+  [class*="w-12"][class*="h-12"],
+  [class*="w-14"][class*="h-14"]
+)[class*="bg-orange"],
+main :is(.rounded-xl, .rounded-2xl, .rounded-3xl) :is(span, div).rounded-full:is(
+  .size-10, .size-12, .size-14,
+  .w-10, .w-12, .w-14,
+  [class*="size-10"], [class*="size-12"], [class*="size-14"],
+  [class*="w-10"][class*="h-10"],
+  [class*="w-12"][class*="h-12"],
+  [class*="w-14"][class*="h-14"]
+)[class*="bg-[#"] {
+  display: none !important;
+}
+
+html.dark main :is(
+  .bg-\[var\(--bg-soft\)\],
+  .dark\:bg-\[var\(--bg-soft\)\],
+  .bg-white\/5,
+  .bg-white\/10,
+  .bg-white\/15,
+  .bg-white\/20,
+  .dark\:bg-white\/5,
+  .dark\:bg-white\/10,
+  .dark\:bg-white\/15,
+  .dark\:bg-white\/20,
+  .bg-white\/70,
+  .bg-white\/80,
+  .bg-white\/90,
+  .dark\:bg-white\/70,
+  .dark\:bg-white\/80,
+  .dark\:bg-white\/90
+):is(.rounded-xl, .rounded-2xl, .rounded-3xl) :is(p, li, span, small) {
+  color: var(--card-text) !important;
+}
+
+html.dark main :is(
+  .bg-\[var\(--bg-soft\)\],
+  .dark\:bg-\[var\(--bg-soft\)\],
+  .bg-white\/5,
+  .bg-white\/10,
+  .bg-white\/15,
+  .bg-white\/20,
+  .dark\:bg-white\/5,
+  .dark\:bg-white\/10,
+  .dark\:bg-white\/15,
+  .dark\:bg-white\/20,
+  .bg-white\/70,
+  .bg-white\/80,
+  .bg-white\/90,
+  .dark\:bg-white\/70,
+  .dark\:bg-white\/80,
+  .dark\:bg-white\/90
+):is(.rounded-xl, .rounded-2xl, .rounded-3xl) a {
+  color: var(--card-link) !important;
+}
+
+/* If a card forces white text classes, flip them back to dark */
+html.dark main :is(
+  .bg-\[var\(--bg-soft\)\],
+  .dark\:bg-\[var\(--bg-soft\)\],
+  .bg-white\/5,
+  .bg-white\/10,
+  .bg-white\/15,
+  .bg-white\/20,
+  .dark\:bg-white\/5,
+  .dark\:bg-white\/10,
+  .dark\:bg-white\/15,
+  .dark\:bg-white\/20,
+  .bg-white\/70,
+  .bg-white\/80,
+  .bg-white\/90,
+  .dark\:bg-white\/70,
+  .dark\:bg-white\/80,
+  .dark\:bg-white\/90
+):is(.rounded-xl, .rounded-2xl, .rounded-3xl) :is(.text-white, .text-white\/90, .text-white\/80, .text-neutral-100, .text-slate-100) {
+  color: var(--card-text) !important;
+}
+
+html.dark main :is(.bg-black\/90, .bg-black\/80, .bg-black\/70) {
+  background-color: rgba(255, 255, 255, 0.88) !important;
+  border: 1px solid rgba(15, 23, 42, 0.10) !important;
+  box-shadow: 0 18px 55px rgba(0, 0, 0, 0.22);
+  color: #0f172a !important;
+}
+
+/* Dark mode - muted/supporting text inside cards */
+html.dark main :is(
+  .bg-\[var\(--bg-soft\)\],
+  .dark\:bg-\[var\(--bg-soft\)\],
+  .bg-white\/5,
+  .bg-white\/10,
+  .bg-white\/15,
+  .bg-white\/20,
+  .dark\:bg-white\/5,
+  .dark\:bg-white\/10,
+  .dark\:bg-white\/15,
+  .dark\:bg-white\/20,
+  .bg-white\/70,
+  .bg-white\/80,
+  .bg-white\/90,
+  .dark\:bg-white\/70,
+  .dark\:bg-white\/80,
+  .dark\:bg-white\/90,
+  .bg-black,
+  .bg-neutral-950,
+  .bg-slate-950,
+  .bg-zinc-950,
+  .bg-neutral-900,
+  .bg-slate-900,
+  .bg-zinc-900,
+  .dark\:bg-neutral-900\/80,
+  .dark\:bg-neutral-900\/90,
+  .dark\:bg-slate-900\/80,
+  .dark\:bg-slate-900\/90,
+  .bg-\[\#020617\],
+  .bg-\[\#020617\]\/95,
+  .bg-\[\#020617\]\/90,
+  .bg-\[\#020617\]\/80,
+  .bg-\[\#020617\]\/70,
+  .dark\:bg-\[\#020617\],
+  .dark\:bg-\[\#020617\]\/95,
+  .dark\:bg-\[\#020617\]\/90,
+  .dark\:bg-\[\#020617\]\/80,
+  .dark\:bg-\[\#020617\]\/70,
+  .bg-black\/90,
+  .bg-black\/80,
+  .bg-black\/70
+) :is(.text-slate-500, .text-neutral-500, .text-slate-400, .text-neutral-400) {
+  color: var(--card-muted) !important;
+}
+
 
 /* -------------------------------------------------------
    BASE STYLES
@@ -215,7 +651,7 @@ body {
    PROSE (Markdown styling)
 ------------------------------------------------------- */
 .prose a {
-  color: var(--color-brand-primary);
+  color: var(--accent);
   text-decoration: none;
   font-weight: 500;
 }
@@ -261,4 +697,4 @@ body {
   header.pt-24 {
     padding-top: 3rem; /* tighten oversized header padding if used */
   }
-}
+} 

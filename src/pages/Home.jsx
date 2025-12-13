@@ -11,29 +11,32 @@ import { posts } from "../posts/posts";
 import ProjectImage from "../components/ProjectImage";
 import SEO from "../components/ui/SEO.jsx";
 
-// Client logos (make sure these paths match your files in /public/images/logos)
+// Client logos (SVG, light/dark mode)
 const clients = [
   {
     name: "Independent Schools Queensland",
-    src: "/images/logos/logo-independent-schools-queensland.png",
-    className: "scale-110", // subtle size boost
+    lightSrc: "/images/logos/logo-independent-schools-queensland.svg",
+    darkSrc: "/images/logos/logo-independent-schools-queensland-w.svg",
   },
   {
     name: "Torres and Cape Hospital and Health Service",
-    // ensure the filename matches this (including spaces & caps)
-    src: "/images/logos/logo-Torres and Cape Hospital and Health Service.png",
+    lightSrc: "/images/logos/logo-Torres and Cape Hospital and Health Service.svg",
+    darkSrc: "/images/logos/logo-Torres and Cape Hospital and Health Service-w.svg",
   },
   {
     name: "Civil Aviation Safety Authority",
-    src: "/images/logos/logo-casa_1.png",
+    lightSrc: "/images/logos/logo-casa_1.svg",
+    darkSrc: "/images/logos/logo-casa-w.svg",
   },
   {
     name: "Seqwater",
-    src: "/images/logos/logo-seqwater.png",
+    lightSrc: "/images/logos/logo-seqwater_1.svg",
+    darkSrc: "/images/logos/logo-seqwater-w.svg",
   },
   {
     name: "TAFE Queensland",
-    src: "/images/logos/logo-tafe-queensland.png",
+    lightSrc: "/images/logos/logo-tafe-queensland.svg",
+    darkSrc: "/images/logos/logo-tafe-queensland-w.svg",
   },
 ];
 
@@ -49,10 +52,9 @@ export default function Home() {
         url="https://glennhammond.com/"
       />
 
-      {/* HERO */}
+        {/* HERO */}
       <Section noPadding className="bg-[var(--bg)]">
-        <Container className="min-h-[calc(100svh-5rem)] md:min-h-[76vh] pt-12 pb-16 md:pt-16 md:pb-24 flex items-start md:items-center">
-          <div
+<Container className="pt-12 pb-6 md:min-h-[76vh] md:pt-16 md:pb-24 flex items-start md:items-center">          <div
             className="
               w-full
               grid grid-cols-1 md:grid-cols-2
@@ -61,7 +63,7 @@ export default function Home() {
             "
           >
             {/* Left */}
-            <div className="space-y-7 flex flex-col min-h-[calc(100svh-7rem)] md:min-h-0">
+            <div className="space-y-7 flex flex-col">
               <div className="w-full sm:w-[420px] flex items-center gap-3 mb-4">
                 <span aria-hidden="true">🏆</span>
                 <span className="text-sm font-semibold tracking-[0.18em] uppercase text-[var(--text-muted)] whitespace-nowrap">
@@ -94,8 +96,7 @@ export default function Home() {
               </div>
 
               {/* CTAs */}
-              <div className="mt-auto pt-7 pb-6 md:pt-6 md:pb-0 w-full sm:w-[420px] flex flex-col items-stretch gap-4 sm:gap-5">
-                {/* Primary - solid magenta */}
+<div className="mt-8 pt-0 pb-0 md:mt-auto md:pt-6 md:pb-0 w-full sm:w-[420px] flex flex-col items-stretch gap-4 sm:gap-5">                {/* Primary - solid magenta */}
                 <Link
                   to="/work"
                   className="
@@ -154,81 +155,75 @@ export default function Home() {
 
             </div>
 
-            {/* Right - feature panel with clickable card */}
-            <div
-              className="
-                hidden md:block
-                md:mt-6
-                relative
-                rounded-[32px]
-                bg-[var(--bg-soft)]
-                border border-black/5 dark:border-white/10
-                shadow-[0_24px_80px_rgba(15,23,42,0.16)]
-                p-3 md:p-4
-              "
-            >
+            {/* Right - featured project card (desktop) */}
+            <div className="hidden md:block md:mt-6">
               <Link
                 to="/work/elearning-design-system"
-                className="
-                  group block rounded-2xl border border-black/5 dark:border-white/10
-                  bg-white dark:bg-[#020617] shadow-sm overflow-hidden
-                  hover:-translate-y-[2px] hover:shadow-md transition
-                "
+                className="group relative block w-full overflow-hidden rounded-3xl bg-white ring-1 ring-black/10 shadow-[0_28px_90px_rgba(2,6,23,0.22)] transition hover:-translate-y-1 hover:shadow-[0_36px_120px_rgba(2,6,23,0.30)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--secondary)]/40"
               >
-                {/* Image */}
                 <img
                   src="/images/portfolio-elearning-design-system.jpg"
                   alt="eLearning Design System preview"
                   className="w-full h-auto block"
                 />
 
-                {/* Text content */}
-                <div className="px-5 py-4">
-                  <h3 className="font-heading text-xl md:text-2xl font-semibold text-[var(--text)] mb-2">
+                <div
+                  className="p-7 border-t border-black/5 bg-gradient-to-b from-white via-white to-slate-50"
+                  style={{
+                    backgroundColor: "#ffffff",
+                    backgroundImage:
+                      "radial-gradient(900px circle at 12% -12%, rgba(30,58,138,0.10), transparent 55%), radial-gradient(700px circle at 112% 8%, rgba(236,72,153,0.10), transparent 55%)",
+                  }}
+                >
+                  <p className="text-xs font-bold tracking-[0.18em] uppercase text-slate-600">
+                    Featured
+                  </p>
+
+                  <h3 className="mt-3 font-heading text-2xl md:text-3xl font-semibold leading-tight text-[#1E3A8A]">
                     eLearning Design System
                   </h3>
-                  <p className="text-sm text-[var(--text)]/70 mb-3">
-                    A reusable eLearning design system - templates, components
-                    and assets for faster, more consistent builds.
+
+                  <p className="mt-3 text-[1.05rem] leading-relaxed text-slate-700">
+                    Templates, components and assets for faster, more consistent builds.
                   </p>
-                  <span className="text-sm font-heading text-[var(--accent)] group-hover:text-[var(--accent-strong)] inline-flex items-center gap-1">
-                    Explore project →
+
+                  <p className="mt-4 text-sm leading-relaxed text-slate-600">
+                    Built to speed up production and keep quality consistent - UI patterns, templates, and ready-to-use assets.
+                  </p>
+
+                  <span className="mt-5 inline-flex items-center gap-2 text-sm font-heading text-[var(--secondary)] group-hover:opacity-90">
+                    Explore project <span aria-hidden>→</span>
                   </span>
                 </div>
               </Link>
-              <div className="mt-5 px-5">
-                <p className="text-sm text-[var(--text)]/70 leading-relaxed">
-                  Built to speed up production and keep quality consistent - UI patterns, templates, and ready-to-use assets.
-                </p>
-              </div>
             </div>
           </div>
         </Container>
       </Section>
 
       {/* Mobile: eLearning Design System card (below hero) */}
-      <Section className="bg-[var(--bg)] md:hidden">
-        <Container className="pt-6 pb-10">
+      <Section noPadding className="bg-[var(--bg)] md:hidden">
+        <Container className="pt-3 pb-8">
           <Link
             to="/work/elearning-design-system"
-            className="w-full rounded-3xl border border-black/10 dark:border-white/10 bg-white/90 dark:bg-white/5 overflow-hidden shadow-sm"
+            className="group block w-full overflow-hidden rounded-2xl bg-white ring-1 ring-black/10 shadow-[0_22px_70px_rgba(2,6,23,0.20)] transition hover:-translate-y-0.5 hover:shadow-[0_30px_95px_rgba(2,6,23,0.28)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--secondary)]/40"
           >
             <img
               src="/images/portfolio-elearning-design-system.jpg"
               alt="eLearning Design System preview"
               className="w-full h-auto block"
             />
-            <div className="p-5">
-              <p className="text-xs font-bold tracking-[0.18em] uppercase text-[var(--text-muted)]">
+            <div className="p-5 border-t border-black/5 bg-gradient-to-b from-white via-white to-slate-50">
+              <p className="text-xs font-bold tracking-[0.18em] uppercase text-slate-600">
                 Featured
               </p>
-              <h3 className="mt-2 font-heading text-xl font-semibold text-[var(--text)]">
+              <h3 className="mt-2 font-heading text-xl font-semibold text-[#1E3A8A]">
                 eLearning Design System
               </h3>
-              <p className="mt-2 text-sm text-[var(--text)]/70">
+              <p className="mt-2 text-sm text-slate-700">
                 Templates, components and assets for faster, more consistent builds.
               </p>
-              <span className="mt-3 inline-flex text-sm font-heading text-[var(--brand-primary)]">
+              <span className="mt-3 inline-flex text-sm font-heading text-[var(--secondary)]">
                 Explore project →
               </span>
             </div>
@@ -237,21 +232,30 @@ export default function Home() {
       </Section>
 
       {/* CLIENT LOGOS */}
-      <Section className="bg-white">
+      <Section className="bg-[var(--bg-soft)] border-y border-black/5 dark:border-white/10">
         <Container className="py-6 md:py-8 fade-in-up">
-          <div className="flex flex-col items-center justify-center gap-y-6 sm:flex-row sm:flex-wrap sm:gap-x-10 sm:gap-y-6">
+<div className="grid w-full grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-x-8 gap-y-10 place-items-center">
             {clients.map((client) => (
               <div
                 key={client.name}
-                className="flex items-center justify-center basis-auto"
+                className={`w-full flex items-center justify-center ${client.wrapperClass || ""}`}
               >
-                <img
-                  src={client.src}
-                  alt={client.name}
-                  className={`h-8 md:h-9 lg:h-10 opacity-70 object-contain ${
-                    client.className || ""
-                  }`}
-                />
+                <div className="w-[320px] md:w-[260px] lg:w-[240px] flex items-center justify-center">
+                  <img
+                    src={client.lightSrc}
+                    alt={client.name}
+                    className={`w-full h-12 opacity-90 object-contain dark:hidden ${
+                      client.className || ""
+                    }`}
+                  />
+                  <img
+                    src={client.darkSrc}
+                    alt={client.name}
+                    className={`w-full h-12 opacity-90 object-contain hidden dark:block ${
+                      client.className || ""
+                    }`}
+                  />
+                </div>
               </div>
             ))}
           </div>
@@ -272,7 +276,6 @@ export default function Home() {
             <ServiceCard
               title="Consultancy & instructional design"
               tag="Strategy"
-              icon="ID"
               items={[
                 "Discovery, needs analysis, and learning strategy",
                 "Curriculum design, storyboards, and scenario writing",
@@ -282,7 +285,6 @@ export default function Home() {
             <ServiceCard
               title="eLearning & media development"
               tag="Build"
-              icon="DEV"
               items={[
                 "Storyline/Rise builds with strong UX and accessibility",
                 "Reusable templates, components, and design systems",
@@ -292,7 +294,6 @@ export default function Home() {
             <ServiceCard
               title="xAPI & learning analytics"
               tag="Data"
-              icon="xAPI"
               items={[
                 "xAPI implementation, debugging, and statement design",
                 "Veracity/Learning Locker setup and reporting workflows",
@@ -303,7 +304,7 @@ export default function Home() {
 
           <Link
             to="/services"
-            className="text-sm text-[#F5C84C] hover:text-white hover:underline inline-block font-heading"
+            className="text-sm text-[var(--secondary)] hover:text-white hover:underline inline-block font-heading"
           >
             View all services →
           </Link>
@@ -328,7 +329,7 @@ export default function Home() {
                 key={post.slug}
                 to={`/blog/${post.slug}`}
                 className="
-                  rounded-2xl border border-black/10 bg-white/95
+                  rounded-2xl border border-black/10 bg-white
                   p-6 space-y-3 hover:-translate-y-1 hover:shadow-md
                   hover:border-[var(--brand-primary)] transition
                 "
@@ -345,7 +346,7 @@ export default function Home() {
                   {post.title}
                 </h3>
                 <p className="text-sm text-slate-700">{post.summary}</p>
-                <span className="text-sm font-heading text-[#970067]">
+                <span className="text-sm font-heading text-[var(--secondary)]">
                   Read more →
                 </span>
               </Link>
@@ -354,7 +355,7 @@ export default function Home() {
 
           <Link
             to="/blog"
-            className="text-sm text-[#F5C84C] hover:text-white hover:underline inline-block font-heading"
+            className="text-sm text-[var(--secondary)] hover:opacity-90 hover:underline inline-block font-heading"
           >
             View all posts →
           </Link>
@@ -373,17 +374,17 @@ export default function Home() {
               <Link
                 key={project.slug}
                 to={`/work/${project.slug}`}
-                className="rounded-3xl border border-black/10 bg-[var(--bg)] overflow-hidden hover:-translate-y-[2px] hover:shadow-md transition"
+                className="rounded-2xl border border-black/10 bg-white overflow-hidden shadow-xl transition hover:-translate-y-[2px] hover:shadow-2xl dark:border-black/10 dark:bg-white"
               >
                 <ProjectImage src={project.image} alt={project.title} />
                 <div className="p-6 space-y-3">
-                  <h3 className="font-heading text-xl text-[var(--text)]">
+                  <h3 className="font-heading text-xl text-[#1E3A8A]">
                     {project.title}
                   </h3>
-                  <p className="text-sm opacity-75 text-[var(--text)]/80">
+                  <p className="text-sm text-slate-700">
                     {project.subtitle}
                   </p>
-                  <span className="text-sm text-[var(--brand-primary)]">
+                  <span className="text-sm font-heading text-[var(--secondary)]">
                     Explore project →
                   </span>
                 </div>
@@ -405,32 +406,21 @@ export default function Home() {
 
 function ServiceCard({ title, text, items, icon, tag }) {
   return (
-    <div className="rounded-3xl border border-black/10 bg-white/95 p-8 space-y-4 shadow-sm hover:shadow-md hover:-translate-y-1 hover:border-[#F5C84C] transition">
-      <div className="flex items-center gap-3">
-        {icon && (
-          <div className="h-10 w-10 rounded-full bg-[#F5C84C]/25 flex items-center justify-center text-[#970067] text-lg font-heading">
-            {icon}
-          </div>
+    <div className="rounded-2xl border border-black/10 bg-white p-8 space-y-4 shadow-sm hover:shadow-md hover:-translate-y-1 hover:border-[var(--secondary)] transition">
+      <div className="space-y-1">
+        <h3 className="font-heading text-xl text-slate-900">{title}</h3>
+        {tag && (
+          <span className="inline-flex items-center rounded-full border border-black/10 px-3 py-0.5 text-[11px] uppercase tracking-[0.18em] text-slate-600">
+            {tag}
+          </span>
         )}
-        <div className="space-y-1">
-          <h3 className="font-heading text-xl text-slate-900">{title}</h3>
-          {tag && (
-            <span className="inline-flex items-center rounded-full border border-black/10 px-3 py-0.5 text-[11px] uppercase tracking-[0.18em] text-slate-600">
-              {tag}
-            </span>
-          )}
-        </div>
       </div>
 
       {items?.length ? (
-        <ul className="space-y-2 text-sm text-slate-700">
+        <ul className="space-y-3 text-sm text-slate-700">
           {items.map((item) => (
-            <li key={item} className="flex items-start gap-3">
-              <span
-                aria-hidden="true"
-                className="mt-2 h-2 w-2 shrink-0 rounded-full bg-[#F5C84C]"
-              />
-              <span>{item}</span>
+            <li key={item} className="relative pl-6">
+              {item}
             </li>
           ))}
         </ul>
