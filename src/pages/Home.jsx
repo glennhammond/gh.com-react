@@ -54,17 +54,20 @@ export default function Home() {
 
         {/* HERO */}
       <Section noPadding className="bg-[var(--bg)]">
-<Container className="pt-12 pb-6 md:min-h-[76vh] md:pt-16 md:pb-24 flex items-start md:items-center">          <div
+<Container className="pt-12 pb-14 min-h-[calc(100svh-4rem)] md:min-h-[76vh] md:pt-16 md:pb-24 flex items-start md:items-center">
+          <div
             className="
               w-full
+              h-full
               grid grid-cols-1 md:grid-cols-2
               gap-14 items-center
               fade-in-up
             "
           >
             {/* Left */}
-            <div className="space-y-7 flex flex-col">
-              <div className="w-full sm:w-[420px] flex items-center gap-3 mb-4">
+            <div className="flex h-full flex-col justify-between">
+              <div className="space-y-7">
+              <div className="w-full flex items-center gap-3 mb-4">
                 <span aria-hidden="true">🏆</span>
                 <span className="text-sm font-semibold tracking-[0.18em] uppercase text-[var(--text-muted)] whitespace-nowrap">
                   Award-winning eLearning
@@ -95,8 +98,10 @@ export default function Home() {
                 </p>
               </div>
 
+              </div>
+
               {/* CTAs */}
-<div className="mt-8 pt-0 pb-0 md:mt-auto md:pt-6 md:pb-0 w-full sm:w-[420px] flex flex-col items-stretch gap-4 sm:gap-5">                {/* Primary - solid magenta */}
+<div className="mt-0 pt-12 pb-0 md:mt-auto md:pt-12 md:pb-0 w-full sm:w-[420px] flex flex-col items-stretch gap-4 sm:gap-5">                {/* Primary - solid magenta */}
                 <Link
                   to="/work"
                   className="
@@ -366,7 +371,7 @@ export default function Home() {
       <Section>
         <Container className="space-y-10 fade-in-up">
           <h2 className="font-heading text-2xl text-[var(--text)]">
-            eLearning Design System
+            Featured work
           </h2>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">

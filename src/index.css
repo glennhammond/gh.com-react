@@ -1,6 +1,10 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* Global - slightly tighter card corner radius */
+.rounded-3xl { border-radius: 1rem !important; }   /* was 1.5rem */
+.rounded-2xl { border-radius: 0.75rem !important; } /* was 1rem */
 @layer base {
   /* Force-disable default UL markers everywhere (incl. Tailwind prose / list-disc overrides) */
   ul,

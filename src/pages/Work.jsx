@@ -28,7 +28,7 @@ export default function Work() {
                   { label: "Work" },
                 ]}
                 eyebrow="Selected work"
-                title="Designing modern learning for complex environments"
+                title="Modern learning design"
                 lead="A mix of design systems, flagship courses, and playful prototypes built for regulators, school networks, and workplace wellbeing. This is the work that has shaped how I think about learning design."
               />
 
@@ -261,26 +261,39 @@ export default function Work() {
           </div>
 
           <div className="grid gap-6 md:grid-cols-2">
-            {/* Interactive video – rooftop */}
-            <Link
-              to="/work/elearning-heroes-experiments#interactive-video"
-              className="group flex flex-col overflow-hidden rounded-2xl border border-black/5 bg-white/80 p-5 shadow-sm backdrop-blur-sm transition hover:-translate-y-1 hover:shadow-md hover:border-[#F5C84C] dark:border-white/10 dark:bg-white/10"
-            >
-              <h3 className="text-lg font-semibold leading-snug">
-                “Don’t jump” – interactive video prototype
-              </h3>
-              <p className="mt-2 text-sm text-neutral-700 dark:text-white/85">
-                Early interactive video from around 2014–15: a man on a rooftop, the action pauses at key
-                points, and the learner chooses what happens next. Built before “interactive video” became
-                a buzzword.
-              </p>
-              <p className="mt-3 text-xs font-medium uppercase tracking-[0.16em] text-neutral-500 dark:text-white/70">
-                Articulate eLearning Heroes challenge · Branching · Video
-              </p>
-              <div className="mt-3 text-sm font-medium text-neutral-900/80 group-hover:underline dark:text-white">
-                Jump to section →
-              </div>
-            </Link>
+  {/* Interactive video – rooftop */}
+<Link
+  to="/work/elearning-heroes-experiments#interactive-video"
+  className="group flex flex-col overflow-hidden rounded-2xl border border-black/5 bg-white/80 shadow-sm backdrop-blur-sm transition hover:-translate-y-1 hover:shadow-md dark:border-white/10 dark:bg-neutral-900/80"
+>
+  <div className="w-full bg-neutral-50 dark:bg-white/5">
+    <img
+      src="/images/work/articulate/glenn-hammond-site-assets-articulate-elearning-heroes-116.webp"
+      alt="‘Don’t jump’ interactive video prototype – rooftop scene"
+      className="block w-full h-auto object-contain"
+      loading="lazy"
+      decoding="async"
+    />
+  </div>
+
+  <div className="p-5">
+    <h3 className="text-lg font-semibold leading-snug">
+      Interactive video prototype
+    </h3>
+
+    <p className="mt-2 text-sm text-neutral-700 dark:text-neutral-200">
+      Early interactive video from 2014: a man on a rooftop, the action pauses at key points, and the learner chooses what happens next. Built before “interactive video” became a buzzword.
+    </p>
+
+    <p className="mt-4 text-xs uppercase tracking-wide text-neutral-600 dark:text-neutral-300">
+      Articulate eLearning Heroes Challenge · Branching · Video
+    </p>
+
+    <span className="mt-4 inline-flex items-center gap-2 font-heading text-sm text-[var(--secondary)]">
+      Jump to section <span aria-hidden>→</span>
+    </span>
+  </div>
+</Link>
 
             {/* Beer Advisor */}
             <Link
