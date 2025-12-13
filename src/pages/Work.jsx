@@ -173,7 +173,7 @@ export default function Work() {
               {/* FULL-WIDTH IMAGE */}
               <div className="relative w-full overflow-hidden">
                 <img
-                  src="/images/work/glenn-hammond-site-assets-website-corporate-yoga-australia.webp"
+                  src="/images/work/glenn-hammond-site-assets-corporate-yoga-australia.webp"
                   alt="Corporate Yoga Australia WordPress website"
                   className="w-full object-cover transition-transform duration-300 group-hover:scale-[1.02]"
                 />

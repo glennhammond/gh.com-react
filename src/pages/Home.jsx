@@ -101,7 +101,8 @@ export default function Home() {
               </div>
 
               {/* CTAs */}
-<div className="mt-0 pt-12 pb-0 md:mt-auto md:pt-12 md:pb-0 w-full sm:w-[420px] flex flex-col items-stretch gap-4 sm:gap-5">                {/* Primary - solid magenta */}
+<div className="mt-0 pt-16 pb-0 md:mt-auto md:pt-14 md:pb-0 w-full sm:w-[420px] flex flex-col items-stretch gap-5 sm:gap-6">
+                {/* Primary - solid magenta */}
                 <Link
                   to="/work"
                   className="
