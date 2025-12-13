@@ -4,8 +4,8 @@ function getPreferredTheme() {
   if (typeof window === "undefined") return "dark";
   const stored = window.localStorage.getItem("theme");
   if (stored === "dark" || stored === "light") return stored;
-  const prefersDark = window.matchMedia?.("(prefers-color-scheme: dark)")?.matches;
-  return prefersDark ? "dark" : "light";
+  // Default to dark on first visit (ignore OS preference unless you want it)
+  return "dark";
 }
 
 export default function ThemeToggle() {
@@ -14,6 +14,7 @@ export default function ThemeToggle() {
   useEffect(() => {
     const isDark = theme === "dark";
     document.documentElement.classList.toggle("dark", isDark);
+    document.documentElement.style.colorScheme = theme;
     window.localStorage.setItem("theme", theme);
   }, [theme]);
 
