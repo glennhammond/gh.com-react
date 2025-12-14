@@ -2,9 +2,71 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Global - slightly tighter card corner radius */
-.rounded-3xl { border-radius: 1rem !important; }   /* was 1.5rem */
-.rounded-2xl { border-radius: 0.75rem !important; } /* was 1rem */
+@layer components {
+  /* Site-wide card surface (light mode) */
+  .site-card {
+    @apply rounded-2xl border border-black/5 bg-white/60 backdrop-blur-sm shadow-sm;
+  }
+
+  /* Slightly stronger variant for key cards (light mode) */
+  .site-card-strong {
+    @apply rounded-2xl border border-black/5 bg-white/70 backdrop-blur-sm shadow-md;
+  }
+}
+
+/* -------------------------------------------------------
+   SITE CARD SYSTEM — DARK MODE
+   Purpose: make .site-card read as a light “card” on the blue bg
+------------------------------------------------------- */
+html.dark .site-card,
+html.dark .site-card-strong {
+  background-color: var(--card-bg) !important;
+  border: 1px solid var(--card-border) !important;
+  box-shadow: var(--card-shadow);
+  color: var(--card-text) !important;
+  position: relative;
+  transform: translateZ(0);
+  overflow: hidden;
+}
+
+/* Subtle premium highlight layer */
+html.dark .site-card::before,
+html.dark .site-card-strong::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  background:
+    radial-gradient(900px circle at 14% 10%, rgba(59, 130, 246, 0.16), transparent 46%),
+    radial-gradient(650px circle at 88% 0%, rgba(255, 77, 141, 0.10), transparent 42%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.42), rgba(255, 255, 255, 0.00) 28%);
+  opacity: 0.7;
+}
+
+/* Typography inside cards */
+html.dark .site-card :is(h1, h2, h3, h4),
+html.dark .site-card-strong :is(h1, h2, h3, h4) {
+  color: var(--card-title) !important;
+  font-family: var(--font-heading) !important;
+}
+
+html.dark .site-card :is(p, li, span, small),
+html.dark .site-card-strong :is(p, li, span, small) {
+  color: var(--card-text) !important;
+}
+
+html.dark .site-card a,
+html.dark .site-card-strong a {
+  color: var(--card-link) !important;
+}
+
+/* If anything forces white text classes inside cards, flip them back */
+html.dark .site-card :is(.text-white, .text-white\/90, .text-white\/80, .text-neutral-100, .text-slate-100),
+html.dark .site-card-strong :is(.text-white, .text-white\/90, .text-white\/80, .text-neutral-100, .text-slate-100) {
+  color: var(--card-text) !important;
+}
+
 @layer base {
   /* Force-disable default UL markers everywhere (incl. Tailwind prose / list-disc overrides) */
   ul,
@@ -584,7 +646,8 @@ html.dark main :is(
 }
 
 /* Low-alpha panels for a modern, "dressed" feel */
-.panel {
+.panel,
+.card {
   background: color-mix(in srgb, var(--bg-soft) 88%, transparent);
   border: 1px solid var(--card-border);
   border-radius: 1rem;
@@ -594,17 +657,20 @@ html.dark main :is(
 }
 
 /* Slightly stronger panel for hero/primary sections */
-.panel-strong {
+.panel-strong,
+.card-strong {
   background: color-mix(in srgb, var(--bg-soft) 94%, transparent);
 }
 
 /* Softer panel for secondary rows */
-.panel-soft {
+.panel-soft,
+.card-soft {
   background: color-mix(in srgb, var(--bg-soft) 82%, transparent);
 }
 
 /* Accent-tinted panel (pink) */
-.panel-warm {
+.panel-warm,
+.card-warm {
   background:
     linear-gradient(
       180deg,
@@ -615,7 +681,8 @@ html.dark main :is(
 }
 
 /* Cool-tinted panel (blue) */
-.panel-cool {
+.panel-cool,
+.card-cool {
   background:
     linear-gradient(
       180deg,
@@ -633,7 +700,7 @@ html.dark main :is(
 ------------------------------------------------------- */
 @media (max-width: 640px) {
   /* Turn panel/surface components into the same white-card surface used elsewhere */
-  html.dark main :is(.panel, .panel-strong, .panel-soft, .panel-warm, .panel-cool, .surface) {
+  html.dark main :is(.panel, .panel-strong, .panel-soft, .panel-warm, .panel-cool, .card, .card-strong, .card-soft, .card-warm, .card-cool, .surface) {
     background: var(--card-bg) !important;
     border: 1px solid var(--card-border) !important;
     box-shadow: var(--card-shadow) !important;
@@ -643,21 +710,21 @@ html.dark main :is(
   }
 
   /* Typography inside those panels */
-  html.dark main :is(.panel, .panel-strong, .panel-soft, .panel-warm, .panel-cool, .surface) :is(h1, h2, h3, h4) {
+  html.dark main :is(.panel, .panel-strong, .panel-soft, .panel-warm, .panel-cool, .card, .card-strong, .card-soft, .card-warm, .card-cool, .surface) :is(h1, h2, h3, h4) {
     color: var(--card-title) !important;
     font-family: var(--font-heading) !important;
   }
 
-  html.dark main :is(.panel, .panel-strong, .panel-soft, .panel-warm, .panel-cool, .surface) :is(p, li, span, small) {
+  html.dark main :is(.panel, .panel-strong, .panel-soft, .panel-warm, .panel-cool, .card, .card-strong, .card-soft, .card-warm, .card-cool, .surface) :is(p, li, span, small) {
     color: var(--card-text) !important;
   }
 
-  html.dark main :is(.panel, .panel-strong, .panel-soft, .panel-warm, .panel-cool, .surface) a {
+  html.dark main :is(.panel, .panel-strong, .panel-soft, .panel-warm, .panel-cool, .card, .card-strong, .card-soft, .card-warm, .card-cool, .surface) a {
     color: var(--card-link) !important;
   }
 
   /* If any panel content forces white text classes, flip them back to dark */
-  html.dark main :is(.panel, .panel-strong, .panel-soft, .panel-warm, .panel-cool, .surface) :is(
+  html.dark main :is(.panel, .panel-strong, .panel-soft, .panel-warm, .panel-cool, .card, .card-strong, .card-soft, .card-warm, .card-cool, .surface) :is(
     .text-white,
     .text-white\/90,
     .text-white\/80,
@@ -668,7 +735,7 @@ html.dark main :is(
   }
 
   /* Muted/supporting text inside these panels */
-  html.dark main :is(.panel, .panel-strong, .panel-soft, .panel-warm, .panel-cool, .surface) :is(
+  html.dark main :is(.panel, .panel-strong, .panel-soft, .panel-warm, .panel-cool, .card, .card-strong, .card-soft, .card-warm, .card-cool, .surface) :is(
     .text-slate-500,
     .text-neutral-500,
     .text-slate-400,
@@ -739,6 +806,33 @@ html:not(.dark) body {
 /* Avoid animating everything - crisp UI uses intentional motion only */
 * {
   transition: none;
+}
+
+/* -------------------------------------------------------
+   CARD INTERACTION (opt-in)
+   Use `.card-link` only on clickable cards (Link/a/button)
+------------------------------------------------------- */
+.card-link {
+  transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease;
+  will-change: transform;
+}
+
+@media (hover: hover) {
+  .card-link:hover {
+    transform: translateY(-6px);
+    box-shadow: var(--card-shadow);
+    border-color: rgba(15, 23, 42, 0.16);
+  }
+}
+
+.card-link:active {
+  transform: translateY(-2px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .card-link {
+    transition: none;
+  }
 }
 
 /* -------------------------------------------------------

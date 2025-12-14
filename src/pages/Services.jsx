@@ -11,7 +11,7 @@ export default function Services() {
   return (
     <PageWrapper>
       <SEO
-        title="Services – Glenn Hammond"
+        title="Services - Glenn Hammond"
         description="Consultancy and instructional design, eLearning/media development, and xAPI learning analytics for modern digital learning."
       />
 
@@ -27,22 +27,29 @@ export default function Services() {
             intro="I help organisations design, build, and refine digital learning experiences - from early concept through to launch and analytics."
           />
 
-          <div className="mt-6 max-w-2xl text-white/80 space-y-3">
-            <p>
+<div className="mt-6 max-w-2xl site-card p-6 md:p-7 space-y-3">            <p className="text-[var(--text)]/85">
               You can engage me for a single stream (strategy, build, or data), or combine them end-to-end.
               My focus is practical delivery - clear decisions, clean execution, and measurable improvement.
             </p>
-            <p className="text-white/70">
+            <p className="text-[var(--text)]/70">
               Typical outputs include storyboards and scripts, Storyline/Rise builds, video assets, xAPI statements,
               LRS configuration, and dashboards that support real reporting.
             </p>
           </div>
 
           <div className="mt-6 flex flex-wrap gap-2">
-            <span className="inline-flex items-center rounded-full border border-white/20 bg-white/10 px-3 py-1 text-xs text-white/85">ADDIE-aligned</span>
-            <span className="inline-flex items-center rounded-full border border-white/20 bg-white/10 px-3 py-1 text-xs text-white/85">Accessibility-minded</span>
-            <span className="inline-flex items-center rounded-full border border-white/20 bg-white/10 px-3 py-1 text-xs text-white/85">Reusable systems</span>
-            <span className="inline-flex items-center rounded-full border border-white/20 bg-white/10 px-3 py-1 text-xs text-white/85">Analytics-ready</span>
+            <span className="rounded-full border border-black/10 dark:border-white/15 bg-white/50 dark:bg-white/10 px-3 py-1 text-xs text-[var(--text)]/80">
+              ADDIE-aligned
+            </span>
+            <span className="rounded-full border border-black/10 dark:border-white/15 bg-white/50 dark:bg-white/10 px-3 py-1 text-xs text-[var(--text)]/80">
+              Accessibility-minded
+            </span>
+            <span className="rounded-full border border-black/10 dark:border-white/15 bg-white/50 dark:bg-white/10 px-3 py-1 text-xs text-[var(--text)]/80">
+              Reusable systems
+            </span>
+            <span className="rounded-full border border-black/10 dark:border-white/15 bg-white/50 dark:bg-white/10 px-3 py-1 text-xs text-[var(--text)]/80">
+              Analytics-ready
+            </span>
           </div>
         </Container>
       </Section>
@@ -92,17 +99,13 @@ export default function Services() {
           </div>
 
           {/* Soft CTA under the grid */}
-          <div className="mt-10 text-sm text-white/80">
+          <div className="mt-10 text-sm text-[var(--text)]/80">
             <p>
               Not sure where your project fits?{" "}
-              <a
-                href="/contact"
-                className="font-heading text-[#F5C84C] hover:text-white hover:underline"
-              >
+              <a href="/contact" className="font-heading text-[var(--secondary)] hover:underline">
                 Get in touch
               </a>{" "}
-              and we can map out the right mix of design, xAPI, and media
-              support.
+              and we can map out the right mix of design, xAPI, and media support.
             </p>
           </div>
         </Container>
@@ -113,11 +116,9 @@ export default function Services() {
         <Container>
           <div className="space-y-6 fade-in-up">
             <div className="space-y-2">
-              <span className="text-xs uppercase tracking-[0.18em] text-white/70">
-                Approach
-              </span>
-              <h2 className="font-heading text-2xl text-white">How I work</h2>
-              <p className="max-w-2xl text-white/80">
+              <span className="text-xs uppercase tracking-[0.18em] text-[var(--text)]/70">Approach</span>
+              <h2 className="font-heading text-2xl text-[var(--text)]">How I work</h2>
+              <p className="max-w-2xl text-[var(--text)]/80">
                 A lightweight process that keeps stakeholders aligned and delivery moving - without overcooking documentation.
               </p>
             </div>
@@ -132,7 +133,7 @@ export default function Services() {
             <div>
               <a
                 href="/work"
-                className="inline-flex items-center justify-center rounded-xl bg-white px-5 py-3 text-sm font-heading text-[#970067] shadow-sm transition hover:-translate-y-0.5 hover:shadow-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#F5C84C]"
+                className="inline-flex items-center justify-center rounded-xl bg-white/80 dark:bg-white/10 backdrop-blur-sm border border-black/10 dark:border-white/15 px-5 py-3 text-sm font-heading text-[var(--text)] shadow-sm card-link focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--secondary)]/40"
               >
                 See examples in Work →
               </a>
@@ -146,7 +147,7 @@ export default function Services() {
 
 function ServiceCard({ title, tag, icon, blurb, items }) {
   return (
-    <div className="rounded-3xl border border-black/10 bg-white/95 shadow-sm transition hover:-translate-y-1 hover:shadow-md hover:border-[#F5C84C] overflow-hidden">
+    <div className="site-card overflow-hidden">
       {/* Visual header (acts like an image without adding files) */}
       <div className="h-14 bg-gradient-to-r from-[#F5C84C] via-[#c01e84] to-[#970067]" />
 
@@ -158,24 +159,21 @@ function ServiceCard({ title, tag, icon, blurb, items }) {
             </div>
           )}
           <div className="space-y-1">
-            <h3 className="font-heading text-xl text-slate-900">{title}</h3>
+            <h3 className="font-heading text-xl text-[var(--text)]">{title}</h3>
             {tag && (
-              <span className="inline-flex items-center rounded-full border border-black/10 px-3 py-0.5 text-[11px] uppercase tracking-[0.18em] text-slate-600">
+              <span className="inline-flex items-center rounded-full border border-black/10 dark:border-white/15 bg-white/40 dark:bg-white/10 px-3 py-0.5 text-[11px] uppercase tracking-[0.18em] text-[var(--text)]/70">
                 {tag}
               </span>
             )}
           </div>
         </div>
 
-        {blurb && <p className="text-sm text-slate-700">{blurb}</p>}
+        {blurb && <p className="text-sm text-[var(--text)]/75">{blurb}</p>}
 
-        <ul className="space-y-2 text-sm text-slate-700">
+        <ul className="space-y-2 text-sm text-[var(--text)]/75">
           {items.map((item) => (
             <li key={item} className="flex items-start gap-3">
-              <span
-                aria-hidden="true"
-                className="mt-2 h-2 w-2 shrink-0 rounded-full bg-[#F5C84C]"
-              />
+              <span aria-hidden="true" className="mt-2 h-2 w-2 shrink-0 rounded-full bg-[#F5C84C]" />
               <span>{item}</span>
             </li>
           ))}
@@ -187,14 +185,14 @@ function ServiceCard({ title, tag, icon, blurb, items }) {
 
 function StepCard({ title, icon, text }) {
   return (
-    <div className="rounded-2xl border border-white/15 bg-white/10 backdrop-blur-md p-5 shadow-[0_18px_50px_rgba(0,0,0,0.18)]">
+    <div className="site-card p-5">
       <div className="flex items-center gap-3">
-        <div className="h-9 w-9 rounded-full bg-[#F5C84C]/25 flex items-center justify-center text-[#F5C84C] text-sm font-heading">
+        <div className="h-9 w-9 rounded-full bg-[#F5C84C]/25 flex items-center justify-center text-[var(--secondary)] text-sm font-heading">
           {icon}
         </div>
-        <h3 className="font-heading text-base text-white">{title}</h3>
+        <h3 className="font-heading text-base text-[var(--text)]">{title}</h3>
       </div>
-      <p className="mt-3 text-sm text-white/80">{text}</p>
+      <p className="mt-3 text-sm text-[var(--text)]/75">{text}</p>
     </div>
   );
 }
