@@ -16,54 +16,64 @@ const elearningSections = [
   {
     slug: "overview",
     title: "eLearning Design System",
+    description: "What this system is, how it works, and how to use it.",
     href: "/work/elearning-design-system/overview",
     image: "/images/elearning-design-system.png",
   },
   {
     slug: "atomic-design",
     title: "Atomic Design",
+    description: "A simple component mindset to keep builds consistent and scalable.",
     href: "/work/elearning-design-system/atomic-design",
     image: "/images/atomic-design.png",
   },
   {
     slug: "core-more-bore",
     title: "Core, More & Bore",
+    description: "A practical content model for balancing essentials, depth, and extras.",
     href: "/work/elearning-design-system/core-more-bore",
     image: "/images/core-more-bore.png",
   },
   {
     slug: "colours",
     title: "Colours",
+    description: "Palette, contrast, and usage rules for clear, accessible screens.",
     href: "/work/elearning-design-system/colours",
     image: "/images/colours.png",
   },
   {
     slug: "typography",
     title: "Typography",
+    description: "Hierarchy, sizing, and spacing decisions for readable learning.",
     href: "/work/elearning-design-system/typography",
     image: "/images/typography.png",
+    fallbackImage: "/images/design-system-typography.png",
   },
   {
     slug: "images-icons",
     title: "Images & Icons",
+    description: "Image style, icon rules, and visual consistency across courses.",
     href: "/work/elearning-design-system/images-icons",
     image: "/images/icons.png",
   },
   {
     slug: "course-structure",
     title: "Course Structure",
+    description: "A repeatable course layout with predictable sections and flow.",
     href: "/work/elearning-design-system/course-structure",
     image: "/images/course-structure.png",
   },
   {
     slug: "asset-register",
     title: "Asset Register",
+    description: "How I manage assets, naming, and source files for clean handover.",
     href: "/work/elearning-design-system/asset-register",
     image: "/images/asset-register.png",
   },
   {
     slug: "storyline",
     title: "Storyline",
+    description: "Storyline standards for templates, interactions, and maintainable builds.",
     href: "/work/elearning-design-system/storyline",
     image: "/images/storyline.png",
   },
@@ -184,6 +194,30 @@ export default function ProjectPage() {
                         alt={item.title}
                         className="w-full h-full object-cover"
                         loading="lazy"
+                        onError={(e) => {
+                          const el = e.currentTarget;
+                          const placeholder =
+                            "data:image/svg+xml;utf8," +
+                            encodeURIComponent(
+                              `<svg xmlns='http://www.w3.org/2000/svg' width='1600' height='900'>
+                                <rect width='100%' height='100%' fill='rgba(0,0,0,0.04)'/>
+                                <text x='50%' y='50%' dominant-baseline='middle' text-anchor='middle'
+                                  font-family='Arial, sans-serif' font-size='36' fill='rgba(0,0,0,0.45)'>
+                                  Image
+                                </text>
+                              </svg>`
+                            );
+
+                          // First try a per-card fallback image (useful for the Typography card)
+                          if (item.fallbackImage && el.src.indexOf(item.fallbackImage) === -1) {
+                            el.src = item.fallbackImage;
+                            return;
+                          }
+
+                          // Final fallback: embedded placeholder so there is never a broken image
+                          el.onerror = null;
+                          el.src = placeholder;
+                        }}
                       />
                     </div>
 
@@ -192,6 +226,9 @@ export default function ProjectPage() {
                       <h3 className="font-semibold text-base text-[var(--text)]">
                         {item.title}
                       </h3>
+                      <p className="mt-1 text-sm text-[var(--text)]/70 leading-relaxed">
+                        {item.description}
+                      </p>
                     </div>
                   </Link>
                 ))}

@@ -12,7 +12,7 @@ export const projects = [
   {
     slug: "elearning-design-system",
     title: "eLearning Design System",
-    subtitle: "A reusable design system for fast, consistent builds.",
+    subtitle: "A reusable framework for modern eLearning - designed for consistency, accessibility, and maintainable builds.",
     category: "Design-system",
     meta: "Figma · Storyline · Templates",
     // you’re now using this PNG elsewhere, so point to it here too
