@@ -1,77 +1,50 @@
-import React, { useEffect, useMemo, useState } from "react";
-
-function getPreferredTheme() {
-  if (typeof window === "undefined") return "dark";
-  const stored = window.localStorage.getItem("theme");
-  if (stored === "dark" || stored === "light") return stored;
-  // Default to dark on first visit (ignore OS preference unless you want it)
-  return "dark";
-}
+import React from "react";
 
 export default function ThemeToggle() {
-  const [theme, setTheme] = useState(() => getPreferredTheme());
+  const [theme, setTheme] = React.useState(() => {
+    if (typeof window === "undefined") return "dark";
+    try {
+      const stored = localStorage.getItem("theme");
+      return stored === "light" || stored === "dark" ? stored : "dark";
+    } catch {
+      return "dark";
+    }
+  });
 
-  useEffect(() => {
-    if (typeof document === "undefined") return;
-
+  React.useEffect(() => {
+    const root = document.documentElement;
     const isDark = theme === "dark";
 
-    // Tailwind + most setups
-    document.documentElement.classList.toggle("dark", isDark);
+    root.classList.toggle("dark", isDark);
+    root.dataset.theme = theme;
+    root.style.colorScheme = theme;
 
-    // Some CSS variable/theme setups key off body.dark
-    document.body?.classList.toggle("dark", isDark);
-
-    // Some setups key off a data attribute
-    document.documentElement.dataset.theme = theme;
-
-    // Helps browser UI/form controls match theme
-    document.documentElement.style.colorScheme = theme;
-
-    // Persist choice
-    window.localStorage.setItem("theme", theme);
+    try {
+      localStorage.setItem("theme", theme);
+    } catch {}
   }, [theme]);
 
-  const icon = useMemo(() => {
-    const common = {
-      xmlns: "http://www.w3.org/2000/svg",
-      width: 16,
-      height: 16,
-      viewBox: "0 0 24 24",
-      fill: "none",
-      stroke: "currentColor",
-      strokeWidth: 2,
-      strokeLinecap: "round",
-      strokeLinejoin: "round",
-    };
+  const toggle = () => {
+    const root = document.documentElement;
 
-    if (theme === "dark") {
-      // sun (dark mode -> click to light)
-      return (
-        <svg {...common}>
-          <circle cx="12" cy="12" r="4" />
-          <path d="M12 2v2m0 16v2m10-10h-2M4 12H2m15.364-7.364L16.95 5.05M7.05 16.95l-1.414 1.414m12.728 0l-1.414-1.414M7.05 7.05 5.636 5.636" />
-        </svg>
-      );
-    }
+    root.classList.add("theme-transition");
+    window.setTimeout(() => root.classList.remove("theme-transition"), 250);
 
-    // moon (light mode -> click to dark)
-    return (
-      <svg {...common}>
-        <path d="M21 12.79A9 9 0 1 1 11.21 3a7 7 0 0 0 9.79 9.79Z" />
-      </svg>
-    );
-  }, [theme]);
+    setTheme((t) => (t === "dark" ? "light" : "dark"));
+  };
+
+  const isDark = theme === "dark";
 
   return (
     <button
       type="button"
-      onClick={() => setTheme((t) => (t === "dark" ? "light" : "dark"))}
-      aria-label={theme === "dark" ? "Switch to light mode" : "Switch to dark mode"}
-      style={{ borderColor: "rgba(255,255,255,0.85)" }}
-      className="inline-flex h-10 w-10 items-center justify-center rounded-full border hover:border-white bg-[var(--bg-soft)] text-[var(--secondary)] shadow-sm backdrop-blur-sm transition focus-visible:outline-none focus-visible:ring-2 focus-visible:[--tw-ring-color:var(--secondary)]"
+      onClick={toggle}
+      aria-label={isDark ? "Switch to light mode" : "Switch to dark mode"}
+      className="inline-flex h-10 w-10 items-center justify-center rounded-lg border border-black/10 bg-white/70 text-[var(--text)] shadow-sm backdrop-blur-sm hover:bg-white/90 dark:border-white/15 dark:bg-white/10 dark:hover:bg-white/15"
     >
-      {icon}
+      <span aria-hidden className="text-sm leading-none">
+        {isDark ? "☾" : "☀"}
+      </span>
     </button>
   );
 }

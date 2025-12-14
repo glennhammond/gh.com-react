@@ -112,7 +112,7 @@ ul > li::before {
   --accent-soft-2: rgba(29, 78, 216, 0.16);
   --accent-warm: var(--secondary);
 
-  --shadow-soft: 0 18px 45px rgba(15, 23, 42, 0.12);
+  --shadow-soft: 0 14px 38px rgba(15, 23, 42, 0.10);
 
   /* CATEGORY COLOURS (leave as they are) */
   --cat-design: #2962ff;
@@ -172,7 +172,7 @@ html.dark {
   --accent-soft-2: rgba(59, 130, 246, 0.28);
   --accent-warm: var(--secondary);
 
-  --shadow-soft: 0 22px 55px rgba(0, 0, 0, 0.45);
+--shadow-soft: 0 18px 44px rgba(0, 0, 0, 0.40);
 
   /* Muted but harmonious category colours */
   --cat-design: #60a5fa;
@@ -571,7 +571,79 @@ html.dark main :is(
 ) :is(.text-slate-500, .text-neutral-500, .text-slate-400, .text-neutral-400) {
   color: var(--card-muted) !important;
 }
+/* -------------------------------------------------------
+   CRISP MODERN GLOBALS
+------------------------------------------------------- */
 
+/* Surface panel - use for page bodies / long-form content */
+.surface {
+  background: var(--bg-soft);
+  border: 1px solid var(--card-border);
+  border-radius: 1rem;
+  box-shadow: var(--shadow-soft);
+}
+
+/* Low-alpha panels for a modern, "dressed" feel */
+.panel {
+  background: color-mix(in srgb, var(--bg-soft) 88%, transparent);
+  border: 1px solid var(--card-border);
+  border-radius: 1rem;
+  box-shadow: var(--shadow-soft);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+/* Slightly stronger panel for hero/primary sections */
+.panel-strong {
+  background: color-mix(in srgb, var(--bg-soft) 94%, transparent);
+}
+
+/* Softer panel for secondary rows */
+.panel-soft {
+  background: color-mix(in srgb, var(--bg-soft) 82%, transparent);
+}
+
+/* Accent-tinted panel (pink) */
+.panel-warm {
+  background:
+    linear-gradient(
+      180deg,
+      color-mix(in srgb, var(--secondary-soft) 60%, transparent),
+      transparent
+    ),
+    color-mix(in srgb, var(--bg-soft) 86%, transparent);
+}
+
+/* Cool-tinted panel (blue) */
+.panel-cool {
+  background:
+    linear-gradient(
+      180deg,
+      color-mix(in srgb, var(--accent-soft) 70%, transparent),
+      transparent
+    ),
+    color-mix(in srgb, var(--bg-soft) 86%, transparent);
+}
+
+/* Prose - control line length for a more editorial feel */
+.prose {
+  max-width: 68ch;
+}
+
+/* Only animate colours during an intentional theme toggle */
+html.theme-transition,
+html.theme-transition * {
+  transition: background-color 200ms ease,
+    color 200ms ease,
+    border-color 200ms ease;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html.theme-transition,
+  html.theme-transition * {
+    transition: none !important;
+  }
+}
 
 /* -------------------------------------------------------
    BASE STYLES
@@ -584,8 +656,16 @@ body {
   /* 🔹 New: larger base size + comfy line-height */
   font-size: 1.05rem;
   line-height: 1.7;
+}
 
-  transition: background-color 0.3s ease, color 0.3s ease;
+/* Light mode - subtle ambient background so pages feel less flat */
+html:not(.dark) body {
+  background-image:
+    radial-gradient(900px circle at 18% 12%, rgba(59, 130, 246, 0.10), transparent 62%),
+    radial-gradient(900px circle at 82% 28%, rgba(255, 62, 127, 0.08), transparent 64%),
+    radial-gradient(1100px circle at 50% 92%, rgba(29, 78, 216, 0.06), transparent 66%);
+  background-attachment: fixed;
+  background-repeat: no-repeat;
 }
 
 /* 🔹 New: slightly larger again from tablet up */
@@ -603,13 +683,9 @@ body {
   padding-right: 1rem;
 }
 
-/* Smooth theme transitions */
+/* Avoid animating everything - crisp UI uses intentional motion only */
 * {
-  transition:
-    background-color 0.35s ease,
-    color 0.35s ease,
-    border-color 0.35s ease,
-    box-shadow 0.35s ease;
+  transition: none;
 }
 
 /* -------------------------------------------------------
@@ -659,8 +735,7 @@ body {
   text-decoration: none;
   font-weight: 500;
 }
-.prose a:hover { opacity: 0.75; }
-
+.prose a:hover { opacity: 0.85; }
 .prose img { border-radius: 1rem; }
 
 .prose blockquote {

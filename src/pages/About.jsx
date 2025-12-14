@@ -13,7 +13,7 @@ export default function About() {
     <PageWrapper>
       <SEO
         title="About – Glenn Hammond"
-        description="I design and build modern learning experiences, blending instructional design, UX, xAPI, and media."
+        description="Repeatable learning frameworks - consistent structure, UX, and production process across instructional design, Storyline/Rise builds, media, and xAPI analytics."
       />
 
       {/* PAGE INTRO + HERO GRID TOGETHER */}
@@ -29,26 +29,76 @@ export default function About() {
                 title="I design and build learning experiences"
               />
 
-              <div className="space-y-6">
-                <p className="text-[var(--text)]/75 leading-relaxed">
-                  I’m Glenn Hammond – an eLearning specialist, designer and video
-                  producer based in Brisbane. I design professional learning for
-                  teachers in Queensland’s independent schools through my role at
-                  Independent Schools Queensland, and take on selected projects
-                  through my own practice and partners like Corporate Yoga
-                  Australia.
-                </p>
+              {/* Mobile - meta card sits directly under the title */}
+              <aside className="panel panel-strong p-5 space-y-6 md:hidden">
+                <div className="flex items-center justify-center">
+                  <img
+                    src="/images/glenn-hammond-instructional-design-storyline-elearning-development-australia-uk-producer.jpg"
+                    alt="Glenn Hammond"
+                    className="
+                      w-full max-w-[320px]
+                      aspect-[4/3]
+                      rounded-2xl object-cover
+                      border border-black/10 dark:border-white/10 shadow-sm
+                    "
+                  />
+                </div>
 
-                <p className="text-[var(--text)]/75 leading-relaxed">
-                  My work sits where pedagogy, UX, learning analytics and media
-                  overlap. I care about learning experiences that are clear,
-                  respectful of people’s time and grounded in evidence – blending
-                  instructional design, scenario writing, multimedia, xAPI and
-                  thoughtful visual design to actually support performance on the
-                  job.
-                </p>
+                <div className="space-y-2">
+                  <h2 className="font-heading text-lg text-[var(--text)]">
+                    Glenn Hammond
+                  </h2>
+                  <p className="text-sm text-[var(--text)]/70">
+                    eLearning Specialist · Instructional Designer · Video Producer
+                  </p>
+                </div>
 
-                <div className="flex flex-wrap gap-3 pt-4">
+                <div className="space-y-3 text-sm">
+                  <div className="flex items-start gap-3">
+                    <span className="mt-[3px] text-xs text-[var(--text)]/50">📍</span>
+                    <div>
+                      <p className="font-medium text-[var(--text)]/90">Location</p>
+                      <p className="text-[var(--text)]/70">Brisbane, Australia (AEST)</p>
+                    </div>
+                  </div>
+
+                  <div className="flex items-start gap-3">
+                    <span className="mt-[3px] text-xs text-[var(--text)]/50">🎓</span>
+                    <div>
+                      <p className="font-medium text-[var(--text)]/90">Focus areas</p>
+                      <p className="text-[var(--text)]/70">
+                        Professional learning, child protection training, blended
+                        learning, capability building.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </aside>
+
+              {/* Subtle accent divider to give the hero more structure */}
+              <div className="h-px w-16 bg-[var(--secondary)]/60" />
+
+              {/* Panel to stop the copy sitting directly on the canvas */}
+              <div className="panel panel-soft p-6 md:p-8">
+                <div className="prose space-y-6">
+                  <p className="text-slate-900/80 dark:text-white/90 leading-relaxed">
+                    I’m Glenn Hammond - an eLearning specialist, designer, and video
+                    producer based in Brisbane. I build professional learning for
+                    Queensland’s independent schools at Independent Schools
+                    Queensland, and take on selected client work through my own
+                    practice and partners such as Corporate Yoga Australia.
+                  </p>
+
+                  <p className="text-slate-900/80 dark:text-white/90 leading-relaxed">
+                    My work is built on a repeatable learning system - consistent
+                    structure, UX, and production process across Storyline and Rise
+                    builds, media production, and xAPI analytics - so courses stay
+                    clear to navigate, reliable to deliver, and easier to maintain.
+                    Writing is AI-assisted, then human refined.
+                  </p>
+                </div>
+
+                <div className="flex flex-wrap gap-3 pt-6">
                   <Link
                     to="/contact"
                     className="
@@ -68,7 +118,7 @@ export default function About() {
                       px-6 py-3 rounded-xl
                       border border-black/10 dark:border-white/15
                       text-sm font-medium text-[var(--text)]
-                      bg-[var(--bg)] hover:bg-[var(--bg-soft)]
+                      bg-transparent hover:bg-[var(--bg-soft)]
                       transition
                     "
                   >
@@ -79,13 +129,7 @@ export default function About() {
             </div>
 
             {/* Meta card */}
-            <aside
-              className="
-                rounded-3xl border border-black/10 dark:border-white/10
-                bg-[var(--bg)]/95 shadow-sm
-                p-5 md:p-6 space-y-6
-              "
-            >
+            <aside className="hidden md:block panel panel-strong p-5 md:p-6 space-y-6 md:mt-[52px]">
               <div className="flex items-center justify-center">
                 <img
                   src="/images/glenn-hammond-instructional-design-storyline-elearning-development-australia-uk-producer.jpg"
@@ -100,9 +144,6 @@ export default function About() {
               </div>
 
               <div className="space-y-2">
-                <p className="text-xs uppercase tracking-[0.18em] text-[var(--text)]/60">
-                  Snapshot
-                </p>
                 <h2 className="font-heading text-lg text-[var(--text)]">
                   Glenn Hammond
                 </h2>
@@ -162,14 +203,14 @@ export default function About() {
             </p>
 
             <h2 className="font-heading text-3xl md:text-4xl text-[var(--text)]">
-              Clarity, empathy, and evidence shape everything I build.
+              Clear, respectful learning - built to last.
             </h2>
 
             <p className="text-[var(--text)]/75 max-w-3xl leading-relaxed">
-              Learning tools should feel intuitive, reduce cognitive load, and
-              support genuine performance — not add friction. My process blends
-              user research, UX patterns, visual design systems, and analytics
-              to make sure learning feels purposeful and usable.
+              Learning should feel intuitive, reduce cognitive load, and support
+              performance on the job. I blend user-centred UX, visual design
+              systems, and measurement (xAPI and analytics) so experiences stay
+              coherent from first build through to long-term updates.
             </p>
           </div>
         </Container>

@@ -239,26 +239,33 @@ export default function Home() {
       {/* CLIENT LOGOS */}
       <Section className="bg-[var(--bg-soft)] border-y border-black/5 dark:border-white/10">
         <Container className="py-6 md:py-8 fade-in-up">
-<div className="grid w-full grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-x-8 gap-y-10 place-items-center">
+          <div className="grid w-full grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-x-10 gap-y-10 place-items-center">
             {clients.map((client) => (
-              <div
-                key={client.name}
-                className={`w-full flex items-center justify-center ${client.wrapperClass || ""}`}
-              >
-                <div className="w-[320px] md:w-[260px] lg:w-[240px] flex items-center justify-center">
+              <div key={client.name} className="w-full flex items-center justify-center">
+                {/*
+                  Normalise how SVG logos scale across breakpoints:
+                  - fixed visual height for the logo box
+                  - let width be auto (prevents weird full-width scaling)
+                  - cap max width so long wordmarks don't dominate
+                */}
+                <div className="h-16 flex items-center justify-center">
                   <img
                     src={client.lightSrc}
                     alt={client.name}
-                    className={`w-full h-12 opacity-90 object-contain dark:hidden ${
+                    className={`h-12 w-auto max-w-[280px] md:max-w-[240px] lg:max-w-[220px] object-contain opacity-90 block dark:hidden ${
                       client.className || ""
                     }`}
+                    loading="lazy"
+                    decoding="async"
                   />
                   <img
                     src={client.darkSrc}
                     alt={client.name}
-                    className={`w-full h-12 opacity-90 object-contain hidden dark:block ${
+                    className={`h-12 w-auto max-w-[280px] md:max-w-[240px] lg:max-w-[220px] object-contain opacity-90 block hidden dark:block ${
                       client.className || ""
                     }`}
+                    loading="lazy"
+                    decoding="async"
                   />
                 </div>
               </div>
@@ -326,6 +333,9 @@ export default function Home() {
             <h2 className="font-heading text-2xl text-[var(--text)]">
               Latest writing
             </h2>
+            <p className="text-sm text-[var(--text)]/60">
+              AI-assisted. Human-refined.
+            </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
