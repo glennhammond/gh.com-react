@@ -21,10 +21,12 @@ export default function ThemeToggle() {
 
     try {
       localStorage.setItem("theme", theme);
-    } catch {}
+    } catch {
+      // ignore
+    }
   }, [theme]);
 
-  const toggle = () => {
+  const toggleTheme = () => {
     const root = document.documentElement;
 
     root.classList.add("theme-transition");
@@ -38,7 +40,7 @@ export default function ThemeToggle() {
   return (
     <button
       type="button"
-      onClick={toggle}
+      onClick={toggleTheme}
       aria-label={isDark ? "Switch to light mode" : "Switch to dark mode"}
       className="inline-flex h-10 w-10 items-center justify-center rounded-lg border border-black/10 bg-white/70 text-[var(--text)] shadow-sm backdrop-blur-sm hover:bg-white/90 dark:border-white/15 dark:bg-white/10 dark:hover:bg-white/15"
     >
