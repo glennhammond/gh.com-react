@@ -32,29 +32,13 @@ export default function Work() {
                 lead="Repeatable learning frameworks - consistent structure, UX and production process."
               />
               <div className="max-w-2xl space-y-4">
-                <p className="text-base md:text-lg leading-relaxed text-white/80">
+                <p className="text-base md:text-lg leading-relaxed text-neutral-700/90 dark:text-white/80">
                   A selection of projects where learning strategy, UX, and production needed to align.
                 </p>
-                <p className="text-base md:text-lg leading-relaxed text-white/80">
+                <p className="text-base md:text-lg leading-relaxed text-neutral-700/90 dark:text-white/80">
                   Each example shows how I use repeatable patterns to keep experiences consistent and delivery efficient across complex content and multiple modules.
                 </p>
 
-                <div className="flex flex-wrap gap-2 pt-1">
-                  {[
-                    "Learning experience design",
-                    "Design systems",
-                    "Storyline + Rise",
-                    "Video + motion",
-                    "Accessibility",
-                  ].map((tag) => (
-                    <span
-                      key={tag}
-                      className="inline-flex items-center rounded-full border border-white/15 bg-white/5 px-3 py-1 text-xs font-medium tracking-wide text-white/80"
-                    >
-                      {tag}
-                    </span>
-                  ))}
-                </div>
               </div>
             </div>
 

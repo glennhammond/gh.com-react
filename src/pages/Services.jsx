@@ -18,44 +18,50 @@ export default function Services() {
       {/* PAGE INTRO */}
       <Section className="pb-4 md:pb-6">
         <Container>
-          <PageIntro
-            breadcrumb={[
-              { label: "Home", href: "/" },
-              { label: "Services" },
-            ]}
-            title="Services"
-            intro="I help organisations design, build, and refine digital learning experiences - from early concept through to launch and analytics."
-          />
+          <div className="grid grid-cols-1 md:grid-cols-12 gap-6 items-start">
+            <div className="md:col-span-7">
+              <PageIntro
+                breadcrumb={[
+                  { label: "Home", href: "/" },
+                  { label: "Services" },
+                ]}
+                title="Services"
+              />
+              <div className="mt-6 max-w-2xl space-y-3">
+                <p>
+                  You can engage me for a single stream (strategy, build, or data), or combine them end-to-end.
+                  My focus is practical delivery - clear decisions, clean execution, and measurable improvement.
+                </p>
+                <p>
+                  Typical outputs include storyboards and scripts, Storyline/Rise builds, video assets, xAPI statements,
+                  LRS configuration, and dashboards that support real reporting.
+                </p>
+              </div>
+            </div>
 
-<div className="mt-6 max-w-2xl site-card p-6 md:p-7 space-y-3">            <p className="text-[var(--text)]/85">
-              You can engage me for a single stream (strategy, build, or data), or combine them end-to-end.
-              My focus is practical delivery - clear decisions, clean execution, and measurable improvement.
-            </p>
-            <p className="text-[var(--text)]/70">
-              Typical outputs include storyboards and scripts, Storyline/Rise builds, video assets, xAPI statements,
-              LRS configuration, and dashboards that support real reporting.
-            </p>
+            {/* Hero - matches the Work pages layout */}
+            <div className="md:col-span-5 mt-4 md:mt-10">
+              <div className="site-card overflow-hidden">
+                <div className="relative aspect-[16/10] w-full">
+                  <img
+                    src="/images/heroes/glenn-hammond-site-assets-hero-services.webp"
+                    alt="Services hero"
+                    className="absolute inset-0 h-full w-full object-cover"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </div>
+              </div>
+            </div>
           </div>
 
-          <div className="mt-6 flex flex-wrap gap-2">
-            <span className="rounded-full border border-black/10 dark:border-white/15 bg-white/50 dark:bg-white/10 px-3 py-1 text-xs text-[var(--text)]/80">
-              ADDIE-aligned
-            </span>
-            <span className="rounded-full border border-black/10 dark:border-white/15 bg-white/50 dark:bg-white/10 px-3 py-1 text-xs text-[var(--text)]/80">
-              Accessibility-minded
-            </span>
-            <span className="rounded-full border border-black/10 dark:border-white/15 bg-white/50 dark:bg-white/10 px-3 py-1 text-xs text-[var(--text)]/80">
-              Reusable systems
-            </span>
-            <span className="rounded-full border border-black/10 dark:border-white/15 bg-white/50 dark:bg-white/10 px-3 py-1 text-xs text-[var(--text)]/80">
-              Analytics-ready
-            </span>
-          </div>
+
+
         </Container>
       </Section>
 
       {/* SERVICES GRID */}
-      <Section className="pt-0">
+      <Section className="pt-10 md:pt-14">
         <Container>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 fade-in-up">
             <ServiceCard
@@ -69,6 +75,8 @@ export default function Services() {
                 "Stakeholder alignment workshops and design sign-off",
                 "Accessibility, quality assurance, and evaluation planning",
               ]}
+              imageSrc="/images/heroes/glenn-hammond-site-assets-hero-services.webp"
+              imageAlt="Learning strategy - notes and planning"
             />
 
             <ServiceCard
@@ -82,6 +90,8 @@ export default function Services() {
                 "Interactive video, microlearning, and supporting assets",
                 "Video production, editing, and audio clean-up",
               ]}
+              imageSrc="/images/heroes/glenn-hammond-site-assets-hero-services.webp"
+              imageAlt="eLearning development - interface and timeline"
             />
 
             <ServiceCard
@@ -95,6 +105,8 @@ export default function Services() {
                 "Sheets-based parsing/cleaning for faster reporting",
                 "Dashboards (Looker Studio) that turn data into insight",
               ]}
+              imageSrc="/images/work/glenn-hammond-site-assets-veracity.webp"
+              imageAlt="Learning analytics - dashboard and data"
             />
           </div>
 
@@ -145,11 +157,24 @@ export default function Services() {
   );
 }
 
-function ServiceCard({ title, tag, icon, blurb, items }) {
+function ServiceCard({ title, tag, icon, blurb, items, imageSrc, imageAlt }) {
   return (
     <div className="site-card overflow-hidden">
-      {/* Visual header (acts like an image without adding files) */}
-      <div className="h-14 bg-gradient-to-r from-[#F5C84C] via-[#c01e84] to-[#970067]" />
+      {/* Card header image */}
+      {imageSrc ? (
+        <div className="relative h-44 w-full">
+          <img
+            src={imageSrc}
+            alt={imageAlt || ""}
+            className="absolute inset-0 h-full w-full object-cover"
+            loading="lazy"
+            decoding="async"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
+        </div>
+      ) : (
+        <div className="h-14 bg-gradient-to-r from-[#F5C84C] via-[#c01e84] to-[#970067]" />
+      )}
 
       <div className="p-8 space-y-5">
         <div className="flex items-center gap-3">

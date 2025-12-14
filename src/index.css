@@ -5,12 +5,12 @@
 @layer components {
   /* Site-wide card surface (light mode) */
   .site-card {
-    @apply rounded-2xl border border-black/5 bg-white/60 backdrop-blur-sm shadow-sm;
+    @apply rounded-xl border border-black/5 bg-white/60 backdrop-blur-sm shadow-sm;
   }
 
   /* Slightly stronger variant for key cards (light mode) */
   .site-card-strong {
-    @apply rounded-2xl border border-black/5 bg-white/70 backdrop-blur-sm shadow-md;
+    @apply rounded-xl border border-black/5 bg-white/70 backdrop-blur-sm shadow-md;
   }
 }
 
@@ -391,7 +391,7 @@ html.dark main :is(
   position: relative;
   transform: translateZ(0);
   overflow: hidden;
-  border-radius: 1.25rem !important; /* slightly smaller than current */
+  border-radius: 1rem !important; /* tighter global radius */
 }
 
 /* Subtle highlight layer so cards feel premium, not flat */
