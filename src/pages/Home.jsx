@@ -90,7 +90,7 @@ export default function Home() {
 
               <div className="space-y-5">
                 <p className="text-[var(--text)]/75 leading-relaxed">
-                  Repeatable learning frameworks - consistent structure, UX and production process.
+                  Clear learning systems - consistent structure, UX and production process.
                 </p>
                 <p className="text-[var(--text)]/75 leading-relaxed">
                   I apply this across instructional design, Storyline/Rise builds, media production, and xAPI analytics - to keep learning clear to navigate and easier to maintain.

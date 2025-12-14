@@ -110,18 +110,18 @@ export default function FlightExaminerRatingCourse() {
       <Section className="pt-10 md:pt-14 pb-10 md:pb-14">
         <Container>
           <div className="grid gap-10 md:gap-12">
-            {/* Row 1: Title + Hero image */}
+            {/* Row 1: Title + Hero image (mobile: title -> image -> intro copy) */}
             <div className="grid gap-10 md:grid-cols-12 items-start">
-              <div className="md:col-span-7">
+              {/* Title */}
+              <div className="md:col-span-7 order-1">
                 <PageIntro
                   breadcrumb={project.breadcrumb}
                   title={project.title}
-                  subtitle={project.subtitle}
                 />
               </div>
 
-              <div className="md:col-span-5 md:pt-10">
-                {/* Hero image (no card styling, smaller radius) */}
+              {/* Hero image (always directly under title on mobile) */}
+              <div className="md:col-span-5 order-2">
                 <div className="overflow-hidden rounded-2xl">
                   <img
                     src={project.heroImage}
@@ -130,6 +130,13 @@ export default function FlightExaminerRatingCourse() {
                     loading="lazy"
                   />
                 </div>
+              </div>
+
+              {/* Intro copy (subtitle) */}
+              <div className="md:col-span-7 order-3">
+                <p className="max-w-2xl text-base md:text-lg leading-relaxed text-white/80">
+                  {project.subtitle}
+                </p>
               </div>
             </div>
 
