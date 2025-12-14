@@ -81,7 +81,7 @@ ul > li::before {
   --text-muted: #6b7280;
 
   /* Brand colours — Royal Indigo */
-  --color-brand-primary: #1D4ED8;      /* main brand */
+  --color-brand-primary: #1B2F87;      /* main brand (matches dark-mode bg blue) */
   --color-brand-accent: #3B82F6;       /* brighter accent */
   --color-brand-soft: #E8F0FF;         /* soft tint for hovers/chips */
 
@@ -623,6 +623,59 @@ html.dark main :is(
       transparent
     ),
     color-mix(in srgb, var(--bg-soft) 86%, transparent);
+}
+
+/* -------------------------------------------------------
+   MOBILE (DARK MODE) — LIGHT CARDS + DARK TEXT
+   Purpose: improve scan-ability on small screens by making
+   panel/surface cards read like light "cards" on the dark
+   blue background.
+------------------------------------------------------- */
+@media (max-width: 640px) {
+  /* Turn panel/surface components into the same white-card surface used elsewhere */
+  html.dark main :is(.panel, .panel-strong, .panel-soft, .panel-warm, .panel-cool, .surface) {
+    background: var(--card-bg) !important;
+    border: 1px solid var(--card-border) !important;
+    box-shadow: var(--card-shadow) !important;
+    color: var(--card-text) !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+  }
+
+  /* Typography inside those panels */
+  html.dark main :is(.panel, .panel-strong, .panel-soft, .panel-warm, .panel-cool, .surface) :is(h1, h2, h3, h4) {
+    color: var(--card-title) !important;
+    font-family: var(--font-heading) !important;
+  }
+
+  html.dark main :is(.panel, .panel-strong, .panel-soft, .panel-warm, .panel-cool, .surface) :is(p, li, span, small) {
+    color: var(--card-text) !important;
+  }
+
+  html.dark main :is(.panel, .panel-strong, .panel-soft, .panel-warm, .panel-cool, .surface) a {
+    color: var(--card-link) !important;
+  }
+
+  /* If any panel content forces white text classes, flip them back to dark */
+  html.dark main :is(.panel, .panel-strong, .panel-soft, .panel-warm, .panel-cool, .surface) :is(
+    .text-white,
+    .text-white\/90,
+    .text-white\/80,
+    .text-neutral-100,
+    .text-slate-100
+  ) {
+    color: var(--card-text) !important;
+  }
+
+  /* Muted/supporting text inside these panels */
+  html.dark main :is(.panel, .panel-strong, .panel-soft, .panel-warm, .panel-cool, .surface) :is(
+    .text-slate-500,
+    .text-neutral-500,
+    .text-slate-400,
+    .text-neutral-400
+  ) {
+    color: var(--card-muted) !important;
+  }
 }
 
 /* Prose - control line length for a more editorial feel */

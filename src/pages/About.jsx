@@ -12,8 +12,8 @@ export default function About() {
   return (
     <PageWrapper>
       <SEO
-        title="About – Glenn Hammond"
-        description="Repeatable learning frameworks - consistent structure, UX, and production process across instructional design, Storyline/Rise builds, media, and xAPI analytics."
+        title="About - Glenn Hammond"
+        description="Consistent learning system - structure, UX, and production process across instructional design, Storyline/Rise builds, media, and xAPI analytics."
       />
 
       {/* PAGE INTRO + HERO GRID TOGETHER */}
@@ -30,7 +30,7 @@ export default function About() {
               />
 
               {/* Mobile - meta card sits directly under the title */}
-              <aside className="panel panel-strong p-5 space-y-6 md:hidden">
+              <aside className="rounded-3xl border border-black/5 dark:border-white/10 bg-white/70 dark:bg-white/5 backdrop-blur-sm p-5 space-y-6 md:hidden">
                 <div className="flex items-center justify-center">
                   <img
                     src="/images/glenn-hammond-instructional-design-storyline-elearning-development-australia-uk-producer.jpg"
@@ -49,29 +49,16 @@ export default function About() {
                     Glenn Hammond
                   </h2>
                   <p className="text-sm text-[var(--text)]/70">
-                    eLearning Specialist · Instructional Designer · Video Producer
+                  eLearning Specialist · Digital Designer · Video Producer
                   </p>
                 </div>
 
                 <div className="space-y-3 text-sm">
-                  <div className="flex items-start gap-3">
-                    <span className="mt-[3px] text-xs text-[var(--text)]/50">📍</span>
-                    <div>
-                      <p className="font-medium text-[var(--text)]/90">Location</p>
-                      <p className="text-[var(--text)]/70">Brisbane, Australia (AEST)</p>
-                    </div>
-                  </div>
-
-                  <div className="flex items-start gap-3">
-                    <span className="mt-[3px] text-xs text-[var(--text)]/50">🎓</span>
-                    <div>
-                      <p className="font-medium text-[var(--text)]/90">Focus areas</p>
-                      <p className="text-[var(--text)]/70">
-                        Professional learning, child protection training, blended
-                        learning, capability building.
-                      </p>
-                    </div>
-                  </div>
+                  <p className="text-[var(--text)]/70">Brisbane, Australia (AEST)</p>
+                  <p className="text-[var(--text)]/70">
+                    Professional learning, compliance training, blended learning,
+                    capability building.
+                  </p>
                 </div>
               </aside>
 
@@ -79,18 +66,14 @@ export default function About() {
               <div className="h-px w-16 bg-[var(--secondary)]/60" />
 
               {/* Panel to stop the copy sitting directly on the canvas */}
-              <div className="panel panel-soft p-6 md:p-8">
+              <div className="panel panel-soft p-6 md:p-8 rounded-3xl border border-black/5 dark:border-white/10 bg-white/60 dark:bg-white/5 backdrop-blur-sm">
                 <div className="prose space-y-6">
                   <p className="text-slate-900/80 dark:text-white/90 leading-relaxed">
-                    I’m Glenn Hammond - an eLearning specialist, designer, and video
-                    producer based in Brisbane. I build professional learning for
-                    Queensland’s independent schools at Independent Schools
-                    Queensland, and take on selected client work through my own
-                    practice and partners such as Corporate Yoga Australia.
+                    I’m Glenn Hammond - an eLearning specialist, instructional designer, and video producer based in Brisbane. I build professional learning for Queensland’s independent schools, and take on selected client work through my own practice.
                   </p>
 
                   <p className="text-slate-900/80 dark:text-white/90 leading-relaxed">
-                    My work is built on a repeatable learning system - consistent
+                    My work is built on a consistent learning system - clear
                     structure, UX, and production process across Storyline and Rise
                     builds, media production, and xAPI analytics - so courses stay
                     clear to navigate, reliable to deliver, and easier to maintain.
@@ -129,7 +112,7 @@ export default function About() {
             </div>
 
             {/* Meta card */}
-            <aside className="hidden md:block panel panel-strong p-5 md:p-6 space-y-6 md:mt-[52px]">
+            <aside className="hidden md:block rounded-3xl border border-black/5 dark:border-white/10 bg-white/70 dark:bg-white/5 backdrop-blur-sm p-5 md:p-6 space-y-6 md:mt-[52px]">
               <div className="flex items-center justify-center">
                 <img
                   src="/images/glenn-hammond-instructional-design-storyline-elearning-development-australia-uk-producer.jpg"
@@ -148,39 +131,16 @@ export default function About() {
                   Glenn Hammond
                 </h2>
                 <p className="text-sm text-[var(--text)]/70">
-                  eLearning Specialist · Instructional Designer · Video Producer
+                  eLearning Specialist · Digital Designer · Video Producer
                 </p>
               </div>
 
               <div className="space-y-3 text-sm">
-                <div className="flex items-start gap-3">
-                  <span className="mt-[3px] text-xs text-[var(--text)]/50">
-                    📍
-                  </span>
-                  <div>
-                    <p className="font-medium text-[var(--text)]/90">
-                      Location
-                    </p>
-                    <p className="text-[var(--text)]/70">
-                      Brisbane, Australia (AEST)
-                    </p>
-                  </div>
-                </div>
-
-                <div className="flex items-start gap-3">
-                  <span className="mt-[3px] text-xs text-[var(--text)]/50">
-                    🎓
-                  </span>
-                  <div>
-                    <p className="font-medium text-[var(--text)]/90">
-                      Focus areas
-                    </p>
-                    <p className="text-[var(--text)]/70">
-                      Professional learning, child protection training, blended
-                      learning, capability building.
-                    </p>
-                  </div>
-                </div>
+                <p className="text-[var(--text)]/70">Brisbane, Australia (AEST)</p>
+                <p className="text-[var(--text)]/70">
+                  Professional learning, compliance training, blended learning,
+                  capability building.
+                </p>
               </div>
             </aside>
           </div>
@@ -203,14 +163,11 @@ export default function About() {
             </p>
 
             <h2 className="font-heading text-3xl md:text-4xl text-[var(--text)]">
-              Clear, respectful learning - built to last.
+              Modern learning - built to scale.
             </h2>
 
             <p className="text-[var(--text)]/75 max-w-3xl leading-relaxed">
-              Learning should feel intuitive, reduce cognitive load, and support
-              performance on the job. I blend user-centred UX, visual design
-              systems, and measurement (xAPI and analytics) so experiences stay
-              coherent from first build through to long-term updates.
+              Learning should feel intuitive and support performance on the job. I use reusable templates, clear hierarchy, and interaction conventions to reduce cognitive load and keep builds maintainable. Measurement is baked in (xAPI and analytics) so we can see what’s working and improve over time.
             </p>
           </div>
         </Container>
