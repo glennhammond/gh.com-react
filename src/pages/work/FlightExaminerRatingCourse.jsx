@@ -1,5 +1,4 @@
 import React from "react";
-import { Link } from "react-router-dom";
 
 import PageWrapper from "../../components/layout/PageWrapper";
 import Section from "../../components/layout/Section";
@@ -9,7 +8,7 @@ import SEO from "../../components/ui/SEO.jsx";
 
 function MetaItem({ label, value }) {
   return (
-    <div className="rounded-2xl border border-black/10 dark:border-white/10 bg-white/70 dark:bg-white/5 p-4 !transform-none !transition-none">
+    <div className="h-full rounded-2xl border border-black/10 dark:border-white/10 bg-white/70 dark:bg-white/5 p-4 !transform-none !transition-none flex flex-col">
       <p className="text-xs uppercase tracking-wide text-slate-500 dark:text-slate-400">
         {label}
       </p>
@@ -18,22 +17,11 @@ function MetaItem({ label, value }) {
   );
 }
 
-function Stat({ value, label }) {
-  return (
-    <div className="rounded-2xl border border-black/10 dark:border-white/10 bg-white/70 dark:bg-white/5 p-5 !transform-none !transition-none">
-      <p className="font-heading text-3xl text-[var(--brand-primary)] leading-none">
-        {value}
-      </p>
-      <p className="mt-2 text-sm text-slate-700 dark:text-slate-300">{label}</p>
-    </div>
-  );
-}
-
 export default function FlightExaminerRatingCourse() {
   const project = {
     title: "CASA - Flight Examiner Rating Course",
     subtitle:
-      "End-to-end learning design and build for a high-stakes aviation assessment programme.",
+      "I led the end-to-end learning design and build for CASA’s Flight Examiner Rating Course (FERC) - a facilitated, competency-based programme aligned to CASR Part 61 MOS.",
     breadcrumb: [
       { label: "Home", href: "/" },
       { label: "Work", href: "/work" },
@@ -98,6 +86,16 @@ export default function FlightExaminerRatingCourse() {
         text: "Built to sit cleanly inside an LMS and remain maintainable for future updates.",
       },
     ],
+    gallery: [
+      {
+        src: "/images/work/glenn-hammond-site-assets-casa-course-template-3.png",
+        alt: "Readable content layout screen",
+      },
+      {
+        src: "/images/work/glenn-hammond-site-assets-casa-course-template-4.png",
+        alt: "Interaction patterns screen",
+      },
+    ],
     next: { label: "Next project", href: "/work/corporate-yoga-australia-website" },
   };
 
@@ -109,176 +107,101 @@ export default function FlightExaminerRatingCourse() {
       />
 
       {/* HERO */}
-      <Section className="pt-10 md:pt-14 pb-6 md:pb-10">
+      <Section className="pt-10 md:pt-14 pb-10 md:pb-14">
         <Container>
-          <div className="grid gap-10 md:grid-cols-[minmax(0,1.6fr)_minmax(0,1fr)] items-start">
-            <div className="space-y-10">
-              <PageIntro
-                breadcrumb={project.breadcrumb}
-                title={project.title}
-                subtitle={project.subtitle}
-              />
-
-              <div className="rounded-2xl border border-black/10 dark:border-white/10 bg-white/70 dark:bg-white/5 p-6 !transform-none !transition-none">
-                <h2 className="font-heading text-xl text-[var(--brand-primary)]">
-                  Highlights
-                </h2>
-                <ul className="mt-4 space-y-2 text-slate-700 dark:text-slate-300">
-                  {project.highlights.map((h) => (
-                    <li key={h}>{h}</li>
-                  ))}
-                </ul>
-              </div>
-            </div>
-
-            <div className="md:pt-10">
-              {/* Hero image (no card styling, smaller radius) */}
-              <div className="overflow-hidden rounded-2xl">
-                <img
-                  src={project.heroImage}
-                  alt=""
-                  className="w-full h-auto block"
-                  loading="lazy"
+          <div className="grid gap-10 md:gap-12">
+            {/* Row 1: Title + Hero image */}
+            <div className="grid gap-10 md:grid-cols-12 items-start">
+              <div className="md:col-span-7">
+                <PageIntro
+                  breadcrumb={project.breadcrumb}
+                  title={project.title}
+                  subtitle={project.subtitle}
                 />
               </div>
 
-              {/* Meta cards (separate block under the image) */}
-              <div className="mt-8 md:mt-10 grid grid-cols-2 gap-3">
-                {project.meta.map((m) => (
-                  <MetaItem key={m.label} label={m.label} value={m.value} />
-                ))}
+              <div className="md:col-span-5 md:pt-10">
+                {/* Hero image (no card styling, smaller radius) */}
+                <div className="overflow-hidden rounded-2xl">
+                  <img
+                    src={project.heroImage}
+                    alt=""
+                    className="w-full h-auto block"
+                    loading="lazy"
+                  />
+                </div>
               </div>
             </div>
-          </div>
-        </Container>
-      </Section>
 
-      {/* KEY SCREENS */}
-      <Section className="pt-4 md:pt-0 pb-12">
-        <Container>
-          <div className="grid gap-10 divide-y divide-black/5 dark:divide-white/10">
-            {project.screens.map((s, idx) => {
-              const flip = idx % 2 === 1;
-              return (
+            {/* Row 2: Highlights + Meta (aligned) */}
+            <div className="grid gap-6 md:grid-cols-12 items-stretch">
+              <div className="md:col-span-7">
+                <div className="h-full rounded-2xl border border-black/10 dark:border-white/10 bg-white/70 dark:bg-white/5 p-6 !transform-none !transition-none">
+                  <h2 className="font-heading text-xl text-[var(--brand-primary)]">
+                    Highlights
+                  </h2>
+                  <ul className="mt-4 space-y-2 text-slate-700 dark:text-slate-300">
+                    {project.highlights.map((h) => (
+                      <li key={h}>{h}</li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+
+              <div className="md:col-span-5 h-full">
+                <div className="grid w-full h-full grid-cols-2 grid-rows-2 gap-3">
+                  {project.meta.map((m) => (
+                    <MetaItem key={m.label} label={m.label} value={m.value} />
+                  ))}
+                </div>
+              </div>
+            </div>
+
+            {/* Image strip */}
+            <div className="mt-6 md:mt-8 grid gap-3 sm:grid-cols-2">
+              {project.gallery.map((img) => (
                 <div
-                  key={s.src}
-                  className="pt-10 pb-10 md:pt-14 md:pb-14 first:pt-0 md:first:pt-0 grid gap-8 md:gap-10 md:grid-cols-12 items-start"
+                  key={img.src}
+                  className="rounded-2xl overflow-hidden border border-white/10 bg-white/5 shadow-sm !transform-none !transition-none"
                 >
-                  <div className={`md:col-span-7 ${flip ? "md:order-2" : ""}`}>
-                    <div className="rounded-3xl overflow-hidden border border-black/10 dark:border-white/10 bg-white/60 dark:bg-white/5 shadow-sm !transform-none !transition-none">
-                      <div className="aspect-[16/9]">
-                        <img
-                          src={s.src}
-                          alt=""
-                          className="w-full h-full object-cover"
-                          loading="lazy"
-                        />
-                      </div>
-                    </div>
-                  </div>
-
-                  <div className={`md:col-span-5 ${flip ? "md:order-1" : ""}`}>
-                    <p className="text-xs uppercase tracking-wide text-slate-500 dark:text-slate-400">
-                      {String(idx + 1).padStart(2, "0")}
-                    </p>
-                    <h3 className="mt-2 font-heading text-2xl leading-tight text-slate-900 dark:text-white">
-                      {s.title}
-                    </h3>
-                    <p className="mt-4 text-base leading-relaxed text-slate-700 dark:text-slate-300 max-w-prose">
-                      {s.text}
-                    </p>
+                  <div className="aspect-[16/10]">
+                    <img
+                      src={img.src}
+                      alt={img.alt}
+                      className="w-full h-full object-cover"
+                      loading="lazy"
+                    />
                   </div>
                 </div>
-              );
-            })}
-          </div>
-        </Container>
-      </Section>
-
-      {/* BRIEF */}
-      <Section className="py-10">
-        <Container>
-          <div className="grid gap-6 md:grid-cols-3">
-            <div className="rounded-2xl border border-black/10 dark:border-white/10 bg-white/70 dark:bg-white/5 p-6 !transform-none !transition-none">
-              <h3 className="font-heading text-lg text-[var(--brand-primary)]">
-                The brief
-              </h3>
-              <p className="mt-3 text-slate-700 dark:text-slate-300">
-                {project.brief.problem}
-              </p>
+              ))}
             </div>
-            <div className="rounded-2xl border border-black/10 dark:border-white/10 bg-white/70 dark:bg-white/5 p-6 !transform-none !transition-none">
-              <h3 className="font-heading text-lg text-[var(--brand-primary)]">
-                Audience
-              </h3>
-              <p className="mt-3 text-slate-700 dark:text-slate-300">
-                {project.brief.audience}
-              </p>
-            </div>
-            <div className="rounded-2xl border border-black/10 dark:border-white/10 bg-white/70 dark:bg-white/5 p-6 !transform-none !transition-none">
-              <h3 className="font-heading text-lg text-[var(--brand-primary)]">
-                Constraints
-              </h3>
-              <p className="mt-3 text-slate-700 dark:text-slate-300">
-                {project.brief.constraints}
-              </p>
-            </div>
-          </div>
-        </Container>
-      </Section>
-
-      {/* APPROACH */}
-      <Section className="py-10">
-        <Container>
-          <h2 className="font-heading text-2xl text-[var(--brand-primary)]">
-            Approach
-          </h2>
-          <div className="mt-6 grid gap-4 md:grid-cols-2">
-            {project.approach.map((a) => (
-              <div
-                key={a.title}
-                className="rounded-2xl border border-black/10 dark:border-white/10 bg-white/70 dark:bg-white/5 p-6 !transform-none !transition-none"
-              >
-                <h3 className="font-heading text-lg text-slate-900 dark:text-white">
-                  {a.title}
-                </h3>
-                <p className="mt-2 text-slate-700 dark:text-slate-300">
-                  {a.text}
+            {/* Bridge copy */}
+            <div className="mt-6 md:mt-8 grid gap-6 md:grid-cols-12 items-start">
+              <div className="md:col-span-7">
+                <h2 className="font-heading text-2xl text-white">What this project involved</h2>
+                <p className="mt-4 text-base md:text-lg leading-relaxed text-white/80 max-w-prose">
+                  This programme needed to feel confident and uncluttered while still carrying a lot of detail.
+                  I shaped the learning flow, designed a reusable screen system, and built interactions that stay predictable
+                  across modules - so learners can focus on the content, not the interface.
                 </p>
               </div>
-            ))}
+
+              <div className="md:col-span-5">
+                <div className="rounded-2xl border border-white/10 bg-white/5 p-5 !transform-none !transition-none">
+                  <p className="text-xs uppercase tracking-wide text-white/70">Focus areas</p>
+                  <ul className="mt-3 space-y-2 text-sm text-white/80">
+                    <li>Information design for dense, regulated content</li>
+                    <li>Consistent UI patterns and interaction behaviour</li>
+                    <li>Accessibility-first layout and typography decisions</li>
+                    <li>LMS-friendly build practices for maintainability</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
           </div>
         </Container>
       </Section>
 
-      {/* RESULTS */}
-      <Section className="py-10">
-        <Container>
-          <h2 className="font-heading text-2xl text-[var(--brand-primary)]">
-            Results
-          </h2>
-          <div className="mt-6 grid gap-4 md:grid-cols-3">
-            {project.results.map((r) => (
-              <Stat key={r.label} value={r.value} label={r.label} />
-            ))}
-          </div>
-
-          <div className="mt-10 flex items-center justify-between">
-            <Link
-              to="/work"
-              className="text-sm hover:text-[var(--brand-primary)] transition-colors"
-            >
-              ← Back to Work
-            </Link>
-            <Link
-              to={project.next.href}
-              className="text-sm hover:text-[var(--brand-primary)] transition-colors"
-            >
-              {project.next.label} →
-            </Link>
-          </div>
-        </Container>
-      </Section>
     </PageWrapper>
   );
 }

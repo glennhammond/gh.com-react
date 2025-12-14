@@ -106,7 +106,7 @@ export default function ProjectPage() {
 
       <Section>
         {/* slightly tighter vertical spacing for this page overall */}
-        <Container className="space-y-10 fade-in-up max-w-4xl">
+        <Container className="space-y-10 fade-in-up max-w-4xl bg-transparent !bg-transparent border-0 !border-0 shadow-none !shadow-none rounded-none !rounded-none">
           <Breadcrumb
             items={[
               { label: "Home", href: "/" },
@@ -115,55 +115,80 @@ export default function ProjectPage() {
             ]}
           />
 
-          <header className="space-y-4">
-            {/* Hide the small category label on the eLearning Design System page */}
-            {!isElearningDesignSystem && (
-              <p className="text-xs uppercase tracking-[0.18em] text-[var(--text)]/60">
-                {project.category || "Project"}
-              </p>
-            )}
-            <h1 className="font-heading text-4xl text-[var(--text)]">
-              {project.title}
-            </h1>
-            {project.subtitle && (
-              <p className="text-[var(--text)]/70 leading-relaxed max-w-2xl">
-                {project.subtitle}
-              </p>
-            )}
-          </header>
+          {isElearningDesignSystem ? (
+            <div className="grid gap-10 md:grid-cols-12 items-start">
+              <div className="space-y-4 md:col-span-7 bg-transparent !bg-transparent p-0 !p-0 rounded-none !rounded-none shadow-none !shadow-none border-0 !border-0">
+                <h1 className="font-heading text-4xl text-[var(--text)]">
+                  {project.title}
+                </h1>
+                <p className="text-[var(--text)]/70 leading-relaxed max-w-2xl">
+                  A reusable framework for modern eLearning - designed for consistency, accessibility, and maintainable builds.
+                </p>
 
-          {/* Hero image – shown for all projects EXCEPT eLearning Design System */}
-          {!isElearningDesignSystem && (
-            <div className="rounded-3xl overflow-hidden border border-black/10 dark:border-white/10 shadow-sm">
-              <ProjectImage src={project.image} alt={project.title} />
+                <p className="text-[var(--text)]/70 leading-relaxed max-w-2xl">
+                  This design system brings together the decisions that make eLearning feel polished and coherent: hierarchy, spacing, templates, interaction conventions, and build standards. It helps me deliver faster, keep quality predictable, and make updates simpler over time.
+                </p>
+              </div>
+
+              <div className="md:col-span-5">
+                <div className="overflow-hidden rounded-2xl border border-black/10 dark:border-white/10 bg-white/70 dark:bg-white/5 shadow-sm !transform-none !transition-none">
+                  <ProjectImage src={project.image} alt={`${project.title} cover`} />
+                </div>
+              </div>
             </div>
+          ) : (
+            <>
+              <header className="space-y-4">
+                <p className="text-xs uppercase tracking-[0.18em] text-[var(--text)]/60">
+                  {project.category || "Project"}
+                </p>
+                <h1 className="font-heading text-4xl text-[var(--text)]">
+                  {project.title}
+                </h1>
+                {project.subtitle && (
+                  <p className="text-[var(--text)]/70 leading-relaxed max-w-2xl">
+                    {project.subtitle}
+                  </p>
+                )}
+              </header>
+
+              <div className="rounded-3xl overflow-hidden border border-black/10 dark:border-white/10 shadow-sm">
+                <ProjectImage src={project.image} alt={project.title} />
+              </div>
+            </>
           )}
 
           {/* eLearning Design System grid */}
           {isElearningDesignSystem && (
             <div className="space-y-5">
-                  <h2 className="font-heading text-2xl text-[var(--brand-primary)]">
-      Explore the system
-    </h2>
+              <div className="space-y-2">
+                <h2 className="font-heading text-2xl text-[var(--brand-primary)]">
+                  Explore the system
+                </h2>
+                <p className="text-[var(--text)]/70 leading-relaxed max-w-2xl">
+                  Explore the key building blocks - from structure and typography through to Storyline standards.
+                </p>
+              </div>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
                 {elearningSections.map((item) => (
                   <Link
                     key={item.slug}
                     to={item.href}
-                    className="group flex flex-col rounded-2xl bg-white shadow-sm border border-slate-200 overflow-hidden transition-transform transition-shadow hover:-translate-y-0.5 hover:shadow-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-primary/70"
+                    className="group flex flex-col rounded-2xl overflow-hidden border border-black/10 dark:border-white/10 bg-white/70 dark:bg-white/5 shadow-sm transition-shadow hover:shadow-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-primary/70 !transform-none"
                   >
                     {/* Image area */}
-                    <div className="flex-1 flex items-center justify-center px-8 pt-8 pb-4 bg-slate-50">
+                    <div className="aspect-[16/9] w-full bg-black/5 dark:bg-white/5">
                       <img
                         src={item.image}
                         alt={item.title}
-                        className="max-h-24 w-auto object-contain"
+                        className="w-full h-full object-cover"
+                        loading="lazy"
                       />
                     </div>
 
                     {/* Label area */}
-                    <div className="px-6 py-4 bg-white border-t border-slate-200">
+                    <div className="px-6 py-4 bg-white/70 dark:bg-white/5 border-t border-black/10 dark:border-white/10">
                       <h3 className="font-semibold text-base text-[var(--text)]">
                         {item.title}
                       </h3>

@@ -17,6 +17,15 @@ export default {
       boxShadow: {
         soft: "var(--shadow-soft)",
       },
+      borderRadius: {
+        // Global tweak - consistent 6px rounding (crisp + modern)
+        sm: "0.375rem", // 6px
+        md: "0.375rem", // 6px
+        lg: "0.375rem", // 6px
+        xl: "0.375rem", // 6px
+        "2xl": "0.375rem", // 6px
+        "3xl": "0.375rem", // 6px
+      },
     },
   },
   plugins: [require("@tailwindcss/typography")],
