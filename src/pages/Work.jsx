@@ -17,9 +17,9 @@ export default function Work() {
       />
 
       {/* PAGE INTRO / HERO */}
-      <Section className="py-10 md:py-14">
+      <Section className="!py-0 !pt-10 md:!pt-14 !pb-4 md:!pb-5">
         <Container>
-          <div className="grid gap-8 lg:grid-cols-[minmax(0,1.6fr)_minmax(0,1fr)] items-center">
+          <div className="grid gap-8 lg:grid-cols-[minmax(0,1.6fr)_minmax(0,1fr)] items-start">
             {/* LEFT: Intro copy */}
             <div className="space-y-5">
               <PageIntro
@@ -29,13 +29,14 @@ export default function Work() {
                 ]}
                 eyebrow="Selected work"
                 title="Modern learning design"
-                lead="A mix of design systems, flagship courses, and playful prototypes built for regulators, school networks, and workplace wellbeing. This is the work that has shaped how I think about learning design."
+                lead="Repeatable learning frameworks - consistent structure, UX and production process."
               />
               <div className="max-w-2xl space-y-4">
                 <p className="text-base md:text-lg leading-relaxed text-white/80">
-                  I design and build modern learning experiences that feel clear, calm, and genuinely useful -
-                  from full programmes and flagship courses through to templates, design systems, and rapid prototypes.
-                  Below is a curated snapshot of work across aviation, education, and workplace wellbeing.
+                  A selection of projects where learning strategy, UX, and production needed to align.
+                </p>
+                <p className="text-base md:text-lg leading-relaxed text-white/80">
+                  Each example shows how I use repeatable patterns to keep experiences consistent and delivery efficient across complex content and multiple modules.
                 </p>
 
                 <div className="flex flex-wrap gap-2 pt-1">
@@ -58,9 +59,9 @@ export default function Work() {
             </div>
 
             {/* RIGHT: Simple visual / case-study preview */}
-            <div className="hidden lg:block">
+            <div className="hidden lg:block lg:mt-16">
               <div
-                className="rounded-3xl border border-white/10 bg-white/5 overflow-hidden shadow-sm !transform-none !transition-none !translate-y-0"
+                className="aspect-[16/9] rounded-3xl border border-white/10 bg-white/5 overflow-hidden shadow-sm !transform-none !transition-none !translate-y-0"
                 style={{ transform: "none", transition: "none" }}
               >
                 <img
@@ -76,7 +77,7 @@ export default function Work() {
       </Section>
 
       {/* FEATURED: eLearning Design System */}
-      <Section className="mt-6 md:mt-10">
+      <Section className="mt-2 md:mt-3 !py-0">
         <Container>
           <Link
             to="/work/elearning-design-system"

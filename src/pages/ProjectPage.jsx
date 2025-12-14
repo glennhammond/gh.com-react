@@ -132,11 +132,15 @@ export default function ProjectPage() {
                   {project.title}
                 </h1>
                 <p className="text-[var(--text)]/70 leading-relaxed max-w-2xl">
-                  A reusable framework for modern eLearning - designed for consistency, accessibility, and maintainable builds.
+                  Repeatable learning frameworks - consistent structure, UX and production process.
                 </p>
 
                 <p className="text-[var(--text)]/70 leading-relaxed max-w-2xl">
-                  This design system brings together the decisions that make eLearning feel polished and coherent: hierarchy, spacing, templates, interaction conventions, and build standards. It helps me deliver faster, keep quality predictable, and make updates simpler over time.
+                  This design system captures the reusable decisions behind consistent eLearning delivery - layout, typography, templates, interaction conventions, accessibility expectations, and Storyline build guidance.
+                </p>
+
+                <p className="text-[var(--text)]/70 leading-relaxed max-w-2xl">
+                  It reduces rework, keeps modules aligned, and makes updates simpler as content evolves.
                 </p>
               </div>
 

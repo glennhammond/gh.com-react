@@ -66,13 +66,12 @@ export default function Home() {
           >
             {/* Left */}
             <div className="flex h-full flex-col justify-between">
-              <div className="space-y-7">
-              <div className="w-full flex items-center gap-3 mb-4">
+              <div className="space-y-7 w-full sm:w-[420px]">
+              <div className="inline-flex items-center gap-3 mb-4">
                 <span aria-hidden="true">🏆</span>
                 <span className="text-sm font-semibold tracking-[0.18em] uppercase text-[var(--text-muted)] whitespace-nowrap">
                   Award-winning eLearning
                 </span>
-                <span className="h-px flex-1 bg-black/10 dark:bg-white/10" />
               </div>
 
            <h1
@@ -90,11 +89,11 @@ export default function Home() {
 </h1>
 
               <div className="space-y-5">
-                <p className="text-[var(--text)]/75 max-w-md leading-relaxed">
-                  Instructional design and eLearning/media development - with xAPI and learning analytics.
+                <p className="text-[var(--text)]/75 leading-relaxed">
+                  Repeatable learning frameworks - consistent structure, UX and production process.
                 </p>
-                <p className="text-[var(--text)]/75 max-w-md leading-relaxed">
-                  I build modern, high-quality eLearning with strong UX, reusable systems, and media production.
+                <p className="text-[var(--text)]/75 leading-relaxed">
+                  I apply this across instructional design, Storyline/Rise builds, media production, and xAPI analytics - to keep learning clear to navigate and easier to maintain.
                 </p>
               </div>
 
@@ -190,11 +189,11 @@ export default function Home() {
                   </h3>
 
                   <p className="mt-3 text-[1.05rem] leading-relaxed text-slate-700">
-                    Templates, components and assets for faster, more consistent builds.
+                    Templates, components and patterns for faster, more predictable builds.
                   </p>
 
                   <p className="mt-4 text-sm leading-relaxed text-slate-600">
-                    Built to speed up production and keep quality consistent - UI patterns, templates, and ready-to-use assets.
+                    Built for smoother production and fewer fixes - UI patterns, templates, and ready-to-use assets.
                   </p>
 
                   <span className="mt-5 inline-flex items-center gap-2 text-sm font-heading text-[var(--secondary)] group-hover:opacity-90">
@@ -227,7 +226,7 @@ export default function Home() {
                 eLearning Design System
               </h3>
               <p className="mt-2 text-sm text-slate-700">
-                Templates, components and assets for faster, more consistent builds.
+                Templates, components and patterns for faster, more predictable builds.
               </p>
               <span className="mt-3 inline-flex text-sm font-heading text-[var(--secondary)]">
                 Explore project →
