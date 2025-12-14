@@ -17,7 +17,7 @@ export default function Work() {
       />
 
       {/* PAGE INTRO / HERO */}
-      <Section className="pb-3 md:pb-4">
+      <Section className="py-10 md:py-14">
         <Container>
           <div className="grid gap-8 lg:grid-cols-[minmax(0,1.6fr)_minmax(0,1fr)] items-center">
             {/* LEFT: Intro copy */}
@@ -31,16 +31,43 @@ export default function Work() {
                 title="Modern learning design"
                 lead="A mix of design systems, flagship courses, and playful prototypes built for regulators, school networks, and workplace wellbeing. This is the work that has shaped how I think about learning design."
               />
+              <div className="max-w-2xl space-y-4">
+                <p className="text-base md:text-lg leading-relaxed text-white/80">
+                  I design and build modern learning experiences that feel clear, calm, and genuinely useful -
+                  from full programmes and flagship courses through to templates, design systems, and rapid prototypes.
+                  Below is a curated snapshot of work across aviation, education, and workplace wellbeing.
+                </p>
 
+                <div className="flex flex-wrap gap-2 pt-1">
+                  {[
+                    "Learning experience design",
+                    "Design systems",
+                    "Storyline + Rise",
+                    "Video + motion",
+                    "Accessibility",
+                  ].map((tag) => (
+                    <span
+                      key={tag}
+                      className="inline-flex items-center rounded-full border border-white/15 bg-white/5 px-3 py-1 text-xs font-medium tracking-wide text-white/80"
+                    >
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+              </div>
             </div>
 
             {/* RIGHT: Simple visual / case-study preview */}
             <div className="hidden lg:block">
-              <div className="rounded-3xl border border-black/10 dark:border-white/10 bg-[var(--bg-soft)] overflow-hidden shadow-sm">
+              <div
+                className="rounded-3xl border border-white/10 bg-white/5 overflow-hidden shadow-sm !transform-none !transition-none !translate-y-0"
+                style={{ transform: "none", transition: "none" }}
+              >
                 <img
-                  src="/images/work/glenn-hammond-site-assets-elearning-design-system-grid.jpg"
+                  src="/images/work/glenn-hammond-site-assets-gh-elearning-design-system.webp"
                   alt="Preview of eLearning Design System tiles"
-                  className="h-full w-full object-cover"
+                  className="h-full w-full object-cover pointer-events-none select-none !transform-none !transition-none !scale-100"
+                  style={{ transform: "none", transition: "none" }}
                 />
               </div>
             </div>
@@ -49,18 +76,18 @@ export default function Work() {
       </Section>
 
       {/* FEATURED: eLearning Design System */}
-      <Section className="-mt-6 md:-mt-10">
+      <Section className="mt-6 md:mt-10">
         <Container>
           <Link
             to="/work/elearning-design-system"
-            className="group flex flex-col items-stretch overflow-hidden rounded-2xl border border-black/5 bg-white/80 shadow-sm backdrop-blur-sm transition hover:-translate-y-1 hover:shadow-md hover:border-[#F5C84C] dark:border-white/10 dark:bg-white/10 md:flex-row-reverse"
+            className="group flex flex-col items-stretch overflow-hidden rounded-2xl border border-black/5 bg-white/80 shadow-sm backdrop-blur-sm transition hover:-translate-y-1 hover:shadow-md hover:border-[var(--brand-accent)] dark:border-white/10 dark:bg-white/10 md:flex-row-reverse"
           >
             {/* IMAGE SIDE */}
             <div className="flex w-full items-center justify-center bg-neutral-50 p-4 md:w-[40%] md:p-6 dark:bg-white/10">
               <img
                 src="/images/portfolio-elearning-design-system.jpg"
                 alt="Glenn Hammond eLearning Design System overview"
-                className="h-auto w-full max-h-72 object-contain md:max-h-80 transition-transform duration-300 group-hover:scale-[1.01]"
+                className="h-auto w-full max-h-72 object-contain md:max-h-80 transition-none transform-none"
               />
             </div>
 
@@ -81,8 +108,8 @@ export default function Work() {
               <p className="mt-3 text-xs font-medium uppercase tracking-[0.16em] text-neutral-500 dark:text-white/60">
                 Role: System architect · Lead eLearning specialist · Visual design · Governance
               </p>
-              <div className="mt-4 text-sm font-medium text-neutral-900/80 group-hover:underline dark:text-white">
-                View project →
+              <div className="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-[var(--brand-accent)] underline-offset-4 group-hover:underline">
+                View project <span aria-hidden>→</span>
               </div>
             </div>
           </Link>
@@ -96,7 +123,7 @@ export default function Work() {
             {/* CASA – Flight Examiner Rating Course */}
             <Link
               to="/work/casa-flight-examiner-rating"
-              className="group flex flex-col overflow-hidden rounded-2xl border border-black/5 bg-white/80 shadow-sm backdrop-blur-sm transition hover:-translate-y-1 hover:shadow-md hover:border-[#F5C84C] dark:border-white/10 dark:bg-white/10"
+              className="group flex flex-col overflow-hidden rounded-2xl border border-black/5 bg-white/80 shadow-sm backdrop-blur-sm transition hover:-translate-y-1 hover:shadow-md hover:border-[var(--brand-accent)] dark:border-white/10 dark:bg-white/10"
             >
               {/* FULL-WIDTH IMAGE */}
               <div className="relative w-full overflow-hidden">
@@ -132,7 +159,7 @@ export default function Work() {
             {/* CASA – CLASS */}
             <Link
               to="/work/casa-aviationworx-class"
-              className="group flex flex-col overflow-hidden rounded-2xl border border-black/5 bg-white/80 shadow-sm backdrop-blur-sm transition hover:-translate-y-1 hover:shadow-md hover:border-[#F5C84C] dark:border-white/10 dark:bg-white/10"
+              className="group flex flex-col overflow-hidden rounded-2xl border border-black/5 bg-white/80 shadow-sm backdrop-blur-sm transition hover:-translate-y-1 hover:shadow-md hover:border-[var(--brand-accent)] dark:border-white/10 dark:bg-white/10"
             >
               {/* FULL-WIDTH IMAGE */}
               <div className="relative w-full overflow-hidden">
@@ -168,7 +195,7 @@ export default function Work() {
             {/* CYA – Website (WordPress) */}
             <Link
               to="/work/corporate-yoga-australia-website"
-              className="group flex flex-col overflow-hidden rounded-2xl border border-black/5 bg-white/80 shadow-sm backdrop-blur-sm transition hover:-translate-y-1 hover:shadow-md hover:border-[#F5C84C] dark:border-white/10 dark:bg-white/10"
+              className="group flex flex-col overflow-hidden rounded-2xl border border-black/5 bg-white/80 shadow-sm backdrop-blur-sm transition hover:-translate-y-1 hover:shadow-md hover:border-[var(--brand-accent)] dark:border-white/10 dark:bg-white/10"
             >
               {/* FULL-WIDTH IMAGE */}
               <div className="relative w-full overflow-hidden">
@@ -204,7 +231,7 @@ export default function Work() {
             {/* CYA – Kajabi Online Wellness Courses */}
             <Link
               to="/work/corporate-yoga-australia-kajabi"
-              className="group flex flex-col overflow-hidden rounded-2xl border border-black/5 bg-white/80 shadow-sm backdrop-blur-sm transition hover:-translate-y-1 hover:shadow-md hover:border-[#F5C84C] dark:border-white/10 dark:bg-white/10"
+              className="group flex flex-col overflow-hidden rounded-2xl border border-black/5 bg-white/80 shadow-sm backdrop-blur-sm transition hover:-translate-y-1 hover:shadow-md hover:border-[var(--brand-accent)] dark:border-white/10 dark:bg-white/10"
             >
               {/* FULL-WIDTH IMAGE */}
               <div className="relative w-full overflow-hidden">
@@ -298,7 +325,7 @@ export default function Work() {
             {/* Beer Advisor */}
             <Link
               to="/work/elearning-heroes-experiments#beer-advisor"
-              className="group flex flex-col overflow-hidden rounded-2xl border border-black/5 bg-white/80 p-5 shadow-sm backdrop-blur-sm transition hover:-translate-y-1 hover:shadow-md hover:border-[#F5C84C] dark:border-white/10 dark:bg-white/10"
+              className="group flex flex-col overflow-hidden rounded-2xl border border-black/5 bg-white/80 p-5 shadow-sm backdrop-blur-sm transition hover:-translate-y-1 hover:shadow-md hover:border-[var(--brand-accent)] dark:border-white/10 dark:bg-white/10"
             >
               <h3 className="text-lg font-semibold leading-snug">
                 Beer Advisor – decision support for the undecided drinker
@@ -317,44 +344,38 @@ export default function Work() {
             </Link>
 
             {/* Placeholder 3 */}
-            <Link
-              to="/work/elearning-heroes-experiments#prototype-3"
-              className="group flex flex-col overflow-hidden rounded-2xl border border-black/5 bg-white/80 p-5 shadow-sm backdrop-blur-sm transition hover:-translate-y-1 hover:shadow-md hover:border-[#F5C84C] dark:border-white/10 dark:bg-white/10"
-            >
-              <h3 className="text-lg font-semibold leading-snug">
-                Microlearning prototype – to be added
+            <div className="flex flex-col overflow-hidden rounded-2xl border border-black/5 bg-white/70 p-5 shadow-sm backdrop-blur-sm dark:border-white/10 dark:bg-white/5 cursor-default">
+              <div className="inline-flex w-fit items-center rounded-full border border-black/10 bg-black/5 px-3 py-1 text-xs font-semibold uppercase tracking-[0.16em] text-neutral-700 dark:border-white/10 dark:bg-white/10 dark:text-white/80">
+                Coming soon
+              </div>
+              <h3 className="mt-4 text-lg font-semibold leading-snug">
+                Microlearning prototype
               </h3>
               <p className="mt-2 text-sm text-neutral-700 dark:text-white/85">
-                I’ll add another favourite Articulate challenge piece here – a compact, focused experience
+                I’ll add another favourite Articulate challenge piece here - a compact, focused experience
                 built to test ideas around pacing, feedback, and visual storytelling.
               </p>
               <p className="mt-3 text-xs font-medium uppercase tracking-[0.16em] text-neutral-500 dark:text-white/70">
                 Articulate eLearning Heroes challenge
               </p>
-              <div className="mt-3 text-sm font-medium text-neutral-900/80 group-hover:underline dark:text-white">
-                Jump to section →
-              </div>
-            </Link>
+            </div>
 
             {/* Placeholder 4 */}
-            <Link
-              to="/work/elearning-heroes-experiments#prototype-4"
-              className="group flex flex-col overflow-hidden rounded-2xl border border-black/5 bg-white/80 p-5 shadow-sm backdrop-blur-sm transition hover:-translate-y-1 hover:shadow-md hover:border-[#F5C84C] dark:border-white/10 dark:bg-white/10"
-            >
-              <h3 className="text-lg font-semibold leading-snug">
-                Accessible interaction prototype – to be added
+            <div className="flex flex-col overflow-hidden rounded-2xl border border-black/5 bg-white/70 p-5 shadow-sm backdrop-blur-sm dark:border-white/10 dark:bg-white/5 cursor-default">
+              <div className="inline-flex w-fit items-center rounded-full border border-black/10 bg-black/5 px-3 py-1 text-xs font-semibold uppercase tracking-[0.16em] text-neutral-700 dark:border-white/10 dark:bg-white/10 dark:text-white/80">
+                Coming soon
+              </div>
+              <h3 className="mt-4 text-lg font-semibold leading-snug">
+                Accessible interaction prototype
               </h3>
               <p className="mt-2 text-sm text-neutral-700 dark:text-white/85">
-                A later challenge focused on accessibility, keyboard navigation, and clean layouts – a
+                A later challenge focused on accessibility, keyboard navigation, and clean layouts - a
                 useful counterpoint to the more playful experimental pieces.
               </p>
               <p className="mt-3 text-xs font-medium uppercase tracking-[0.16em] text-neutral-500 dark:text-white/70">
                 Articulate eLearning Heroes challenge · Accessibility
               </p>
-              <div className="mt-3 text-sm font-medium text-neutral-900/80 group-hover:underline dark:text-white">
-                Jump to section →
-              </div>
-            </Link>
+            </div>
           </div>
         </Container>
       </Section>

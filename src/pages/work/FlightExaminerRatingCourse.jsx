@@ -9,7 +9,7 @@ import SEO from "../../components/ui/SEO.jsx";
 
 function MetaItem({ label, value }) {
   return (
-    <div className="rounded-2xl border border-black/10 dark:border-white/10 bg-white/70 dark:bg-white/5 p-4">
+    <div className="rounded-2xl border border-black/10 dark:border-white/10 bg-white/70 dark:bg-white/5 p-4 !transform-none !transition-none">
       <p className="text-xs uppercase tracking-wide text-slate-500 dark:text-slate-400">
         {label}
       </p>
@@ -20,7 +20,7 @@ function MetaItem({ label, value }) {
 
 function Stat({ value, label }) {
   return (
-    <div className="rounded-2xl border border-black/10 dark:border-white/10 bg-white/70 dark:bg-white/5 p-5">
+    <div className="rounded-2xl border border-black/10 dark:border-white/10 bg-white/70 dark:bg-white/5 p-5 !transform-none !transition-none">
       <p className="font-heading text-3xl text-[var(--brand-primary)] leading-none">
         {value}
       </p>
@@ -119,7 +119,7 @@ export default function FlightExaminerRatingCourse() {
                 subtitle={project.subtitle}
               />
 
-              <div className="rounded-2xl border border-black/10 dark:border-white/10 bg-white/70 dark:bg-white/5 p-6">
+              <div className="rounded-2xl border border-black/10 dark:border-white/10 bg-white/70 dark:bg-white/5 p-6 !transform-none !transition-none">
                 <h2 className="font-heading text-xl text-[var(--brand-primary)]">
                   Highlights
                 </h2>
@@ -131,7 +131,7 @@ export default function FlightExaminerRatingCourse() {
               </div>
             </div>
 
-            <div>
+            <div className="md:pt-10">
               {/* Hero image (no card styling, smaller radius) */}
               <div className="overflow-hidden rounded-2xl">
                 <img
@@ -165,7 +165,7 @@ export default function FlightExaminerRatingCourse() {
                   className="pt-10 pb-10 md:pt-14 md:pb-14 first:pt-0 md:first:pt-0 grid gap-8 md:gap-10 md:grid-cols-12 items-start"
                 >
                   <div className={`md:col-span-7 ${flip ? "md:order-2" : ""}`}>
-                    <div className="rounded-3xl overflow-hidden border border-black/10 dark:border-white/10 bg-white/60 dark:bg-white/5 shadow-sm">
+                    <div className="rounded-3xl overflow-hidden border border-black/10 dark:border-white/10 bg-white/60 dark:bg-white/5 shadow-sm !transform-none !transition-none">
                       <div className="aspect-[16/9]">
                         <img
                           src={s.src}
@@ -199,7 +199,7 @@ export default function FlightExaminerRatingCourse() {
       <Section className="py-10">
         <Container>
           <div className="grid gap-6 md:grid-cols-3">
-            <div className="rounded-2xl border border-black/10 dark:border-white/10 bg-white/70 dark:bg-white/5 p-6">
+            <div className="rounded-2xl border border-black/10 dark:border-white/10 bg-white/70 dark:bg-white/5 p-6 !transform-none !transition-none">
               <h3 className="font-heading text-lg text-[var(--brand-primary)]">
                 The brief
               </h3>
@@ -207,7 +207,7 @@ export default function FlightExaminerRatingCourse() {
                 {project.brief.problem}
               </p>
             </div>
-            <div className="rounded-2xl border border-black/10 dark:border-white/10 bg-white/70 dark:bg-white/5 p-6">
+            <div className="rounded-2xl border border-black/10 dark:border-white/10 bg-white/70 dark:bg-white/5 p-6 !transform-none !transition-none">
               <h3 className="font-heading text-lg text-[var(--brand-primary)]">
                 Audience
               </h3>
@@ -215,7 +215,7 @@ export default function FlightExaminerRatingCourse() {
                 {project.brief.audience}
               </p>
             </div>
-            <div className="rounded-2xl border border-black/10 dark:border-white/10 bg-white/70 dark:bg-white/5 p-6">
+            <div className="rounded-2xl border border-black/10 dark:border-white/10 bg-white/70 dark:bg-white/5 p-6 !transform-none !transition-none">
               <h3 className="font-heading text-lg text-[var(--brand-primary)]">
                 Constraints
               </h3>
@@ -237,7 +237,7 @@ export default function FlightExaminerRatingCourse() {
             {project.approach.map((a) => (
               <div
                 key={a.title}
-                className="rounded-2xl border border-black/10 dark:border-white/10 bg-white/70 dark:bg-white/5 p-6"
+                className="rounded-2xl border border-black/10 dark:border-white/10 bg-white/70 dark:bg-white/5 p-6 !transform-none !transition-none"
               >
                 <h3 className="font-heading text-lg text-slate-900 dark:text-white">
                   {a.title}
