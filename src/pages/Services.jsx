@@ -18,29 +18,13 @@ export default function Services() {
       {/* PAGE INTRO */}
       <Section className="pb-4 md:pb-6">
         <Container>
-          <div className="grid grid-cols-1 md:grid-cols-12 gap-6 items-start">
-            <div className="md:col-span-7">
-              <PageIntro
-                breadcrumb={[
-                  { label: "Home", href: "/" },
-                  { label: "Services" },
-                ]}
-                title="Services"
-              />
-              <div className="mt-6 max-w-2xl space-y-3">
-                <p>
-                  You can engage me for a single stream (strategy, build, or data), or combine them end-to-end.
-                  My focus is practical delivery - clear decisions, clean execution, and measurable improvement.
-                </p>
-                <p>
-                  Typical outputs include storyboards and scripts, Storyline/Rise builds, video assets, xAPI statements,
-                  LRS configuration, and dashboards that support real reporting.
-                </p>
-              </div>
-            </div>
-
-            {/* Hero - matches the Work pages layout */}
-            <div className="md:col-span-5 mt-4 md:mt-10">
+          <PageIntro
+            breadcrumb={[
+              { label: "Home", href: "/" },
+              { label: "Services" },
+            ]}
+            title="Services"
+            right={
               <div className="site-card overflow-hidden">
                 <div className="relative aspect-[16/10] w-full">
                   <img
@@ -52,11 +36,19 @@ export default function Services() {
                   />
                 </div>
               </div>
+            }
+          >
+            <div className="mt-6 max-w-2xl space-y-3">
+              <p>
+                You can engage me for a single stream (strategy, build, or data), or combine them end-to-end.
+                My focus is practical delivery - clear decisions, clean execution, and measurable improvement.
+              </p>
+              <p>
+                Typical outputs include storyboards and scripts, Storyline/Rise builds, video assets, xAPI statements,
+                LRS configuration, and dashboards that support real reporting.
+              </p>
             </div>
-          </div>
-
-
-
+          </PageIntro>
         </Container>
       </Section>
 
