@@ -7,6 +7,24 @@
     <meta name="author" content="Glenn Hammond" />
     <meta name="theme-color" content="#ffffff" />
 
+    <meta name="color-scheme" content="dark light" />
+
+    <!-- Force dark as the default theme (important for incognito/new visitors) -->
+    <script>
+      (function () {
+        try {
+          var stored = localStorage.getItem("theme");
+          // Default to dark if nothing is stored
+          var theme = stored || "dark";
+          if (!stored) localStorage.setItem("theme", theme);
+          document.documentElement.classList.toggle("dark", theme === "dark");
+        } catch (e) {
+          // If storage is blocked, still default to dark
+          document.documentElement.classList.add("dark");
+        }
+      })();
+    </script>
+
     <!-- Preconnect for Adobe Fonts -->
     <link rel="preconnect" href="https://use.typekit.net" crossorigin>
     <!-- Adobe Fonts (ITC Avant Garde + Open Sans) -->
