@@ -199,9 +199,9 @@ html.dark .site-card-strong :is(.text-white, .text-white\/90, .text-white\/80, .
 ------------------------------------------------------- */
 html.dark {
   /* Core colour system — dark mode */
-  --bg: #120D33; /* deep indigo, darker */
-  --bg-soft: rgba(255, 255, 255, 0.08); /* subtle panels on blue */
-  --hero-bg: #0C0828; /* slightly deeper hero base (matches new indigo) */
+  --bg: #1B1028; /* aubergine */
+  --bg-soft: rgba(255, 255, 255, 0.08); /* subtle panels on charcoal */
+  --hero-bg: #140B1E; /* deeper aubergine for hero */
 
   --text: #ffffff;
   --muted: rgba(255, 255, 255, 0.82);
@@ -256,10 +256,11 @@ html.dark {
 
 /* Subtle indigo depth so the background reads "royal indigo" not black */
 html.dark body {
+  background-color: var(--bg) !important;
   background-image:
-    radial-gradient(1000px circle at 18% 18%, rgba(59, 130, 246, 0.34), transparent 62%),
-    radial-gradient(900px circle at 82% 36%, rgba(29, 78, 216, 0.24), transparent 64%),
-    radial-gradient(1200px circle at 52% 95%, rgba(96, 165, 250, 0.16), transparent 66%);
+    radial-gradient(1000px circle at 18% 18%, rgba(255, 77, 141, 0.16), transparent 62%),
+    radial-gradient(900px circle at 82% 36%, rgba(192, 132, 252, 0.12), transparent 64%),
+    radial-gradient(1200px circle at 52% 95%, rgba(59, 130, 246, 0.06), transparent 66%);
   background-attachment: fixed;
   background-repeat: no-repeat;
 }
@@ -267,7 +268,7 @@ html.dark body {
 /* Dark mode - keep header + footer consistent, slightly darker than the page */
 html.dark header,
 html.dark footer {
-  background-color: rgba(8, 6, 24, 0.92) !important; /* slightly darker than new --bg */
+  background-color: rgba(10, 6, 16, 0.88) !important; /* slightly darker than --bg */
 }
 
 html.dark header {

@@ -55,12 +55,14 @@ export default function Home() {
         {/* HERO */}
       <Section noPadding className="bg-[var(--bg)]">
 <Container className="pt-12 pb-14 min-h-[calc(100svh-4rem)] md:min-h-[70vh] md:pt-10 md:pb-14 flex flex-col items-start">
-          {/* Desktop: badge row above cards */}
-          <div className="hidden md:flex items-center gap-3 mb-6">
-            <span aria-hidden="true">🏆</span>
-            <span className="text-sm font-semibold tracking-[0.18em] uppercase text-white/80">
-              Award-winning eLearning
-            </span>
+          {/* Full-width badge row above cards */}
+          <div className="w-full max-w-[560px] mx-auto mb-6 md:mb-8 md:max-w-none md:mx-0">
+            <div className="flex w-full items-center gap-3">
+              <span aria-hidden="true">🏆</span>
+              <span className="text-sm font-semibold tracking-[0.18em] uppercase text-white/80">
+                Award-winning eLearning
+              </span>
+            </div>
           </div>
           <div
             className="
@@ -76,7 +78,7 @@ export default function Home() {
             "
           >
             {/* Left */}
-            <div className="w-full md:max-w-[560px]">
+            <div className="w-full max-w-[560px] mx-auto md:mx-0">
               <div
                 className="
                   rounded-2xl
@@ -91,17 +93,17 @@ export default function Home() {
                   transition-none
                 "
               >
-
-                <h1
-                  className="
-                    font-heading
-                    font-semibold
-                    text-[2.75rem] md:text-[3.5rem]
-                    leading-[0.94]
-                    tracking-[-0.03em] md:tracking-[-0.035em]
-                    text-slate-900
-                  "
-                >
+<h1 className="
+  font-heading
+  text-slate-900
+  font-semibold
+  tracking-tight
+  leading-[0.88]
+  max-w-[14ch]
+  text-6xl
+  sm:text-6xl
+  md:text-7xl
+">
                   <span className="block">Better Learning</span>
                   <span className="block">by Design</span>
                 </h1>
