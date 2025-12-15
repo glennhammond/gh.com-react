@@ -199,9 +199,9 @@ html.dark .site-card-strong :is(.text-white, .text-white\/90, .text-white\/80, .
 ------------------------------------------------------- */
 html.dark {
   /* Core colour system — dark mode */
-  --bg: #1B2F87; /* friendlier royal blue (reads "blue" instantly) */
+  --bg: #120D33; /* deep indigo, darker */
   --bg-soft: rgba(255, 255, 255, 0.08); /* subtle panels on blue */
-  --hero-bg: #172A73; /* slightly deeper hero base */
+  --hero-bg: #0C0828; /* slightly deeper hero base (matches new indigo) */
 
   --text: #ffffff;
   --muted: rgba(255, 255, 255, 0.82);
@@ -267,7 +267,7 @@ html.dark body {
 /* Dark mode - keep header + footer consistent, slightly darker than the page */
 html.dark header,
 html.dark footer {
-  background-color: rgba(20, 33, 95, 0.92) !important; /* slightly darker than --bg */
+  background-color: rgba(8, 6, 24, 0.92) !important; /* slightly darker than new --bg */
 }
 
 html.dark header {
@@ -837,6 +837,28 @@ html:not(.dark) body {
 @media (prefers-reduced-motion: reduce) {
   .card-link {
     transition: none;
+  }
+}
+
+/* -------------------------------------------------------
+   PAGE TRANSITIONS (route enter)
+   Add `className="page-enter"` to your routed page wrapper.
+------------------------------------------------------- */
+@media (prefers-reduced-motion: no-preference) {
+  .page-enter {
+    animation: pageEnter 220ms ease-out both;
+    will-change: opacity, transform;
+  }
+}
+
+@keyframes pageEnter {
+  from { opacity: 0; transform: translateY(6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .page-enter {
+    animation: none !important;
   }
 }
 

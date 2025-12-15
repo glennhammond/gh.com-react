@@ -54,126 +54,134 @@ export default function Home() {
 
         {/* HERO */}
       <Section noPadding className="bg-[var(--bg)]">
-<Container className="pt-12 pb-14 min-h-[calc(100svh-4rem)] md:min-h-[76vh] md:pt-16 md:pb-24 flex items-start md:items-center">
+<Container className="pt-12 pb-14 min-h-[calc(100svh-4rem)] md:min-h-[70vh] md:pt-10 md:pb-14 flex flex-col items-start">
+          {/* Desktop: badge row above cards */}
+          <div className="hidden md:flex items-center gap-3 mb-6">
+            <span aria-hidden="true">🏆</span>
+            <span className="text-sm font-semibold tracking-[0.18em] uppercase text-white/80">
+              Award-winning eLearning
+            </span>
+          </div>
           <div
             className="
               w-full
               h-full
-              grid grid-cols-1 md:grid-cols-2
-              gap-14 items-center
+              grid grid-cols-1
+              gap-14
+              items-center
               fade-in-up
+              md:grid-cols-2
+              md:gap-12
+              md:items-start
             "
           >
             {/* Left */}
-            <div className="flex h-full flex-col justify-between">
-              <div className="space-y-7 w-full sm:w-[420px]">
-              <div className="inline-flex items-center gap-3 mb-4">
-                <span aria-hidden="true">🏆</span>
-                <span className="text-sm font-semibold tracking-[0.18em] uppercase text-[var(--text-muted)] whitespace-nowrap">
-                  Award-winning eLearning
-                </span>
-              </div>
+            <div className="w-full md:max-w-[560px]">
+              <div
+                className="
+                  rounded-2xl
+                  bg-white/90
+                  backdrop-blur-sm
+                  ring-1 ring-black/10
+                  shadow-[0_28px_90px_rgba(2,6,23,0.18)]
+                  p-7 md:p-9
+                  w-full
+                  transform-none
+                  hover:transform-none
+                  transition-none
+                "
+              >
 
-           <h1
-  className="
-    font-heading
-    font-semibold
-    text-[2.75rem] md:text-[3.5rem]
-    leading-[0.94]
-    tracking-[-0.03em] md:tracking-[-0.035em]
-    text-[var(--brand-primary)]
-  "
->
-  <span className="block">Better Learning</span>
-  <span className="block">by Design</span>
-</h1>
-
-              <div className="space-y-5">
-                <p className="text-[var(--text)]/75 leading-relaxed">
-                  Clear learning systems - consistent structure, UX and production process.
-                </p>
-                <p className="text-[var(--text)]/75 leading-relaxed">
-                  I apply this across instructional design, Storyline/Rise builds, media production, and xAPI analytics - to keep learning clear to navigate and easier to maintain.
-                </p>
-              </div>
-
-              </div>
-
-              {/* CTAs */}
-<div className="mt-0 pt-16 pb-0 md:mt-auto md:pt-14 md:pb-0 w-full sm:w-[420px] flex flex-col items-stretch gap-5 sm:gap-6">
-                {/* Primary - solid magenta */}
-                <Link
-                  to="/work"
+                <h1
                   className="
-  font-heading
-  inline-flex items-center justify-center
-  w-full sm:w-[420px]
-  px-12 md:px-16
-  py-4 md:py-5
-  text-base md:text-lg font-semibold
-  rounded-xl
-  bg-[#F5C84C]
-  text-[#3a0028]
-  shadow-[0_18px_45px_rgba(0,0,0,0.22)]
-  transition
-  hover:-translate-y-0.5
-  hover:bg-[#E6B83F]
-  hover:shadow-[0_22px_60px_rgba(0,0,0,0.28)]
-  active:translate-y-0
-  focus-visible:outline-none
-  focus-visible:ring-2
-  focus-visible:ring-white/80
-"
+                    font-heading
+                    font-semibold
+                    text-[2.75rem] md:text-[3.5rem]
+                    leading-[0.94]
+                    tracking-[-0.03em] md:tracking-[-0.035em]
+                    text-slate-900
+                  "
                 >
-                  View some work
-                </Link>
+                  <span className="block">Better Learning</span>
+                  <span className="block">by Design</span>
+                </h1>
 
-                {/* Secondary - magenta outline */}
-                <Link
-                  to="/contact"
-                  className="
-  font-heading
-  inline-flex items-center justify-center
-  w-full sm:w-[420px]
-  px-12 md:px-16
-  py-4 md:py-5
-  text-base md:text-lg font-semibold
-  rounded-xl
-  border border-[#F5C84C]/70
-  bg-white/10
-  text-[#F5C84C]
-  backdrop-blur-sm
-  shadow-[0_12px_30px_rgba(0,0,0,0.12)]
-  transition
-  hover:-translate-y-0.5
-  hover:bg-white/16
-  hover:border-[#F5C84C]
-  active:translate-y-0
-  focus-visible:outline-none
-  focus-visible:ring-2
-  focus-visible:ring-[#F5C84C]
-"
-                >
-                  Get in touch
-                </Link>
+                <div className="mt-6 space-y-4">
+                  <p className="text-slate-700 leading-7">
+                    Clear learning systems - consistent structure, UX and production process.
+                  </p>
+                  <p className="text-slate-700 leading-7">
+                    I apply this across instructional design, Storyline/Rise builds, media production, and xAPI analytics - to keep learning clear to navigate and easier to maintain.
+                  </p>
+                </div>
+
+                {/* CTAs */}
+                <div className="mt-10 flex flex-col items-stretch gap-5 sm:gap-6">
+                  {/* Primary - solid */}
+                  <Link
+                    to="/work"
+                    className="
+                      font-heading
+                      inline-flex items-center justify-center
+                      w-full
+                      px-12 md:px-16
+                      py-4 md:py-5
+                      text-base md:text-lg font-semibold
+                      rounded-xl
+                      bg-[#F5C84C]
+                      text-[#3a0028]
+                      shadow-[0_18px_45px_rgba(0,0,0,0.22)]
+                      transition
+                      hover:bg-[#E6B83F]
+                      focus-visible:outline-none
+                      focus-visible:ring-2
+                      focus-visible:ring-black/20
+                    "
+                  >
+                    View some work
+                  </Link>
+
+                  {/* Secondary - outline */}
+                  <Link
+                    to="/contact"
+                    className="
+                      font-heading
+                      inline-flex items-center justify-center
+                      w-full
+                      px-12 md:px-16
+                      py-4 md:py-5
+                      text-base md:text-lg font-semibold
+                      rounded-xl
+                      border border-slate-900/15
+                      bg-white
+                      text-slate-900
+                      transition
+                      hover:bg-slate-50
+                      hover:border-slate-900/25
+                      focus-visible:outline-none
+                      focus-visible:ring-2
+                      focus-visible:ring-black/20
+                    "
+                  >
+                    Get in touch
+                  </Link>
+                </div>
               </div>
-
             </div>
 
             {/* Right - featured project card (desktop) */}
-            <div className="hidden md:block md:mt-6">
+            <div className="hidden md:block w-full md:max-w-[620px]">
               <Link
                 to="/work/elearning-design-system"
-                className="group relative block w-full overflow-hidden rounded-3xl bg-white ring-1 ring-black/10 shadow-[0_28px_90px_rgba(2,6,23,0.22)] transition hover:-translate-y-1 hover:shadow-[0_36px_120px_rgba(2,6,23,0.30)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--secondary)]/40"
+                className="relative block w-full overflow-hidden rounded-2xl bg-white ring-1 ring-black/10 shadow-[0_28px_90px_rgba(2,6,23,0.22)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--secondary)]/40"
               >
                 <img
                   src="/images/portfolio-elearning-design-system.jpg"
                   alt="eLearning Design System preview"
                   className="w-full h-auto block"
                 />
-
                 <div
-                  className="p-7 border-t border-black/5 bg-gradient-to-b from-white via-white to-slate-50"
+                  className="p-6 lg:p-7 border-t border-black/5 bg-gradient-to-b from-white via-white to-slate-50"
                   style={{
                     backgroundColor: "#ffffff",
                     backgroundImage:
@@ -183,24 +191,18 @@ export default function Home() {
                   <p className="text-xs font-bold tracking-[0.18em] uppercase text-slate-600">
                     Featured
                   </p>
-
                   <h3 className="mt-3 font-heading text-2xl md:text-3xl font-semibold leading-tight text-[#1E3A8A]">
                     eLearning Design System
                   </h3>
-
-                  <p className="mt-3 text-[1.05rem] leading-relaxed text-slate-700">
-                    Templates, components and patterns for faster, more predictable builds.
-                  </p>
-
-                  <p className="mt-4 text-sm leading-relaxed text-slate-600">
-                    Built for smoother production and fewer fixes - UI patterns, templates, and ready-to-use assets.
-                  </p>
-
-                  <span className="mt-5 inline-flex items-center gap-2 text-sm font-heading text-[var(--secondary)] group-hover:opacity-90">
+               
+                  <span className="mt-5 inline-flex items-center gap-2 text-sm font-heading text-[var(--secondary)]">
                     Explore project <span aria-hidden>→</span>
                   </span>
                 </div>
               </Link>
+              <p className="mt-3 text-[13px] leading-6 text-white/70 max-w-[62ch]">
+                A reusable framework for modern eLearning - designed for consistency, accessibility, and maintainable builds.
+              </p>
             </div>
           </div>
         </Container>

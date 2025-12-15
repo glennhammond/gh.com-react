@@ -123,7 +123,7 @@ export default function Services() {
               <span className="text-xs uppercase tracking-[0.18em] text-[var(--text)]/70">Approach</span>
               <h2 className="font-heading text-2xl text-[var(--text)]">How I work</h2>
               <p className="max-w-2xl text-[var(--text)]/80">
-                A lightweight process that keeps stakeholders aligned and delivery moving - without overcooking documentation.
+                A simple way of working: clear decisions, steady momentum, clean delivery.
               </p>
             </div>
 
