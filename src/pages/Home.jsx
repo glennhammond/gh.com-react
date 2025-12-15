@@ -54,7 +54,7 @@ export default function Home() {
 
         {/* HERO */}
       <Section noPadding className="bg-[var(--bg)]">
-<Container className="pt-12 pb-14 min-h-[calc(100svh-4rem)] md:min-h-[70vh] md:pt-10 md:pb-14 flex flex-col items-start">
+<Container className="pt-12 pb-10 md:pt-12 md:pb-10 lg:pt-14 lg:pb-12 flex flex-col items-start">
           {/* Full-width badge row above cards */}
           <div className="w-full max-w-[560px] mx-auto mb-6 md:mb-8 md:max-w-none md:mx-0">
             <div className="flex w-full items-center gap-3">
@@ -79,6 +79,100 @@ export default function Home() {
           >
             {/* Left */}
             <div className="w-full max-w-[560px] mx-auto md:mx-0">
+              <h1
+                className="
+                  font-heading
+                  text-white
+                  font-semibold
+                  tracking-tight
+                  leading-[0.9]
+                  max-w-[16ch]
+                  text-5xl
+                  sm:text-6xl
+                  md:text-7xl
+                  drop-shadow-[0_10px_30px_rgba(0,0,0,0.35)]
+                "
+              >
+                <span className="block">Better Learning</span>
+                <span className="block">by Design</span>
+              </h1>
+              <p className="mt-6 max-w-[46ch] text-white/80 text-lg leading-7">
+                Clear learning systems - consistent structure, UX and production process.
+              </p>
+              {/* Mobile CTAs */}
+              <div className="mt-6 md:hidden">
+                <div
+                  className="
+                    rounded-2xl
+                    bg-white/90
+                    backdrop-blur-sm
+                    ring-1 ring-black/10
+                    shadow-[0_22px_70px_rgba(2,6,23,0.20)]
+                    p-6
+                    w-full
+                    transform-none
+                    hover:transform-none
+                    transition-none
+                  "
+                >
+                  <div className="space-y-4">
+                    <p className="text-slate-700 leading-7">
+                      I apply this across instructional design, Storyline/Rise builds, media production, and xAPI analytics - to keep learning clear to navigate and easier to maintain.
+                    </p>
+                  </div>
+
+                  <div className="mt-7 flex flex-col items-stretch gap-4">
+                    <Link
+                      to="/work"
+                      className="
+                        font-heading
+                        inline-flex items-center justify-center
+                        w-full
+                        py-4
+                        text-base font-semibold
+                        rounded-xl
+                        bg-[#F5C84C]
+                        text-[#3a0028]
+                        shadow-[0_14px_34px_rgba(0,0,0,0.20)]
+                        transition
+                        hover:bg-[#E6B83F]
+                        focus-visible:outline-none
+                        focus-visible:ring-2
+                        focus-visible:ring-black/20
+                      "
+                    >
+                      View some work
+                    </Link>
+
+                    <Link
+                      to="/contact"
+                      className="
+                        font-heading
+                        inline-flex items-center justify-center
+                        w-full
+                        py-4
+                        text-base font-semibold
+                        rounded-xl
+                        border border-slate-900/15
+                        bg-white
+                        text-slate-900
+                        transition
+                        hover:bg-slate-50
+                        hover:border-slate-900/25
+                        focus-visible:outline-none
+                        focus-visible:ring-2
+                        focus-visible:ring-black/20
+                      "
+                    >
+                      Get in touch
+                    </Link>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Right - CTA card (desktop) */}
+            <div className="hidden md:block w-full md:max-w-[560px] md:ml-auto">
               <div
                 className="
                   rounded-2xl
@@ -93,32 +187,14 @@ export default function Home() {
                   transition-none
                 "
               >
-<h1 className="
-  font-heading
-  text-slate-900
-  font-semibold
-  tracking-tight
-  leading-[0.88]
-  max-w-[14ch]
-  text-6xl
-  sm:text-6xl
-  md:text-7xl
-">
-                  <span className="block">Better Learning</span>
-                  <span className="block">by Design</span>
-                </h1>
-
-                <div className="mt-6 space-y-4">
-                  <p className="text-slate-700 leading-7">
-                    Clear learning systems - consistent structure, UX and production process.
-                  </p>
+                <div className="space-y-4">
                   <p className="text-slate-700 leading-7">
                     I apply this across instructional design, Storyline/Rise builds, media production, and xAPI analytics - to keep learning clear to navigate and easier to maintain.
                   </p>
                 </div>
 
                 {/* CTAs */}
-                <div className="mt-10 flex flex-col items-stretch gap-5 sm:gap-6">
+                <div className="mt-8 flex flex-col items-stretch gap-5 sm:gap-6">
                   {/* Primary - solid */}
                   <Link
                     to="/work"
@@ -170,79 +246,14 @@ export default function Home() {
                 </div>
               </div>
             </div>
-
-            {/* Right - featured project card (desktop) */}
-            <div className="hidden md:block w-full md:max-w-[620px]">
-              <Link
-                to="/work/elearning-design-system"
-                className="relative block w-full overflow-hidden rounded-2xl bg-white ring-1 ring-black/10 shadow-[0_28px_90px_rgba(2,6,23,0.22)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--secondary)]/40"
-              >
-                <img
-                  src="/images/portfolio-elearning-design-system.jpg"
-                  alt="eLearning Design System preview"
-                  className="w-full h-auto block"
-                />
-                <div
-                  className="p-6 lg:p-7 border-t border-black/5 bg-gradient-to-b from-white via-white to-slate-50"
-                  style={{
-                    backgroundColor: "#ffffff",
-                    backgroundImage:
-                      "radial-gradient(900px circle at 12% -12%, rgba(30,58,138,0.10), transparent 55%), radial-gradient(700px circle at 112% 8%, rgba(236,72,153,0.10), transparent 55%)",
-                  }}
-                >
-                  <p className="text-xs font-bold tracking-[0.18em] uppercase text-slate-600">
-                    Featured
-                  </p>
-                  <h3 className="mt-3 font-heading text-2xl md:text-3xl font-semibold leading-tight text-[#1E3A8A]">
-                    eLearning Design System
-                  </h3>
-               
-                  <span className="mt-5 inline-flex items-center gap-2 text-sm font-heading text-[var(--secondary)]">
-                    Explore project <span aria-hidden>→</span>
-                  </span>
-                </div>
-              </Link>
-              <p className="mt-3 text-[13px] leading-6 text-white/70 max-w-[62ch]">
-                A reusable framework for modern eLearning - designed for consistency, accessibility, and maintainable builds.
-              </p>
-            </div>
           </div>
         </Container>
       </Section>
 
-      {/* Mobile: eLearning Design System card (below hero) */}
-      <Section noPadding className="bg-[var(--bg)] md:hidden">
-        <Container className="pt-3 pb-8">
-          <Link
-            to="/work/elearning-design-system"
-            className="group block w-full overflow-hidden rounded-2xl bg-white ring-1 ring-black/10 shadow-[0_22px_70px_rgba(2,6,23,0.20)] transition hover:-translate-y-0.5 hover:shadow-[0_30px_95px_rgba(2,6,23,0.28)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--secondary)]/40"
-          >
-            <img
-              src="/images/portfolio-elearning-design-system.jpg"
-              alt="eLearning Design System preview"
-              className="w-full h-auto block"
-            />
-            <div className="p-5 border-t border-black/5 bg-gradient-to-b from-white via-white to-slate-50">
-              <p className="text-xs font-bold tracking-[0.18em] uppercase text-slate-600">
-                Featured
-              </p>
-              <h3 className="mt-2 font-heading text-xl font-semibold text-[#1E3A8A]">
-                eLearning Design System
-              </h3>
-              <p className="mt-2 text-sm text-slate-700">
-                Templates, components and patterns for faster, more predictable builds.
-              </p>
-              <span className="mt-3 inline-flex text-sm font-heading text-[var(--secondary)]">
-                Explore project →
-              </span>
-            </div>
-          </Link>
-        </Container>
-      </Section>
 
       {/* CLIENT LOGOS */}
-      <Section className="bg-[var(--bg-soft)] border-y border-black/5 dark:border-white/10">
-        <Container className="py-6 md:py-8 fade-in-up">
+      <Section className="bg-[var(--bg-soft)] border-y border-black/5 dark:border-white/10 -mt-4 md:-mt-6">
+        <Container className="py-4 md:py-6 fade-in-up">
           <div className="grid w-full grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-x-10 gap-y-10 place-items-center">
             {clients.map((client) => (
               <div key={client.name} className="w-full flex items-center justify-center">
@@ -277,6 +288,56 @@ export default function Home() {
           </div>
         </Container>
       </Section>
+
+      {/* FEATURED PROJECT ROW */}
+      <Section noPadding className="bg-[var(--bg)]">
+        <Container className="pt-10 pb-10 md:pt-12 md:pb-14">
+          <Link
+            to="/work/elearning-design-system"
+            className="
+              block w-full
+              overflow-hidden
+              rounded-2xl
+              ring-1 ring-white/10
+              bg-white/5
+              shadow-[0_28px_90px_rgba(2,6,23,0.18)]
+              focus-visible:outline-none
+              focus-visible:ring-2
+              focus-visible:ring-[var(--secondary)]/40
+            "
+          >
+            <div className="grid grid-cols-1 md:grid-cols-2">
+              <div className="p-8 md:p-10">
+                <p className="text-xs font-semibold tracking-[0.18em] uppercase text-white/60">
+                  Glenn Hammond · eLearning Design System
+                </p>
+                <h2 className="mt-4 font-heading text-3xl md:text-4xl font-semibold leading-tight text-white max-w-[22ch]">
+                  eLearning Design System for modern professional learning
+                </h2>
+                <p className="mt-4 text-white/75 leading-7 max-w-[68ch]">
+                  A reusable eLearning design system built to speed up course builds, improve consistency, and support WCAG-aligned layouts across Storyline, Rise, and H5P.
+                </p>
+                <p className="mt-6 text-xs font-semibold tracking-[0.18em] uppercase text-white/45">
+                  Role: System architect · Lead eLearning specialist · Visual design · Governance
+                </p>
+                <div className="mt-8 inline-flex items-center gap-2 text-sm font-heading text-white/90">
+                  View project <span aria-hidden>→</span>
+                </div>
+              </div>
+              <div className="bg-white/6 md:bg-white/8 p-8 md:p-10 flex items-center justify-center">
+                <img
+                  src="/images/portfolio-elearning-design-system.jpg"
+                  alt="eLearning Design System preview"
+                  className="w-full max-w-[560px] h-auto block rounded-xl ring-1 ring-black/10"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </div>
+            </div>
+          </Link>
+        </Container>
+      </Section>
+
 
       {/* SERVICES PREVIEW */}
       <Section>

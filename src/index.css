@@ -14,59 +14,7 @@
   }
 }
 
-/* -------------------------------------------------------
-   SITE CARD SYSTEM — DARK MODE
-   Purpose: make .site-card read as a light “card” on the blue bg
-------------------------------------------------------- */
-html.dark .site-card,
-html.dark .site-card-strong {
-  background-color: var(--card-bg) !important;
-  border: 1px solid var(--card-border) !important;
-  box-shadow: var(--card-shadow);
-  color: var(--card-text) !important;
-  position: relative;
-  transform: translateZ(0);
-  overflow: hidden;
-}
-
-/* Subtle premium highlight layer */
-html.dark .site-card::before,
-html.dark .site-card-strong::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  border-radius: inherit;
-  pointer-events: none;
-  background:
-    radial-gradient(900px circle at 14% 10%, rgba(59, 130, 246, 0.16), transparent 46%),
-    radial-gradient(650px circle at 88% 0%, rgba(255, 77, 141, 0.10), transparent 42%),
-    linear-gradient(180deg, rgba(255, 255, 255, 0.42), rgba(255, 255, 255, 0.00) 28%);
-  opacity: 0.7;
-}
-
-/* Typography inside cards */
-html.dark .site-card :is(h1, h2, h3, h4),
-html.dark .site-card-strong :is(h1, h2, h3, h4) {
-  color: var(--card-title) !important;
-  font-family: var(--font-heading) !important;
-}
-
-html.dark .site-card :is(p, li, span, small),
-html.dark .site-card-strong :is(p, li, span, small) {
-  color: var(--card-text) !important;
-}
-
-html.dark .site-card a,
-html.dark .site-card-strong a {
-  color: var(--card-link) !important;
-}
-
-/* If anything forces white text classes inside cards, flip them back */
-html.dark .site-card :is(.text-white, .text-white\/90, .text-white\/80, .text-neutral-100, .text-slate-100),
-html.dark .site-card-strong :is(.text-white, .text-white\/90, .text-white\/80, .text-neutral-100, .text-slate-100) {
-  color: var(--card-text) !important;
-}
-
+  
 @layer base {
   /* Force-disable default UL markers everywhere (incl. Tailwind prose / list-disc overrides) */
   ul,
@@ -152,7 +100,12 @@ html.dark .site-card-strong :is(.text-white, .text-white\/90, .text-white\/80, .
   --color-brand-accent: #3B82F6;       /* brighter accent */
   --color-brand-soft: #E8F0FF;         /* soft tint for hovers/chips */
 
-  /* Secondary colour — pink (replaces gold accents) */
+  /* CTA / emphasis colour (authoritative) */
+  --cta: #F2D26B;              /* warm yellow */
+  --cta-strong: #E6C458;
+  --cta-soft: rgba(242, 210, 107, 0.18);
+
+  /* Secondary colour (available but NOT default CTA) */
   --secondary: #FF3E7F;
   --secondary-strong: #E82F6F;
   --secondary-soft: rgba(255, 62, 127, 0.16);
@@ -199,9 +152,9 @@ html.dark .site-card-strong :is(.text-white, .text-white\/90, .text-white\/80, .
 ------------------------------------------------------- */
 html.dark {
   /* Core colour system — dark mode */
-  --bg: #1B1028; /* aubergine */
+  --bg: #1A1446; /* deep indigo */
   --bg-soft: rgba(255, 255, 255, 0.08); /* subtle panels on charcoal */
-  --hero-bg: #140B1E; /* deeper aubergine for hero */
+  --hero-bg: #151041; /* slightly deeper indigo for hero */
 
   --text: #ffffff;
   --muted: rgba(255, 255, 255, 0.82);
@@ -216,6 +169,11 @@ html.dark {
   --secondary: #FF4D8D;
   --secondary-strong: #FF3E7F;
   --secondary-soft: rgba(255, 77, 141, 0.20);
+
+  /* CTA / emphasis colour (authoritative, matches light) */
+  --cta: #F2D26B;
+  --cta-strong: #E6C458;
+  --cta-soft: rgba(242, 210, 107, 0.22);
 
   /* Card tokens (dark mode uses bright white cards on blue) */
   --card-bg: rgba(247, 250, 255, 0.96);   /* faint blue-tinted white */
@@ -265,10 +223,17 @@ html.dark body {
   background-repeat: no-repeat;
 }
 
-/* Dark mode - keep header + footer consistent, slightly darker than the page */
+
+/* Dark mode - keep header + footer consistent, darker indigo than the page */
 html.dark header,
 html.dark footer {
-  background-color: rgba(10, 6, 16, 0.88) !important; /* slightly darker than --bg */
+  /* darker shade of the base indigo (#1A1446) */
+  background-color: #151041 !important;
+}
+
+html.dark header,
+html.dark footer {
+  background-image: none !important;
 }
 
 html.dark header {
@@ -310,21 +275,7 @@ html.dark main :is(
   border-color: var(--secondary-strong) !important;
 }
 
-/* Dark mode - force CTA buttons that use arbitrary Tailwind bg colours to use the pink secondary */
-html.dark main :is(a, button, [role="button"], input[type="submit"], input[type="button"])[class*="bg-["][class*="px-"][class*="py-"] {
-  background-color: var(--secondary) !important;
-  border-color: var(--secondary-strong) !important;
-  color: #ffffff !important;
-}
 
-html.dark main :is(a, button, [role="button"], input[type="submit"], input[type="button"])[class*="bg-["][class*="px-"][class*="py-"] :is(svg, path) {
-  stroke: currentColor;
-  fill: currentColor;
-}
-
-html.dark main :is(a, button, [role="button"], input[type="submit"], input[type="button"])[class*="bg-["][class*="px-"][class*="py-"]:hover {
-  filter: brightness(0.95);
-}
 
 /* Dark mode - replace harsh "true black" panels with deep indigo so cards feel cohesive */
 html.dark main :is(
@@ -363,281 +314,91 @@ html.dark main :is(
 }
 
 /* -------------------------------------------------------
-   DARK MODE - WHITE CARD SYSTEM (so cards pop on the blue)
-   Scope: main content only (not header/footer)
+   DARK MODE — CARD SURFACES (explicit, stable)
+   Apply the white-card treatment ONLY to known surface classes.
+   No hover lift here - use `.card-link` for clickable motion.
 ------------------------------------------------------- */
 html.dark main :is(
-  .bg-\[var\(--bg-soft\)\],
-  .dark\:bg-\[var\(--bg-soft\)\],
-  .bg-white\/5,
-  .bg-white\/10,
-  .bg-white\/15,
-  .bg-white\/20,
-  .dark\:bg-white\/5,
-  .dark\:bg-white\/10,
-  .dark\:bg-white\/15,
-  .dark\:bg-white\/20,
-  .bg-white\/70,
-  .bg-white\/80,
-  .bg-white\/90,
-  .dark\:bg-white\/70,
-  .dark\:bg-white\/80,
-  .dark\:bg-white\/90
-):is(.rounded-xl, .rounded-2xl, .rounded-3xl) {
+  .site-card,
+  .site-card-strong,
+  .surface,
+  .panel, .panel-strong, .panel-soft, .panel-warm, .panel-cool,
+  .card, .card-strong, .card-soft, .card-warm, .card-cool
+) {
   background-color: var(--card-bg) !important;
   background-image:
-    radial-gradient(900px circle at 14% 6%, rgba(59, 130, 246, 0.12), transparent 54%),
-    radial-gradient(780px circle at 92% 0%, rgba(255, 77, 141, 0.07), transparent 56%),
+    radial-gradient(900px circle at 14% 6%, rgba(59, 130, 246, 0.10), transparent 54%),
+    radial-gradient(780px circle at 92% 0%, rgba(255, 77, 141, 0.08), transparent 56%),
     linear-gradient(180deg, rgba(255, 255, 255, 0.94), var(--card-bg));
   border: 1px solid var(--card-border) !important;
-  box-shadow:
-    var(--card-shadow),
-    0 0 0 1px rgba(255, 255, 255, 0.50) inset;
+  box-shadow: var(--card-shadow), 0 0 0 1px rgba(255, 255, 255, 0.50) inset;
   color: var(--card-text) !important;
   position: relative;
   transform: translateZ(0);
   overflow: hidden;
-  border-radius: 1rem !important; /* tighter global radius */
+  border-radius: 1rem !important;
 }
 
-/* Subtle highlight layer so cards feel premium, not flat */
 html.dark main :is(
-  .bg-\[var\(--bg-soft\)\],
-  .dark\:bg-\[var\(--bg-soft\)\],
-  .bg-white\/5,
-  .bg-white\/10,
-  .bg-white\/15,
-  .bg-white\/20,
-  .dark\:bg-white\/5,
-  .dark\:bg-white\/10,
-  .dark\:bg-white\/15,
-  .dark\:bg-white\/20,
-  .bg-white\/70,
-  .bg-white\/80,
-  .bg-white\/90,
-  .dark\:bg-white\/70,
-  .dark\:bg-white\/80,
-  .dark\:bg-white\/90
-):is(.rounded-xl, .rounded-2xl, .rounded-3xl)::before {
+  .site-card,
+  .site-card-strong,
+  .surface,
+  .panel, .panel-strong, .panel-soft, .panel-warm, .panel-cool,
+  .card, .card-strong, .card-soft, .card-warm, .card-cool
+)::before {
   content: "";
   position: absolute;
   inset: 0;
   border-radius: inherit;
   pointer-events: none;
   background:
-    radial-gradient(900px circle at 14% 10%, rgba(59, 130, 246, 0.16), transparent 46%),
+    radial-gradient(900px circle at 14% 10%, rgba(59, 130, 246, 0.14), transparent 46%),
     radial-gradient(650px circle at 88% 0%, rgba(255, 77, 141, 0.10), transparent 42%),
-    linear-gradient(180deg, rgba(255, 255, 255, 0.40), rgba(255, 255, 255, 0.00) 28%);
+    linear-gradient(180deg, rgba(255, 255, 255, 0.38), rgba(255, 255, 255, 0.00) 28%);
   opacity: 0.7;
 }
 
-@media (hover: hover) {
-  html.dark main :is(
-    .bg-\[var\(--bg-soft\)\],
-    .dark\:bg-\[var\(--bg-soft\)\],
-    .bg-white\/5,
-    .bg-white\/10,
-    .bg-white\/15,
-    .bg-white\/20,
-    .dark\:bg-white\/5,
-    .dark\:bg-white\/10,
-    .dark\:bg-white\/15,
-    .dark\:bg-white\/20,
-    .bg-white\/70,
-    .bg-white\/80,
-    .bg-white\/90,
-    .dark\:bg-white\/70,
-    .dark\:bg-white\/80,
-    .dark\:bg-white\/90
-  ):is(.rounded-xl, .rounded-2xl, .rounded-3xl):hover {
-    transform: translateY(-6px);
-    box-shadow:
-      0 52px 150px rgba(0, 0, 0, 0.34),
-      0 18px 44px rgba(0, 0, 0, 0.18),
-      0 0 0 1px rgba(255, 255, 255, 0.58) inset;
-    border-color: rgba(15, 23, 42, 0.16) !important;
-  }
-}
-
-/* Typography inside white cards */
+/* Typography inside explicit surfaces */
 html.dark main :is(
-  .bg-\[var\(--bg-soft\)\],
-  .dark\:bg-\[var\(--bg-soft\)\],
-  .bg-white\/5,
-  .bg-white\/10,
-  .bg-white\/15,
-  .bg-white\/20,
-  .dark\:bg-white\/5,
-  .dark\:bg-white\/10,
-  .dark\:bg-white\/15,
-  .dark\:bg-white\/20,
-  .bg-white\/70,
-  .bg-white\/80,
-  .bg-white\/90,
-  .dark\:bg-white\/70,
-  .dark\:bg-white\/80,
-  .dark\:bg-white\/90
-):is(.rounded-xl, .rounded-2xl, .rounded-3xl) :is(h1, h2, h3, h4) {
-  color: var(--card-title) !important; /* coloured titles */
+  .site-card,
+  .site-card-strong,
+  .surface,
+  .panel, .panel-strong, .panel-soft, .panel-warm, .panel-cool,
+  .card, .card-strong, .card-soft, .card-warm, .card-cool
+) :is(h1, h2, h3, h4) {
+  color: var(--card-title) !important;
   font-family: var(--font-heading) !important;
 }
 
-/* Card titles (any headings inside card-like rounded containers) use Avant Garde */
-main :is(.rounded-xl, .rounded-2xl, .rounded-3xl) :is(h1, h2, h3, h4) {
-  font-family: var(--font-heading);
-}
-
-/* Remove the little circle badges (ID / DEV / xAPI) used on service cards */
-main :is(.rounded-xl, .rounded-2xl, .rounded-3xl) :is(span, div).rounded-full:is(
-  .size-10, .size-12, .size-14,
-  .w-10, .w-12, .w-14,
-  [class*="size-10"], [class*="size-12"], [class*="size-14"],
-  [class*="w-10"][class*="h-10"],
-  [class*="w-12"][class*="h-12"],
-  [class*="w-14"][class*="h-14"]
-)[class*="bg-yellow"],
-main :is(.rounded-xl, .rounded-2xl, .rounded-3xl) :is(span, div).rounded-full:is(
-  .size-10, .size-12, .size-14,
-  .w-10, .w-12, .w-14,
-  [class*="size-10"], [class*="size-12"], [class*="size-14"],
-  [class*="w-10"][class*="h-10"],
-  [class*="w-12"][class*="h-12"],
-  [class*="w-14"][class*="h-14"]
-)[class*="bg-amber"],
-main :is(.rounded-xl, .rounded-2xl, .rounded-3xl) :is(span, div).rounded-full:is(
-  .size-10, .size-12, .size-14,
-  .w-10, .w-12, .w-14,
-  [class*="size-10"], [class*="size-12"], [class*="size-14"],
-  [class*="w-10"][class*="h-10"],
-  [class*="w-12"][class*="h-12"],
-  [class*="w-14"][class*="h-14"]
-)[class*="bg-orange"],
-main :is(.rounded-xl, .rounded-2xl, .rounded-3xl) :is(span, div).rounded-full:is(
-  .size-10, .size-12, .size-14,
-  .w-10, .w-12, .w-14,
-  [class*="size-10"], [class*="size-12"], [class*="size-14"],
-  [class*="w-10"][class*="h-10"],
-  [class*="w-12"][class*="h-12"],
-  [class*="w-14"][class*="h-14"]
-)[class*="bg-[#"] {
-  display: none !important;
-}
-
 html.dark main :is(
-  .bg-\[var\(--bg-soft\)\],
-  .dark\:bg-\[var\(--bg-soft\)\],
-  .bg-white\/5,
-  .bg-white\/10,
-  .bg-white\/15,
-  .bg-white\/20,
-  .dark\:bg-white\/5,
-  .dark\:bg-white\/10,
-  .dark\:bg-white\/15,
-  .dark\:bg-white\/20,
-  .bg-white\/70,
-  .bg-white\/80,
-  .bg-white\/90,
-  .dark\:bg-white\/70,
-  .dark\:bg-white\/80,
-  .dark\:bg-white\/90
-):is(.rounded-xl, .rounded-2xl, .rounded-3xl) :is(p, li, span, small) {
+  .site-card,
+  .site-card-strong,
+  .surface,
+  .panel, .panel-strong, .panel-soft, .panel-warm, .panel-cool,
+  .card, .card-strong, .card-soft, .card-warm, .card-cool
+) :is(p, li, span, small) {
   color: var(--card-text) !important;
 }
 
 html.dark main :is(
-  .bg-\[var\(--bg-soft\)\],
-  .dark\:bg-\[var\(--bg-soft\)\],
-  .bg-white\/5,
-  .bg-white\/10,
-  .bg-white\/15,
-  .bg-white\/20,
-  .dark\:bg-white\/5,
-  .dark\:bg-white\/10,
-  .dark\:bg-white\/15,
-  .dark\:bg-white\/20,
-  .bg-white\/70,
-  .bg-white\/80,
-  .bg-white\/90,
-  .dark\:bg-white\/70,
-  .dark\:bg-white\/80,
-  .dark\:bg-white\/90
-):is(.rounded-xl, .rounded-2xl, .rounded-3xl) a {
+  .site-card,
+  .site-card-strong,
+  .surface,
+  .panel, .panel-strong, .panel-soft, .panel-warm, .panel-cool,
+  .card, .card-strong, .card-soft, .card-warm, .card-cool
+) a {
   color: var(--card-link) !important;
 }
 
-/* If a card forces white text classes, flip them back to dark */
+/* If a surface forces white text classes, flip them back to dark */
 html.dark main :is(
-  .bg-\[var\(--bg-soft\)\],
-  .dark\:bg-\[var\(--bg-soft\)\],
-  .bg-white\/5,
-  .bg-white\/10,
-  .bg-white\/15,
-  .bg-white\/20,
-  .dark\:bg-white\/5,
-  .dark\:bg-white\/10,
-  .dark\:bg-white\/15,
-  .dark\:bg-white\/20,
-  .bg-white\/70,
-  .bg-white\/80,
-  .bg-white\/90,
-  .dark\:bg-white\/70,
-  .dark\:bg-white\/80,
-  .dark\:bg-white\/90
-):is(.rounded-xl, .rounded-2xl, .rounded-3xl) :is(.text-white, .text-white\/90, .text-white\/80, .text-neutral-100, .text-slate-100) {
+  .site-card,
+  .site-card-strong,
+  .surface,
+  .panel, .panel-strong, .panel-soft, .panel-warm, .panel-cool,
+  .card, .card-strong, .card-soft, .card-warm, .card-cool
+) :is(.text-white, .text-white\/90, .text-white\/80, .text-neutral-100, .text-slate-100) {
   color: var(--card-text) !important;
-}
-
-html.dark main :is(.bg-black\/90, .bg-black\/80, .bg-black\/70) {
-  background-color: rgba(255, 255, 255, 0.88) !important;
-  border: 1px solid rgba(15, 23, 42, 0.10) !important;
-  box-shadow: 0 18px 55px rgba(0, 0, 0, 0.22);
-  color: #0f172a !important;
-}
-
-/* Dark mode - muted/supporting text inside cards */
-html.dark main :is(
-  .bg-\[var\(--bg-soft\)\],
-  .dark\:bg-\[var\(--bg-soft\)\],
-  .bg-white\/5,
-  .bg-white\/10,
-  .bg-white\/15,
-  .bg-white\/20,
-  .dark\:bg-white\/5,
-  .dark\:bg-white\/10,
-  .dark\:bg-white\/15,
-  .dark\:bg-white\/20,
-  .bg-white\/70,
-  .bg-white\/80,
-  .bg-white\/90,
-  .dark\:bg-white\/70,
-  .dark\:bg-white\/80,
-  .dark\:bg-white\/90,
-  .bg-black,
-  .bg-neutral-950,
-  .bg-slate-950,
-  .bg-zinc-950,
-  .bg-neutral-900,
-  .bg-slate-900,
-  .bg-zinc-900,
-  .dark\:bg-neutral-900\/80,
-  .dark\:bg-neutral-900\/90,
-  .dark\:bg-slate-900\/80,
-  .dark\:bg-slate-900\/90,
-  .bg-\[\#020617\],
-  .bg-\[\#020617\]\/95,
-  .bg-\[\#020617\]\/90,
-  .bg-\[\#020617\]\/80,
-  .bg-\[\#020617\]\/70,
-  .dark\:bg-\[\#020617\],
-  .dark\:bg-\[\#020617\]\/95,
-  .dark\:bg-\[\#020617\]\/90,
-  .dark\:bg-\[\#020617\]\/80,
-  .dark\:bg-\[\#020617\]\/70,
-  .bg-black\/90,
-  .bg-black\/80,
-  .bg-black\/70
-) :is(.text-slate-500, .text-neutral-500, .text-slate-400, .text-neutral-400) {
-  color: var(--card-muted) !important;
 }
 /* -------------------------------------------------------
    CRISP MODERN GLOBALS
@@ -952,3 +713,46 @@ html:not(.dark) body {
     padding-top: 3rem; /* tighten oversized header padding if used */
   }
 } 
+
+/* -------------------------------------------------------
+   CTA BUTTONS — EXPLICIT & CONSISTENT
+   Use `.btn-cta` intentionally. No global overrides.
+------------------------------------------------------- */
+.btn-cta {
+  background-color: var(--cta);
+  border: 1px solid var(--cta-strong);
+  color: #2b1f00;
+  border-radius: 0.75rem;
+  font-weight: 600;
+}
+
+.btn-cta:hover {
+  filter: brightness(0.96);
+}
+
+html.dark .btn-cta {
+  background-color: var(--cta);
+  border-color: var(--cta-strong);
+  color: #2b1f00;
+}
+
+/* Header / footer icons inherit CTA colour intentionally */
+html.dark header svg,
+html.dark header path,
+html.dark footer svg,
+html.dark footer path {
+  stroke: var(--cta);
+  fill: none;
+}
+
+html.dark header button svg,
+html.dark header button path {
+  stroke: var(--cta);
+}
+
+/* Prevent CTA colours bleeding into card text */
+.site-card a:not(.btn-cta),
+.card a:not(.btn-cta),
+.panel a:not(.btn-cta) {
+  color: var(--card-link) !important;
+}
