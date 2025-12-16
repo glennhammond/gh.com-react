@@ -252,7 +252,7 @@ export default function Home() {
 
 
       {/* CLIENT LOGOS */}
-      <Section className="bg-[var(--bg-soft)] border-y border-black/5 dark:border-white/10 -mt-4 md:-mt-6">
+      <Section className="bg-[var(--bg-soft)] border-y border-black/5 dark:border-white/10">
         <Container className="py-4 md:py-6 fade-in-up">
           <div className="grid w-full grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-x-10 gap-y-10 place-items-center">
             {clients.map((client) => (
