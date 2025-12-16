@@ -1,4 +1,11 @@
 {
+  "redirects": [
+    {
+      "source": "/portfolio/elearning-design-system",
+      "destination": "/work/elearning-design-system",
+      "permanent": true
+    }
+  ],
   "rewrites": [
     { "source": "/(.*)", "destination": "/index.html" }
   ]

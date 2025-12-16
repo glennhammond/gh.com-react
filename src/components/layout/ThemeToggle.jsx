@@ -47,12 +47,12 @@ function MoonIcon({ className = "", ...props }) {
 
 export default function ThemeToggle() {
   const [theme, setTheme] = React.useState(() => {
-    if (typeof window === "undefined") return "dark";
+    if (typeof window === "undefined") return "light";
     try {
       const stored = localStorage.getItem("theme");
-      return stored === "light" || stored === "dark" ? stored : "dark";
+      return stored === "light" || stored === "dark" ? stored : "light";
     } catch {
-      return "dark";
+      return "light";
     }
   });
 
