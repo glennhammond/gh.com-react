@@ -791,11 +791,13 @@ html.dark header button path {
 .panel a:not(.btn-cta):not(.btn-outline) {
   color: var(--card-link) !important;
 }
-/* Global link colour (main content) - uses Option B tokens */
-main a:not(.btn-cta):not(.btn-outline) {
+/* Global link colour (main content) - apply to inline links only (prevents clickable cards turning pink) */
+main :where(p, li, blockquote, dd, dt) a:not(.btn-cta):not(.btn-outline) {
   color: var(--link);
+  text-decoration: none;
+  font-weight: 500;
 }
-main a:not(.btn-cta):not(.btn-outline):hover {
+main :where(p, li, blockquote, dd, dt) a:not(.btn-cta):not(.btn-outline):hover {
   color: var(--link-hover);
 }
 

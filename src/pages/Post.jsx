@@ -1,6 +1,6 @@
 // src/pages/Post.jsx
 import React, { useMemo } from "react";
-import { useParams, Link, Navigate } from "react-router-dom";
+import { useParams, useLocation, Link, Navigate } from "react-router-dom";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 
@@ -68,6 +68,13 @@ function mapCategory(category = "") {
 export default function Post() {
   const { slug } = useParams();
 
+  const location = useLocation();
+
+  // Which section route are we currently on?
+  const currentBase = location.pathname.startsWith("/scrandalous")
+    ? "scrandalous"
+    : "blog";
+
   // Handle legacy slugs (eg old filenames with spaces)
   const decodedSlug = useMemo(() => {
     try {
@@ -84,10 +91,22 @@ export default function Post() {
 
   const post = posts.find((p) => p.slug === slug || p.slug === decodedSlug);
 
+  const section = ((post?.section || "blog") + "").toLowerCase();
+  const type = ((post?.type || "post") + "").toLowerCase();
+  const isScrandalous = section === "scrandalous";
+
+  // Force the preferred route so we never have duplicate URLs for the same content.
+  const desiredBase = isScrandalous ? "scrandalous" : "blog";
+  if (post && desiredBase !== currentBase) {
+    return <Navigate to={`/${desiredBase}/${post.slug}`} replace />;
+  }
+
   const canonicalUrl = useMemo(() => {
     // Always use the preferred non-www canonical.
-    return `https://glennhammond.com/blog/${slug}`;
-  }, [slug]);
+    const base = post ? (isScrandalous ? "scrandalous" : "blog") : currentBase;
+    const s = post?.slug || slug;
+    return `https://glennhammond.com/${base}/${s}`;
+  }, [post, isScrandalous, currentBase, slug]);
 
   if (!post) {
     return (
@@ -96,8 +115,11 @@ export default function Post() {
         <Section>
           <Container className="py-24 text-center space-y-4">
             <h1 className="font-heading text-3xl">Post not found</h1>
-            <Link to="/blog" className="text-brand-primary text-sm">
-              ← Back to blog
+            <Link
+              to={currentBase === "scrandalous" ? "/scrandalous" : "/blog"}
+              className="text-brand-primary text-sm"
+            >
+              ← Back to {currentBase === "scrandalous" ? "Scrandalous" : "blog"}
             </Link>
           </Container>
         </Section>
@@ -131,17 +153,23 @@ export default function Post() {
   }, [post.summary, cleanedContent]);
 
   const seoImage = useMemo(() => {
-    const raw = post.image || fallbackImage;
+    const raw = post.hero || post.image || fallbackImage;
     if (raw.startsWith("http://") || raw.startsWith("https://")) return raw;
     return `https://glennhammond.com${raw.startsWith("/") ? raw : `/${raw}`}`;
-  }, [post.image]);
+  }, [post.hero, post.image]);
 
   const jsonLd = useMemo(() => {
     const isoDate = toIsoDateFromDdMmYyyy(post.date);
-    return {
+
+    const minutesToDuration = (mins) => {
+      const n = Number(mins);
+      if (!Number.isFinite(n) || n <= 0) return undefined;
+      return `PT${Math.round(n)}M`;
+    };
+
+    const base = {
       "@context": "https://schema.org",
-      "@type": "BlogPosting",
-      headline: post.title,
+      name: post.title,
       description: seoDescription,
       image: [seoImage],
       datePublished: isoDate || undefined,
@@ -159,12 +187,54 @@ export default function Post() {
         name: "Glenn Hammond",
       },
     };
-  }, [post.title, post.date, seoDescription, seoImage, canonicalUrl]);
+
+    if (isScrandalous && type === "recipe") {
+      const prep = minutesToDuration(post.prepMins);
+      const cook = minutesToDuration(post.cookMins);
+      const totalMins =
+        (Number(post.prepMins) || 0) + (Number(post.cookMins) || 0);
+
+      return {
+        ...base,
+        "@type": "Recipe",
+        headline: post.title,
+        prepTime: prep,
+        cookTime: cook,
+        totalTime: minutesToDuration(totalMins),
+        recipeYield: post.serves ? `${post.serves} servings` : undefined,
+        keywords: Array.isArray(post.tags) ? post.tags.join(", ") : undefined,
+      };
+    }
+
+    if (isScrandalous && type === "playlist") {
+      return {
+        ...base,
+        "@type": "MusicPlaylist",
+        headline: post.title,
+        url: canonicalUrl,
+        sameAs: post.spotify ? [post.spotify] : undefined,
+        keywords: Array.isArray(post.tags) ? post.tags.join(", ") : undefined,
+      };
+    }
+
+    return {
+      ...base,
+      "@type": "BlogPosting",
+      headline: post.title,
+    };
+  }, [
+    post,
+    type,
+    isScrandalous,
+    seoDescription,
+    seoImage,
+    canonicalUrl,
+  ]);
 
   return (
     <PageWrapper>
       <SEO
-        title={`${post.title} - Glenn Hammond`}
+        title={`${isScrandalous ? "Scrandalous - " : ""}${post.title} - Glenn Hammond`}
         description={seoDescription}
         url={canonicalUrl}
         image={seoImage}
@@ -182,7 +252,10 @@ export default function Post() {
           <Breadcrumb
             items={[
               { label: "Home", href: "/" },
-              { label: "Blog", href: "/blog" },
+              {
+                label: isScrandalous ? "Scrandalous" : "Blog",
+                href: isScrandalous ? "/scrandalous" : "/blog",
+              },
               { label: post.title },
             ]}
           />
@@ -191,22 +264,56 @@ export default function Post() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-10 items-start">
             {/* LEFT: category, title, date */}
             <div className="md:col-span-2 space-y-5">
-              {/* Category chip */}
-              <span className={`blog-badge ${categorySlug}`}>{post.category}</span>
+              {!isScrandalous && (
+                <span className={`blog-badge ${categorySlug}`}>{post.category}</span>
+              )}
 
               {/* Title */}
               <h1 className="font-heading text-4xl md:text-5xl leading-tight text-[var(--text)]">
                 {post.title}
               </h1>
 
-              {/* Date */}
-              <p className="text-sm text-[var(--text)]/60">{formattedDate}</p>
+              {/* Meta */}
+              <div className={isScrandalous ? "card-meta" : "text-sm text-[var(--text)]/60"}>
+                {isScrandalous ? (
+                  <>
+                    <span className="opacity-80">{formattedDate}</span>
+                    <span className="pill">{type === "recipe" ? "Recipe" : type === "playlist" ? "Playlist" : "Post"}</span>
+
+                    {type === "recipe" && (post.prepMins || post.cookMins) ? (
+                      <span className="pill">
+                        {(() => {
+                          const total = (Number(post.prepMins) || 0) + (Number(post.cookMins) || 0);
+                          return total > 0 ? `${total} mins` : "";
+                        })()}
+                      </span>
+                    ) : null}
+
+                    {type === "recipe" && post.serves ? (
+                      <span className="pill">Serves {post.serves}</span>
+                    ) : null}
+
+                    {type === "playlist" && post.spotify ? (
+                      <a
+                        href={post.spotify}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="pill hover:underline"
+                      >
+                        Spotify
+                      </a>
+                    ) : null}
+                  </>
+                ) : (
+                  <p>{formattedDate}</p>
+                )}
+              </div>
             </div>
 
             {/* RIGHT: thumbnail */}
             <div className="w-full h-40 md:h-48 lg:h-56 rounded-xl overflow-hidden border border-black/10 dark:border-white/10 bg-[var(--bg-soft)] flex items-center justify-center">
               <img
-                src={post.image || fallbackImage}
+                src={post.hero || post.image || fallbackImage}
                 alt={post.title}
                 className="w-full h-full object-cover"
                 loading="lazy"
