@@ -7,20 +7,24 @@
     <meta name="author" content="Glenn Hammond" />
     <meta name="theme-color" content="#ffffff" />
 
-    <meta name="color-scheme" content="dark light" />
+    <meta name="color-scheme" content="light dark" />
 
-    <!-- Force dark as the default theme (important for incognito/new visitors) -->
+    <!-- Force light as the default theme (important for incognito/new visitors) -->
     <script>
       (function () {
         try {
           var stored = localStorage.getItem("theme");
-          // Default to dark if nothing is stored
-          var theme = stored || "dark";
-          if (!stored) localStorage.setItem("theme", theme);
+          // Default to light if nothing is stored
+          var theme = stored === "dark" || stored === "light" ? stored : "light";
+          if (stored !== theme) localStorage.setItem("theme", theme);
           document.documentElement.classList.toggle("dark", theme === "dark");
+          document.documentElement.dataset.theme = theme;
+          document.documentElement.style.colorScheme = theme;
         } catch (e) {
-          // If storage is blocked, still default to dark
-          document.documentElement.classList.add("dark");
+          // If storage is blocked, still default to light
+          document.documentElement.classList.remove("dark");
+          document.documentElement.dataset.theme = "light";
+          document.documentElement.style.colorScheme = "light";
         }
       })();
     </script>
