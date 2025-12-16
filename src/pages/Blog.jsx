@@ -86,6 +86,8 @@ export default function Blog() {
   ----------------------------------------------------- */
   const filteredPosts = useMemo(() => {
     return posts
+      // Keep Blog and Scrandalous separate (Scrandalous will have its own page)
+      .filter((p) => (p.section || "blog").toLowerCase() !== "scrandalous")
       .filter((p) => {
         if (filter !== "all") {
           return mapCategory(p.category) === mapCategory(filter);
@@ -166,7 +168,7 @@ export default function Blog() {
   const colorClass =
     CATEGORY_STYLES[mapped] || CATEGORY_STYLES.general;
 
-  const thumbnail = `/images/${post.slug}.jpg`;
+  const thumbnail = post.hero || post.image || `/images/${post.slug}.jpg`;
   const formattedDate = new Date(post.date).toLocaleDateString("en-AU", {
     day: "numeric",
     month: "short",
@@ -177,54 +179,42 @@ export default function Blog() {
     <Link
       key={post.slug}
       to={`/blog/${post.slug}`}
-      className="group rounded-3xl border border-black/10 dark:border-white/15 bg-white/95 dark:bg-white/10 backdrop-blur-md shadow-sm hover:shadow-md hover:-translate-y-[2px] hover:border-[#F5C84C] transition overflow-hidden"
+      className="group rounded-2xl border border-black/10 dark:border-white/15 bg-white/95 dark:bg-white/10 backdrop-blur-md shadow-sm hover:shadow-md hover:-translate-y-[2px] hover:border-[#F5C84C] transition overflow-hidden"
     >
-      {/* Thumbnail strip */}
-      <div className="h-44 bg-black/5 dark:bg-white/10 border-b border-black/5 dark:border-white/10 overflow-hidden">
-        <img
-          src={thumbnail}
-          alt={post.title}
-          loading="lazy"
-          decoding="async"
-          className="w-full h-full object-cover transition-opacity duration-300 opacity-0"
-          onLoad={(e) => (e.currentTarget.style.opacity = "1")}
-          onError={(e) => {
-            const el = e.currentTarget;
-            if (el.dataset.errorHandled) return;
-            el.dataset.errorHandled = "1";
-            el.src = FALLBACK_IMG;
-          }}
-        />
+      {/* Image */}
+      <div className="p-6 pb-0">
+        <div className="card-media">
+          <img
+            src={thumbnail}
+            alt={post.title}
+            loading="lazy"
+            decoding="async"
+            className="transition-opacity duration-300 opacity-0"
+            onLoad={(e) => (e.currentTarget.style.opacity = "1")}
+            onError={(e) => {
+              const el = e.currentTarget;
+              if (el.dataset.errorHandled) return;
+              el.dataset.errorHandled = "1";
+              el.src = FALLBACK_IMG;
+            }}
+          />
+        </div>
       </div>
 
       {/* Content */}
-      <div className="p-6 space-y-4">
-        {/* Category badge */}
-        <span
-          className={`
-            inline-flex items-center px-3 py-1 rounded-full
-            text-[11px] font-semibold tracking-[0.16em] uppercase
-            ${colorClass}
-          `}
-        >
-          {post.category}
-        </span>
-
+      <div className="p-6 pt-4">
         <h3 className="font-heading text-xl text-[var(--text)]">
           {post.title}
         </h3>
 
-        <p className="text-sm text-[var(--text)]/70 leading-relaxed">
+        <p className="mt-2 text-sm text-[var(--text)]/70 leading-relaxed">
           {post.summary}
         </p>
 
-        <div className="flex justify-between items-center pt-2">
-          <span className="text-xs opacity-60">
-            {formattedDate}
-          </span>
-          <span className="text-sm text-brand-primary group-hover:underline">
-            Read →
-          </span>
+        {/* Meta row: date + category */}
+        <div className="card-meta mt-3">
+          <span className="opacity-80">{formattedDate}</span>
+          <span className="pill">{post.category}</span>
         </div>
       </div>
     </Link>

@@ -63,13 +63,15 @@ export default function Header() {
             </nav>
 
             <div className="flex items-center gap-3">
-              <ThemeToggle />
+              <ThemeToggle
+                className="inline-flex h-10 w-10 items-center justify-center rounded-xl border border-black/10 bg-white/70 text-[var(--secondary)] backdrop-blur-sm transition hover:bg-white/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--secondary)]/40 dark:border-white/10 dark:bg-white/5 dark:hover:bg-white/10 shadow-none"
+              />
 
               <button
                 type="button"
                 aria-label="Toggle menu"
                 onClick={() => setMobileOpen((v) => !v)}
-                className="md:hidden inline-flex h-10 w-10 items-center justify-center rounded-xl border border-black/10 bg-white/70 text-[var(--brand-primary)] shadow-sm backdrop-blur-sm transition hover:bg-white/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--brand-primary)]/50 dark:border-white/10 dark:bg-white/5 dark:hover:bg-white/10"
+                className="md:hidden inline-flex h-10 w-10 items-center justify-center rounded-xl border border-black/10 bg-white/70 text-[var(--secondary)] backdrop-blur-sm transition hover:bg-white/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--secondary)]/40 dark:border-white/10 dark:bg-white/5 dark:hover:bg-white/10 shadow-none"
               >
                 {mobileOpen ? (
                   <svg
@@ -78,7 +80,7 @@ export default function Header() {
                     fill="none"
                     stroke="currentColor"
                     strokeWidth="2"
-                    className="h-5 w-5 text-[var(--brand-primary)]"
+                    className="h-5 w-5"
                   >
                     <path
                       strokeLinecap="round"
@@ -93,7 +95,7 @@ export default function Header() {
                     fill="none"
                     stroke="currentColor"
                     strokeWidth="2"
-                    className="h-5 w-5 text-[var(--brand-primary)]"
+                    className="h-5 w-5"
                   >
                     <path
                       strokeLinecap="round"

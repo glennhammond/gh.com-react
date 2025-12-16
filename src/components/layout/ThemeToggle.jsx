@@ -1,4 +1,3 @@
-
 import React from "react";
 
 function SunIcon({ className = "", ...props }) {
@@ -11,7 +10,7 @@ function SunIcon({ className = "", ...props }) {
       strokeLinecap="round"
       strokeLinejoin="round"
       aria-hidden="true"
-      className={`text-[var(--brand-primary)] ${className}`}
+      className={className}
       {...props}
     >
       <path d="M12 18a6 6 0 1 0 0-12 6 6 0 0 0 0 12Z" />
@@ -37,7 +36,7 @@ function MoonIcon({ className = "", ...props }) {
       strokeLinecap="round"
       strokeLinejoin="round"
       aria-hidden="true"
-      className={`text-[var(--brand-primary)] ${className}`}
+      className={className}
       {...props}
     >
       <path d="M21 13.2A8 8 0 1 1 10.8 3a6.5 6.5 0 0 0 10.2 10.2Z" />
@@ -45,7 +44,7 @@ function MoonIcon({ className = "", ...props }) {
   );
 }
 
-export default function ThemeToggle() {
+export default function ThemeToggle({ className = "" }) {
   const [theme, setTheme] = React.useState(() => {
     if (typeof window === "undefined") return "light";
     try {
@@ -89,10 +88,12 @@ export default function ThemeToggle() {
       aria-label={isDark ? "Switch to light mode" : "Switch to dark mode"}
       className={
         "inline-flex items-center justify-center h-10 w-10 " +
-        "rounded-xl border border-white/10 bg-white/5 backdrop-blur-sm " +
-        "text-[var(--brand-primary)] shadow-[0_10px_24px_rgba(0,0,0,0.18)] " +
-        "transition hover:bg-white/10 hover:-translate-y-[1px] active:translate-y-0 " +
-        "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--brand-primary)]/50"
+        "rounded-xl border border-black/10 bg-white/70 backdrop-blur-sm " +
+        "text-[var(--secondary)] shadow-none " +
+        "transition hover:bg-white/90 active:translate-y-0 " +
+        "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--secondary)]/40 " +
+        "dark:border-white/10 dark:bg-white/5 dark:hover:bg-white/10 " +
+        (className ? ` ${className}` : "")
       }
     >
       {isDark ? (

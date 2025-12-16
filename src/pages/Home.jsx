@@ -42,7 +42,7 @@ const clients = [
 
 export default function Home() {
   const featuredProjects = projects.slice(0, 3);
-  const latestPosts = posts.slice(0, 3);
+  const latestPosts = posts.slice(1, 4);
 
   return (
     <PageWrapper>
@@ -59,7 +59,7 @@ export default function Home() {
           <div className="w-full max-w-[560px] mx-auto mb-6 md:mb-8 md:max-w-none md:mx-0">
             <div className="flex w-full items-center gap-3">
               <span aria-hidden="true">🏆</span>
-              <span className="text-sm font-semibold tracking-[0.18em] uppercase text-white/80">
+              <span className="text-sm font-semibold tracking-[0.18em] uppercase text-[var(--text)] opacity-70">
                 Award-winning eLearning
               </span>
             </div>
@@ -82,7 +82,7 @@ export default function Home() {
               <h1
                 className="
                   font-heading
-                  text-white
+                  text-[var(--text)]
                   font-semibold
                   tracking-tight
                   leading-[0.9]
@@ -90,13 +90,13 @@ export default function Home() {
                   text-5xl
                   sm:text-6xl
                   md:text-7xl
-                  drop-shadow-[0_10px_30px_rgba(0,0,0,0.35)]
+                  drop-shadow-[0_10px_30px_rgba(0,0,0,0.14)]
                 "
               >
                 <span className="block">Better Learning</span>
                 <span className="block">by Design</span>
               </h1>
-              <p className="mt-6 max-w-[46ch] text-white/80 text-lg leading-7">
+              <p className="mt-6 max-w-[46ch] text-[var(--text)] opacity-75 text-lg leading-7">
                 Clear learning systems - consistent structure, UX and production process.
               </p>
               {/* Mobile CTAs */}
@@ -125,17 +125,15 @@ export default function Home() {
                     <Link
                       to="/work"
                       className="
+                        btn-cta
                         font-heading
                         inline-flex items-center justify-center
                         w-full
                         py-4
                         text-base font-semibold
                         rounded-xl
-                        bg-[#F5C84C]
-                        text-[#3a0028]
                         shadow-[0_14px_34px_rgba(0,0,0,0.20)]
                         transition
-                        hover:bg-[#E6B83F]
                         focus-visible:outline-none
                         focus-visible:ring-2
                         focus-visible:ring-black/20
@@ -147,18 +145,14 @@ export default function Home() {
                     <Link
                       to="/contact"
                       className="
+                        btn-outline
                         font-heading
                         inline-flex items-center justify-center
                         w-full
                         py-4
                         text-base font-semibold
                         rounded-xl
-                        border border-slate-900/15
-                        bg-white
-                        text-slate-900
                         transition
-                        hover:bg-slate-50
-                        hover:border-slate-900/25
                         focus-visible:outline-none
                         focus-visible:ring-2
                         focus-visible:ring-black/20
@@ -199,6 +193,7 @@ export default function Home() {
                   <Link
                     to="/work"
                     className="
+                      btn-cta
                       font-heading
                       inline-flex items-center justify-center
                       w-full
@@ -206,11 +201,8 @@ export default function Home() {
                       py-4 md:py-5
                       text-base md:text-lg font-semibold
                       rounded-xl
-                      bg-[#F5C84C]
-                      text-[#3a0028]
                       shadow-[0_18px_45px_rgba(0,0,0,0.22)]
                       transition
-                      hover:bg-[#E6B83F]
                       focus-visible:outline-none
                       focus-visible:ring-2
                       focus-visible:ring-black/20
@@ -223,6 +215,7 @@ export default function Home() {
                   <Link
                     to="/contact"
                     className="
+                      btn-outline
                       font-heading
                       inline-flex items-center justify-center
                       w-full
@@ -230,12 +223,7 @@ export default function Home() {
                       py-4 md:py-5
                       text-base md:text-lg font-semibold
                       rounded-xl
-                      border border-slate-900/15
-                      bg-white
-                      text-slate-900
                       transition
-                      hover:bg-slate-50
-                      hover:border-slate-900/25
                       focus-visible:outline-none
                       focus-visible:ring-2
                       focus-visible:ring-black/20
@@ -253,38 +241,40 @@ export default function Home() {
 
       {/* CLIENT LOGOS */}
       <Section className="bg-[var(--bg-soft)] border-y border-black/5 dark:border-white/10">
-        <Container className="py-4 md:py-6 fade-in-up">
-          <div className="grid w-full grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-x-10 gap-y-10 place-items-center">
-            {clients.map((client) => (
-              <div key={client.name} className="w-full flex items-center justify-center">
-                {/*
-                  Normalise how SVG logos scale across breakpoints:
-                  - fixed visual height for the logo box
-                  - let width be auto (prevents weird full-width scaling)
-                  - cap max width so long wordmarks don't dominate
-                */}
-                <div className="h-16 flex items-center justify-center">
-                  <img
-                    src={client.lightSrc}
-                    alt={client.name}
-                    className={`h-12 w-auto max-w-[280px] md:max-w-[240px] lg:max-w-[220px] object-contain opacity-90 block dark:hidden ${
-                      client.className || ""
-                    }`}
-                    loading="lazy"
-                    decoding="async"
-                  />
-                  <img
-                    src={client.darkSrc}
-                    alt={client.name}
-                    className={`h-12 w-auto max-w-[280px] md:max-w-[240px] lg:max-w-[220px] object-contain opacity-90 block hidden dark:block ${
-                      client.className || ""
-                    }`}
-                    loading="lazy"
-                    decoding="async"
-                  />
+        <Container className="py-6 md:py-8 fade-in-up">
+          <div className="w-full max-w-[560px] mx-auto sm:max-w-none">
+            <div className="grid w-full grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-x-8 gap-y-12 place-items-stretch sm:place-items-center">
+              {clients.map((client) => (
+                <div key={client.name} className="flex items-center justify-center w-full">
+                  {/*
+                    Normalise scaling across breakpoints:
+                    - fixed width box so all logos are the same visual width on mobile
+                    - fixed max-height so wordmarks stay tidy
+                    - object-contain to preserve aspect ratio
+                  */}
+                  <div className="w-[68%] max-w-[381px] mx-auto sm:mx-0 sm:w-[162px] md:w-[180px] min-h-12 flex items-center justify-center">
+                    <img
+                      src={client.lightSrc}
+                      alt={client.name}
+                      className={`w-full h-auto max-h-[136px] sm:max-h-[41px] object-contain origin-center opacity-90 block dark:hidden ${
+                        client.className || ""
+                      }`}
+                      loading="lazy"
+                      decoding="async"
+                    />
+                    <img
+                      src={client.darkSrc}
+                      alt={client.name}
+                      className={`w-full h-auto max-h-[136px] sm:max-h-[41px] object-contain origin-center opacity-90 hidden dark:block ${
+                        client.className || ""
+                      }`}
+                      loading="lazy"
+                      decoding="async"
+                    />
+                  </div>
                 </div>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
         </Container>
       </Section>
@@ -298,37 +288,40 @@ export default function Home() {
               block w-full
               overflow-hidden
               rounded-2xl
-              ring-1 ring-white/10
-              bg-white/5
+              ring-1 ring-black/10 dark:ring-white/10
+              bg-white dark:bg-white/5
               shadow-[0_28px_90px_rgba(2,6,23,0.18)]
               focus-visible:outline-none
               focus-visible:ring-2
               focus-visible:ring-[var(--secondary)]/40
             "
           >
-            <div className="grid grid-cols-1 md:grid-cols-2">
+            <div className="grid grid-cols-1 md:grid-cols-[3fr_2fr]">
               <div className="p-8 md:p-10">
-                <p className="text-xs font-semibold tracking-[0.18em] uppercase text-white/60">
+                <p className="text-xs font-semibold tracking-[0.18em] uppercase text-[var(--text)] opacity-70">
                   Glenn Hammond · eLearning Design System
                 </p>
-                <h2 className="mt-4 font-heading text-3xl md:text-4xl font-semibold leading-tight text-white max-w-[22ch]">
+                <h2 className="mt-4 font-heading text-3xl md:text-4xl font-semibold leading-tight text-[var(--text)] max-w-[22ch]">
                   eLearning Design System for modern professional learning
                 </h2>
-                <p className="mt-4 text-white/75 leading-7 max-w-[68ch]">
+                <p className="mt-4 text-[var(--text)] opacity-75 leading-7 max-w-[56ch]">
                   A reusable eLearning design system built to speed up course builds, improve consistency, and support WCAG-aligned layouts across Storyline, Rise, and H5P.
                 </p>
-                <p className="mt-6 text-xs font-semibold tracking-[0.18em] uppercase text-white/45">
-                  Role: System architect · Lead eLearning specialist · Visual design · Governance
+                <p className="mt-6 text-xs font-semibold tracking-[0.18em] uppercase text-[var(--text)] opacity-45">
+                  Outcome: faster builds, fewer fixes, consistent UX, and WCAG-aligned layouts.
                 </p>
-                <div className="mt-8 inline-flex items-center gap-2 text-sm font-heading text-white/90">
+                <Link
+                  to="/work/elearning-design-system"
+                  className="mt-8 inline-flex btn-outline items-center justify-center gap-2 px-5 py-3 text-sm font-heading rounded-xl"
+                >
                   View project <span aria-hidden>→</span>
-                </div>
+                </Link>
               </div>
-              <div className="bg-white/6 md:bg-white/8 p-8 md:p-10 flex items-center justify-center">
+              <div className="bg-[rgba(26,20,70,0.03)] md:bg-[rgba(26,20,70,0.03)] dark:bg-white/6 dark:md:bg-white/8 p-8 md:p-10 flex items-center justify-center border-t border-black/10 md:border-t-0 md:border-l border-black/10 dark:border-white/10">
                 <img
                   src="/images/portfolio-elearning-design-system.jpg"
                   alt="eLearning Design System preview"
-                  className="w-full max-w-[560px] h-auto block rounded-xl ring-1 ring-black/10"
+                  className="w-full max-w-[620px] h-auto block rounded-xl shadow-[0_18px_45px_rgba(2,6,23,0.12)]"
                   loading="lazy"
                   decoding="async"
                 />
@@ -343,7 +336,7 @@ export default function Home() {
       <Section>
         <Container className="space-y-8 fade-in-up">
           <div className="space-y-2">
-            <span className="text-xs uppercase tracking-[0.18em] text-white/70">
+            <span className="text-xs uppercase tracking-[0.18em] text-[var(--text)] opacity-60">
               Services
             </span>
             <h2 className="font-heading text-2xl text-[var(--text)]">What I do</h2>
@@ -352,7 +345,6 @@ export default function Home() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
             <ServiceCard
               title="Consultancy & instructional design"
-              tag="Strategy"
               items={[
                 "Discovery, needs analysis, and learning strategy",
                 "Curriculum design, storyboards, and scenario writing",
@@ -361,7 +353,6 @@ export default function Home() {
             />
             <ServiceCard
               title="eLearning & media development"
-              tag="Build"
               items={[
                 "Storyline/Rise builds with strong UX and accessibility",
                 "Reusable templates, components, and design systems",
@@ -370,7 +361,6 @@ export default function Home() {
             />
             <ServiceCard
               title="xAPI & learning analytics"
-              tag="Data"
               items={[
                 "xAPI implementation, debugging, and statement design",
                 "Veracity/Learning Locker setup and reporting workflows",
@@ -381,7 +371,7 @@ export default function Home() {
 
           <Link
             to="/services"
-            className="text-sm text-[var(--secondary)] hover:text-white hover:underline inline-block font-heading"
+            className="text-sm text-[var(--link)] hover:text-[var(--link-hover)] hover:underline inline-block font-heading"
           >
             View all services →
           </Link>
@@ -426,7 +416,7 @@ export default function Home() {
                   {post.title}
                 </h3>
                 <p className="text-sm text-slate-700">{post.summary}</p>
-                <span className="text-sm font-heading text-[var(--secondary)]">
+                <span className="text-sm font-heading text-[var(--link)]">
                   Read more →
                 </span>
               </Link>
@@ -435,7 +425,7 @@ export default function Home() {
 
           <Link
             to="/blog"
-            className="text-sm text-[var(--secondary)] hover:opacity-90 hover:underline inline-block font-heading"
+            className="text-sm text-[var(--link)] hover:text-[var(--link-hover)] hover:underline inline-block font-heading"
           >
             View all posts →
           </Link>
@@ -458,13 +448,13 @@ export default function Home() {
               >
                 <ProjectImage src={project.image} alt={project.title} />
                 <div className="p-6 space-y-3">
-                  <h3 className="font-heading text-xl text-[#1E3A8A]">
+                  <h3 className="font-heading text-xl text-[var(--text)]">
                     {project.title}
                   </h3>
                   <p className="text-sm text-slate-700">
                     {project.subtitle}
                   </p>
-                  <span className="text-sm font-heading text-[var(--secondary)]">
+                  <span className="text-sm font-heading text-[var(--link)]">
                     Explore project →
                   </span>
                 </div>

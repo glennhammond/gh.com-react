@@ -3,15 +3,20 @@ import React, { createContext, useContext, useEffect, useState } from "react";
 
 const ThemeContext = createContext();
 
+// Use a namespaced key so nothing else on the site accidentally overwrites it.
+const THEME_STORAGE_KEY = "gh.theme";
+
 export function useTheme() {
   return useContext(ThemeContext);
 }
 
 export default function ThemeProvider({ children }) {
-  // Load initial theme safely
+  // Default to light unless the user has explicitly chosen dark (stored under our key).
   const [theme, setTheme] = useState(() => {
     if (typeof window === "undefined") return "light";
-    return localStorage.getItem("theme") || "light";
+
+    const stored = window.localStorage.getItem(THEME_STORAGE_KEY);
+    return stored === "dark" ? "dark" : "light";
   });
 
   // Apply theme to <html> and persist
@@ -21,8 +26,12 @@ export default function ThemeProvider({ children }) {
     // Toggle the actual Tailwind dark-mode class
     root.classList.toggle("dark", theme === "dark");
 
-    // Optional: persist theme for next load
-    localStorage.setItem("theme", theme);
+    // Persist theme for next load (under our namespaced key)
+    window.localStorage.setItem(THEME_STORAGE_KEY, theme);
+
+    // Clean up old key to prevent collisions / accidental forcing.
+    // (Safe even if it doesn't exist.)
+    window.localStorage.removeItem("theme");
   }, [theme]);
 
   const toggleTheme = () =>
