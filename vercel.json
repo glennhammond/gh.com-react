@@ -1,8 +1,28 @@
 {
   "redirects": [
     {
+      "source": "/portfolio",
+      "destination": "/work",
+      "permanent": true
+    },
+    {
+      "source": "/portfolio/",
+      "destination": "/work/",
+      "permanent": true
+    },
+    {
       "source": "/portfolio/elearning-design-system",
       "destination": "/work/elearning-design-system",
+      "permanent": true
+    },
+    {
+      "source": "/portfolio/elearning-design-system/",
+      "destination": "/work/elearning-design-system/",
+      "permanent": true
+    },
+    {
+      "source": "/portfolio/:path*",
+      "destination": "/work/:path*",
       "permanent": true
     }
   ],
