@@ -39,8 +39,15 @@ function stripMarkdown(md = "") {
 }
 
 function toIsoDateFromDdMmYyyy(value = "") {
-  // Accepts DD/MM/YYYY, returns YYYY-MM-DD, else empty string.
-  const m = value.match(/^(\d{1,2})\/(\d{1,2})\/(\d{4})$/);
+  // Accepts YYYY-MM-DD or DD/MM/YYYY, returns YYYY-MM-DD, else empty string.
+  const v = String(value || "").trim();
+  if (!v) return "";
+
+  // Already ISO
+  if (/^\d{4}-\d{2}-\d{2}$/.test(v)) return v;
+
+  // Legacy AU format
+  const m = v.match(/^(\d{1,2})\/(\d{1,2})\/(\d{4})$/);
   if (!m) return "";
   const dd = String(m[1]).padStart(2, "0");
   const mm = String(m[2]).padStart(2, "0");
@@ -127,19 +134,37 @@ export default function Post() {
     );
   }
 
-  // Format the date (DD/MM/YYYY → 14 March 2025)
-  const formattedDate = useMemo(() => {
-    try {
-      const [d, m, y] = post.date.split("/");
-      return new Date(`${y}-${m}-${d}`).toLocaleDateString("en-AU", {
-        day: "numeric",
-        month: "long",
-        year: "numeric",
-      });
-    } catch {
-      return post.date;
-    }
-  }, [post.date]);
+// Format the date for display (supports YYYY-MM-DD and DD/MM/YYYY)
+const formattedDate = useMemo(() => {
+  const raw = String(post?.date || "").trim();
+  if (!raw) return "";
+
+  // ISO: YYYY-MM-DD
+  if (/^\d{4}-\d{2}-\d{2}$/.test(raw)) {
+    const d = new Date(raw);
+    if (Number.isNaN(d.getTime())) return "";
+    return d.toLocaleDateString("en-AU", {
+      day: "numeric",
+      month: "long",
+      year: "numeric",
+    });
+  }
+
+  // Legacy: DD/MM/YYYY
+  if (/^\d{1,2}\/\d{1,2}\/\d{4}$/.test(raw)) {
+    const [dd, mm, yyyy] = raw.split("/");
+    const d = new Date(`${yyyy}-${mm}-${dd}`);
+    if (Number.isNaN(d.getTime())) return "";
+    return d.toLocaleDateString("en-AU", {
+      day: "numeric",
+      month: "long",
+      year: "numeric",
+    });
+  }
+
+  // Fallback: return as-is
+  return raw;
+}, [post?.date]);
 
   const categorySlug = mapCategory(post.category);
   const cleanedContent = post.content.replace(/^# .+\n/, ""); // remove first H1
@@ -219,7 +244,7 @@ export default function Post() {
 
     return {
       ...base,
-      "@type": "BlogPosting",
+     "@type": "BlogPosting",
       headline: post.title,
     };
   }, [
@@ -277,8 +302,7 @@ export default function Post() {
               <div className={isScrandalous ? "card-meta" : "text-sm text-[var(--text)]/60"}>
                 {isScrandalous ? (
                   <>
-                    <span className="opacity-80">{formattedDate}</span>
-                    <span className="pill">{type === "recipe" ? "Recipe" : type === "playlist" ? "Playlist" : "Post"}</span>
+{formattedDate ? <span className="opacity-80">{formattedDate}</span> : null}                    <span className="pill">{type === "recipe" ? "Recipe" : type === "playlist" ? "Playlist" : "Post"}</span>
 
                     {type === "recipe" && (post.prepMins || post.cookMins) ? (
                       <span className="pill">

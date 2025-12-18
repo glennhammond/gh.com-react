@@ -16,63 +16,53 @@
 
   
 @layer base {
-  /* Force-disable default UL markers everywhere (incl. Tailwind prose / list-disc overrides) */
-  ul,
-  ul li {
+  /* Star bullets ONLY inside long-form content (Tailwind Typography `.prose`) */
+  .prose ul,
+  .prose ul li {
     list-style: none !important;
   }
 
-  ul li::marker {
+  .prose ul li::marker {
     content: "" !important;
     color: transparent !important;
   }
 
-  /* Global star bullets for all unordered lists */
-  ul {
-    list-style: none;        /* remove default bullets */
+  .prose ul {
     margin: 0;
-    padding-left: 0;         /* we’ll control indent on li */
+    padding-left: 0;
   }
 
-  ul > li {
-    position: relative;
-    padding-left: 1.75rem;   /* a touch more room on mobile */
+  .prose ul > li {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.9rem;
+    /* Let the star sit as a real flex item so vertical alignment is stable */
+    padding-left: 0 !important;
   }
 
-  ul > li::before {
+  .prose ul > li::before {
     content: "★";
-    position: absolute;
-    left: 0;
-    top: 0.25em;             /* better vertical alignment */
-    color: var(--secondary); /* pink star bullets */
-    font-size: 1em;          /* match text size (was too small) */
+    flex: 0 0 auto;
+    margin-left: 0.25rem;
+    /* Nudge down to align with the first line of text */
+    margin-top: 0.38em;
+    color: var(--secondary);
+    font-size: 1em;
+    line-height: 1;
   }
 
   /* Slightly more breathing room for lists in main content */
-  main ul > li + li {
+  .prose ul > li + li {
     margin-top: 0.45rem;
   }
 
   /* Hide any “manual dot” bullet elements inside list items so only the star remains */
-  ul > li > :is(span, i, em, strong, div).rounded-full.w-2.h-2,
-  ul > li > :is(span, i, em, strong, div).rounded-full.w-1\.5.h-1\.5,
-  ul > li > :is(span, i, em, strong, div).rounded-full.w-2\.5.h-2\.5,
-  ul > li > :is(span, i, em, strong, div).rounded-full.size-2,
-  ul > li > :is(span, i, em, strong, div).rounded-full.size-3 {
+  .prose ul > li > :is(span, i, em, strong, div).rounded-full.w-2.h-2,
+  .prose ul > li > :is(span, i, em, strong, div).rounded-full.w-1\.5.h-1\.5,
+  .prose ul > li > :is(span, i, em, strong, div).rounded-full.w-2\.5.h-2\.5,
+  .prose ul > li > :is(span, i, em, strong, div).rounded-full.size-2,
+  .prose ul > li > :is(span, i, em, strong, div).rounded-full.size-3 {
     display: none !important;
-  }
-
-  /* Disable star bullets for nav/header/footer menus */
-  nav ul > li,
-  header ul > li,
-  footer ul > li {
-    padding-left: 0;         /* no extra indent in menus */
-  }
-
-  nav ul > li::before,
-  header ul > li::before,
-  footer ul > li::before {
-    content: none;           /* no star bullet in nav/header/footer */
   }
 }
 

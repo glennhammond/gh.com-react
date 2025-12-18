@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import PageWrapper from "../components/layout/PageWrapper";
 import Section from "../components/layout/Section";
 import Container from "../components/layout/Container";
+import { HeroShell } from "../components/layout/PageHero";
 
 import { projects } from "../data/projects";
 import { posts } from "../posts/posts";
@@ -52,18 +53,12 @@ export default function Home() {
         url="https://glennhammond.com/"
       />
 
-        {/* HERO */}
-      <Section noPadding className="bg-[var(--bg)]">
-<Container className="pt-12 pb-10 md:pt-12 md:pb-10 lg:pt-14 lg:pb-12 flex flex-col items-start">
-          {/* Full-width badge row above cards */}
-          <div className="w-full max-w-[560px] mx-auto mb-6 md:mb-8 md:max-w-none md:mx-0">
-            <div className="flex w-full items-center gap-3">
-              <span aria-hidden="true">🏆</span>
-              <span className="text-sm font-semibold tracking-[0.18em] uppercase text-[var(--text)] opacity-70">
-                Award-winning eLearning
-              </span>
-            </div>
-          </div>
+      {/* HERO */}
+      <HeroShell
+        noPadding
+        className="bg-[var(--bg)]"
+        containerClassName="pt-12 pb-10 md:pt-12 md:pb-10 lg:pt-14 lg:pb-12 flex flex-col items-start"
+      >
           <div
             className="
               w-full
@@ -74,11 +69,17 @@ export default function Home() {
               fade-in-up
               md:grid-cols-2
               md:gap-12
-              md:items-start
+              md:items-center
             "
           >
             {/* Left */}
             <div className="w-full max-w-[560px] mx-auto md:mx-0">
+              <div className="mb-6 flex items-center gap-3">
+                <span aria-hidden="true">🏆</span>
+                <span className="text-sm font-semibold tracking-[0.18em] uppercase text-[var(--text)] opacity-70">
+                  Award-winning eLearning
+                </span>
+              </div>
               <h1
                 className="
                   font-heading
@@ -116,14 +117,37 @@ export default function Home() {
                   "
                 >
                   <div className="space-y-4">
-                    <p className="text-slate-700 leading-7">
-                      I apply this across instructional design, Storyline/Rise builds, media production, and xAPI analytics - to keep learning clear to navigate and easier to maintain.
+                    <p className="text-xs font-semibold tracking-[0.18em] uppercase text-slate-600">
+                      Featured project
                     </p>
+
+                    <h2 className="font-heading text-2xl font-semibold leading-tight text-slate-900">
+                      eLearning Design System
+                    </h2>
+
+                    <p className="text-slate-700 leading-7">
+                      A practical kit for building modern eLearning fast - templates, interaction patterns, accessibility rules, and production-ready guidance.
+                    </p>
+
+                    <div className="flex flex-wrap gap-2">
+                      <span className="inline-flex items-center rounded-full bg-black/5 px-3 py-1 text-[12px] font-semibold text-slate-700 ring-1 ring-black/10">
+                        Design tokens
+                      </span>
+                      <span className="inline-flex items-center rounded-full bg-black/5 px-3 py-1 text-[12px] font-semibold text-slate-700 ring-1 ring-black/10">
+                        Slide templates
+                      </span>
+                      <span className="inline-flex items-center rounded-full bg-black/5 px-3 py-1 text-[12px] font-semibold text-slate-700 ring-1 ring-black/10">
+                        Interaction patterns
+                      </span>
+                      <span className="inline-flex items-center rounded-full bg-black/5 px-3 py-1 text-[12px] font-semibold text-slate-700 ring-1 ring-black/10">
+                        WCAG-aligned layouts
+                      </span>
+                    </div>
                   </div>
 
                   <div className="mt-7 flex flex-col items-stretch gap-4">
                     <Link
-                      to="/work"
+                      to="/work/elearning-design-system"
                       className="
                         btn-cta
                         font-heading
@@ -139,11 +163,11 @@ export default function Home() {
                         focus-visible:ring-black/20
                       "
                     >
-                      View some work
+                      View the system
                     </Link>
 
                     <Link
-                      to="/contact"
+                      to="/work"
                       className="
                         btn-outline
                         font-heading
@@ -158,14 +182,14 @@ export default function Home() {
                         focus-visible:ring-black/20
                       "
                     >
-                      Get in touch
+                      View all work
                     </Link>
                   </div>
                 </div>
               </div>
             </div>
 
-            {/* Right - CTA card (desktop) */}
+            {/* Right - proof + actions card (desktop) */}
             <div className="hidden md:block w-full md:max-w-[560px] md:ml-auto">
               <div
                 className="
@@ -181,47 +205,63 @@ export default function Home() {
                   transition-none
                 "
               >
-                <div className="space-y-4">
-                  <p className="text-slate-700 leading-7">
-                    I apply this across instructional design, Storyline/Rise builds, media production, and xAPI analytics - to keep learning clear to navigate and easier to maintain.
-                  </p>
+                <p className="text-xs font-semibold tracking-[0.18em] uppercase text-slate-600">
+                  Featured project
+                </p>
+
+                <h2 className="mt-3 font-heading text-3xl font-semibold leading-tight text-slate-900">
+                  eLearning Design System
+                </h2>
+
+                <p className="mt-3 text-slate-700 leading-7">
+                  A practical kit for building modern eLearning fast - templates, interaction patterns, accessibility rules, and production-ready guidance.
+                </p>
+
+                <div className="mt-5 flex flex-wrap gap-2">
+                  <span className="inline-flex items-center rounded-full bg-black/5 px-3 py-1 text-[12px] font-semibold text-slate-700 ring-1 ring-black/10">
+                    Design tokens
+                  </span>
+                  <span className="inline-flex items-center rounded-full bg-black/5 px-3 py-1 text-[12px] font-semibold text-slate-700 ring-1 ring-black/10">
+                    Slide templates
+                  </span>
+                  <span className="inline-flex items-center rounded-full bg-black/5 px-3 py-1 text-[12px] font-semibold text-slate-700 ring-1 ring-black/10">
+                    Interaction patterns
+                  </span>
+                  <span className="inline-flex items-center rounded-full bg-black/5 px-3 py-1 text-[12px] font-semibold text-slate-700 ring-1 ring-black/10">
+                    WCAG-aligned layouts
+                  </span>
                 </div>
 
-                {/* CTAs */}
-                <div className="mt-8 flex flex-col items-stretch gap-5 sm:gap-6">
-                  {/* Primary - solid */}
+                <div className="mt-7 grid grid-cols-2 gap-4">
                   <Link
-                    to="/work"
+                    to="/work/elearning-design-system"
                     className="
                       btn-cta
                       font-heading
                       inline-flex items-center justify-center
                       w-full
-                      px-12 md:px-16
-                      py-4 md:py-5
-                      text-base md:text-lg font-semibold
+                      py-4
+                      text-base font-semibold
                       rounded-xl
-                      shadow-[0_18px_45px_rgba(0,0,0,0.22)]
+                      shadow-[0_14px_34px_rgba(0,0,0,0.20)]
                       transition
                       focus-visible:outline-none
                       focus-visible:ring-2
                       focus-visible:ring-black/20
                     "
                   >
-                    View some work
+                    View the system
                   </Link>
 
-                  {/* Secondary - outline */}
                   <Link
-                    to="/contact"
+                    to="/work"
                     className="
                       btn-outline
                       font-heading
                       inline-flex items-center justify-center
                       w-full
-                      px-12 md:px-16
-                      py-4 md:py-5
-                      text-base md:text-lg font-semibold
+                      py-4
+                      text-base font-semibold
                       rounded-xl
                       transition
                       focus-visible:outline-none
@@ -229,14 +269,17 @@ export default function Home() {
                       focus-visible:ring-black/20
                     "
                   >
-                    Get in touch
+                    View all work
                   </Link>
                 </div>
+
+                <p className="mt-5 text-sm text-slate-600">
+                  Outcome: faster builds, fewer fixes, consistent UX.
+                </p>
               </div>
             </div>
           </div>
-        </Container>
-      </Section>
+      </HeroShell>
 
 
       {/* CLIENT LOGOS */}

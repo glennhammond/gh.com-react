@@ -36,9 +36,9 @@ export default function Work() {
                   A selection of projects where learning strategy, UX, and production needed to align.
                 </p>
                 <p className="text-base md:text-lg leading-relaxed text-neutral-700/90 dark:text-white/80">
-                  Each example shows how I use repeatable patterns to keep experiences consistent and delivery efficient across complex content and multiple modules.
+                  Each example shows how I use repeatable patterns to keep experiences consistent and
+                  delivery efficient across complex content and multiple modules.
                 </p>
-
               </div>
             </div>
 
@@ -53,6 +53,8 @@ export default function Work() {
                   alt="Preview of eLearning Design System tiles"
                   className="h-full w-full object-cover pointer-events-none select-none !transform-none !transition-none !scale-100"
                   style={{ transform: "none", transition: "none" }}
+                  loading="lazy"
+                  decoding="async"
                 />
               </div>
             </div>
@@ -65,35 +67,41 @@ export default function Work() {
         <Container>
           <Link
             to="/work/elearning-design-system"
-            className="group flex flex-col items-stretch overflow-hidden rounded-2xl border border-black/5 bg-white/80 shadow-sm backdrop-blur-sm transition hover:-translate-y-1 hover:shadow-md hover:border-[var(--brand-accent)] dark:border-white/10 dark:bg-white/10 md:flex-row-reverse"
+            className="group flex flex-col items-stretch overflow-hidden rounded-xl border border-black/10 bg-white shadow-sm transition hover:-translate-y-0.5 hover:shadow-md hover:border-[var(--brand-accent)] dark:border-white/10 dark:bg-white/5 md:flex-row-reverse"
           >
             {/* IMAGE SIDE */}
-            <div className="flex w-full items-center justify-center bg-neutral-50 p-4 md:w-[40%] md:p-6 dark:bg-white/10">
+            <div className="flex w-full items-center justify-center bg-neutral-50 p-4 md:w-[40%] md:p-5 dark:bg-white/5">
               <img
                 src="/images/portfolio-elearning-design-system.jpg"
                 alt="Glenn Hammond eLearning Design System overview"
-                className="h-auto w-full max-h-72 object-contain md:max-h-80 transition-none transform-none"
+                className="h-auto w-full max-h-56 object-contain md:max-h-64"
+                loading="lazy"
+                decoding="async"
               />
             </div>
 
             {/* TEXT SIDE */}
-            <div className="flex-1 p-6">
-              <div className="mb-4 text-xs font-semibold uppercase tracking-[0.18em] text-neutral-500 dark:text-white/70">
+            <div className="flex-1 p-4 md:p-5">
+              <div className="mb-2 text-xs font-semibold uppercase tracking-[0.18em] text-neutral-500 dark:text-white/70">
                 Glenn Hammond · eLearning design system
               </div>
-              <h3 className="text-xl font-semibold leading-snug md:text-2xl">
+
+              <h3 className="text-base font-semibold leading-snug md:text-lg">
                 eLearning Design System for modern professional learning
               </h3>
-              <p className="mt-3 max-w-3xl text-sm text-neutral-700 dark:text-white/85">
+
+              <p className="mt-2 max-w-3xl text-sm text-neutral-700 dark:text-white/85">
                 A reusable eLearning design system I created to speed up course builds, improve
                 consistency, and support WCAG-aligned layouts across Storyline, Rise, and H5P. It
-                underpins ISQ’s growing catalogue of professional learning, but is designed to be
-                portable across clients and platforms.
+                underpins ISQ’s growing catalogue of professional learning, but is designed to be portable
+                across clients and platforms.
               </p>
+
               <p className="mt-3 text-xs font-medium uppercase tracking-[0.16em] text-neutral-500 dark:text-white/60">
                 Role: System architect · Lead eLearning specialist · Visual design · Governance
               </p>
-              <div className="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-[var(--brand-accent)] underline-offset-4 group-hover:underline">
+
+              <div className="mt-3 inline-flex items-center gap-2 text-sm font-medium text-[var(--brand-accent)] underline-offset-4 group-hover:underline">
                 View project <span aria-hidden>→</span>
               </div>
             </div>
@@ -103,31 +111,33 @@ export default function Work() {
 
       {/* CYA + CASA SECTION */}
       <Section>
-        <Container className="space-y-10 md:space-y-12">
+        <Container className="space-y-10 md:space-y-12 max-w-5xl">
           <div className="grid gap-6 md:grid-cols-2">
             {/* CASA – Flight Examiner Rating Course */}
             <Link
               to="/work/casa-flight-examiner-rating"
-              className="group flex flex-col overflow-hidden rounded-2xl border border-black/5 bg-white/80 shadow-sm backdrop-blur-sm transition hover:-translate-y-1 hover:shadow-md hover:border-[var(--brand-accent)] dark:border-white/10 dark:bg-white/10"
+              className="group flex flex-col overflow-hidden rounded-xl border border-black/10 bg-white shadow-sm transition hover:-translate-y-0.5 hover:shadow-md hover:border-[var(--brand-accent)] dark:border-white/10 dark:bg-white/5"
             >
-              {/* FULL-WIDTH IMAGE */}
-              <div className="relative w-full overflow-hidden">
+              {/* SHORTER IMAGE */}
+              <div className="relative w-full h-36 md:h-40 overflow-hidden bg-neutral-100/60 dark:bg-white/5">
                 <img
                   src="/images/work/glenn-hammond-site-assets-casa-course-cover.jpg"
                   alt="Civil Aviation Safety Authority Flight Examiner Rating course"
-                  className="w-full object-cover transition-transform duration-300 group-hover:scale-[1.02]"
+                  className="absolute inset-0 h-full w-full object-cover transition-transform duration-300 group-hover:scale-[1.02]"
+                  loading="lazy"
+                  decoding="async"
                 />
               </div>
 
               {/* TEXT BLOCK */}
-              <div className="flex flex-1 flex-col p-6">
+              <div className="flex flex-1 flex-col p-4 md:p-5">
                 <div className="mb-2 text-xs font-semibold uppercase tracking-[0.18em] text-neutral-500 dark:text-white/70">
                   Civil Aviation Safety Authority
                 </div>
-                <h3 className="text-xl font-semibold leading-snug md:text-2xl">
+                <h3 className="text-base font-semibold leading-snug md:text-lg">
                   Flight Examiner Rating Course
                 </h3>
-                <p className="mt-3 text-sm text-neutral-700 dark:text-white/85">
+                <p className="mt-2 text-sm text-neutral-700 dark:text-white/85 line-clamp-2">
                   Designing and building the learning experience that supports flight examiners working at
                   the pinnacle of Australian aviation – aligning regulatory rigour with clear, usable digital
                   learning.
@@ -135,8 +145,8 @@ export default function Work() {
                 <p className="mt-3 text-xs font-medium uppercase tracking-[0.16em] text-neutral-500 dark:text-white/60">
                   Role: Learning experience designer · Visual design · Video · Template lead
                 </p>
-                <div className="mt-4 text-sm font-medium text-neutral-900/80 group-hover:underline dark:text-white">
-                  View project →
+                <div className="mt-3 inline-flex items-center gap-2 text-sm font-medium text-[var(--brand-accent)] underline-offset-4 group-hover:underline">
+                  View project <span aria-hidden>→</span>
                 </div>
               </div>
             </Link>
@@ -144,26 +154,28 @@ export default function Work() {
             {/* CASA – CLASS */}
             <Link
               to="/work/casa-aviationworx-class"
-              className="group flex flex-col overflow-hidden rounded-2xl border border-black/5 bg-white/80 shadow-sm backdrop-blur-sm transition hover:-translate-y-1 hover:shadow-md hover:border-[var(--brand-accent)] dark:border-white/10 dark:bg-white/10"
+              className="group flex flex-col overflow-hidden rounded-xl border border-black/10 bg-white shadow-sm transition hover:-translate-y-0.5 hover:shadow-md hover:border-[var(--brand-accent)] dark:border-white/10 dark:bg-white/5"
             >
-              {/* FULL-WIDTH IMAGE */}
-              <div className="relative w-full overflow-hidden">
+              {/* SHORTER IMAGE */}
+              <div className="relative w-full h-36 md:h-40 overflow-hidden bg-neutral-100/60 dark:bg-white/5">
                 <img
                   src="/images/work/glenn-hammond-site-assets-casa-class-lms-design-and-development.jpg"
                   alt="CASA CLASS learning management system front-end design"
-                  className="w-full object-cover transition-transform duration-300 group-hover:scale-[1.02]"
+                  className="absolute inset-0 h-full w-full object-cover transition-transform duration-300 group-hover:scale-[1.02]"
+                  loading="lazy"
+                  decoding="async"
                 />
               </div>
 
               {/* TEXT BLOCK */}
-              <div className="flex flex-1 flex-col p-6">
+              <div className="flex flex-1 flex-col p-4 md:p-5">
                 <div className="mb-2 text-xs font-semibold uppercase tracking-[0.18em] text-neutral-500 dark:text-white/70">
                   Civil Aviation Safety Authority
                 </div>
-                <h3 className="text-xl font-semibold leading-snug md:text-2xl">
+                <h3 className="text-base font-semibold leading-snug md:text-lg">
                   CASA Learning Environment for Safer Skies – CLASS
                 </h3>
-                <p className="mt-3 text-sm text-neutral-700 dark:text-white/85">
+                <p className="mt-2 text-sm text-neutral-700 dark:text-white/85 line-clamp-2">
                   Front-end LMS experience for Aviationworx and CLASS – CASA’s learning environment for
                   safer skies – including interface design, graphics, and a reusable eLearning template
                   system for the internal development team.
@@ -171,8 +183,8 @@ export default function Work() {
                 <p className="mt-3 text-xs font-medium uppercase tracking-[0.16em] text-neutral-500 dark:text-white/60">
                   Role: Product design · UX · Visual system · Video & interviews
                 </p>
-                <div className="mt-4 text-sm font-medium text-neutral-900/80 group-hover:underline dark:text-white">
-                  View project →
+                <div className="mt-3 inline-flex items-center gap-2 text-sm font-medium text-[var(--brand-accent)] underline-offset-4 group-hover:underline">
+                  View project <span aria-hidden>→</span>
                 </div>
               </div>
             </Link>
@@ -180,26 +192,28 @@ export default function Work() {
             {/* CYA – Website (WordPress) */}
             <Link
               to="/work/corporate-yoga-australia-website"
-              className="group flex flex-col overflow-hidden rounded-2xl border border-black/5 bg-white/80 shadow-sm backdrop-blur-sm transition hover:-translate-y-1 hover:shadow-md hover:border-[var(--brand-accent)] dark:border-white/10 dark:bg-white/10"
+              className="group flex flex-col overflow-hidden rounded-xl border border-black/10 bg-white shadow-sm transition hover:-translate-y-0.5 hover:shadow-md hover:border-[var(--brand-accent)] dark:border-white/10 dark:bg-white/5"
             >
-              {/* FULL-WIDTH IMAGE */}
-              <div className="relative w-full overflow-hidden">
+              {/* SHORTER IMAGE */}
+              <div className="relative w-full h-36 md:h-40 overflow-hidden bg-neutral-100/60 dark:bg-white/5">
                 <img
                   src="/images/work/glenn-hammond-site-assets-corporate-yoga-australia.webp"
                   alt="Corporate Yoga Australia WordPress website"
-                  className="w-full object-cover transition-transform duration-300 group-hover:scale-[1.02]"
+                  className="absolute inset-0 h-full w-full object-cover transition-transform duration-300 group-hover:scale-[1.02]"
+                  loading="lazy"
+                  decoding="async"
                 />
               </div>
 
               {/* TEXT BLOCK */}
-              <div className="flex flex-1 flex-col p-6">
+              <div className="flex flex-1 flex-col p-4 md:p-5">
                 <div className="mb-2 text-xs font-semibold uppercase tracking-[0.18em] text-neutral-500 dark:text-white/70">
                   Corporate Yoga Australia
                 </div>
-                <h3 className="text-xl font-semibold leading-snug md:text-2xl">
+                <h3 className="text-base font-semibold leading-snug md:text-lg">
                   Corporate Yoga Australia website (WordPress)
                 </h3>
-                <p className="mt-3 text-sm text-neutral-700 dark:text-white/85">
+                <p className="mt-2 text-sm text-neutral-700 dark:text-white/85 line-clamp-2">
                   Designing and rebuilding the public-facing website for Corporate Yoga Australia –
                   clarifying the offer, improving mobile usability, and supporting ongoing content, SEO and
                   campaign work.
@@ -207,8 +221,8 @@ export default function Work() {
                 <p className="mt-3 text-xs font-medium uppercase tracking-[0.16em] text-neutral-500 dark:text-white/60">
                   Role: UX & visual design · WordPress · Ongoing marketing support
                 </p>
-                <div className="mt-4 text-sm font-medium text-neutral-900/80 group-hover:underline dark:text-white">
-                  View project →
+                <div className="mt-3 inline-flex items-center gap-2 text-sm font-medium text-[var(--brand-accent)] underline-offset-4 group-hover:underline">
+                  View project <span aria-hidden>→</span>
                 </div>
               </div>
             </Link>
@@ -216,34 +230,36 @@ export default function Work() {
             {/* CYA – Kajabi Online Wellness Courses */}
             <Link
               to="/work/corporate-yoga-australia-kajabi"
-              className="group flex flex-col overflow-hidden rounded-2xl border border-black/5 bg-white/80 shadow-sm backdrop-blur-sm transition hover:-translate-y-1 hover:shadow-md hover:border-[var(--brand-accent)] dark:border-white/10 dark:bg-white/10"
+              className="group flex flex-col overflow-hidden rounded-xl border border-black/10 bg-white shadow-sm transition hover:-translate-y-0.5 hover:shadow-md hover:border-[var(--brand-accent)] dark:border-white/10 dark:bg-white/5"
             >
-              {/* FULL-WIDTH IMAGE */}
-              <div className="relative w-full overflow-hidden">
+              {/* SHORTER IMAGE */}
+              <div className="relative w-full h-36 md:h-40 overflow-hidden bg-neutral-100/60 dark:bg-white/5">
                 <img
                   src="/images/work/glenn-hammond-site-assets-kajabi-corporate-yoga-australia.jpg"
                   alt="Corporate Yoga Australia Kajabi online wellness courses"
-                  className="w-full object-cover transition-transform duration-300 group-hover:scale-[1.02]"
+                  className="absolute inset-0 h-full w-full object-cover transition-transform duration-300 group-hover:scale-[1.02]"
+                  loading="lazy"
+                  decoding="async"
                 />
               </div>
 
               {/* TEXT BLOCK */}
-              <div className="flex flex-1 flex-col p-6">
+              <div className="flex flex-1 flex-col p-4 md:p-5">
                 <div className="mb-2 text-xs font-semibold uppercase tracking-[0.18em] text-neutral-500 dark:text-white/70">
                   Corporate Yoga Australia
                 </div>
-                <h3 className="text-xl font-semibold leading-snug md:text-2xl">
+                <h3 className="text-base font-semibold leading-snug md:text-lg">
                   Online wellness courses on Kajabi
                 </h3>
-                <p className="mt-3 text-sm text-neutral-700 dark:text-white/85">
+                <p className="mt-2 text-sm text-neutral-700 dark:text-white/85 line-clamp-2">
                   Structuring and designing Corporate Yoga Australia’s online wellness courses in Kajabi –
                   from course architecture and content flow to visuals that align with the wider CYA brand.
                 </p>
                 <p className="mt-3 text-xs font-medium uppercase tracking-[0.16em] text-neutral-500 dark:text-white/60">
                   Role: Learning design · Platform build · Brand & campaign support
                 </p>
-                <div className="mt-4 text-sm font-medium text-neutral-900/80 group-hover:underline dark:text-white">
-                  View project →
+                <div className="mt-3 inline-flex items-center gap-2 text-sm font-medium text-[var(--brand-accent)] underline-offset-4 group-hover:underline">
+                  View project <span aria-hidden>→</span>
                 </div>
               </div>
             </Link>
@@ -273,39 +289,41 @@ export default function Work() {
           </div>
 
           <div className="grid gap-6 md:grid-cols-2">
-  {/* Interactive video – rooftop */}
-<Link
-  to="/work/elearning-heroes-experiments#interactive-video"
-  className="group flex flex-col overflow-hidden rounded-2xl border border-black/5 bg-white/80 shadow-sm backdrop-blur-sm transition hover:-translate-y-1 hover:shadow-md dark:border-white/10 dark:bg-neutral-900/80"
->
-  <div className="w-full bg-neutral-50 dark:bg-white/5">
-    <img
-      src="/images/work/articulate/glenn-hammond-site-assets-articulate-elearning-heroes-116.webp"
-      alt="‘Don’t jump’ interactive video prototype – rooftop scene"
-      className="block w-full h-auto object-contain"
-      loading="lazy"
-      decoding="async"
-    />
-  </div>
+            {/* Interactive video – rooftop */}
+            <Link
+              to="/work/elearning-heroes-experiments#interactive-video"
+              className="group flex flex-col overflow-hidden rounded-2xl border border-black/5 bg-white/80 shadow-sm backdrop-blur-sm transition hover:-translate-y-1 hover:shadow-md dark:border-white/10 dark:bg-neutral-900/80"
+            >
+              <div className="w-full bg-neutral-50 dark:bg-white/5">
+                <img
+                  src="/images/work/articulate/glenn-hammond-site-assets-articulate-elearning-heroes-116.webp"
+                  alt="‘Don’t jump’ interactive video prototype – rooftop scene"
+                  className="block w-full h-auto object-contain"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </div>
 
-  <div className="p-5">
-    <h3 className="text-lg font-semibold leading-snug">
-      Interactive video prototype
-    </h3>
+              <div className="p-5">
+                <h3 className="text-lg font-semibold leading-snug">
+                  Interactive video prototype
+                </h3>
 
-    <p className="mt-2 text-sm text-neutral-700 dark:text-neutral-200">
-      Early interactive video from 2014: a man on a rooftop, the action pauses at key points, and the learner chooses what happens next. Built before “interactive video” became a buzzword.
-    </p>
+                <p className="mt-2 text-sm text-neutral-700 dark:text-neutral-200">
+                  Early interactive video from 2014: a man on a rooftop, the action pauses at key points,
+                  and the learner chooses what happens next. Built before “interactive video” became a
+                  buzzword.
+                </p>
 
-    <p className="mt-4 text-xs uppercase tracking-wide text-neutral-600 dark:text-neutral-300">
-      Articulate eLearning Heroes Challenge · Branching · Video
-    </p>
+                <p className="mt-4 text-xs uppercase tracking-wide text-neutral-600 dark:text-neutral-300">
+                  Articulate eLearning Heroes Challenge · Branching · Video
+                </p>
 
-    <span className="mt-4 inline-flex items-center gap-2 font-heading text-sm text-[var(--secondary)]">
-      Jump to section <span aria-hidden>→</span>
-    </span>
-  </div>
-</Link>
+                <span className="mt-4 inline-flex items-center gap-2 font-heading text-sm text-[var(--secondary)]">
+                  Jump to section <span aria-hidden>→</span>
+                </span>
+              </div>
+            </Link>
 
             {/* Beer Advisor */}
             <Link
@@ -316,9 +334,9 @@ export default function Work() {
                 Beer Advisor – decision support for the undecided drinker
               </h3>
               <p className="mt-2 text-sm text-neutral-700 dark:text-white/85">
-                A tongue-in-cheek advisor that recommends a beer based on a few quick questions. It sparked
-                comments like “this should be available in bars” – probably helped by a few years of
-                home-brewing under the YOBBO Brewing banner.
+                A tongue-in-cheek advisor that recommends a beer based on a few quick questions. It
+                sparked comments like “this should be available in bars” – probably helped by a few years
+                of home-brewing under the YOBBO Brewing banner.
               </p>
               <p className="mt-3 text-xs font-medium uppercase tracking-[0.16em] text-neutral-500 dark:text-white/70">
                 Articulate eLearning Heroes challenge · Decision tool · Gamified quiz

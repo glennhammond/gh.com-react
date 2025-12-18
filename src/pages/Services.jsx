@@ -2,10 +2,10 @@
 import React from "react";
 
 import PageWrapper from "../components/layout/PageWrapper";
-import PageIntro from "../components/layout/PageIntro";
 import Section from "../components/layout/Section";
 import Container from "../components/layout/Container";
 import SEO from "../components/ui/SEO.jsx";
+import PageHero from "../components/layout/PageHero";
 
 export default function Services() {
   return (
@@ -16,41 +16,35 @@ export default function Services() {
       />
 
       {/* PAGE INTRO */}
-      <Section className="pb-4 md:pb-6">
-        <Container>
-          <PageIntro
-            breadcrumb={[
-              { label: "Home", href: "/" },
-              { label: "Services" },
-            ]}
-            title="Services"
-            right={
-              <div className="site-card overflow-hidden">
-                <div className="relative aspect-[16/10] w-full">
-                  <img
-                    src="/images/heroes/glenn-hammond-site-assets-hero-services.webp"
-                    alt="Services hero"
-                    className="absolute inset-0 h-full w-full object-cover"
-                    loading="lazy"
-                    decoding="async"
-                  />
-                </div>
-              </div>
-            }
-          >
-            <div className="mt-6 max-w-2xl space-y-3">
-              <p>
-                You can engage me for a single stream (strategy, build, or data), or combine them end-to-end.
-                My focus is practical delivery - clear decisions, clean execution, and measurable improvement.
-              </p>
-              <p>
-                Typical outputs include storyboards and scripts, Storyline/Rise builds, video assets, xAPI statements,
-                LRS configuration, and dashboards that support real reporting.
-              </p>
+      <PageHero
+        breadcrumb={[
+          { label: "Home", href: "/" },
+          { label: "Services" },
+        ]}
+        title="Services"
+        right={
+          <div className="site-card overflow-hidden md:mt-[44px]">
+            <div className="relative aspect-[16/10] w-full">
+              <img
+                src="/images/heroes/glenn-hammond-site-assets-hero-services.webp"
+                alt="Services hero"
+                className="absolute inset-0 h-full w-full object-cover"
+                loading="lazy"
+                decoding="async"
+              />
             </div>
-          </PageIntro>
-        </Container>
-      </Section>
+          </div>
+        }
+      >
+        <p>
+          You can engage me for a single stream (strategy, build, or data), or combine them end-to-end.
+          My focus is practical delivery - clear decisions, clean execution, and measurable improvement.
+        </p>
+        <p>
+          Typical outputs include storyboards and scripts, Storyline/Rise builds, video assets, xAPI statements,
+          LRS configuration, and dashboards that support real reporting.
+        </p>
+      </PageHero>
 
       {/* SERVICES GRID */}
       <Section className="pt-10 md:pt-14">
@@ -59,8 +53,6 @@ export default function Services() {
             <ServiceCard
               title="Consultancy & instructional design"
               blurb="Clarify the problem, define the learning approach, and design experiences that are buildable and measurable."
-              tag="Strategy"
-              icon="ID"
               items={[
                 "Discovery, needs analysis, and learning strategy",
                 "Curriculum design, storyboards, and scenario writing",
@@ -74,8 +66,6 @@ export default function Services() {
             <ServiceCard
               title="eLearning & media development"
               blurb="Build polished learning experiences and media assets with strong UX, clean structure, and consistent design."
-              tag="Build"
-              icon="DEV"
               items={[
                 "Storyline/Rise builds with strong UX and accessibility",
                 "Reusable templates, components, and design systems",
@@ -89,8 +79,6 @@ export default function Services() {
             <ServiceCard
               title="xAPI & learning analytics"
               blurb="Instrument your learning with xAPI and dashboards so you can see what’s working - and improve it."
-              tag="Data"
-              icon="xAPI"
               items={[
                 "xAPI implementation, debugging, and statement design",
                 "LRS setup (Veracity, Learning Locker) and workflows",
@@ -149,7 +137,7 @@ export default function Services() {
   );
 }
 
-function ServiceCard({ title, tag, icon, blurb, items, imageSrc, imageAlt }) {
+function ServiceCard({ title, blurb, items, imageSrc, imageAlt }) {
   return (
     <div className="site-card overflow-hidden">
       {/* Card header image */}
@@ -169,20 +157,8 @@ function ServiceCard({ title, tag, icon, blurb, items, imageSrc, imageAlt }) {
       )}
 
       <div className="p-8 space-y-5">
-        <div className="flex items-center gap-3">
-          {icon && (
-            <div className="h-10 w-10 rounded-full bg-[#F5C84C]/25 flex items-center justify-center text-[#970067] text-sm font-heading">
-              {icon}
-            </div>
-          )}
-          <div className="space-y-1">
-            <h3 className="font-heading text-xl text-[var(--text)]">{title}</h3>
-            {tag && (
-              <span className="inline-flex items-center rounded-full border border-black/10 dark:border-white/15 bg-white/40 dark:bg-white/10 px-3 py-0.5 text-[11px] uppercase tracking-[0.18em] text-[var(--text)]/70">
-                {tag}
-              </span>
-            )}
-          </div>
+        <div>
+          <h3 className="font-heading text-xl text-[var(--text)]">{title}</h3>
         </div>
 
         {blurb && <p className="text-sm text-[var(--text)]/75">{blurb}</p>}
@@ -190,7 +166,12 @@ function ServiceCard({ title, tag, icon, blurb, items, imageSrc, imageAlt }) {
         <ul className="space-y-2 text-sm text-[var(--text)]/75">
           {items.map((item) => (
             <li key={item} className="flex items-start gap-3">
-              <span aria-hidden="true" className="mt-2 h-2 w-2 shrink-0 rounded-full bg-[#F5C84C]" />
+              <span
+                aria-hidden="true"
+                className="shrink-0 text-[var(--secondary)] leading-none mt-[0.38em]"
+              >
+                ★
+              </span>
               <span>{item}</span>
             </li>
           ))}
@@ -204,7 +185,7 @@ function StepCard({ title, icon, text }) {
   return (
     <div className="site-card p-5">
       <div className="flex items-center gap-3">
-        <div className="h-9 w-9 rounded-full bg-[#F5C84C]/25 flex items-center justify-center text-[var(--secondary)] text-sm font-heading">
+        <div className="h-9 w-9 rounded-full bg-[color:var(--secondary)]/12 border border-[color:var(--secondary)]/25 flex items-center justify-center text-[var(--secondary)] text-sm font-heading shadow-sm">
           {icon}
         </div>
         <h3 className="font-heading text-base text-[var(--text)]">{title}</h3>

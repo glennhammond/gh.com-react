@@ -8,6 +8,7 @@ const navItems = [
   { to: "/work", label: "Work" },
   { to: "/services", label: "Services" },
 ];
+const desktopNavItems = [...navItems, { to: "/contact", label: "Contact" }];
 
 export default function Header() {
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -45,7 +46,7 @@ export default function Header() {
             </Link>
 
             <nav className="hidden md:flex items-center gap-7">
-              {navItems.map((item) => (
+              {desktopNavItems.map((item) => (
                 <NavLink
                   key={item.to}
                   to={item.to}
