@@ -24,6 +24,286 @@
       "source": "/portfolio/:path*",
       "destination": "/work/:path*",
       "permanent": true
+    },
+    {
+      "source": "/?p=1",
+      "destination": "/blog/hello-world",
+      "permanent": true
+    },
+    {
+      "source": "/hello-world/",
+      "destination": "/blog/hello-world",
+      "permanent": true
+    },
+    {
+      "source": "/?p=164",
+      "destination": "/blog/how-to-set-moodles-user-login-page-as-the-sites-landing-page",
+      "permanent": true
+    },
+    {
+      "source": "/how-to-set-moodles-user-login-page-as-the-sites-landing-page/",
+      "destination": "/blog/how-to-set-moodles-user-login-page-as-the-sites-landing-page",
+      "permanent": true
+    },
+    {
+      "source": "/?p=156431",
+      "destination": "/blog/gamification-in-storyline-leaderboards-badges-and-incentives",
+      "permanent": true
+    },
+    {
+      "source": "/gamification-in-storyline-leaderboards-badges-and-incentives/",
+      "destination": "/blog/gamification-in-storyline-leaderboards-badges-and-incentives",
+      "permanent": true
+    },
+    {
+      "source": "/?p=156433",
+      "destination": "/blog/new-quick-tips-layout-for-your-projects",
+      "permanent": true
+    },
+    {
+      "source": "/new-quick-tips-layout-for-your-projects/",
+      "destination": "/blog/new-quick-tips-layout-for-your-projects",
+      "permanent": true
+    },
+    {
+      "source": "/?p=156435",
+      "destination": "/blog/new-elegant-blog-post-layout-how-to-create-vertical-tabs-in-storyline",
+      "permanent": true
+    },
+    {
+      "source": "/new-elegant-blog-post-layout-how-to-create-vertical-tabs-in-storyline/",
+      "destination": "/blog/new-elegant-blog-post-layout-how-to-create-vertical-tabs-in-storyline",
+      "permanent": true
+    },
+    {
+      "source": "/?p=156437",
+      "destination": "/blog/another-nifty-layout-idea-for-storyline",
+      "permanent": true
+    },
+    {
+      "source": "/another-nifty-layout-idea-for-storyline/",
+      "destination": "/blog/another-nifty-layout-idea-for-storyline",
+      "permanent": true
+    },
+    {
+      "source": "/?p=156447",
+      "destination": "/blog/ai-in-instructional-design",
+      "permanent": true
+    },
+    {
+      "source": "/ai-in-instructional-design/",
+      "destination": "/blog/ai-in-instructional-design",
+      "permanent": true
+    },
+    {
+      "source": "/?p=156449",
+      "destination": "/blog/using-xapi-to-unlock-deeper-learning-analytics",
+      "permanent": true
+    },
+    {
+      "source": "/using-xapi-to-unlock-deeper-learning-analytics/",
+      "destination": "/blog/using-xapi-to-unlock-deeper-learning-analytics",
+      "permanent": true
+    },
+    {
+      "source": "/?p=156453",
+      "destination": "/blog/5-ways-ai-is-transforming-elearning-design",
+      "permanent": true
+    },
+    {
+      "source": "/5-ways-ai-is-transforming-elearning-design/",
+      "destination": "/blog/5-ways-ai-is-transforming-elearning-design",
+      "permanent": true
+    },
+    {
+      "source": "/?p=156456",
+      "destination": "/blog/what-is-xapi-and-why-is-it-important-in-elearning",
+      "permanent": true
+    },
+    {
+      "source": "/what-is-xapi-and-why-is-it-important-in-elearning/",
+      "destination": "/blog/what-is-xapi-and-why-is-it-important-in-elearning",
+      "permanent": true
+    },
+    {
+      "source": "/?p=156461",
+      "destination": "/blog/storyline-vs-rise-which-tool-should-you-use",
+      "permanent": true
+    },
+    {
+      "source": "/storyline-vs-rise-which-tool-should-you-use/",
+      "destination": "/blog/storyline-vs-rise-which-tool-should-you-use",
+      "permanent": true
+    },
+    {
+      "source": "/?p=156463",
+      "destination": "/blog/master-slides-in-storyline",
+      "permanent": true
+    },
+    {
+      "source": "/master-slides-in-storyline/",
+      "destination": "/blog/master-slides-in-storyline",
+      "permanent": true
+    },
+    {
+      "source": "/?p=156466",
+      "destination": "/blog/a-new-quick-and-easy-layout-idea-for-storyline",
+      "permanent": true
+    },
+    {
+      "source": "/a-new-quick-and-easy-layout-idea-for-storyline/",
+      "destination": "/blog/a-new-quick-and-easy-layout-idea-for-storyline",
+      "permanent": true
+    },
+    {
+      "source": "/?p=156471",
+      "destination": "/blog/how-to-create-and-use-a-lightbox-in-storyline",
+      "permanent": true
+    },
+    {
+      "source": "/how-to-create-and-use-a-lightbox-in-storyline/",
+      "destination": "/blog/how-to-create-and-use-a-lightbox-in-storyline",
+      "permanent": true
+    },
+    {
+      "source": "/?p=156473",
+      "destination": "/blog/storyline-menu-design-options",
+      "permanent": true
+    },
+    {
+      "source": "/storyline-menu-design-options/",
+      "destination": "/blog/storyline-menu-design-options",
+      "permanent": true
+    },
+    {
+      "source": "/?p=156476",
+      "destination": "/blog/storyline-360-triggers-and-variables",
+      "permanent": true
+    },
+    {
+      "source": "/storyline-360-triggers-and-variables/",
+      "destination": "/blog/storyline-360-triggers-and-variables",
+      "permanent": true
+    },
+    {
+      "source": "/?p=156481",
+      "destination": "/blog/how-to-create-a-custom-storyline-player-menu",
+      "permanent": true
+    },
+    {
+      "source": "/how-to-create-a-custom-storyline-player-menu/",
+      "destination": "/blog/how-to-create-a-custom-storyline-player-menu",
+      "permanent": true
+    },
+    {
+      "source": "/?p=156483",
+      "destination": "/blog/branding-your-storyline-course",
+      "permanent": true
+    },
+    {
+      "source": "/branding-your-storyline-course/",
+      "destination": "/blog/branding-your-storyline-course",
+      "permanent": true
+    },
+    {
+      "source": "/?p=156486",
+      "destination": "/blog/using-tabs-in-storyline-interaction-ideas",
+      "permanent": true
+    },
+    {
+      "source": "/using-tabs-in-storyline-interaction-ideas/",
+      "destination": "/blog/using-tabs-in-storyline-interaction-ideas",
+      "permanent": true
+    },
+    {
+      "source": "/?p=156488",
+      "destination": "/blog/storyline-ui-layout-for-tabs",
+      "permanent": true
+    },
+    {
+      "source": "/storyline-ui-layout-for-tabs/",
+      "destination": "/blog/storyline-ui-layout-for-tabs",
+      "permanent": true
+    },
+    {
+      "source": "/?p=156492",
+      "destination": "/blog/a-modern-storyline-layout-to-support-your-courses",
+      "permanent": true
+    },
+    {
+      "source": "/a-modern-storyline-layout-to-support-your-courses/",
+      "destination": "/blog/a-modern-storyline-layout-to-support-your-courses",
+      "permanent": true
+    },
+    {
+      "source": "/?p=156494",
+      "destination": "/blog/get-a-modern-storyline-player-fast",
+      "permanent": true
+    },
+    {
+      "source": "/get-a-modern-storyline-player-fast/",
+      "destination": "/blog/get-a-modern-storyline-player-fast",
+      "permanent": true
+    },
+    {
+      "source": "/?p=156496",
+      "destination": "/blog/why-storyline-slides-still-matter-in-2025",
+      "permanent": true
+    },
+    {
+      "source": "/why-storyline-slides-still-matter-in-2025/",
+      "destination": "/blog/why-storyline-slides-still-matter-in-2025",
+      "permanent": true
+    },
+    {
+      "source": "/?p=156498",
+      "destination": "/blog/need-help-with-a-storyline-project",
+      "permanent": true
+    },
+    {
+      "source": "/need-help-with-a-storyline-project/",
+      "destination": "/blog/need-help-with-a-storyline-project",
+      "permanent": true
+    },
+    {
+      "source": "/?p=156500",
+      "destination": "/blog/elearning-tools-i-use",
+      "permanent": true
+    },
+    {
+      "source": "/elearning-tools-i-use/",
+      "destination": "/blog/elearning-tools-i-use",
+      "permanent": true
+    },
+    {
+      "source": "/?p=156504",
+      "destination": "/blog/quick-tips-for-web-flow-designers",
+      "permanent": true
+    },
+    {
+      "source": "/quick-tips-for-web-flow-designers/",
+      "destination": "/blog/quick-tips-for-web-flow-designers",
+      "permanent": true
+    },
+    {
+      "source": "/?p=156506",
+      "destination": "/blog/best-labs-for-facebook-brand-pages",
+      "permanent": true
+    },
+    {
+      "source": "/best-labs-for-facebook-brand-pages/",
+      "destination": "/blog/best-labs-for-facebook-brand-pages",
+      "permanent": true
+    },
+    {
+      "source": "/?p=156330",
+      "destination": "/blog/storyline-with-scorm-xapi-the-best-of-both-worlds",
+      "permanent": true
+    },
+    {
+      "source": "/storyline-with-scorm-xapi-the-best-of-both-worlds/",
+      "destination": "/blog/storyline-with-scorm-xapi-the-best-of-both-worlds",
+      "permanent": true
     }
   ],
   "rewrites": [
