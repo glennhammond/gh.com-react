@@ -322,57 +322,6 @@ export default function Home() {
         </Container>
       </Section>
 
-      {/* FEATURED PROJECT ROW */}
-      <Section noPadding className="bg-[var(--bg)]">
-        <Container className="pt-10 pb-10 md:pt-12 md:pb-14">
-          <Link
-            to="/work/elearning-design-system"
-            className="
-              block w-full
-              overflow-hidden
-              rounded-2xl
-              ring-1 ring-black/10 dark:ring-white/10
-              bg-white dark:bg-white/5
-              shadow-[0_28px_90px_rgba(2,6,23,0.18)]
-              focus-visible:outline-none
-              focus-visible:ring-2
-              focus-visible:ring-[var(--secondary)]/40
-            "
-          >
-            <div className="grid grid-cols-1 md:grid-cols-[3fr_2fr]">
-              <div className="p-8 md:p-10">
-                <p className="text-xs font-semibold tracking-[0.18em] uppercase text-[var(--text)] opacity-70">
-                  Glenn Hammond · eLearning Design System
-                </p>
-                <h2 className="mt-4 font-heading text-3xl md:text-4xl font-semibold leading-tight text-[var(--text)] max-w-[22ch]">
-                  eLearning Design System for modern professional learning
-                </h2>
-                <p className="mt-4 text-[var(--text)] opacity-75 leading-7 max-w-[56ch]">
-                  A reusable eLearning design system built to speed up course builds, improve consistency, and support WCAG-aligned layouts across Storyline, Rise, and H5P.
-                </p>
-                <p className="mt-6 text-xs font-semibold tracking-[0.18em] uppercase text-[var(--text)] opacity-45">
-                  Outcome: faster builds, fewer fixes, consistent UX, and WCAG-aligned layouts.
-                </p>
-                <Link
-                  to="/work/elearning-design-system"
-                  className="mt-8 inline-flex btn-outline items-center justify-center gap-2 px-5 py-3 text-sm font-heading rounded-xl"
-                >
-                  View project <span aria-hidden>→</span>
-                </Link>
-              </div>
-              <div className="bg-[rgba(26,20,70,0.03)] md:bg-[rgba(26,20,70,0.03)] dark:bg-white/6 dark:md:bg-white/8 p-8 md:p-10 flex items-center justify-center border-t border-black/10 md:border-t-0 md:border-l border-black/10 dark:border-white/10">
-                <img
-                  src="/images/portfolio-elearning-design-system.jpg"
-                  alt="eLearning Design System preview"
-                  className="w-full max-w-[620px] h-auto block rounded-xl shadow-[0_18px_45px_rgba(2,6,23,0.12)]"
-                  loading="lazy"
-                  decoding="async"
-                />
-              </div>
-            </div>
-          </Link>
-        </Container>
-      </Section>
 
 
       {/* SERVICES PREVIEW */}
@@ -510,6 +459,57 @@ export default function Home() {
             className="text-sm text-[var(--brand-primary)] hover:underline inline-block font-heading"
           >
             View all projects →
+          </Link>
+        </Container>
+      </Section>
+
+      {/* FEATURED PROJECT ROW (BOTTOM) */}
+      <Section noPadding className="bg-[var(--bg)]">
+        <Container className="pt-10 pb-10 md:pt-12 md:pb-14">
+          <Link
+            to="/work/elearning-design-system"
+            className="
+              block w-full
+              overflow-hidden
+              rounded-2xl
+              ring-1 ring-black/10 dark:ring-white/10
+              bg-white dark:bg-white/5
+              shadow-[0_28px_90px_rgba(2,6,23,0.18)]
+              focus-visible:outline-none
+              focus-visible:ring-2
+              focus-visible:ring-[var(--secondary)]/40
+            "
+          >
+            <div className="grid grid-cols-1 md:grid-cols-[3fr_2fr]">
+              <div className="p-8 md:p-10">
+                <p className="text-xs font-semibold tracking-[0.18em] uppercase text-[var(--text)] opacity-70">
+                  Glenn Hammond · eLearning Design System
+                </p>
+                <h2 className="mt-4 font-heading text-3xl md:text-4xl font-semibold leading-tight text-[var(--text)] max-w-[22ch]">
+                  eLearning Design System for modern professional learning
+                </h2>
+                <p className="mt-4 text-[var(--text)] opacity-75 leading-7 max-w-[56ch]">
+                  A reusable eLearning design system built to speed up course builds, improve consistency, and support WCAG-aligned layouts across Storyline, Rise, and H5P.
+                </p>
+                <p className="mt-6 text-xs font-semibold tracking-[0.18em] uppercase text-[var(--text)] opacity-45">
+                  Outcome: faster builds, fewer fixes, consistent UX, and WCAG-aligned layouts.
+                </p>
+                <Link
+                  to="/work/elearning-design-system"
+                  className="mt-8 inline-flex btn-outline items-center justify-center gap-2 px-5 py-3 text-sm font-heading rounded-xl"
+                >
+                  View project <span aria-hidden>→</span>
+                </Link>
+              </div>
+              <div className="bg-[rgba(26,20,70,0.03)] md:bg-[rgba(26,20,70,0.03)] dark:bg-white/6 dark:md:bg-white/8 p-8 md:p-10 flex items-center justify-center border-t border-black/10 md:border-t-0 md:border-l border-black/10 dark:border-white/10">
+                <img
+src="/images/work/glenn-hammond-site-assets-gh-elearning-design-system.webp"                  alt="eLearning Design System preview"
+                  className="w-full max-w-[620px] h-auto block rounded-xl shadow-[0_18px_45px_rgba(2,6,23,0.12)]"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </div>
+            </div>
           </Link>
         </Container>
       </Section>
