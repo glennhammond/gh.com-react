@@ -3,18 +3,48 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 import PageWrapper from "../components/layout/PageWrapper";
-import PageIntro from "../components/layout/PageIntro";
+import Breadcrumb from "../components/ui/Breadcrumb.jsx";
 import { HeroShell } from "../components/layout/PageHero";
 import Section from "../components/layout/Section";
 import Container from "../components/layout/Container";
 import SEO from "../components/ui/SEO.jsx";
 
 export default function Work() {
+  const base = import.meta.env.BASE_URL;
   return (
     <PageWrapper>
       <SEO
-        title="Work – Glenn Hammond"
+        title="Work"
         description="Selected work spanning aviation, education, and experimental eLearning prototypes."
+        canonical="/work"
+        jsonLd={[
+          {
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            itemListElement: [
+              {
+                "@type": "ListItem",
+                position: 1,
+                name: "Home",
+                item: "https://glennhammond.com/",
+              },
+              {
+                "@type": "ListItem",
+                position: 2,
+                name: "Work",
+                item: "https://glennhammond.com/work",
+              },
+            ],
+          },
+          {
+            "@context": "https://schema.org",
+            "@type": "CollectionPage",
+            name: "Work",
+            description:
+              "Selected work spanning aviation, education, and experimental eLearning prototypes.",
+            url: "https://glennhammond.com/work",
+          },
+        ]}
       />
 
       {/* PAGE INTRO / HERO */}
@@ -26,15 +56,28 @@ export default function Work() {
         <div className="grid gap-8 lg:grid-cols-[minmax(0,1.6fr)_minmax(0,1fr)] items-start">
           {/* LEFT: Intro copy */}
           <div className="space-y-5">
-            <PageIntro
-              breadcrumb={[
-                { label: "Home", href: "/" },
-                { label: "Work" },
-              ]}
-              eyebrow="Selected work"
-              title="Modern learning design"
-              lead="Repeatable learning frameworks - consistent structure, UX and production process."
-            />
+            <div className="space-y-4">
+              <div className="min-h-[24px]">
+                <Breadcrumb
+                  items={[
+                    { label: "Home", href: "/" },
+                    { label: "Work" },
+                  ]}
+                />
+              </div>
+
+              <p className="text-xs uppercase tracking-[0.18em] text-neutral-500 dark:text-white/70">
+                Selected work
+              </p>
+
+              <h1 className="font-heading text-4xl md:text-5xl text-[var(--text)]">
+                Modern learning design
+              </h1>
+
+              <p className="text-base md:text-lg leading-relaxed text-neutral-700/90 dark:text-white/80 max-w-2xl">
+                Repeatable learning frameworks - consistent structure, UX, and production.
+              </p>
+            </div>
             <div className="max-w-2xl space-y-4">
               <p className="text-base md:text-lg leading-relaxed text-neutral-700/90 dark:text-white/80">
                 A selection of projects where learning strategy, UX, and production needed to align.
@@ -53,7 +96,7 @@ export default function Work() {
               style={{ transform: "none", transition: "none" }}
             >
               <img
-                src="/images/work/glenn-hammond-site-assets-gh-elearning-design-system.webp"
+                src={`${base}images/work/glenn-hammond-site-assets-gh-elearning-design-system.webp`}
                 alt="Preview of eLearning Design System tiles"
                 className="h-full w-full object-cover pointer-events-none select-none !transform-none !transition-none !scale-100"
                 style={{ transform: "none", transition: "none" }}
@@ -78,7 +121,7 @@ export default function Work() {
               {/* SHORTER IMAGE */}
               <div className="relative w-full h-36 md:h-40 overflow-hidden bg-neutral-100/60 dark:bg-white/5">
                 <img
-                  src="/images/work/glenn-hammond-site-assets-casa-course-cover.jpg"
+                  src={`${base}images/work/glenn-hammond-site-assets-casa-course-cover.jpg`}
                   alt="Civil Aviation Safety Authority Flight Examiner Rating course"
                   className="absolute inset-0 h-full w-full object-cover transition-transform duration-300 group-hover:scale-[1.02]"
                   loading="lazy"
@@ -116,7 +159,7 @@ export default function Work() {
               {/* SHORTER IMAGE */}
               <div className="relative w-full h-36 md:h-40 overflow-hidden bg-neutral-100/60 dark:bg-white/5">
                 <img
-                  src="/images/work/glenn-hammond-site-assets-casa-class-lms-design-and-development.jpg"
+                  src={`${base}images/work/glenn-hammond-site-assets-casa-class-lms-design-and-development.jpg`}
                   alt="CASA CLASS learning management system front-end design"
                   className="absolute inset-0 h-full w-full object-cover transition-transform duration-300 group-hover:scale-[1.02]"
                   loading="lazy"
@@ -154,7 +197,7 @@ export default function Work() {
               {/* SHORTER IMAGE */}
               <div className="relative w-full h-36 md:h-40 overflow-hidden bg-neutral-100/60 dark:bg-white/5">
                 <img
-                  src="/images/work/glenn-hammond-site-assets-corporate-yoga-australia.webp"
+                  src={`${base}images/work/glenn-hammond-site-assets-corporate-yoga-australia.webp`}
                   alt="Corporate Yoga Australia WordPress website"
                   className="absolute inset-0 h-full w-full object-cover transition-transform duration-300 group-hover:scale-[1.02]"
                   loading="lazy"
@@ -192,7 +235,7 @@ export default function Work() {
               {/* SHORTER IMAGE */}
               <div className="relative w-full h-36 md:h-40 overflow-hidden bg-neutral-100/60 dark:bg-white/5">
                 <img
-                  src="/images/work/glenn-hammond-site-assets-kajabi-corporate-yoga-australia.jpg"
+                  src={`${base}images/work/glenn-hammond-site-assets-kajabi-corporate-yoga-australia.jpg`}
                   alt="Corporate Yoga Australia Kajabi online wellness courses"
                   className="absolute inset-0 h-full w-full object-cover transition-transform duration-300 group-hover:scale-[1.02]"
                   loading="lazy"
@@ -253,7 +296,7 @@ export default function Work() {
             >
               <div className="w-full bg-neutral-50 dark:bg-white/5">
                 <img
-                  src="/images/work/articulate/glenn-hammond-site-assets-articulate-elearning-heroes-116.webp"
+                  src={`${base}images/work/articulate/glenn-hammond-site-assets-articulate-elearning-heroes-116.webp`}
                   alt="‘Don’t jump’ interactive video prototype – rooftop scene"
                   className="block w-full h-auto object-contain"
                   loading="lazy"
@@ -350,7 +393,7 @@ export default function Work() {
             {/* IMAGE SIDE */}
             <div className="flex w-full items-center justify-center bg-neutral-50 p-4 md:w-[40%] md:p-5 dark:bg-white/5">
               <img
-                src="/images/portfolio-elearning-design-system.jpg"
+                src={`${base}images/portfolio-elearning-design-system.jpg`}
                 alt="Glenn Hammond eLearning Design System overview"
                 className="h-auto w-full max-h-56 object-contain md:max-h-64"
                 loading="lazy"
