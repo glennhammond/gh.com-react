@@ -9,7 +9,7 @@ const SITE = {
     "Award-winning eLearning specialist in Brisbane designing engaging, data-informed learning in Storyline, Rise and Moodle with xAPI and LRS reporting.",
   url: "https://glennhammond.com",
   // Update this if/when you add a default share image
-  image: "https://glennhammond.com/og-default.png",
+  image: "/images/gh-profile.jpg",
   twitterHandle: "", // e.g. "@glennhammond" (optional)
 };
 
@@ -31,7 +31,7 @@ export default function SEO({
   noindex = false,
   jsonLd, // object or array of objects
 }) {
-  const metaTitle = title ? `${title} | ${SITE.title}` : SITE.title;
+  const metaTitle = title ? `${title} | ${SITE.name}` : SITE.title;
   const metaDescription = description || SITE.description;
 
   const canonicalUrl = canonical ? normaliseUrl(canonical) : "";
@@ -56,6 +56,7 @@ export default function SEO({
       <meta property="og:title" content={metaTitle} />
       <meta property="og:description" content={metaDescription} />
       <meta property="og:type" content={type} />
+      <meta property="og:locale" content="en_AU" />
       {canonicalUrl && <meta property="og:url" content={canonicalUrl} />}
       {ogImage && <meta property="og:image" content={ogImage} />}
 
