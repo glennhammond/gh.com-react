@@ -97,7 +97,39 @@ export default function Home() {
       // TAFE: leave as-is
       return p;
     });
-  const latestPosts = posts.slice(1, 4);
+  // LATEST POSTS (sort by date desc, then take top 3)
+  const parsePostDate = (raw) => {
+    if (!raw) return 0;
+
+    const s = String(raw).trim();
+
+    // ISO-like: 2025-09-17 or full ISO timestamp
+    if (/^\d{4}-\d{2}-\d{2}/.test(s)) {
+      const t = Date.parse(s);
+      return Number.isNaN(t) ? 0 : t;
+    }
+
+    // Legacy AU: DD/MM/YYYY
+    if (/^\d{1,2}\/\d{1,2}\/\d{4}$/.test(s)) {
+      const [ddRaw, mmRaw, yyyy] = s.split("/");
+      const dd = String(ddRaw).padStart(2, "0");
+      const mm = String(mmRaw).padStart(2, "0");
+      const t = Date.parse(`${yyyy}-${mm}-${dd}T00:00:00`);
+      return Number.isNaN(t) ? 0 : t;
+    }
+
+    // Fallback parse
+    const t = Date.parse(s);
+    return Number.isNaN(t) ? 0 : t;
+  };
+
+  const latestPosts = React.useMemo(() => {
+    return [...posts]
+      // If you want undated posts to appear too, remove this filter.
+      .filter((p) => p?.date)
+      .sort((a, b) => parsePostDate(b?.date) - parsePostDate(a?.date))
+      .slice(0, 3);
+  }, []);
 
   return (
     <PageWrapper>
@@ -447,6 +479,16 @@ export default function Home() {
                   hover:border-[var(--brand-primary)] transition
                 "
               >
+                {/* Post thumbnail (placeholder for now) */}
+                <div className="overflow-hidden rounded-xl ring-1 ring-black/10 bg-[rgba(15,23,42,0.04)]">
+                  <img
+                    src={post.image || placeholderImg}
+                    alt=""
+                    className="w-full aspect-[16/9] object-cover block"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </div>
                 <div className="flex items-center gap-3 text-[11px] uppercase tracking-[0.18em] text-slate-600">
                   {post.date && <span>{post.date}</span>}
                   {post.category && (
