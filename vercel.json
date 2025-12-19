@@ -26,7 +26,10 @@
       "permanent": true
     },
     {
-      "source": "/?p=1",
+      "source": "/",
+      "has": [
+        { "type": "query", "key": "p", "value": "1" }
+      ],
       "destination": "/blog/hello-world",
       "permanent": true
     },
@@ -36,7 +39,10 @@
       "permanent": true
     },
     {
-      "source": "/?p=164",
+      "source": "/",
+      "has": [
+        { "type": "query", "key": "p", "value": "164" }
+      ],
       "destination": "/blog/how-to-set-moodles-user-login-page-as-the-sites-landing-page",
       "permanent": true
     },
@@ -46,7 +52,10 @@
       "permanent": true
     },
     {
-      "source": "/?p=156431",
+      "source": "/",
+      "has": [
+        { "type": "query", "key": "p", "value": "156431" }
+      ],
       "destination": "/blog/gamification-in-storyline-leaderboards-badges-and-incentives",
       "permanent": true
     },
@@ -56,7 +65,10 @@
       "permanent": true
     },
     {
-      "source": "/?p=156433",
+      "source": "/",
+      "has": [
+        { "type": "query", "key": "p", "value": "156433" }
+      ],
       "destination": "/blog/new-quick-tips-layout-for-your-projects",
       "permanent": true
     },
@@ -66,7 +78,10 @@
       "permanent": true
     },
     {
-      "source": "/?p=156435",
+      "source": "/",
+      "has": [
+        { "type": "query", "key": "p", "value": "156435" }
+      ],
       "destination": "/blog/new-elegant-blog-post-layout-how-to-create-vertical-tabs-in-storyline",
       "permanent": true
     },
@@ -76,7 +91,10 @@
       "permanent": true
     },
     {
-      "source": "/?p=156437",
+      "source": "/",
+      "has": [
+        { "type": "query", "key": "p", "value": "156437" }
+      ],
       "destination": "/blog/another-nifty-layout-idea-for-storyline",
       "permanent": true
     },
@@ -86,7 +104,10 @@
       "permanent": true
     },
     {
-      "source": "/?p=156447",
+      "source": "/",
+      "has": [
+        { "type": "query", "key": "p", "value": "156447" }
+      ],
       "destination": "/blog/ai-in-instructional-design",
       "permanent": true
     },
@@ -96,7 +117,10 @@
       "permanent": true
     },
     {
-      "source": "/?p=156449",
+      "source": "/",
+      "has": [
+        { "type": "query", "key": "p", "value": "156449" }
+      ],
       "destination": "/blog/using-xapi-to-unlock-deeper-learning-analytics",
       "permanent": true
     },
@@ -106,7 +130,10 @@
       "permanent": true
     },
     {
-      "source": "/?p=156453",
+      "source": "/",
+      "has": [
+        { "type": "query", "key": "p", "value": "156453" }
+      ],
       "destination": "/blog/5-ways-ai-is-transforming-elearning-design",
       "permanent": true
     },
@@ -116,7 +143,10 @@
       "permanent": true
     },
     {
-      "source": "/?p=156456",
+      "source": "/",
+      "has": [
+        { "type": "query", "key": "p", "value": "156456" }
+      ],
       "destination": "/blog/what-is-xapi-and-why-is-it-important-in-elearning",
       "permanent": true
     },
@@ -126,7 +156,10 @@
       "permanent": true
     },
     {
-      "source": "/?p=156461",
+      "source": "/",
+      "has": [
+        { "type": "query", "key": "p", "value": "156461" }
+      ],
       "destination": "/blog/storyline-vs-rise-which-tool-should-you-use",
       "permanent": true
     },
@@ -136,7 +169,10 @@
       "permanent": true
     },
     {
-      "source": "/?p=156463",
+      "source": "/",
+      "has": [
+        { "type": "query", "key": "p", "value": "156463" }
+      ],
       "destination": "/blog/master-slides-in-storyline",
       "permanent": true
     },
@@ -146,7 +182,10 @@
       "permanent": true
     },
     {
-      "source": "/?p=156466",
+      "source": "/",
+      "has": [
+        { "type": "query", "key": "p", "value": "156466" }
+      ],
       "destination": "/blog/a-new-quick-and-easy-layout-idea-for-storyline",
       "permanent": true
     },
@@ -156,7 +195,10 @@
       "permanent": true
     },
     {
-      "source": "/?p=156471",
+      "source": "/",
+      "has": [
+        { "type": "query", "key": "p", "value": "156471" }
+      ],
       "destination": "/blog/how-to-create-and-use-a-lightbox-in-storyline",
       "permanent": true
     },
@@ -166,7 +208,10 @@
       "permanent": true
     },
     {
-      "source": "/?p=156473",
+      "source": "/",
+      "has": [
+        { "type": "query", "key": "p", "value": "156473" }
+      ],
       "destination": "/blog/storyline-menu-design-options",
       "permanent": true
     },
@@ -176,7 +221,10 @@
       "permanent": true
     },
     {
-      "source": "/?p=156476",
+      "source": "/",
+      "has": [
+        { "type": "query", "key": "p", "value": "156476" }
+      ],
       "destination": "/blog/storyline-360-triggers-and-variables",
       "permanent": true
     },
@@ -186,7 +234,10 @@
       "permanent": true
     },
     {
-      "source": "/?p=156481",
+      "source": "/",
+      "has": [
+        { "type": "query", "key": "p", "value": "156481" }
+      ],
       "destination": "/blog/how-to-create-a-custom-storyline-player-menu",
       "permanent": true
     },
@@ -196,7 +247,10 @@
       "permanent": true
     },
     {
-      "source": "/?p=156483",
+      "source": "/",
+      "has": [
+        { "type": "query", "key": "p", "value": "156483" }
+      ],
       "destination": "/blog/branding-your-storyline-course",
       "permanent": true
     },
@@ -206,7 +260,10 @@
       "permanent": true
     },
     {
-      "source": "/?p=156486",
+      "source": "/",
+      "has": [
+        { "type": "query", "key": "p", "value": "156486" }
+      ],
       "destination": "/blog/using-tabs-in-storyline-interaction-ideas",
       "permanent": true
     },
@@ -216,7 +273,10 @@
       "permanent": true
     },
     {
-      "source": "/?p=156488",
+      "source": "/",
+      "has": [
+        { "type": "query", "key": "p", "value": "156488" }
+      ],
       "destination": "/blog/storyline-ui-layout-for-tabs",
       "permanent": true
     },
@@ -226,7 +286,10 @@
       "permanent": true
     },
     {
-      "source": "/?p=156492",
+      "source": "/",
+      "has": [
+        { "type": "query", "key": "p", "value": "156492" }
+      ],
       "destination": "/blog/a-modern-storyline-layout-to-support-your-courses",
       "permanent": true
     },
@@ -236,7 +299,10 @@
       "permanent": true
     },
     {
-      "source": "/?p=156494",
+      "source": "/",
+      "has": [
+        { "type": "query", "key": "p", "value": "156494" }
+      ],
       "destination": "/blog/get-a-modern-storyline-player-fast",
       "permanent": true
     },
@@ -246,7 +312,10 @@
       "permanent": true
     },
     {
-      "source": "/?p=156496",
+      "source": "/",
+      "has": [
+        { "type": "query", "key": "p", "value": "156496" }
+      ],
       "destination": "/blog/why-storyline-slides-still-matter-in-2025",
       "permanent": true
     },
@@ -256,7 +325,10 @@
       "permanent": true
     },
     {
-      "source": "/?p=156498",
+      "source": "/",
+      "has": [
+        { "type": "query", "key": "p", "value": "156498" }
+      ],
       "destination": "/blog/need-help-with-a-storyline-project",
       "permanent": true
     },
@@ -266,7 +338,10 @@
       "permanent": true
     },
     {
-      "source": "/?p=156500",
+      "source": "/",
+      "has": [
+        { "type": "query", "key": "p", "value": "156500" }
+      ],
       "destination": "/blog/elearning-tools-i-use",
       "permanent": true
     },
@@ -276,7 +351,10 @@
       "permanent": true
     },
     {
-      "source": "/?p=156504",
+      "source": "/",
+      "has": [
+        { "type": "query", "key": "p", "value": "156504" }
+      ],
       "destination": "/blog/quick-tips-for-web-flow-designers",
       "permanent": true
     },
@@ -286,7 +364,10 @@
       "permanent": true
     },
     {
-      "source": "/?p=156506",
+      "source": "/",
+      "has": [
+        { "type": "query", "key": "p", "value": "156506" }
+      ],
       "destination": "/blog/best-labs-for-facebook-brand-pages",
       "permanent": true
     },
@@ -296,7 +377,10 @@
       "permanent": true
     },
     {
-      "source": "/?p=156330",
+      "source": "/",
+      "has": [
+        { "type": "query", "key": "p", "value": "156330" }
+      ],
       "destination": "/blog/storyline-with-scorm-xapi-the-best-of-both-worlds",
       "permanent": true
     },
