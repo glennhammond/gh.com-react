@@ -82,6 +82,12 @@
   --hero-bg: #EEF1F8;   /* soft cool hero tint */
 
   --text: #1A1446;      /* ink navy */
+  --heading: #2A255A;   /* slightly softened ink for headings in light mode */
+
+  /* Prefer a perceptual mix where supported */
+  @supports (color: color-mix(in oklab, black 50%, white)) {
+    --heading: color-mix(in oklab, var(--text) 82%, var(--bg));
+  }
   --muted: #3F4661;
   --text-muted: #3F4661;
 
@@ -152,6 +158,7 @@ html.dark {
   --hero-bg: #151041; /* slightly deeper indigo for hero */
 
   --text: #ffffff;
+  --heading: var(--text);
   --muted: rgba(255, 255, 255, 0.82);
   --text-muted: rgba(255, 255, 255, 0.82);
 

@@ -42,7 +42,34 @@ const clients = [
 ];
 
 export default function Home() {
-  const featuredProjects = projects.slice(0, 3);
+  const featuredProjects = projects.slice(0, 3).map((p) => {
+ 
+    if (p.slug === "cognitive-science-in-queensland-schools") {
+      return {
+        ...p,
+  
+        title: "Cognitive Science",
+        subtitle:
+          "Evidence-informed learning design for Queensland schools - grounded in cognitive load, retrieval practice, and explicit teaching.",
+        to: "/services",
+        image: `${import.meta.env.BASE_URL}images/placeholders/placeholder-post.jpg`,
+      };
+    }
+
+    const isReactPrototypes =
+      p.slug === "react-learning-prototypes" ||
+      (typeof p.title === "string" &&
+        p.title.toLowerCase().includes("react learning prototypes"));
+
+    if (isReactPrototypes) {
+      return {
+        ...p,
+        image: `${import.meta.env.BASE_URL}images/placeholders/placeholder-post.jpg`,
+      };
+    }
+
+    return p;
+  });
   const latestPosts = posts.slice(1, 4);
 
   return (
@@ -426,7 +453,7 @@ export default function Home() {
             {featuredProjects.map((project) => (
               <Link
                 key={project.slug}
-                to={`/work/${project.slug}`}
+                to={project.to || `/work/${project.slug}`}
                 className="rounded-2xl border border-black/10 bg-white overflow-hidden shadow-xl transition hover:-translate-y-[2px] hover:shadow-2xl dark:border-black/10 dark:bg-white"
               >
                 <ProjectImage src={project.image} alt={project.title} />
@@ -525,6 +552,12 @@ function ServiceCard({ title, text, items, icon, tag }) {
         <ul className="space-y-3 text-sm text-slate-700">
           {items.map((item) => (
             <li key={item} className="relative pl-6">
+              <span
+                aria-hidden="true"
+                className="absolute left-0 top-[0.15em] text-[0.95em] leading-none text-[var(--secondary)]"
+              >
+                ★
+              </span>
               {item}
             </li>
           ))}
