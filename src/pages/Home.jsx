@@ -42,34 +42,61 @@ const clients = [
 ];
 
 export default function Home() {
-  const featuredProjects = projects.slice(0, 3).map((p) => {
- 
-    if (p.slug === "cognitive-science-in-queensland-schools") {
-      return {
-        ...p,
-  
-        title: "Cognitive Science",
-        subtitle:
-          "Evidence-informed learning design for Queensland schools - grounded in cognitive load, retrieval practice, and explicit teaching.",
-        to: "/services",
-        image: `${import.meta.env.BASE_URL}images/placeholders/placeholder-post.jpg`,
-      };
-    }
+  const placeholderImg = `${import.meta.env.BASE_URL}images/placeholders/placeholder-post.jpg`;
 
-    const isReactPrototypes =
-      p.slug === "react-learning-prototypes" ||
-      (typeof p.title === "string" &&
-        p.title.toLowerCase().includes("react learning prototypes"));
+  // FEATURED WORK (explicit order)
+  const pickBySlug = (slug) => projects.find((p) => p?.slug === slug);
+  const pickByIncludes = (needle) =>
+    projects.find(
+      (p) => typeof p?.slug === "string" && p.slug.toLowerCase().includes(needle)
+    );
 
-    if (isReactPrototypes) {
-      return {
-        ...p,
-        image: `${import.meta.env.BASE_URL}images/placeholders/placeholder-post.jpg`,
-      };
-    }
+  const reactProject =
+    pickBySlug("react-learning-prototypes") || pickByIncludes("react-learning");
 
-    return p;
-  });
+  // Prefer the real cognitive project if present; otherwise fall back to the design-system slot
+  const cognitiveBase =
+    pickBySlug("cognitive-science-in-queensland-schools") ||
+    pickByIncludes("cognitive") ||
+    pickBySlug("elearning-design-system");
+
+  const tafeProject =
+    pickBySlug("tafe-qld-pathways") ||
+    pickBySlug("tafe-qld-pathways-program") ||
+    projects.find(
+      (p) =>
+        typeof p?.slug === "string" &&
+        p.slug.toLowerCase().includes("tafe") &&
+        p.slug.toLowerCase().includes("path")
+    ) ||
+    pickByIncludes("pathways") ||
+    pickByIncludes("tafe");
+
+  const featuredProjects = [reactProject, cognitiveBase, tafeProject]
+    .filter(Boolean)
+    .map((p) => {
+      const slug = String(p.slug || "").toLowerCase();
+
+      // React: force placeholder image
+      if (slug.includes("react-learning")) {
+        return { ...p, image: placeholderImg };
+      }
+
+      // Cognitive: force your custom copy + placeholder image (also catches the design-system fallback)
+      if (slug.includes("cognitive") || slug === "elearning-design-system") {
+        return {
+          ...p,
+          title: "Cognitive Science",
+          subtitle:
+            "Evidence-informed learning design for Queensland schools - grounded in cognitive load, retrieval practice, and explicit teaching.",
+          to: "/services",
+          image: placeholderImg,
+        };
+      }
+
+      // TAFE: leave as-is
+      return p;
+    });
   const latestPosts = posts.slice(1, 4);
 
   return (
@@ -300,94 +327,100 @@ export default function Home() {
       </HeroShell>
 
 
-      {/* CLIENT LOGOS */}
-      <Section className="bg-[var(--bg-soft)] border-y border-black/5 dark:border-white/10">
-        <Container className="py-6 md:py-8 fade-in-up">
-          <div className="w-full max-w-[560px] mx-auto sm:max-w-none">
-            <div className="grid w-full grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-x-8 gap-y-12 place-items-stretch sm:place-items-center">
-              {clients.map((client) => (
-                <div key={client.name} className="flex items-center justify-center w-full">
-                  {/*
-                    Normalise scaling across breakpoints:
-                    - fixed width box so all logos are the same visual width on mobile
-                    - fixed max-height so wordmarks stay tidy
-                    - object-contain to preserve aspect ratio
-                  */}
-                  <div className="w-[68%] max-w-[381px] mx-auto sm:mx-0 sm:w-[162px] md:w-[180px] min-h-12 flex items-center justify-center">
-                    <img
-                      src={client.lightSrc}
-                      alt={client.name}
-                      className={`w-full h-auto max-h-[136px] sm:max-h-[41px] object-contain origin-center opacity-90 block dark:hidden ${
-                        client.className || ""
-                      }`}
-                      loading="lazy"
-                      decoding="async"
-                    />
-                    <img
-                      src={client.darkSrc}
-                      alt={client.name}
-                      className={`w-full h-auto max-h-[136px] sm:max-h-[41px] object-contain origin-center opacity-90 hidden dark:block ${
-                        client.className || ""
-                      }`}
-                      loading="lazy"
-                      decoding="async"
-                    />
-                  </div>
+      {/* SERVICES + CLIENT LOGOS (mobile: services first, desktop: logos first) */}
+      <div className="flex flex-col">
+        {/* Mobile order: 2, Desktop order: 1 */}
+        <div className="order-2 md:order-1">
+          {/* CLIENT LOGOS */}
+          <Section className="bg-[var(--bg-soft)] border-y border-black/5 dark:border-white/10">
+            <Container className="py-6 md:py-8 fade-in-up">
+              <div className="w-full max-w-[560px] mx-auto sm:max-w-none">
+                <div className="grid w-full grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-x-8 gap-y-12 place-items-stretch sm:place-items-center">
+                  {clients.map((client) => (
+                    <div key={client.name} className="flex items-center justify-center w-full">
+                      {/*
+                        Normalise scaling across breakpoints:
+                        - fixed width box so all logos are the same visual width on mobile
+                        - fixed max-height so wordmarks stay tidy
+                        - object-contain to preserve aspect ratio
+                      */}
+                      <div className="w-[68%] max-w-[381px] mx-auto sm:mx-0 sm:w-[162px] md:w-[180px] min-h-12 flex items-center justify-center">
+                        <img
+                          src={client.lightSrc}
+                          alt={client.name}
+                          className={`w-full h-auto max-h-[136px] sm:max-h-[41px] object-contain origin-center opacity-90 block dark:hidden ${
+                            client.className || ""
+                          }`}
+                          loading="lazy"
+                          decoding="async"
+                        />
+                        <img
+                          src={client.darkSrc}
+                          alt={client.name}
+                          className={`w-full h-auto max-h-[136px] sm:max-h-[41px] object-contain origin-center opacity-90 hidden dark:block ${
+                            client.className || ""
+                          }`}
+                          loading="lazy"
+                          decoding="async"
+                        />
+                      </div>
+                    </div>
+                  ))}
                 </div>
-              ))}
-            </div>
-          </div>
-        </Container>
-      </Section>
+              </div>
+            </Container>
+          </Section>
+        </div>
 
+        {/* Mobile order: 1, Desktop order: 2 */}
+        <div className="order-1 md:order-2">
+          {/* SERVICES PREVIEW */}
+          <Section>
+            <Container className="space-y-8 fade-in-up">
+              <div className="space-y-2">
+                <span className="text-xs uppercase tracking-[0.18em] text-[var(--text)] opacity-60">
+                  Services
+                </span>
+                <h2 className="font-heading text-2xl text-[var(--text)]">What I do</h2>
+              </div>
 
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
+                <ServiceCard
+                  title="Consultancy & instructional design"
+                  items={[
+                    "Discovery, needs analysis, and learning strategy",
+                    "Curriculum design, storyboards, and scenario writing",
+                    "Stakeholder alignment and quality assurance",
+                  ]}
+                />
+                <ServiceCard
+                  title="eLearning & media development"
+                  items={[
+                    "Storyline/Rise builds with strong UX and accessibility",
+                    "Reusable templates, components, and design systems",
+                    "Video production, editing, and microlearning assets",
+                  ]}
+                />
+                <ServiceCard
+                  title="xAPI & learning analytics"
+                  items={[
+                    "xAPI implementation, debugging, and statement design",
+                    "Veracity/Learning Locker setup and reporting workflows",
+                    "Dashboards that turn learning data into insight",
+                  ]}
+                />
+              </div>
 
-      {/* SERVICES PREVIEW */}
-      <Section>
-        <Container className="space-y-8 fade-in-up">
-          <div className="space-y-2">
-            <span className="text-xs uppercase tracking-[0.18em] text-[var(--text)] opacity-60">
-              Services
-            </span>
-            <h2 className="font-heading text-2xl text-[var(--text)]">What I do</h2>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
-            <ServiceCard
-              title="Consultancy & instructional design"
-              items={[
-                "Discovery, needs analysis, and learning strategy",
-                "Curriculum design, storyboards, and scenario writing",
-                "Stakeholder alignment and quality assurance",
-              ]}
-            />
-            <ServiceCard
-              title="eLearning & media development"
-              items={[
-                "Storyline/Rise builds with strong UX and accessibility",
-                "Reusable templates, components, and design systems",
-                "Video production, editing, and microlearning assets",
-              ]}
-            />
-            <ServiceCard
-              title="xAPI & learning analytics"
-              items={[
-                "xAPI implementation, debugging, and statement design",
-                "Veracity/Learning Locker setup and reporting workflows",
-                "Dashboards that turn learning data into insight",
-              ]}
-            />
-          </div>
-
-          <Link
-            to="/services"
-            className="text-sm text-[var(--link)] hover:text-[var(--link-hover)] hover:underline inline-block font-heading"
-          >
-            View all services →
-          </Link>
-        </Container>
-      </Section>
-
+              <Link
+                to="/services"
+                className="text-sm text-[var(--link)] hover:text-[var(--link-hover)] hover:underline inline-block font-heading"
+              >
+                View all services →
+              </Link>
+            </Container>
+          </Section>
+        </div>
+      </div>
       {/* LATEST POSTS */}
       <Section className="bg-[var(--bg-soft)]">
         <Container className="space-y-8 fade-in-up">
@@ -443,7 +476,7 @@ export default function Home() {
       </Section>
 
       {/* FEATURED WORK */}
-      <Section>
+      <Section className="bg-[var(--bg-soft)]">
         <Container className="space-y-10 fade-in-up">
           <h2 className="font-heading text-2xl text-[var(--text)]">
             Featured work
@@ -482,7 +515,7 @@ export default function Home() {
       </Section>
 
       {/* FEATURED PROJECT ROW (BOTTOM) */}
-      <Section noPadding className="bg-[var(--bg)]">
+      <Section noPadding className="bg-[var(--bg-soft)]">
         <Container className="pt-10 pb-10 md:pt-12 md:pb-14">
           <Link
             to="/work/elearning-design-system"

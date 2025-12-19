@@ -30,7 +30,7 @@ export default function Header() {
               <img
                 src="/images/logos/logo-glennhammond-dark.svg"
                 alt="Glenn Hammond"
-                className="h-11 md:h-12 w-auto dark:hidden"
+                className="h-8 md:h-9 w-auto max-w-[240px] dark:hidden"
                 loading="eager"
                 decoding="async"
               />
@@ -39,7 +39,7 @@ export default function Header() {
               <img
                 src="/images/logos/logo-glennhammond-light.svg"
                 alt="Glenn Hammond"
-                className="hidden h-11 md:h-12 w-auto dark:block"
+                className="hidden h-8 md:h-9 w-auto max-w-[240px] dark:block"
                 loading="eager"
                 decoding="async"
               />

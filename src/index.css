@@ -77,17 +77,12 @@
   --font-body: "open-sans", "Open Sans", system-ui, sans-serif;
 
   /* Core colour system */
-  --bg: #F6F7FB;        /* cool off-white page background */
+  --bg: #F7F4FF;        /* cool off-white with a hint of ink */
   --bg-soft: #ffffff;   /* cards, panels */
-  --hero-bg: #EEF1F8;   /* soft cool hero tint */
+  --hero-bg: #F2F0FF;   /* soft hero tint with a hint of ink */
 
   --text: #1A1446;      /* ink navy */
-  --heading: #2A255A;   /* slightly softened ink for headings in light mode */
-
-  /* Prefer a perceptual mix where supported */
-  @supports (color: color-mix(in oklab, black 50%, white)) {
-    --heading: color-mix(in oklab, var(--text) 82%, var(--bg));
-  }
+  --heading: var(--text);
   --muted: #3F4661;
   --text-muted: #3F4661;
 
@@ -552,14 +547,40 @@ body {
   line-height: 1.75;
 }
 
-/* Light mode - subtle ambient background so pages feel less flat */
-html:not(.dark) body {
+
+/* Light mode - inkier ambient wash (navy/purple leads, pink is just a whisper) */
+html:not(.dark) {
+  background-color: var(--bg);
   background-image:
-    radial-gradient(900px circle at 18% 12%, rgba(26, 20, 70, 0.10), transparent 62%),
-    radial-gradient(900px circle at 82% 28%, rgba(255, 62, 127, 0.08), transparent 64%),
-    radial-gradient(1100px circle at 50% 92%, rgba(26, 20, 70, 0.06), transparent 66%);
-  background-attachment: fixed;
+    radial-gradient(1250px circle at 10% 0%, rgba(26, 20, 70, 0.38), transparent 58%),
+    radial-gradient(1200px circle at 92% 12%, rgba(26, 20, 70, 0.22), transparent 56%),
+    radial-gradient(1200px circle at 78% 46%, rgba(255, 62, 127, 0.035), transparent 56%),
+    radial-gradient(1600px circle at 55% 94%, rgba(26, 20, 70, 0.26), transparent 66%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.70), rgba(255, 255, 255, 0));
   background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: 150% 150%, 155% 155%, 130% 130%, 165% 165%, 100% 100%;
+  filter: saturate(1.02) contrast(1.02);
+}
+
+/* Let the html background show through */
+html:not(.dark) body {
+  background-color: transparent;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  html:not(.dark) {
+    animation: lightWashShift 18s ease-in-out infinite alternate;
+  }
+}
+
+@keyframes lightWashShift {
+  from {
+    background-position: 0% 0%, 100% 0%, 50% 50%, 50% 100%, 0 0;
+  }
+  to {
+    background-position: 8% 4%, 92% 8%, 56% 46%, 48% 96%, 0 0;
+  }
 }
 
 /* 🔹 New: slightly larger again from tablet up */

@@ -6,7 +6,6 @@ import PageWrapper from "../components/layout/PageWrapper";
 import PageIntro from "../components/layout/PageIntro";
 import Section from "../components/layout/Section";
 import Container from "../components/layout/Container";
-import { HeroShell } from "../components/layout/PageHero";
 import SEO from "../components/ui/SEO.jsx";
 
 export default function Work() {
@@ -18,93 +17,87 @@ export default function Work() {
       />
 
       {/* PAGE INTRO / HERO */}
-      <HeroShell
-        noPadding
-        sectionClassName="!py-0 !pt-10 md:!pt-14 !pb-4 md:!pb-5"
-        containerClassName=""
-      >
-        <div className="grid gap-8 lg:grid-cols-[minmax(0,1.6fr)_minmax(0,1fr)] items-start">
-          {/* LEFT: Intro copy */}
-          <div className="space-y-5">
-            <PageIntro
-              breadcrumb={[
-                { label: "Home", href: "/" },
-                { label: "Work" },
-              ]}
-              eyebrow="Selected work"
-              title="Modern learning design"
-              lead="Repeatable learning frameworks - consistent structure, UX and production process."
-            />
-            <div className="max-w-2xl space-y-4">
-              <p className="text-base md:text-lg leading-relaxed text-neutral-700/90 dark:text-white/80">
-                A selection of projects where learning strategy, UX, and production needed to align.
-              </p>
-              <p className="text-base md:text-lg leading-relaxed text-neutral-700/90 dark:text-white/80">
-                Each example shows how I use repeatable patterns to keep experiences consistent and
-                delivery efficient across complex content and multiple modules.
-              </p>
-            </div>
-          </div>
-
-          {/* RIGHT: Simple visual / case-study preview */}
-          <div className="hidden lg:block lg:mt-16">
-            <div
-              className="aspect-[16/9] rounded-3xl border border-white/10 bg-white/5 overflow-hidden shadow-sm !transform-none !transition-none !translate-y-0"
-              style={{ transform: "none", transition: "none" }}
-            >
-              <img
-                src="/images/portfolio-elearning-design-system.jpg"
-                alt="Preview of the eLearning Design System"
-                className="h-full w-full object-cover pointer-events-none select-none !transform-none !transition-none !scale-100"
-                style={{ transform: "none", transition: "none" }}
-                loading="lazy"
-                decoding="async"
+      <Section className="!py-0 !pt-10 md:!pt-14 !pb-4 md:!pb-5">
+        <Container>
+          <div className="grid gap-8 lg:grid-cols-[minmax(0,1.6fr)_minmax(0,1fr)] items-start">
+            {/* LEFT: Intro copy */}
+            <div className="space-y-5">
+              <PageIntro
+                breadcrumb={[
+                  { label: "Home", href: "/" },
+                  { label: "Work" },
+                ]}
+                eyebrow="Selected work"
+                title="Modern learning design"
+                lead="Repeatable learning frameworks - consistent structure, UX and production process."
               />
+              <div className="max-w-2xl space-y-4">
+                <p className="text-base md:text-lg leading-relaxed text-neutral-700/90 dark:text-white/80">
+                  A selection of projects where learning strategy, UX, and production needed to align.
+                </p>
+                <p className="text-base md:text-lg leading-relaxed text-neutral-700/90 dark:text-white/80">
+                  Each example shows how I use repeatable patterns to keep experiences consistent and
+                  delivery efficient across complex content and multiple modules.
+                </p>
+              </div>
+            </div>
+
+            {/* RIGHT: Simple visual / case-study preview */}
+            <div className="hidden lg:block lg:mt-16">
+              <div
+                className="aspect-[16/9] rounded-3xl border border-white/10 bg-white/5 overflow-hidden shadow-sm !transform-none !transition-none !translate-y-0"
+                style={{ transform: "none", transition: "none" }}
+              >
+                <img
+                  src="/images/work/glenn-hammond-site-assets-gh-elearning-design-system.webp"
+                  alt="Preview of eLearning Design System tiles"
+                  className="h-full w-full object-cover pointer-events-none select-none !transform-none !transition-none !scale-100"
+                  style={{ transform: "none", transition: "none" }}
+                  loading="lazy"
+                  decoding="async"
+                />
+              </div>
             </div>
           </div>
-        </div>
-      </HeroShell>
+        </Container>
+      </Section>
 
       {/* FEATURED: eLearning Design System */}
       <Section className="mt-2 md:mt-3 !py-0">
         <Container>
           <Link
             to="/work/elearning-design-system"
-            className="group flex flex-col items-stretch overflow-hidden rounded-xl border border-black/10 bg-white shadow-sm transition hover:-translate-y-0.5 hover:shadow-md hover:border-[var(--brand-accent)] dark:border-white/10 dark:bg-white/5 md:flex-row-reverse"
+            className="group flex flex-col items-stretch overflow-hidden rounded-2xl border border-black/5 bg-white/80 shadow-sm backdrop-blur-sm transition hover:-translate-y-1 hover:shadow-md hover:border-[var(--brand-accent)] dark:border-white/10 dark:bg-white/10 md:flex-row-reverse"
           >
             {/* IMAGE SIDE */}
-            <div className="flex w-full items-center justify-center bg-neutral-50 p-4 md:w-[40%] md:p-5 dark:bg-white/5">
+            <div className="flex w-full items-center justify-center bg-neutral-50 p-4 md:w-[40%] md:p-5 dark:bg-white/10">
               <img
                 src="/images/portfolio-elearning-design-system.jpg"
                 alt="Glenn Hammond eLearning Design System overview"
-                className="h-auto w-full max-h-56 object-contain md:max-h-64"
+                className="h-auto w-full max-h-56 object-contain md:max-h-64 transition-none transform-none"
                 loading="lazy"
                 decoding="async"
               />
             </div>
 
             {/* TEXT SIDE */}
-            <div className="flex-1 p-4 md:p-5">
-              <div className="mb-2 text-xs font-semibold uppercase tracking-[0.18em] text-neutral-500 dark:text-white/70">
+            <div className="flex-1 p-5 md:p-6">
+              <div className="mb-3 text-xs font-semibold uppercase tracking-[0.18em] text-neutral-500 dark:text-white/70">
                 Glenn Hammond · eLearning design system
               </div>
-
-              <h3 className="text-base font-semibold leading-snug md:text-lg">
+              <h3 className="text-lg font-semibold leading-snug md:text-xl">
                 eLearning Design System for modern professional learning
               </h3>
-
-              <p className="mt-2 max-w-3xl text-sm text-neutral-700 dark:text-white/85">
+              <p className="mt-3 max-w-3xl text-sm text-neutral-700 dark:text-white/85">
                 A reusable eLearning design system I created to speed up course builds, improve
                 consistency, and support WCAG-aligned layouts across Storyline, Rise, and H5P. It
                 underpins ISQ’s growing catalogue of professional learning, but is designed to be portable
                 across clients and platforms.
               </p>
-
               <p className="mt-3 text-xs font-medium uppercase tracking-[0.16em] text-neutral-500 dark:text-white/60">
                 Role: System architect · Lead eLearning specialist · Visual design · Governance
               </p>
-
-              <div className="mt-3 inline-flex items-center gap-2 text-sm font-medium text-[var(--brand-accent)] underline-offset-4 group-hover:underline">
+              <div className="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-[var(--brand-accent)] underline-offset-4 group-hover:underline">
                 View project <span aria-hidden>→</span>
               </div>
             </div>
