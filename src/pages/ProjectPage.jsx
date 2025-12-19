@@ -1,3 +1,44 @@
+function ProjectHero({
+  title,
+  eyebrow,
+  lead,
+  paragraphs = [],
+  imageSrc,
+  imageAlt,
+}) {
+  return (
+    <div className="grid gap-10 md:grid-cols-12 items-start">
+      <div className="space-y-4 md:col-span-7 bg-transparent !bg-transparent p-0 !p-0 rounded-none !rounded-none shadow-none !shadow-none border-0 !border-0">
+        {eyebrow ? (
+          <p className="text-xs uppercase tracking-[0.18em] text-[var(--text)]/60">
+            {eyebrow}
+          </p>
+        ) : null}
+
+        <h1 className="font-heading text-4xl text-[var(--text)]">{title}</h1>
+
+        {lead ? (
+          <p className="text-[var(--text)]/70 leading-relaxed max-w-2xl">{lead}</p>
+        ) : null}
+
+        {paragraphs.map((p, idx) => (
+          <p
+            key={idx}
+            className="text-[var(--text)]/70 leading-relaxed max-w-2xl"
+          >
+            {p}
+          </p>
+        ))}
+      </div>
+
+      <div className="md:col-span-5">
+        <div className="overflow-hidden rounded-2xl border border-black/10 dark:border-white/10 bg-white/70 dark:bg-white/5 shadow-sm !transform-none !transition-none">
+          <ProjectImage src={imageSrc} alt={imageAlt || `${title} cover`} />
+        </div>
+      </div>
+    </div>
+  );
+}
 // src/pages/ProjectPage.jsx
 import React from "react";
 import { useParams, Link } from "react-router-dom";
@@ -127,50 +168,23 @@ export default function ProjectPage() {
           />
 
           {isElearningDesignSystem ? (
-            <div className="grid gap-10 md:grid-cols-12 items-start">
-              <div className="space-y-4 md:col-span-7 bg-transparent !bg-transparent p-0 !p-0 rounded-none !rounded-none shadow-none !shadow-none border-0 !border-0">
-                <h1 className="font-heading text-4xl text-[var(--text)]">
-                  {project.title}
-                </h1>
-                <p className="text-[var(--text)]/70 leading-relaxed max-w-2xl">
-                  Repeatable learning frameworks - consistent structure, UX and production process.
-                </p>
-
-                <p className="text-[var(--text)]/70 leading-relaxed max-w-2xl">
-                  This design system captures the reusable decisions behind consistent eLearning delivery - layout, typography, templates, interaction conventions, accessibility expectations, and Storyline build guidance.
-                </p>
-
-                <p className="text-[var(--text)]/70 leading-relaxed max-w-2xl">
-                  It reduces rework, keeps modules aligned, and makes updates simpler as content evolves.
-                </p>
-              </div>
-
-              <div className="md:col-span-5">
-                <div className="overflow-hidden rounded-2xl border border-black/10 dark:border-white/10 bg-white/70 dark:bg-white/5 shadow-sm !transform-none !transition-none">
-                  <ProjectImage src={project.image} alt={`${project.title} cover`} />
-                </div>
-              </div>
-            </div>
+            <ProjectHero
+              title={project.title}
+              lead="An eLearning design system for consistent structure, UX, and production."
+              paragraphs={[
+                "Defines standards for layout, typography, templates, interaction conventions, accessibility, and Storyline - making builds easier to maintain and update.",
+              ]}
+              imageSrc={project.image}
+              imageAlt={`${project.title} cover`}
+            />
           ) : (
-            <>
-              <header className="space-y-4">
-                <p className="text-xs uppercase tracking-[0.18em] text-[var(--text)]/60">
-                  {project.category || "Project"}
-                </p>
-                <h1 className="font-heading text-4xl text-[var(--text)]">
-                  {project.title}
-                </h1>
-                {project.subtitle && (
-                  <p className="text-[var(--text)]/70 leading-relaxed max-w-2xl">
-                    {project.subtitle}
-                  </p>
-                )}
-              </header>
-
-              <div className="rounded-3xl overflow-hidden border border-black/10 dark:border-white/10 shadow-sm">
-                <ProjectImage src={project.image} alt={project.title} />
-              </div>
-            </>
+            <ProjectHero
+              eyebrow={project.category || "Project"}
+              title={project.title}
+              lead={project.subtitle || ""}
+              imageSrc={project.image}
+              imageAlt={project.title}
+            />
           )}
 
           {/* eLearning Design System grid */}
