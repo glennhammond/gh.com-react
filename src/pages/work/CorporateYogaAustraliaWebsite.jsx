@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import PageWrapper from "../../components/layout/PageWrapper";
 import Section from "../../components/layout/Section";
 import Container from "../../components/layout/Container";
-import PageIntro from "../../components/layout/PageIntro";
+import PageHero from "../../components/layout/PageHero";
 import SEO from "../../components/ui/SEO.jsx";
 
 export default function CorporateYogaAustraliaWebsite() {
@@ -17,79 +17,68 @@ export default function CorporateYogaAustraliaWebsite() {
         url="https://glennhammond.com/work/corporate-yoga-australia-website"
       />
 
-      {/* HERO / INTRO */}
-      <Section className="pb-4 md:pb-6">
-        <Container>
-          <div className="grid gap-10 lg:grid-cols-[minmax(0,1.6fr)_minmax(0,1fr)] items-start">
-            <div>
-       <PageIntro
-  breadcrumb={[
-    { label: "Home", href: "/" },
-    { label: "Work", href: "/work" },
-  ]}
-  eyebrow="Corporate Yoga Australia"
-  title="Corporate Yoga Australia website"
-  lead="A refreshed digital presence for a national workplace wellbeing provider — focused on clarity, trust, and simple pathways to enquire."
-  meta={[
-    { label: "Client", value: "Corporate Yoga Australia" },
-    { label: "Role", value: "UX & UI design, WordPress build" },
-    { label: "Year", value: "2024" },
-    { label: "Stack", value: "WordPress, HubSpot, GA4" },
-  ]}
-/>
-            </div>
-
-            {/* Right column: project summary card */}
-            <aside className="space-y-4">
-              <div className="rounded-2xl border border-slate-200 dark:border-slate-700 bg-white/80 dark:bg-slate-900/70 backdrop-blur-sm p-5 md:p-6 shadow-sm">
-                <h2 className="font-heading text-lg md:text-xl text-[var(--brand-primary)] mb-2">
-                  At a glance
-                </h2>
-                <p className="text-sm md:text-[0.95rem] text-slate-700 dark:text-slate-200 mb-4">
-                  Corporate Yoga Australia (CYA) needed a modern website that
-                  better reflected their calibre of clients and made it easier
-                  for HR teams and leaders to understand their programs and make
-                  an enquiry.
-                </p>
-                <ul className="space-y-2 text-sm text-slate-700 dark:text-slate-200">
-                  <li>Clear pathways for HR, leaders, and staff</li>
-                  <li>Strong service storytelling, not just a list of classes</li>
-                  <li>Integrated enquiries and simple lead capture</li>
-                  <li>Designed to grow into a future membership offering</li>
-                </ul>
+      {/* PAGE HERO */}
+      <PageHero
+        breadcrumb={[
+          { label: "Home", href: "/" },
+          { label: "Work", href: "/work" },
+          { label: "Corporate Yoga Australia website" },
+        ]}
+        eyebrow="Corporate Yoga Australia"
+        title="Corporate Yoga Australia website"
+        lead="A refreshed digital presence for a national workplace wellbeing provider - focused on clarity, trust, and simple pathways to enquire."
+        meta={[
+          { label: "Client", value: "Corporate Yoga Australia" },
+          { label: "Role", value: "UX & UI design, WordPress build" },
+          { label: "Year", value: "2024" },
+          { label: "Stack", value: "WordPress, HubSpot, GA4" },
+        ]}
+        right={
+          <div className="hidden lg:block max-w-xl ml-auto">
+            <figure className="overflow-hidden rounded-2xl border border-slate-200 dark:border-slate-800 bg-slate-100 dark:bg-slate-900 shadow-sm">
+              <div className="aspect-[16/9] w-full">
+                <img
+                  src="/images/work/cya-website-hero.jpg"
+                  alt="Corporate Yoga Australia homepage mockup"
+                  className="h-full w-full object-cover"
+                  loading="lazy"
+                  decoding="async"
+                />
               </div>
-
-              <div className="rounded-2xl border border-dashed border-slate-300 dark:border-slate-600 bg-slate-50/80 dark:bg-slate-900/60 p-4 text-xs md:text-sm text-slate-600 dark:text-slate-300">
-                <p className="font-medium mb-1">
-                  Placeholders ready to swap
-                </p>
-                <p>
-                  All images on this page are using placeholder files under{" "}
-                  <code className="font-mono text-[0.7rem] bg-black/5 dark:bg-white/10 px-1.5 py-0.5 rounded">
-                    /public/images/work/glenn-hammond-site-assets-corporate-yoga-australia.webp
-                  </code>{" "}
-                  — update them as soon as your final screenshots are ready.
-                </p>
-              </div>
-            </aside>
+            </figure>
           </div>
-        </Container>
-      </Section>
+        }
+        introClassName="mt-6 space-y-6"
+      >
+        {/* Right-column content on smaller screens (kept in the flow for consistency) */}
+        <div className="space-y-4">
+          <div className="rounded-2xl border border-slate-200 dark:border-slate-700 bg-white/80 dark:bg-slate-900/70 backdrop-blur-sm p-5 md:p-6 shadow-sm">
+            <h2 className="font-heading text-lg md:text-xl text-[var(--brand-primary)] mb-2">
+              At a glance
+            </h2>
+            <p className="text-sm md:text-[0.95rem] text-slate-700 dark:text-slate-200 mb-4">
+              Corporate Yoga Australia (CYA) needed a modern website that better reflected their calibre of clients and made it easier for HR teams and leaders to understand their programs and make an enquiry.
+            </p>
+            <ul className="space-y-2 text-sm text-slate-700 dark:text-slate-200">
+              <li>Clear pathways for HR, leaders, and staff</li>
+              <li>Strong service storytelling, not just a list of classes</li>
+              <li>Integrated enquiries and simple lead capture</li>
+              <li>Designed to grow into a future membership offering</li>
+            </ul>
+          </div>
 
-      {/* HERO IMAGE */}
-      <Section className="pt-0 pb-8 md:pb-12 lg:pb-16">
-        <Container>
-          <figure className="overflow-hidden rounded-3xl border border-slate-200 dark:border-slate-800 bg-slate-100 dark:bg-slate-900 shadow-sm">
-            <div className="aspect-[16/9] w-full">
-              <img
-                src="/images/work/cya-website-hero.jpg"
-                alt="Corporate Yoga Australia homepage mockup"
-                className="h-full w-full object-cover"
-              />
-            </div>
-          </figure>
-        </Container>
-      </Section>
+          <div className="rounded-2xl border border-dashed border-slate-300 dark:border-slate-600 bg-slate-50/80 dark:bg-slate-900/60 p-4 text-xs md:text-sm text-slate-600 dark:text-slate-300">
+            <p className="font-medium mb-1">Placeholders ready to swap</p>
+            <p>
+              All images on this page are using placeholder files under{" "}
+              <code className="font-mono text-[0.7rem] bg-black/5 dark:bg-white/10 px-1.5 py-0.5 rounded">
+                /public/images/work/glenn-hammond-site-assets-corporate-yoga-australia.webp
+              </code>
+              {" "}- update them as soon as your final screenshots are ready.
+            </p>
+          </div>
+        </div>
+      </PageHero>
 
       {/* OVERVIEW + OBJECTIVES */}
       <Section className="py-8 md:py-12 lg:py-16 border-t border-slate-100 dark:border-slate-800">

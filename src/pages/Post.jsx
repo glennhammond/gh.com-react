@@ -7,8 +7,8 @@ import remarkGfm from "remark-gfm";
 import PageWrapper from "../components/layout/PageWrapper";
 import Section from "../components/layout/Section";
 import Container from "../components/layout/Container";
+import PageHero from "../components/layout/PageHero";
 import SEO from "../components/ui/SEO.jsx";
-import Breadcrumb from "../components/ui/Breadcrumb.jsx";
 
 import { posts } from "../posts/posts";
 
@@ -256,6 +256,8 @@ const formattedDate = useMemo(() => {
     canonicalUrl,
   ]);
 
+  const firstH2Ref = React.useRef(true);
+
   return (
     <PageWrapper>
       <SEO
@@ -271,92 +273,83 @@ const formattedDate = useMemo(() => {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
 
-      <Section>
-        <Container className="py-10 md:py-16 space-y-14 fade-in-up max-w-4xl">
-          {/* Breadcrumb */}
-          <Breadcrumb
-            items={[
-              { label: "Home", href: "/" },
-              {
-                label: isScrandalous ? "Scrandalous" : "Blog",
-                href: isScrandalous ? "/scrandalous" : "/blog",
-              },
-              { label: post.title },
-            ]}
-          />
-
-          {/* HERO AREA */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-10 items-start">
-            {/* LEFT: category, title, date */}
-            <div className="md:col-span-2 space-y-5">
-              {!isScrandalous && (
-                <span className={`blog-badge ${categorySlug}`}>{post.category}</span>
-              )}
-
-              {/* Title */}
-              <h1 className="font-heading text-4xl md:text-5xl leading-tight text-[var(--text)]">
-                {post.title}
-              </h1>
-
-              {/* Meta */}
-              <div className={isScrandalous ? "card-meta" : "text-sm text-[var(--text)]/60"}>
-                {isScrandalous ? (
-                  <>
-{formattedDate ? <span className="opacity-80">{formattedDate}</span> : null}                    <span className="pill">{type === "recipe" ? "Recipe" : type === "playlist" ? "Playlist" : "Post"}</span>
-
-                    {type === "recipe" && (post.prepMins || post.cookMins) ? (
-                      <span className="pill">
-                        {(() => {
-                          const total = (Number(post.prepMins) || 0) + (Number(post.cookMins) || 0);
-                          return total > 0 ? `${total} mins` : "";
-                        })()}
-                      </span>
-                    ) : null}
-
-                    {type === "recipe" && post.serves ? (
-                      <span className="pill">Serves {post.serves}</span>
-                    ) : null}
-
-                    {type === "playlist" && post.spotify ? (
-                      <a
-                        href={post.spotify}
-                        target="_blank"
-                        rel="noreferrer"
-                        className="pill hover:underline"
-                      >
-                        Spotify
-                      </a>
-                    ) : null}
-                  </>
-                ) : (
-                  <p>{formattedDate}</p>
-                )}
-              </div>
-            </div>
-
-            {/* RIGHT: thumbnail */}
-            <div className="w-full h-40 md:h-48 lg:h-56 rounded-xl overflow-hidden border border-black/10 dark:border-white/10 bg-[var(--bg-soft)] flex items-center justify-center">
+      <PageHero
+        breadcrumb={[
+          { label: "Home", href: "/" },
+          {
+            label: isScrandalous ? "Scrandalous" : "Blog",
+            href: isScrandalous ? "/scrandalous" : "/blog",
+          },
+          { label: post.title },
+        ]}
+        title={post.title}
+        right={
+          <div className="hidden lg:block max-w-xl ml-auto">
+            <div className="aspect-[16/9] overflow-hidden rounded-2xl border border-black/10 bg-white shadow-sm dark:border-white/10 dark:bg-white/5">
               <img
                 src={post.hero || post.image || fallbackImage}
                 alt={post.title}
-                className="w-full h-full object-cover"
+                className="h-full w-full object-cover"
                 loading="lazy"
+                decoding="async"
               />
             </div>
           </div>
+        }
+      >
+        {!isScrandalous ? (
+          <div className="space-y-3">
+            <span className={`blog-badge ${categorySlug}`}>{post.category}</span>
+            <p className="text-sm text-[var(--text)]/60">{formattedDate}</p>
+            {post.summary ? (
+              <p className="text-base md:text-lg leading-relaxed text-neutral-700/90 dark:text-white/80">
+                {post.summary}
+              </p>
+            ) : null}
+          </div>
+        ) : (
+          <div className="card-meta">
+            {formattedDate ? <span className="opacity-80">{formattedDate}</span> : null}
+            <span className="pill">{type === "recipe" ? "Recipe" : type === "playlist" ? "Playlist" : "Post"}</span>
 
+            {type === "recipe" && (post.prepMins || post.cookMins) ? (
+              <span className="pill">
+                {(() => {
+                  const total = (Number(post.prepMins) || 0) + (Number(post.cookMins) || 0);
+                  return total > 0 ? `${total} mins` : "";
+                })()}
+              </span>
+            ) : null}
+
+            {type === "recipe" && post.serves ? <span className="pill">Serves {post.serves}</span> : null}
+
+            {type === "playlist" && post.spotify ? (
+              <a href={post.spotify} target="_blank" rel="noreferrer" className="pill hover:underline">
+                Spotify
+              </a>
+            ) : null}
+          </div>
+        )}
+      </PageHero>
+
+      <Section>
+        <Container className="pt-0 md:pt-4 pb-16 max-w-4xl">
           {/* CONTENT */}
           <article className="prose lg:prose-lg dark:prose-invert max-w-none text-[var(--text)]/80 leading-relaxed">
             <ReactMarkdown
               remarkPlugins={[remarkGfm]}
               components={{
                 h1: () => null,
-                h2: ({ node, ...props }) => (
-                  <h2
-                    {...props}
-                    className="font-heading text-3xl md:text-4xl text-[var(--text)] mt-14 mb-6"
-                  />
-                ),
+                h2: ({ node, ...props }) => {
+                  const isFirst = firstH2Ref.current;
+                  if (isFirst) firstH2Ref.current = false;
+                  return (
+                    <h2
+                      {...props}
+                      className={`font-heading font-semibold text-3xl md:text-4xl text-[var(--text)] ${isFirst ? "mt-6" : "mt-14"} mb-6`}
+                    />
+                  );
+                },
                 h3: ({ node, ...props }) => (
                   <h3
                     {...props}

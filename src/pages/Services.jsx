@@ -23,7 +23,7 @@ export default function Services() {
         ]}
         title="Services"
         right={
-          <div className="site-card overflow-hidden md:mt-[44px]">
+          <div className="site-card overflow-hidden">
             <div className="relative aspect-[16/10] w-full">
               <img
                 src="/images/heroes/glenn-hammond-site-assets-hero-services.webp"

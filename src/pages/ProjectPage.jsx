@@ -1,44 +1,3 @@
-function ProjectHero({
-  title,
-  eyebrow,
-  lead,
-  paragraphs = [],
-  imageSrc,
-  imageAlt,
-}) {
-  return (
-    <div className="grid gap-10 md:grid-cols-12 items-start">
-      <div className="space-y-4 md:col-span-7 bg-transparent !bg-transparent p-0 !p-0 rounded-none !rounded-none shadow-none !shadow-none border-0 !border-0">
-        {eyebrow ? (
-          <p className="text-xs uppercase tracking-[0.18em] text-[var(--text)]/60">
-            {eyebrow}
-          </p>
-        ) : null}
-
-        <h1 className="font-heading text-4xl text-[var(--text)]">{title}</h1>
-
-        {lead ? (
-          <p className="text-[var(--text)]/70 leading-relaxed max-w-2xl">{lead}</p>
-        ) : null}
-
-        {paragraphs.map((p, idx) => (
-          <p
-            key={idx}
-            className="text-[var(--text)]/70 leading-relaxed max-w-2xl"
-          >
-            {p}
-          </p>
-        ))}
-      </div>
-
-      <div className="md:col-span-5">
-        <div className="overflow-hidden rounded-2xl border border-black/10 dark:border-white/10 bg-white/70 dark:bg-white/5 shadow-sm !transform-none !transition-none">
-          <ProjectImage src={imageSrc} alt={imageAlt || `${title} cover`} />
-        </div>
-      </div>
-    </div>
-  );
-}
 // src/pages/ProjectPage.jsx
 import React from "react";
 import { useParams, Link } from "react-router-dom";
@@ -48,7 +7,7 @@ import Section from "../components/layout/Section";
 import Container from "../components/layout/Container";
 import ProjectImage from "../components/ProjectImage";
 import SEO from "../components/ui/SEO.jsx";
-import Breadcrumb from "../components/ui/Breadcrumb.jsx";
+import PageHero from "../components/layout/PageHero";
 
 import { projects } from "../data/projects";
 
@@ -149,6 +108,10 @@ export default function ProjectPage() {
   // Only special-case the eLearning Design System page
   const isElearningDesignSystem = slug === "elearning-design-system";
 
+  const lead = isElearningDesignSystem
+    ? "An eLearning design system for consistent structure, UX, and production."
+    : (project.subtitle || project.description || project.longDescription || "");
+
   return (
     <PageWrapper>
       <SEO
@@ -157,35 +120,61 @@ export default function ProjectPage() {
       />
 
       <Section>
-        {/* slightly tighter vertical spacing for this page overall */}
-        <Container className="space-y-10 fade-in-up max-w-4xl bg-transparent !bg-transparent border-0 !border-0 shadow-none !shadow-none rounded-none !rounded-none">
-          <Breadcrumb
-            items={[
+        <Container className="space-y-10 max-w-6xl">
+          <PageHero
+            breadcrumb={[
               { label: "Home", href: "/" },
               { label: "Work", href: "/work" },
               { label: project.title },
             ]}
-          />
+            eyebrow={
+              isElearningDesignSystem
+                ? "eLearning design system"
+                : project.category || "Project"
+            }
+            title={project.title}
+            lead={lead}
+            right={
+              <div className="hidden lg:block max-w-xl ml-auto">
+                <div className="aspect-[16/9] overflow-hidden rounded-2xl border border-black/10 bg-white shadow-sm dark:border-white/10 dark:bg-white/5">
+                  <ProjectImage
+                    src={project.heroImage || project.image}
+                    alt={project.title}
+                  />
+                </div>
+              </div>
+            }
+            introClassName="mt-6 space-y-6"
+          >
+            {isElearningDesignSystem ? (
+              <p className="text-base md:text-lg leading-relaxed text-neutral-700/90 dark:text-white/80 max-w-2xl">
+                Defines standards for layout, typography, templates, interaction conventions, accessibility, and Storyline - making builds easier to maintain and update.
+              </p>
+            ) : null}
 
-          {isElearningDesignSystem ? (
-            <ProjectHero
-              title={project.title}
-              lead="An eLearning design system for consistent structure, UX, and production."
-              paragraphs={[
-                "Defines standards for layout, typography, templates, interaction conventions, accessibility, and Storyline - making builds easier to maintain and update.",
-              ]}
-              imageSrc={project.image}
-              imageAlt={`${project.title} cover`}
-            />
-          ) : (
-            <ProjectHero
-              eyebrow={project.category || "Project"}
-              title={project.title}
-              lead={project.subtitle || ""}
-              imageSrc={project.image}
-              imageAlt={project.title}
-            />
-          )}
+            {!isElearningDesignSystem && project.client ? (
+              <p className="text-xs uppercase tracking-[0.22em] text-[var(--text)]/60">
+                {project.client}
+              </p>
+            ) : null}
+
+            {!isElearningDesignSystem && project.highlights?.length ? (
+              <ul className="space-y-2 text-base text-neutral-700/90 dark:text-white/80 max-w-2xl">
+                {project.highlights.slice(0, 4).map((h) => (
+                  <li key={h}>{h}</li>
+                ))}
+              </ul>
+            ) : null}
+
+            <div className="pt-2">
+              <Link
+                to="/work"
+                className="inline-flex items-center gap-2 text-sm text-[var(--text)]/70 hover:text-[var(--text)] transition"
+              >
+                ← Back to all work
+              </Link>
+            </div>
+          </PageHero>
 
           {/* eLearning Design System grid */}
           {isElearningDesignSystem && (
@@ -255,12 +244,26 @@ export default function ProjectPage() {
             </div>
           )}
 
-          <Link
-            to="/work"
-            className="text-sm text-brand-primary hover:underline inline-block"
-          >
-            ← Back to all work
-          </Link>
+          {!isElearningDesignSystem && !project.body ? (
+            <div className="pt-6">
+              <div className="rounded-2xl border border-black/10 dark:border-white/10 bg-white/70 dark:bg-white/5 p-6 md:p-8">
+                <h2 className="font-heading text-2xl text-[var(--brand-primary)]">
+                  Case study coming soon
+                </h2>
+                <p className="mt-3 text-base md:text-lg leading-relaxed text-neutral-700/90 dark:text-white/80 max-w-3xl">
+                  I’m still writing this one up. In the meantime, the headline and hero image give you the high-level context - and you can explore other work while this page is being expanded.
+                </p>
+                <div className="mt-5">
+                  <Link
+                    to="/work"
+                    className="inline-flex items-center gap-2 rounded-xl border border-black/10 dark:border-white/10 bg-white/60 dark:bg-white/5 px-4 py-2 text-sm text-[var(--text)] hover:bg-white/80 dark:hover:bg-white/10 transition"
+                  >
+                    Browse all work →
+                  </Link>
+                </div>
+              </div>
+            </div>
+          ) : null}
         </Container>
       </Section>
     </PageWrapper>

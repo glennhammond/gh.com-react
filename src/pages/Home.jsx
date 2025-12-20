@@ -152,7 +152,6 @@ export default function Home() {
               grid grid-cols-1
               gap-14
               items-center
-              fade-in-up
               md:grid-cols-2
               md:gap-12
               md:items-center

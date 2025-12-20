@@ -12,7 +12,7 @@ export function PageIntro({
   return (
     <div className="grid gap-6 md:gap-8 md:grid-cols-12 items-start">
       {right && (
-        <div className="md:col-span-5 order-first md:order-last">
+        <div className="md:col-span-5 order-first md:order-last md:pt-10 lg:pt-12">
           {right}
         </div>
       )}

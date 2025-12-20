@@ -4,7 +4,6 @@ import Section from "./Section";
 import Container from "./Container";
 import PageIntro from "./PageIntro";
 
-// Shared hero wrapper so Home and internal pages follow the same hero system
 export function HeroShell({
   children,
   className = "",

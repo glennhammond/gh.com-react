@@ -18,7 +18,7 @@ slug: "5-ways-ai-is-transforming-elearning-design"
 
 AI is already useful in eLearning - not as a magic “build the course” button, but as a workflow multiplier. The trick is knowing where it helps, and where you still need human judgement.
 
-## 1) Faster sense-making from messy inputs
+## 1. Faster sense-making from messy inputs
 
 Policies, procedure docs, SMEs who speak in tangents - AI can help you:
 - extract the *actual requirements*
@@ -27,7 +27,7 @@ Policies, procedure docs, SMEs who speak in tangents - AI can help you:
 
 You still validate with SMEs, but you start from a stronger draft.
 
-## 2) Better first drafts (with consistent voice)
+## 2. Better first drafts (with consistent voice.
 
 AI is great at producing:
 - first-pass scripts
@@ -37,7 +37,7 @@ AI is great at producing:
 
 The win is speed *and* consistency - as long as you apply a style guide and review for accuracy.
 
-## 3) Rapid prototyping and iteration
+## 3. Rapid prototyping and iteration
 
 AI helps you prototype:
 - interaction ideas
@@ -47,7 +47,7 @@ AI helps you prototype:
 
 This shortens the “blank page” phase and gives stakeholders something concrete to react to.
 
-## 4) Smarter QA and accessibility checks
+## 4. Smarter QA and accessibility checks
 
 AI can flag:
 - unclear instructions
@@ -57,7 +57,7 @@ AI can flag:
 
 It won’t replace a real accessibility check, but it catches a lot early.
 
-## 5) Analytics that actually explain performance
+## 5. Analytics that actually explain performance
 
 This is where AI gets interesting *when paired with xAPI*. If you capture meaningful interaction data, AI can help you:
 - summarise patterns

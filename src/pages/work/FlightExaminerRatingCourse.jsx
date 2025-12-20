@@ -3,7 +3,7 @@ import React from "react";
 import PageWrapper from "../../components/layout/PageWrapper";
 import Section from "../../components/layout/Section";
 import Container from "../../components/layout/Container";
-import PageIntro from "../../components/layout/PageIntro";
+import PageHero from "../../components/layout/PageHero";
 import SEO from "../../components/ui/SEO.jsx";
 
 function MetaItem({ label, value }) {
@@ -106,44 +106,38 @@ export default function FlightExaminerRatingCourse() {
         description={project.subtitle}
       />
 
-      {/* HERO */}
-      <Section className="pt-10 md:pt-14 pb-10 md:pb-14">
+      {/* PAGE HERO */}
+      <PageHero
+        breadcrumb={project.breadcrumb}
+        title={project.title}
+        right={
+          <div className="hidden lg:block max-w-xl ml-auto">
+            <div className="aspect-[16/9] overflow-hidden rounded-2xl border border-black/10 bg-white shadow-sm dark:border-white/10 dark:bg-white/5">
+              <img
+                src={project.heroImage}
+                alt=""
+                className="h-full w-full object-cover"
+                loading="lazy"
+                decoding="async"
+              />
+            </div>
+          </div>
+        }
+        introClassName="mt-6 space-y-6"
+      >
+        <p className="text-base md:text-lg leading-relaxed text-neutral-700/90 dark:text-white/80 max-w-2xl">
+          {project.subtitle}
+        </p>
+      </PageHero>
+
+      {/* HERO SUPPORTING CONTENT */}
+      <Section className="pt-0 md:pt-4 pb-10 md:pb-14">
         <Container>
           <div className="grid gap-10 md:gap-12">
-            {/* Row 1: Title + Hero image (mobile: title -> image -> intro copy) */}
-            <div className="grid gap-10 md:grid-cols-12 items-start">
-              {/* Title */}
-              <div className="md:col-span-7 order-1">
-                <PageIntro
-                  breadcrumb={project.breadcrumb}
-                  title={project.title}
-                />
-              </div>
-
-              {/* Hero image (always directly under title on mobile) */}
-              <div className="md:col-span-5 order-2">
-                <div className="overflow-hidden rounded-2xl">
-                  <img
-                    src={project.heroImage}
-                    alt=""
-                    className="w-full h-auto block"
-                    loading="lazy"
-                  />
-                </div>
-              </div>
-
-              {/* Intro copy (subtitle) */}
-              <div className="md:col-span-7 order-3">
-                <p className="max-w-2xl text-base md:text-lg leading-relaxed text-white/80">
-                  {project.subtitle}
-                </p>
-              </div>
-            </div>
-
-            {/* Row 2: Highlights + Meta (aligned) */}
+            {/* Highlights + Meta */}
             <div className="grid gap-6 md:grid-cols-12 items-stretch">
               <div className="md:col-span-7">
-                <div className="h-full rounded-2xl border border-black/10 dark:border-white/10 bg-white/70 dark:bg-white/5 p-6 !transform-none !transition-none">
+                <div className="h-full rounded-2xl border border-black/10 dark:border-white/10 bg-white/70 dark:bg-white/5 p-6">
                   <h2 className="font-heading text-xl text-[var(--brand-primary)]">
                     Highlights
                   </h2>
@@ -165,11 +159,11 @@ export default function FlightExaminerRatingCourse() {
             </div>
 
             {/* Image strip */}
-            <div className="mt-6 md:mt-8 grid gap-3 sm:grid-cols-2">
+            <div className="grid gap-3 sm:grid-cols-2">
               {project.gallery.map((img) => (
                 <div
                   key={img.src}
-                  className="rounded-2xl overflow-hidden border border-white/10 bg-white/5 shadow-sm !transform-none !transition-none"
+                  className="rounded-2xl overflow-hidden border border-black/10 dark:border-white/10 bg-white/60 dark:bg-white/5 shadow-sm"
                 >
                   <div className="aspect-[16/10]">
                     <img
@@ -182,11 +176,14 @@ export default function FlightExaminerRatingCourse() {
                 </div>
               ))}
             </div>
+
             {/* Bridge copy */}
-            <div className="mt-6 md:mt-8 grid gap-6 md:grid-cols-12 items-start">
+            <div className="grid gap-6 md:grid-cols-12 items-start">
               <div className="md:col-span-7">
-                <h2 className="font-heading text-2xl text-white">What this project involved</h2>
-                <p className="mt-4 text-base md:text-lg leading-relaxed text-white/80 max-w-prose">
+                <h2 className="font-heading text-2xl text-[var(--text)]">
+                  What this project involved
+                </h2>
+                <p className="mt-4 text-base md:text-lg leading-relaxed text-neutral-700/90 dark:text-white/80 max-w-prose">
                   This programme needed to feel confident and uncluttered while still carrying a lot of detail.
                   I shaped the learning flow, designed a reusable screen system, and built interactions that stay predictable
                   across modules - so learners can focus on the content, not the interface.
@@ -194,9 +191,11 @@ export default function FlightExaminerRatingCourse() {
               </div>
 
               <div className="md:col-span-5">
-                <div className="rounded-2xl border border-white/10 bg-white/5 p-5 !transform-none !transition-none">
-                  <p className="text-xs uppercase tracking-wide text-white/70">Focus areas</p>
-                  <ul className="mt-3 space-y-2 text-sm text-white/80">
+                <div className="rounded-2xl border border-black/10 dark:border-white/10 bg-white/60 dark:bg-white/5 p-5">
+                  <p className="text-xs uppercase tracking-wide text-[var(--text)]/60">
+                    Focus areas
+                  </p>
+                  <ul className="mt-3 space-y-2 text-sm text-neutral-700/90 dark:text-white/80">
                     <li>Information design for dense, regulated content</li>
                     <li>Consistent UI patterns and interaction behaviour</li>
                     <li>Accessibility-first layout and typography decisions</li>
@@ -208,7 +207,6 @@ export default function FlightExaminerRatingCourse() {
           </div>
         </Container>
       </Section>
-
     </PageWrapper>
   );
 }

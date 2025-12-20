@@ -8,6 +8,7 @@ import Container from "../components/layout/Container";
 
 import SEO from "../components/ui/SEO.jsx";
 import PageIntro from "../components/layout/PageIntro";
+import PageHero from "../components/layout/PageHero";
 
 import { posts } from "../posts/posts";
 
@@ -376,59 +377,46 @@ export default function Blog() {
         description="Thinking about design systems, learning, xAPI, creativity, UX and modern digital making."
       />
 
-      {/* PAGE INTRO (matches About/Services/Work) */}
-      <Section>
-        <Container>
-          <PageIntro
-            breadcrumb={[
-              { label: "Home", href: "/" },
-              { label: "Blog" },
-            ]}
-            title="I mostly think about design, education, AI and music"
-            intro="Writing about design systems, learning, xAPI, creativity, interface clarity, and making things that feel considered."
-            meta={
-              <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
-                {/* Category filter chips */}
-                <div className="flex gap-3 flex-wrap">
-                  <Chip
-                    label="All"
-                    active={filter === "all"}
-                    onClick={() => setFilter("all")}
-                  />
-                  {categories.map((cat) => (
-                    <Chip
-                      key={cat}
-                      label={cat}
-                      active={filter === cat}
-                      onClick={() => setFilter(cat)}
-                    />
-                  ))}
-                </div>
+      {/* PAGE INTRO (shared hero) */}
+      <PageHero
+        breadcrumb={[
+          { label: "Home", href: "/" },
+          { label: "Blog" },
+        ]}
+        title="I mostly think about design, education, AI and music"
+        introClassName="mt-6"
+      >
+        <p className="text-base md:text-lg leading-relaxed text-neutral-700/90 dark:text-white/80">
+          Writing about design systems, learning, xAPI, creativity, interface clarity, and making things that feel considered.
+        </p>
 
-                {/* Search input */}
-                <div className="w-full md:w-72">
-                  <input
-                    type="text"
-                    placeholder="Search posts"
-                    value={searchQuery}
-                    onChange={(e) => setSearchQuery(e.target.value)}
-                    className="
-                      w-full px-4 py-2 rounded-xl
-                      border border-black/10 dark:border-white/10
-                      bg-[var(--bg-soft)] text-[var(--text)]
-                    "
-                  />
-                </div>
-              </div>
-            }
-          />
-        </Container>
-      </Section>
-{/* POSTS GRID */}
-<Section className="pt-0 md:pt-4">
-  <Container className="fade-in-up">
+        <div className="mt-12 flex flex-col gap-4 md:flex-row md:flex-nowrap md:items-center md:justify-between md:gap-6">
+          {/* Category filter chips */}
+          <div className="flex items-center gap-3 flex-nowrap whitespace-nowrap overflow-x-auto md:overflow-visible">
+            <Chip label="All" active={filter === "all"} onClick={() => setFilter("all")} />
+            {categories.map((cat) => (
+              <Chip key={cat} label={cat} active={filter === cat} onClick={() => setFilter(cat)} />
+            ))}
+          </div>
+
+          {/* Search input */}
+          <div className="w-full md:w-72 md:shrink-0">
+            <input
+              type="text"
+              placeholder="Search posts"
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+              className="w-full px-4 py-2 rounded-xl border border-black/10 dark:border-white/10 bg-[var(--bg-soft)] text-[var(--text)]"
+            />
+          </div>
+        </div>
+      </PageHero>
+
+      {/* POSTS GRID */}
+      <Section className="pt-0 md:pt-4">
+        <Container className="fade-in-up">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
-           {filteredPosts.map((post) => {
+            {filteredPosts.map((post) => {
   const mapped = mapCategory(post.category);
   const colorClass =
     CATEGORY_STYLES[mapped] || CATEGORY_STYLES.general;
@@ -494,7 +482,7 @@ export default function Blog() {
       </div>
     </Link>
   );
-})}
+            })}
           </div>
         </Container>
       </Section>

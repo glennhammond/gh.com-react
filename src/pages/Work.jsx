@@ -3,8 +3,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 import PageWrapper from "../components/layout/PageWrapper";
-import Breadcrumb from "../components/ui/Breadcrumb.jsx";
-import { HeroShell } from "../components/layout/PageHero";
+import PageHero from "../components/layout/PageHero";
 import Section from "../components/layout/Section";
 import Container from "../components/layout/Container";
 import SEO from "../components/ui/SEO.jsx";
@@ -48,65 +47,34 @@ export default function Work() {
       />
 
       {/* PAGE INTRO / HERO */}
-      <HeroShell
-        noPadding
-        sectionClassName="!py-0 !pt-10 md:!pt-14 !pb-4 md:!pb-5"
-        containerClassName=""
-      >
-        <div className="grid gap-8 lg:grid-cols-[minmax(0,1.6fr)_minmax(0,1fr)] items-start">
-          {/* LEFT: Intro copy */}
-          <div className="space-y-5">
-            <div className="space-y-4">
-              <div className="min-h-[24px]">
-                <Breadcrumb
-                  items={[
-                    { label: "Home", href: "/" },
-                    { label: "Work" },
-                  ]}
-                />
-              </div>
-
-              <p className="text-xs uppercase tracking-[0.18em] text-neutral-500 dark:text-white/70">
-                Selected work
-              </p>
-
-              <h1 className="font-heading text-4xl md:text-5xl text-[var(--text)]">
-                Modern learning design
-              </h1>
-
-              <p className="text-base md:text-lg leading-relaxed text-neutral-700/90 dark:text-white/80 max-w-2xl">
-                Repeatable learning frameworks - consistent structure, UX, and production.
-              </p>
-            </div>
-            <div className="max-w-2xl space-y-4">
-              <p className="text-base md:text-lg leading-relaxed text-neutral-700/90 dark:text-white/80">
-                A selection of projects where learning strategy, UX, and production needed to align.
-              </p>
-              <p className="text-base md:text-lg leading-relaxed text-neutral-700/90 dark:text-white/80">
-                Each example shows how I use repeatable patterns to keep experiences consistent and
-                delivery efficient across complex content and multiple modules.
-              </p>
-            </div>
-          </div>
-
-          {/* RIGHT: Simple visual / case-study preview */}
-          <div className="hidden lg:block lg:mt-16">
-            <div
-              className="aspect-[16/9] rounded-3xl border border-white/10 bg-white/5 overflow-hidden shadow-sm !transform-none !transition-none !translate-y-0"
-              style={{ transform: "none", transition: "none" }}
-            >
+      <PageHero
+        breadcrumb={[
+          { label: "Home", href: "/" },
+          { label: "Work" },
+        ]}
+        title="Modern learning design"
+        right={
+          <div className="hidden lg:block">
+            <div className="aspect-[16/9] overflow-hidden rounded-2xl border border-black/10 bg-white shadow-sm dark:border-white/10 dark:bg-white/5">
               <img
                 src={`${base}images/work/glenn-hammond-site-assets-gh-elearning-design-system.webp`}
                 alt="Preview of eLearning Design System tiles"
-                className="h-full w-full object-cover pointer-events-none select-none !transform-none !transition-none !scale-100"
-                style={{ transform: "none", transition: "none" }}
+                className="h-full w-full object-cover"
                 loading="lazy"
                 decoding="async"
               />
             </div>
           </div>
-        </div>
-      </HeroShell>
+        }
+      >
+        <p className="text-base md:text-lg leading-relaxed text-neutral-700/90 dark:text-white/80">
+          A selection of projects where learning strategy, UX, and production needed to align.
+        </p>
+        <p className="text-base md:text-lg leading-relaxed text-neutral-700/90 dark:text-white/80">
+          Each example shows how I use repeatable patterns to keep experiences consistent and delivery
+          efficient across complex content and multiple modules.
+        </p>
+      </PageHero>
 
 
       {/* CYA + CASA SECTION */}

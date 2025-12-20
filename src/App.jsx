@@ -14,6 +14,7 @@ import Post from "./pages/Post";
 
 import Contact from "./pages/Contact";
 import ContactSuccess from "./pages/ContactSuccess";
+
 import ElearningDesignSystemOverview from "./pages/ElearningDesignSystemOverview";
 import AssetRegister from "./pages/design-system/AssetRegister";
 import AtomicDesign from "./pages/design-system/AtomicDesign";
@@ -23,6 +24,8 @@ import CourseStructure from "./pages/design-system/CourseStructure";
 import ImagesIcons from "./pages/design-system/ImagesIcons";
 import Storyline from "./pages/design-system/Storyline";
 import Typography from "./pages/design-system/Typography";
+
+import LearningTheory from "./pages/instructional-design/learning-theory";
 
 function ScrollToTop() {
   const { pathname, hash } = useLocation();
@@ -72,6 +75,9 @@ export default function App() {
         <Route path="/design-system/images-icons" element={<ImagesIcons />} />
         <Route path="/design-system/storyline" element={<Storyline />} />
         <Route path="/design-system/typography" element={<Typography />} />
+
+        {/* Instructional design */}
+        <Route path="/instructional-design/learning-theory" element={<LearningTheory />} />
 
         {/* Contact */}
         <Route path="/contact" element={<Contact />} />
