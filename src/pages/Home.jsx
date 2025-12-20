@@ -214,7 +214,7 @@ export default function Home() {
                     <div className="mt-5">
                       <div className="overflow-hidden rounded-xl ring-1 ring-black/10 bg-white shadow-[0_18px_45px_rgba(2,6,23,0.12)]">
                         <img
-                          src={`${import.meta.env.BASE_URL}images/work/glenn-hammond-site-assets-gh-elearning-design-system.webp`}
+                          src={`${import.meta.env.BASE_URL}images/design-system/glenn-hammond-site-assets-elearning-design-system.jpg`}
                           alt="eLearning Design System preview"
                           className="w-full h-auto block"
                           loading="lazy"
@@ -299,7 +299,7 @@ export default function Home() {
                 <div className="mt-5">
                   <div className="overflow-hidden rounded-xl ring-1 ring-black/10 bg-white shadow-[0_18px_45px_rgba(2,6,23,0.12)]">
                     <img
-                      src={`${import.meta.env.BASE_URL}images/work/glenn-hammond-site-assets-gh-elearning-design-system.webp`}
+                      src={`${import.meta.env.BASE_URL}images/design-system/glenn-hammond-site-assets-elearning-design-system.jpg`}
                       alt="eLearning Design System preview"
                       className="w-full h-auto block"
                       loading="lazy"
@@ -595,7 +595,7 @@ export default function Home() {
               </div>
               <div className="bg-[rgba(26,20,70,0.03)] md:bg-[rgba(26,20,70,0.03)] dark:bg-white/6 dark:md:bg-white/8 p-8 md:p-10 flex items-center justify-center border-t border-black/10 md:border-t-0 md:border-l border-black/10 dark:border-white/10">
                 <img
-                  src={`${import.meta.env.BASE_URL}images/work/glenn-hammond-site-assets-gh-elearning-design-system.webp`}
+                  src={`${import.meta.env.BASE_URL}images/design-system/glenn-hammond-site-assets-elearning-design-system.jpg`}
                   alt="eLearning Design System preview"
                   className="w-full max-w-[620px] h-auto block rounded-xl shadow-[0_18px_45px_rgba(2,6,23,0.12)]"
                   loading="lazy"

@@ -119,63 +119,67 @@ export default function ProjectPage() {
         description={description.slice(0, 160)}
       />
 
-      <Section>
-        <Container className="space-y-10 max-w-6xl">
-          <PageHero
-            breadcrumb={[
-              { label: "Home", href: "/" },
-              { label: "Work", href: "/work" },
-              { label: project.title },
-            ]}
-            eyebrow={
-              isElearningDesignSystem
-                ? "eLearning design system"
-                : project.category || "Project"
-            }
-            title={project.title}
-            lead={lead}
-            right={
-              <div className="hidden lg:block max-w-xl ml-auto">
-                <div className="aspect-[16/9] overflow-hidden rounded-2xl border border-black/10 bg-white shadow-sm dark:border-white/10 dark:bg-white/5">
-                  <ProjectImage
-                    src={project.heroImage || project.image}
-                    alt={project.title}
-                  />
-                </div>
+      <PageHero
+        breadcrumb={[
+          { label: "Home", href: "/" },
+          { label: "Work", href: "/work" },
+          { label: project.title },
+        ]}
+        eyebrow={
+          isElearningDesignSystem
+            ? "eLearning design system"
+            : project.category || "Project"
+        }
+        title={project.title}
+        lead={lead}
+        containerClassName="pt-11 pb-3 md:pt-13 md:pb-5"
+        right={
+          <div className="hidden lg:block w-full max-w-xl">
+            <div className="site-card overflow-hidden">
+              <div className="relative aspect-[16/9] w-full">
+                <img
+                  src={project.heroImage || project.image}
+                  alt={project.title}
+                  className="w-full h-full object-contain"
+                  loading="lazy"
+                  decoding="async"
+                />
               </div>
-            }
-            introClassName="mt-6 space-y-6"
-          >
-            {isElearningDesignSystem ? (
-              <p className="text-base md:text-lg leading-relaxed text-neutral-700/90 dark:text-white/80 max-w-2xl">
-                Defines standards for layout, typography, templates, interaction conventions, accessibility, and Storyline - making builds easier to maintain and update.
-              </p>
-            ) : null}
-
-            {!isElearningDesignSystem && project.client ? (
-              <p className="text-xs uppercase tracking-[0.22em] text-[var(--text)]/60">
-                {project.client}
-              </p>
-            ) : null}
-
-            {!isElearningDesignSystem && project.highlights?.length ? (
-              <ul className="space-y-2 text-base text-neutral-700/90 dark:text-white/80 max-w-2xl">
-                {project.highlights.slice(0, 4).map((h) => (
-                  <li key={h}>{h}</li>
-                ))}
-              </ul>
-            ) : null}
-
-            <div className="pt-2">
-              <Link
-                to="/work"
-                className="inline-flex items-center gap-2 text-sm text-[var(--text)]/70 hover:text-[var(--text)] transition"
-              >
-                ← Back to all work
-              </Link>
             </div>
-          </PageHero>
+          </div>
+        }
+      >
+        {isElearningDesignSystem ? (
+          <p className="text-base md:text-lg leading-relaxed text-neutral-700/90 dark:text-white/80 max-w-2xl">
+            Defines standards for layout, typography, templates, interaction conventions, accessibility, and Storyline - making builds easier to maintain and update.
+          </p>
+        ) : null}
 
+        {!isElearningDesignSystem && project.client ? (
+          <p className="text-xs uppercase tracking-[0.22em] text-[var(--text)]/60">
+            {project.client}
+          </p>
+        ) : null}
+
+        {!isElearningDesignSystem && project.highlights?.length ? (
+          <ul className="space-y-2 text-base text-neutral-700/90 dark:text-white/80 max-w-2xl">
+            {project.highlights.slice(0, 4).map((h) => (
+              <li key={h}>{h}</li>
+            ))}
+          </ul>
+        ) : null}
+
+        <div className="pt-2">
+          <Link
+            to="/work"
+            className="inline-flex items-center gap-2 text-sm text-[var(--text)]/70 hover:text-[var(--text)] transition"
+          >
+            ← Back to all work
+          </Link>
+        </div>
+      </PageHero>
+      <Section className="pt-7 md:pt-9">
+        <Container className="space-y-10 max-w-6xl">
           {/* eLearning Design System grid */}
           {isElearningDesignSystem && (
             <div className="space-y-5">

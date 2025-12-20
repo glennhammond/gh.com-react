@@ -14,49 +14,63 @@
   }
 }
 
-  
 @layer base {
-  /* Star bullets ONLY inside long-form content (Tailwind Typography `.prose`) */
-  .prose ul,
-  .prose ul li {
+  /* Pink star bullets for unordered lists in main content.
+     This is the single source of truth (covers prose, cards, panels, DS pages, etc.). */
+  main ul,
+  main ul li {
     list-style: none !important;
   }
 
-  .prose ul li::marker {
+  main ul li::marker {
     content: "" !important;
     color: transparent !important;
   }
 
-  .prose ul {
+  main ul {
     margin: 0;
     padding-left: 0;
   }
 
-  .prose ul > li {
-    display: flex;
-    align-items: flex-start;
-    gap: 0.9rem;
-    /* Let the star sit as a real flex item so vertical alignment is stable */
-    padding-left: 0 !important;
+  main ul > li {
+    position: relative;
+    display: block;
+    padding-left: 1.6rem; /* space for the star */
   }
 
-  .prose ul > li::before {
+  main ul > li::before {
     content: "★";
-    flex: 0 0 auto;
-    margin-left: 0.25rem;
-    /* Nudge down to align with the first line of text */
-    margin-top: 0.38em;
-    color: var(--secondary);
+    position: absolute;
+    left: 0;
+    top: 0.38em; /* align with first line */
+    color: var(--color-brand-accent, #FF3E7F);
     font-size: 1em;
     line-height: 1;
   }
 
-  /* Slightly more breathing room for lists in main content */
-  .prose ul > li + li {
+  main ul > li + li {
     margin-top: 0.45rem;
   }
 
-  /* Hide any “manual dot” bullet elements inside list items so only the star remains */
+  /* Opt-out: add className="no-stars" to any container to restore normal bullets */
+  main .no-stars ul,
+  main .no-stars ul li {
+    list-style: revert !important;
+  }
+
+  main .no-stars ul {
+    padding-left: 1.25rem;
+  }
+
+  main .no-stars ul > li {
+    padding-left: 0;
+  }
+
+  main .no-stars ul > li::before {
+    content: none;
+  }
+
+  /* Hide any “manual dot” bullet elements inside prose list items so only the star remains */
   .prose ul > li > :is(span, i, em, strong, div).rounded-full.w-2.h-2,
   .prose ul > li > :is(span, i, em, strong, div).rounded-full.w-1\.5.h-1\.5,
   .prose ul > li > :is(span, i, em, strong, div).rounded-full.w-2\.5.h-2\.5,

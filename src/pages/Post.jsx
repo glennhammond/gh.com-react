@@ -169,6 +169,42 @@ const formattedDate = useMemo(() => {
   const categorySlug = mapCategory(post.category);
   const cleanedContent = post.content.replace(/^# .+\n/, ""); // remove first H1
 
+  // HERO INTRO: prefer summary, else use the first paragraph from content.
+  const { heroIntro, contentForRender } = useMemo(() => {
+    const raw = String(cleanedContent || "").trimStart();
+
+    // If author provided a summary, use it and keep content as-is.
+    if (post?.summary && String(post.summary).trim()) {
+      return { heroIntro: String(post.summary).trim(), contentForRender: cleanedContent };
+    }
+
+    // Split into markdown blocks by blank lines.
+    const blocks = raw.split(/\n\s*\n/);
+    const first = (blocks[0] || "").trim();
+
+    // If the first block is not a normal paragraph, don't invent an intro.
+    const looksLikeParagraph =
+      first &&
+      !/^#{1,6}\s/.test(first) &&
+      !/^```/.test(first) &&
+      !/^>\s/.test(first) &&
+      !/^(-|\*|\d+\.)\s/.test(first) &&
+      first.length >= 40;
+
+    if (!looksLikeParagraph) {
+      return { heroIntro: "", contentForRender: cleanedContent };
+    }
+
+    const intro = stripMarkdown(first);
+    // Remove the first block from the rendered content to avoid duplication.
+    const rest = raw.slice(first.length).replace(/^\n\s*\n/, "");
+
+    return {
+      heroIntro: intro,
+      contentForRender: rest || cleanedContent,
+    };
+  }, [cleanedContent, post?.summary]);
+
   const seoDescription = useMemo(() => {
     const base = post.summary && String(post.summary).trim()
       ? String(post.summary).trim()
@@ -301,9 +337,9 @@ const formattedDate = useMemo(() => {
           <div className="space-y-3">
             <span className={`blog-badge ${categorySlug}`}>{post.category}</span>
             <p className="text-sm text-[var(--text)]/60">{formattedDate}</p>
-            {post.summary ? (
+            {heroIntro ? (
               <p className="text-base md:text-lg leading-relaxed text-neutral-700/90 dark:text-white/80">
-                {post.summary}
+                {heroIntro}
               </p>
             ) : null}
           </div>
@@ -333,7 +369,7 @@ const formattedDate = useMemo(() => {
       </PageHero>
 
       <Section>
-        <Container className="pt-0 md:pt-4 pb-16 max-w-4xl">
+        <Container className="-mt-10 md:-mt-12 pt-0 pb-16 max-w-4xl">
           {/* CONTENT */}
           <article className="prose lg:prose-lg dark:prose-invert max-w-none text-[var(--text)]/80 leading-relaxed">
             <ReactMarkdown
@@ -346,7 +382,7 @@ const formattedDate = useMemo(() => {
                   return (
                     <h2
                       {...props}
-                      className={`font-heading font-semibold text-3xl md:text-4xl text-[var(--text)] ${isFirst ? "mt-6" : "mt-14"} mb-6`}
+                      className={`font-heading font-semibold text-3xl md:text-4xl text-[var(--text)] ${isFirst ? "mt-2" : "mt-12"} mb-5`}
                     />
                   );
                 },
@@ -362,7 +398,7 @@ const formattedDate = useMemo(() => {
                     className="font-heading text-xl text-[var(--text)] mt-10 mb-3"
                   />
                 ),
-                p: ({ node, ...props }) => <p {...props} className="mb-6" />,
+                p: ({ node, ...props }) => <p {...props} className="mb-4 md:mb-5" />,
                 ul: ({ node, ...props }) => (
                   <ul
                     {...props}
@@ -374,7 +410,7 @@ const formattedDate = useMemo(() => {
                 ),
               }}
             >
-              {cleanedContent}
+              {contentForRender}
             </ReactMarkdown>
           </article>
         </Container>

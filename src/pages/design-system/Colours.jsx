@@ -5,8 +5,8 @@ import { Link } from "react-router-dom";
 import PageWrapper from "../../components/layout/PageWrapper";
 import Section from "../../components/layout/Section";
 import Container from "../../components/layout/Container";
+import PageHero from "../../components/layout/PageHero";
 import SEO from "../../components/ui/SEO.jsx";
-import Breadcrumb from "../../components/ui/Breadcrumb.jsx";
 
 const neutrals = [
   { name: "Neutral 700", hex: "#1F1F1F" },
@@ -92,13 +92,9 @@ function SwatchRow({ title, description, items }) {
   return (
     <div className="space-y-4">
       <div>
-        <h2 className="font-heading text-xl md:text-2xl text-[var(--text)] mb-1">
-          {title}
-        </h2>
+        <h2 className="font-heading text-xl md:text-2xl text-[var(--text)] mb-1">{title}</h2>
         {description && (
-          <p className="text-sm md:text-base text-[var(--text)]/70 max-w-3xl">
-            {description}
-          </p>
+          <p className="text-sm md:text-base text-[var(--text)]/70 max-w-3xl">{description}</p>
         )}
       </div>
 
@@ -108,16 +104,9 @@ function SwatchRow({ title, description, items }) {
             key={item.name + index}
             className="rounded-2xl border border-black/10 dark:border-white/10 bg-[var(--bg)] overflow-hidden flex flex-col"
           >
-            <div
-              className="h-20 w-full"
-              style={{
-                backgroundColor: item.hex || "#F3F4F6", // light grey placeholder
-              }}
-            />
+            <div className="h-20 w-full" style={{ backgroundColor: item.hex || "#F3F4F6" }} />
             <div className="px-4 py-3 text-sm">
-              <div className="font-medium text-[var(--text)]/90">
-                {item.name}
-              </div>
+              <div className="font-medium text-[var(--text)]/90">{item.name}</div>
               {item.hex && (
                 <div className="text-[11px] uppercase tracking-[0.16em] text-[var(--text)]/60 mt-1">
                   {item.hex}
@@ -135,95 +124,84 @@ export default function Colours() {
   return (
     <PageWrapper>
       <SEO
-        title="Colours – eLearning Design System"
+        title="Colours - eLearning Design System"
         description="Colour tokens for the eLearning design system: neutrals, primary, secondary and semantic palettes for UI and learning content."
       />
 
-      <Section>
-        <Container className="space-y-10 fade-in-up max-w-6xl">
-          <Breadcrumb
-            items={[
-              { label: "Home", href: "/" },
-              { label: "Work", href: "/work" },
-              { label: "eLearning Design System", href: "/work/elearning-design-system" },
-              { label: "Colours" },
-            ]}
+      <PageHero
+        title="Colours"
+        eyebrow="Assets"
+        breadcrumb={
+          <nav aria-label="Breadcrumb" className="text-sm font-medium">
+            <ol className="flex flex-wrap items-center">
+              <li className="flex items-center">
+                <Link to="/" className="text-brand-primary hover:underline underline-offset-4">
+                  Home
+                </Link>
+                <span className="mx-2 text-[var(--text)]/40">/</span>
+              </li>
+              <li className="flex items-center">
+                <Link to="/work" className="text-brand-primary hover:underline underline-offset-4">
+                  Work
+                </Link>
+                <span className="mx-2 text-[var(--text)]/40">/</span>
+              </li>
+              <li className="flex items-center">
+                <Link
+                  to="/work/elearning-design-system"
+                  className="text-brand-primary hover:underline underline-offset-4"
+                >
+                  eLearning Design System
+                </Link>
+                <span className="mx-2 text-[var(--text)]/40">/</span>
+              </li>
+              <li className="flex items-center">
+                <span className="text-[var(--text)]/70">Colours</span>
+              </li>
+            </ol>
+          </nav>
+        }
+      >
+        <p>
+          Express hierarchy, establish brand identity, give meaning and indicate states.
+          These palettes are used across Storyline templates, web UI and supporting graphics.
+        </p>
+      </PageHero>
+
+      <Section className="pt-0">
+        <Container className="space-y-10 md:space-y-12 fade-in-up max-w-6xl">
+          <SwatchRow
+            title="Neutral colours"
+            description="Neutral colours can be paired with any brand colour for backgrounds, text, borders and surfaces."
+            items={neutrals}
           />
 
-          {/* Page intro */}
-          <header className="space-y-4">
-            <p className="text-xs uppercase tracking-[0.18em] text-[var(--text)]/60">
-              Assets
-            </p>
-            <h1 className="font-heading text-3xl md:text-4xl text-[var(--text)]">
-              Colours
-            </h1>
-            <p className="text-[var(--text)]/75 max-w-3xl leading-relaxed">
-              Express hierarchy, establish brand identity, give meaning and
-              indicate states. These palettes are used across Storyline
-              templates, web UI and supporting graphics.
-            </p>
-          </header>
+          <SwatchRow title="Primary colours" items={primary} />
+          <SwatchRow title="Secondary colours" items={secondary} />
+          <SwatchRow title="Tertiary colours" items={tertiary} />
 
-          <div className="space-y-10 md:space-y-12">
-            <SwatchRow
-              title="Neutral colours"
-              description="Neutral colours can be paired with any brand colour for backgrounds, text, borders and surfaces."
-              items={neutrals}
-            />
-
-            <SwatchRow title="Primary colours" items={primary} />
-
-            <SwatchRow title="Secondary colours" items={secondary} />
-
-            <SwatchRow title="Tertiary colours" items={tertiary} />
-
-            <div className="space-y-6">
-              <div className="space-y-2">
-                <h2 className="font-heading text-2xl text-[var(--text)]">
-                  Semantic colours
-                </h2>
-                <p className="text-sm md:text-base text-[var(--text)]/70 max-w-3xl">
-                  Semantic colours have specific meaning – they should be used
-                  for states such as success, error and warning rather than for
-                  general decoration.
-                </p>
-              </div>
-
-              <div className="space-y-10">
-                <SwatchRow
-                  title="Error"
-                  description="Used for errors, destructive actions and critical messaging."
-                  items={error}
-                />
-
-                <SwatchRow
-                  title="Warning"
-                  description="Used to signal caution, in-progress states or non-blocking issues."
-                  items={warning}
-                />
-
-                <SwatchRow
-                  title="Success"
-                  description="Used to indicate success, completion or positive outcomes."
-                  items={success}
-                />
-
-                <SwatchRow
-                  title="Info"
-                  description="Used for neutral informational messaging and status."
-                  items={info}
-                />
-              </div>
+          <div className="space-y-6">
+            <div className="space-y-2">
+              <h2 className="font-heading text-2xl text-[var(--text)]">Semantic colours</h2>
+              <p className="text-sm md:text-base text-[var(--text)]/70 max-w-3xl">
+                Semantic colours have specific meaning - they should be used for states such as success, error and warning rather than for general decoration.
+              </p>
             </div>
 
-            <Link
-              to="/work/elearning-design-system"
-              className="inline-flex text-sm text-brand-primary hover:underline"
-            >
-              ← Back to eLearning Design System
-            </Link>
+            <div className="space-y-10">
+              <SwatchRow title="Error" description="Used for errors, destructive actions and critical messaging." items={error} />
+              <SwatchRow title="Warning" description="Used to signal caution, in-progress states or non-blocking issues." items={warning} />
+              <SwatchRow title="Success" description="Used to indicate success, completion or positive outcomes." items={success} />
+              <SwatchRow title="Info" description="Used for neutral informational messaging and status." items={info} />
+            </div>
           </div>
+
+          <Link
+            to="/work/elearning-design-system"
+            className="inline-flex text-sm text-brand-primary hover:underline"
+          >
+            ← Back to eLearning Design System
+          </Link>
         </Container>
       </Section>
     </PageWrapper>

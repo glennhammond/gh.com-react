@@ -11,27 +11,34 @@ tags:
   - "AI"
   - "Instructional design"
   - "Learning strategy"
-description: "Where AI genuinely helps instructional design, where it doesn\u2019t, and how to use it without producing bland courses."
+description: "Where AI genuinely helps instructional design, where it doesn’t, and how to use it without producing bland courses."
 slug: "ai-in-instructional-design"
 ---
 
-AI is useful in instructional design when it supports *thinking* rather than pretending to *be* the thinker.
-
-Here’s where I’m seeing real value.
+AI is useful in instructional design when it supports thinking rather than pretending to be the thinker.  
+Here’s where I’m seeing the value.
 
 ## Where AI helps (a lot)
 
-- **Analysis support**: extract requirements, compare source documents, surface gaps.
-- **Drafting**: scripts, outlines, scenario variants, feedback options - faster first pass.
-- **Tone control**: rewrite for different audiences (exec summary vs learner-facing).
-- **Consistency**: terminology, style, structure, pattern repetition across a suite.
-- **Quality checks**: clarity, reading level, missing steps, “this doesn’t make sense” flags.
+- **Analysis support**  
+  Extract requirements, compare source documents, and surface gaps.
+- **Drafting**  
+  Scripts, outlines, scenario variants, and feedback options for a faster first pass.
+- **Tone control**  
+  Rewrite for different audiences (exec summary vs learner-facing).
+- **Consistency**  
+  Keep terminology, style, and structure consistent across a suite.
+- **Quality checks**  
+  Flag clarity issues, reading level problems, missing steps, and "this doesn’t make sense" moments.
 
 ## Where AI can hurt the work
 
-- **Generic outcomes**: if you accept “best practice” filler, your learning becomes bland.
-- **False confidence**: AI can be wrong while sounding certain. SMEs still matter.
-- **Unsafe handling of sensitive content**: learner data, student scenarios, HR issues.
+- **Generic outcomes**  
+  If you accept “best practice” filler, your learning becomes bland.
+- **False confidence**  
+  AI can be wrong while sounding certain. SMEs still matter.
+- **Unsafe handling of sensitive content**  
+  Learner data, student scenarios, HR issues.
 
 ## A simple way to keep the work sharp
 

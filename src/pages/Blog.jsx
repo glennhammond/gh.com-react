@@ -387,12 +387,12 @@ export default function Blog() {
         introClassName="mt-6"
       >
         <p className="text-base md:text-lg leading-relaxed text-neutral-700/90 dark:text-white/80">
-          Writing about design systems, learning, xAPI, creativity, interface clarity, and making things that feel considered.
+          Writing about design systems, UX, UI, xAPI
         </p>
 
-        <div className="mt-12 flex flex-col gap-4 md:flex-row md:flex-nowrap md:items-center md:justify-between md:gap-6">
+        <div className="mt-12 flex flex-col gap-4 md:flex-row md:items-center md:justify-between md:gap-6">
           {/* Category filter chips */}
-          <div className="flex items-center gap-3 flex-nowrap whitespace-nowrap overflow-x-auto md:overflow-visible">
+          <div className="min-w-0 max-w-full flex flex-wrap items-center gap-3">
             <Chip label="All" active={filter === "all"} onClick={() => setFilter("all")} />
             {categories.map((cat) => (
               <Chip key={cat} label={cat} active={filter === cat} onClick={() => setFilter(cat)} />

@@ -74,7 +74,11 @@ export function PageIntro({
             </p>
           )}
 
-          {children}
+          {children ? (
+            <div className="mt-6 max-w-2xl space-y-4 [&>p]:m-0">
+              {children}
+            </div>
+          ) : null}
         </div>
       </div>
     </div>
