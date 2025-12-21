@@ -95,10 +95,10 @@
   --bg-soft: #ffffff;   /* cards, panels */
   --hero-bg: #F2F0FF;   /* soft hero tint with a hint of ink */
 
-  --text: #1A1446;      /* ink navy */
-  --heading: var(--text);
-  --muted: #3F4661;
-  --text-muted: #3F4661;
+  --text: rgba(26, 20, 70, 0.86);      /* lighter ink navy */
+  --heading: rgba(26, 20, 70, 0.90);
+  --muted: rgba(26, 20, 70, 0.70);
+  --text-muted: rgba(26, 20, 70, 0.70);
 
   /* Brand colours — Option B (Ink Navy + Electric Coral) */
   --color-brand-primary: #1A1446;      /* main brand */
@@ -125,9 +125,9 @@
   --card-bg-strong: #ffffff;
   --card-border: #D7DCE8;
   --card-shadow: 0 18px 60px rgba(15, 23, 42, 0.14), 0 6px 16px rgba(15, 23, 42, 0.08);
-  --card-title: #1A1446;
-  --card-text: rgba(26, 20, 70, 0.88);
-  --card-muted: rgba(26, 20, 70, 0.66);
+  --card-title: var(--heading);
+  --card-text: rgba(26, 20, 70, 0.84);
+  --card-muted: rgba(26, 20, 70, 0.64);
   --card-link: var(--link);
 
   /* Short aliases */

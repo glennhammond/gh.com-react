@@ -142,176 +142,121 @@ export default function Home() {
       {/* HERO */}
       <HeroShell
         noPadding
-        className="bg-[var(--bg)]"
-        containerClassName="pt-12 pb-10 md:pt-12 md:pb-10 lg:pt-14 lg:pb-12 flex flex-col items-start"
+        className="bg-[var(--bg)] relative overflow-x-hidden"
+        containerClassName="px-5 sm:px-6 pt-12 pb-10 md:pt-12 md:pb-10 lg:pt-14 lg:pb-12 flex flex-col items-start"
       >
-          <div
-            className="
-              w-full
-              h-full
-              grid grid-cols-1
-              gap-14
-              items-center
-              md:grid-cols-2
-              md:gap-12
-              md:items-center
-            "
-          >
-            {/* Left */}
-            <div className="w-full max-w-[560px] mx-auto md:mx-0">
-              <div className="mb-6 flex items-center gap-3">
-                <span aria-hidden="true">🏆</span>
-                <span className="text-sm font-semibold tracking-[0.18em] uppercase text-[var(--text)] opacity-70">
-                  Award-winning eLearning
-                </span>
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute inset-0"
+        >
+          <div className="absolute -top-24 left-1/2 h-[520px] w-[520px] -translate-x-1/2 rounded-full bg-[radial-gradient(circle_at_center,rgba(255,62,127,0.22),transparent_60%)] blur-2xl" />
+          <div className="absolute -bottom-28 -left-28 h-[520px] w-[520px] rounded-full bg-[radial-gradient(circle_at_center,rgba(0,255,209,0.18),transparent_60%)] blur-2xl" />
+        </div>
+        <div
+          className="
+            w-full
+            h-full
+            grid grid-cols-1
+            gap-14
+            items-center
+            md:grid-cols-2
+            md:gap-12
+            md:items-center
+          "
+        >
+          {/* Left */}
+          <div className="w-full max-w-[560px] mx-auto md:mx-0">
+            <div className="mb-6 flex items-center gap-3">
+              <span aria-hidden="true">🏆</span>
+              <span className="text-sm font-semibold tracking-[0.18em] uppercase text-[var(--text)] opacity-70">
+                Award-winning eLearning
+              </span>
+            </div>
+            <h1
+              className="
+                font-heading
+                text-[rgba(26,20,70,0.92)] dark:text-[var(--text)]
+                font-semibold
+                tracking-tight
+                leading-[0.9]
+                max-w-[16ch]
+                text-5xl
+                sm:text-6xl
+                md:text-7xl
+                drop-shadow-[0_10px_30px_rgba(0,0,0,0.14)]
+              "
+            >
+              <span className="block">Better Learning</span>
+              <span className="block">by Design</span>
+            </h1>
+            <p className="mt-6 max-w-[46ch] text-[var(--text)] opacity-75 text-lg leading-7">
+              Premium studio builds for professional learning - design-led, evidence-informed, and production-ready.
+            </p>
+            <div className="mt-6 flex flex-wrap items-center gap-3">
+              <span className="inline-flex items-center rounded-full border border-black/10 bg-white/70 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.18em] text-slate-700">
+                Design system thinking
+              </span>
+              <span className="inline-flex items-center rounded-full border border-black/10 bg-white/70 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.18em] text-slate-700">
+                Storyline · Rise · H5P
+              </span>
+              <span className="inline-flex items-center rounded-full border border-black/10 bg-white/70 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.18em] text-slate-700">
+                xAPI · analytics
+              </span>
+            </div>
+            <div className="mt-7 grid grid-cols-1 sm:grid-cols-3 gap-3">
+              <div className="rounded-2xl border border-black/10 bg-white/70 backdrop-blur-sm p-4">
+                <p className="text-xs font-semibold tracking-[0.18em] uppercase text-slate-600">Studio quality</p>
+                <p className="mt-2 text-sm text-slate-800 leading-6">High-craft layouts, refined typography, and clean interaction patterns.</p>
               </div>
-              <h1
-                className="
-                  font-heading
-                  text-[var(--text)]
-                  font-semibold
-                  tracking-tight
-                  leading-[0.9]
-                  max-w-[16ch]
-                  text-5xl
-                  sm:text-6xl
-                  md:text-7xl
-                  drop-shadow-[0_10px_30px_rgba(0,0,0,0.14)]
-                "
-              >
-                <span className="block">Better Learning</span>
-                <span className="block">by Design</span>
-              </h1>
-              <p className="mt-6 max-w-[46ch] text-[var(--text)] opacity-75 text-lg leading-7">
-                Clear learning systems - consistent structure, UX and production process.
-              </p>
-              {/* Mobile CTAs */}
-              <div className="mt-6 md:hidden">
-                <div
-                  className="
-                    rounded-2xl
-                    bg-white/90
-                    backdrop-blur-sm
-                    ring-1 ring-black/10
-                    shadow-[0_22px_70px_rgba(2,6,23,0.20)]
-                    p-6
-                    w-full
-                    transform-none
-                    hover:transform-none
-                    transition-none
-                  "
-                >
-                  <div className="space-y-4">
-                    <p className="text-xs font-semibold tracking-[0.18em] uppercase text-slate-600">
-                      Featured project
-                    </p>
-
-                    <h2 className="font-heading text-2xl font-semibold leading-tight text-slate-900">
-                      eLearning Design System
-                    </h2>
-
-
-                    <div className="mt-5">
-                      <div className="overflow-hidden rounded-xl ring-1 ring-black/10 bg-white shadow-[0_18px_45px_rgba(2,6,23,0.12)]">
-                        <img
-                          src={`${import.meta.env.BASE_URL}images/design-system/glenn-hammond-site-assets-elearning-design-system.jpg`}
-                          alt="eLearning Design System preview"
-                          className="w-full h-auto block"
-                          loading="lazy"
-                          decoding="async"
-                        />
-                      </div>
-                    </div>
-                    <p className="mt-5 text-slate-700 leading-7">
-                      A practical kit for building modern eLearning fast - templates, interaction patterns, accessibility rules, and production-ready guidance.
-                    </p>
-                  </div>
-
-                  <div className="mt-7 flex flex-col items-stretch gap-4">
-                    <Link
-                      to="/work/elearning-design-system"
-                      className="
-                        btn-cta
-                        font-heading
-                        inline-flex items-center justify-center
-                        w-full
-                        py-4
-                        text-base font-semibold
-                        rounded-xl
-                        shadow-[0_14px_34px_rgba(0,0,0,0.20)]
-                        transition
-                        focus-visible:outline-none
-                        focus-visible:ring-2
-                        focus-visible:ring-black/20
-                      "
-                    >
-                      View the system
-                    </Link>
-
-                    <Link
-                      to="/work"
-                      className="
-                        btn-outline
-                        font-heading
-                        inline-flex items-center justify-center
-                        w-full
-                        py-4
-                        text-base font-semibold
-                        rounded-xl
-                        transition
-                        focus-visible:outline-none
-                        focus-visible:ring-2
-                        focus-visible:ring-black/20
-                      "
-                    >
-                      View all work
-                    </Link>
-                  </div>
-                </div>
+              <div className="rounded-2xl border border-black/10 bg-white/70 backdrop-blur-sm p-4">
+                <p className="text-xs font-semibold tracking-[0.18em] uppercase text-slate-600">Evidence-informed</p>
+                <p className="mt-2 text-sm text-slate-800 leading-6">Built on cognitive science - clarity, retrieval, and reduced load.</p>
+              </div>
+              <div className="rounded-2xl border border-black/10 bg-white/70 backdrop-blur-sm p-4">
+                <p className="text-xs font-semibold tracking-[0.18em] uppercase text-slate-600">Production-ready</p>
+                <p className="mt-2 text-sm text-slate-800 leading-6">Reusable components, accessibility, and scalable maintenance.</p>
               </div>
             </div>
-
-            {/* Right - proof + actions card (desktop) */}
-            <div className="hidden md:block w-full md:max-w-[560px] md:ml-auto">
+            {/* Mobile CTAs */}
+            <div className="mt-6 md:hidden">
               <div
                 className="
                   rounded-2xl
                   bg-white/90
                   backdrop-blur-sm
                   ring-1 ring-black/10
-                  shadow-[0_28px_90px_rgba(2,6,23,0.18)]
-                  p-7 md:p-9
+                  shadow-[0_22px_70px_rgba(2,6,23,0.20)]
+                  p-6
                   w-full
                   transform-none
                   hover:transform-none
                   transition-none
                 "
               >
-                <p className="text-xs font-semibold tracking-[0.18em] uppercase text-slate-600">
-                  Featured project
-                </p>
+                <div className="space-y-4">
 
-                <h2 className="mt-3 font-heading text-3xl font-semibold leading-tight text-slate-900">
-                  eLearning Design System
-                </h2>
+                  <h2 className="font-heading text-2xl font-semibold leading-tight text-slate-900">
+                    eLearning Design System
+                  </h2>
 
 
-                <div className="mt-5">
-                  <div className="overflow-hidden rounded-xl ring-1 ring-black/10 bg-white shadow-[0_18px_45px_rgba(2,6,23,0.12)]">
-                    <img
-                      src={`${import.meta.env.BASE_URL}images/design-system/glenn-hammond-site-assets-elearning-design-system.jpg`}
-                      alt="eLearning Design System preview"
-                      className="w-full h-auto block"
-                      loading="lazy"
-                      decoding="async"
-                    />
+                  <div className="mt-5">
+                    <div className="overflow-hidden rounded-xl ring-1 ring-black/10 bg-white shadow-[0_18px_45px_rgba(2,6,23,0.12)]">
+                      <img
+                        src={`${import.meta.env.BASE_URL}images/design-system/glenn-hammond-site-assets-elearning-design-system.jpg`}
+                        alt="eLearning Design System preview"
+                        className="w-full h-auto block"
+                        loading="lazy"
+                        decoding="async"
+                      />
+                    </div>
                   </div>
+                  <p className="mt-5 text-slate-700 leading-7">
+                    A practical kit for building modern eLearning fast - templates, interaction patterns, accessibility rules, and production-ready guidance.
+                  </p>
                 </div>
-                <p className="mt-5 text-slate-700 leading-7">
-                  A practical kit for building modern eLearning fast - templates, interaction patterns, accessibility rules, and production-ready guidance.
-                </p>
 
-                <div className="mt-7 grid grid-cols-2 gap-4">
+                <div className="mt-7 flex flex-col items-stretch gap-4">
                   <Link
                     to="/work/elearning-design-system"
                     className="
@@ -351,10 +296,106 @@ export default function Home() {
                     View all work
                   </Link>
                 </div>
-
+                <div className="mt-4 text-center">
+                  <Link
+                    to="/services"
+                    className="text-sm font-heading text-[var(--link)] hover:text-[var(--link-hover)] hover:underline inline-flex items-center gap-2"
+                  >
+                    How I work <span aria-hidden>→</span>
+                  </Link>
+                </div>
               </div>
             </div>
           </div>
+
+          {/* Right - proof + actions card (desktop) */}
+          <div className="hidden md:block w-full md:max-w-[560px] md:ml-auto">
+            <div
+              className="
+                rounded-2xl
+                bg-white/90
+                backdrop-blur-sm
+                ring-1 ring-black/10
+                shadow-[0_28px_90px_rgba(2,6,23,0.18)]
+                p-7 md:p-9
+                w-full
+                transform-none
+                hover:transform-none
+                transition-none
+              "
+            >
+
+              <h2 className="mt-3 font-heading text-3xl font-semibold leading-tight text-slate-900">
+                eLearning Design System
+              </h2>
+
+
+              <div className="mt-5">
+                <div className="overflow-hidden rounded-xl ring-1 ring-black/10 bg-white shadow-[0_18px_45px_rgba(2,6,23,0.12)]">
+                  <img
+                    src={`${import.meta.env.BASE_URL}images/design-system/glenn-hammond-site-assets-elearning-design-system.jpg`}
+                    alt="eLearning Design System preview"
+                    className="w-full h-auto block"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </div>
+              </div>
+              <p className="mt-5 text-slate-700 leading-7">
+                A practical kit for building modern eLearning fast - templates, interaction patterns, accessibility rules, and production-ready guidance.
+              </p>
+
+              <div className="mt-7 grid grid-cols-2 gap-4">
+                <Link
+                  to="/work/elearning-design-system"
+                  className="
+                    btn-cta
+                    font-heading
+                    inline-flex items-center justify-center
+                    w-full
+                    py-4
+                    text-base font-semibold
+                    rounded-xl
+                    shadow-[0_14px_34px_rgba(0,0,0,0.20)]
+                    transition
+                    focus-visible:outline-none
+                    focus-visible:ring-2
+                    focus-visible:ring-black/20
+                  "
+                >
+                  View the system
+                </Link>
+
+                <Link
+                  to="/work"
+                  className="
+                    btn-outline
+                    font-heading
+                    inline-flex items-center justify-center
+                    w-full
+                    py-4
+                    text-base font-semibold
+                    rounded-xl
+                    transition
+                    focus-visible:outline-none
+                    focus-visible:ring-2
+                    focus-visible:ring-black/20
+                  "
+                >
+                  View all work
+                </Link>
+              </div>
+              <div className="mt-5">
+                <Link
+                  to="/services"
+                  className="text-sm font-heading text-[var(--link)] hover:text-[var(--link-hover)] hover:underline inline-flex items-center gap-2"
+                >
+                  How I work <span aria-hidden>→</span>
+                </Link>
+              </div>
+            </div>
+          </div>
+        </div>
       </HeroShell>
 
 
@@ -366,6 +407,14 @@ export default function Home() {
           <Section className="bg-[var(--bg-soft)] border-y border-black/5 dark:border-white/10">
             <Container className="py-6 md:py-8 fade-in-up">
               <div className="w-full max-w-[560px] mx-auto sm:max-w-none">
+                <div className="mb-6 md:mb-7 space-y-2 text-center sm:text-left">
+                  <p className="text-xs font-semibold tracking-[0.18em] uppercase text-[var(--text)] opacity-60">
+                    Trusted by
+                  </p>
+                  <p className="text-sm text-[var(--text)] opacity-70">
+                    Education, government, and regulated industries.
+                  </p>
+                </div>
                 <div className="grid w-full grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-x-8 gap-y-12 place-items-stretch sm:place-items-center">
                   {clients.map((client) => (
                     <div key={client.name} className="flex items-center justify-center w-full">
@@ -408,11 +457,16 @@ export default function Home() {
           {/* SERVICES PREVIEW */}
           <Section>
             <Container className="space-y-8 fade-in-up">
-              <div className="space-y-2">
+              <div className="space-y-3 max-w-[70ch]">
                 <span className="text-xs uppercase tracking-[0.18em] text-[var(--text)] opacity-60">
                   Services
                 </span>
-                <h2 className="font-heading text-2xl text-[var(--text)]">What I do</h2>
+                <h2 className="font-heading text-2xl text-[var(--text)]">
+                  Premium learning design - from strategy to production
+                </h2>
+                <p className="text-sm text-[var(--text)] opacity-70 leading-7">
+                  I design and produce premium digital learning with a clean UX, strong craft, and evidence-informed decisions - then make it scalable with templates, systems, and analytics.
+                </p>
               </div>
 
               <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
@@ -473,9 +527,14 @@ export default function Home() {
                 key={post.slug}
                 to={`/blog/${post.slug}`}
                 className="
-                  rounded-2xl border border-black/10 bg-white
-                  p-6 space-y-3 hover:-translate-y-1 hover:shadow-md
-                  hover:border-[var(--brand-primary)] transition
+                  site-card
+                  p-6 space-y-3
+                  transition
+                  hover:-translate-y-1 hover:shadow-md
+                  hover:border-[var(--brand-primary)]
+                  focus-visible:outline-none
+                  focus-visible:ring-2
+                  focus-visible:ring-black/20
                 "
               >
                 {/* Post thumbnail (placeholder for now) */}
@@ -488,7 +547,7 @@ export default function Home() {
                     decoding="async"
                   />
                 </div>
-                <div className="flex items-center gap-3 text-[11px] uppercase tracking-[0.18em] text-slate-600">
+                <div className="flex items-center gap-3 text-[11px] uppercase tracking-[0.18em] text-[var(--text)] opacity-60">
                   {post.date && <span>{post.date}</span>}
                   {post.category && (
                     <span className="inline-flex items-center rounded-full border border-black/10 px-2 py-0.5">
@@ -496,10 +555,10 @@ export default function Home() {
                     </span>
                   )}
                 </div>
-                <h3 className="font-heading text-lg text-slate-900">
+                <h3 className="font-heading text-lg text-[var(--text)]">
                   {post.title}
                 </h3>
-                <p className="text-sm text-slate-700">{post.summary}</p>
+                <p className="text-sm text-[var(--text)] opacity-75">{post.summary}</p>
                 <span className="text-sm font-heading text-[var(--link)]">
                   Read more →
                 </span>
@@ -528,14 +587,24 @@ export default function Home() {
               <Link
                 key={project.slug}
                 to={project.to || `/work/${project.slug}`}
-                className="rounded-2xl border border-black/10 bg-white overflow-hidden shadow-xl transition hover:-translate-y-[2px] hover:shadow-2xl dark:border-black/10 dark:bg-white"
+                className="
+                  site-card-strong
+                  overflow-hidden
+                  transition
+                  hover:-translate-y-[2px]
+                  hover:shadow-lg
+                  hover:border-[var(--brand-primary)]
+                  focus-visible:outline-none
+                  focus-visible:ring-2
+                  focus-visible:ring-black/20
+                "
               >
                 <ProjectImage src={project.image} alt={project.title} />
                 <div className="p-6 space-y-3">
                   <h3 className="font-heading text-xl text-[var(--text)]">
                     {project.title}
                   </h3>
-                  <p className="text-sm text-slate-700">
+                  <p className="text-sm text-[var(--text)] opacity-75">
                     {project.subtitle}
                   </p>
                   <span className="text-sm font-heading text-[var(--link)]">
@@ -555,11 +624,11 @@ export default function Home() {
         </Container>
       </Section>
 
-      {/* FEATURED PROJECT ROW (BOTTOM) */}
+      {/* FLAGSHIP HIGHLIGHT (BOTTOM) */}
       <Section noPadding className="bg-[var(--bg-soft)]">
         <Container className="pt-10 pb-10 md:pt-12 md:pb-14">
           <Link
-            to="/work/elearning-design-system"
+            to="/work/react-learning-prototypes"
             className="
               block w-full
               overflow-hidden
@@ -575,28 +644,28 @@ export default function Home() {
             <div className="grid grid-cols-1 md:grid-cols-[3fr_2fr]">
               <div className="p-8 md:p-10">
                 <p className="text-xs font-semibold tracking-[0.18em] uppercase text-[var(--text)] opacity-70">
-                  Glenn Hammond · eLearning Design System
+                  Glenn Hammond · React Learning Prototypes
                 </p>
                 <h2 className="mt-4 font-heading text-3xl md:text-4xl font-semibold leading-tight text-[var(--text)] max-w-[22ch]">
-                  eLearning Design System for modern professional learning
+                  React learning prototypes for modern professional learning
                 </h2>
                 <p className="mt-4 text-[var(--text)] opacity-75 leading-7 max-w-[56ch]">
-                  A reusable eLearning design system built to speed up course builds, improve consistency, and support WCAG-aligned layouts across Storyline, Rise, and H5P.
+                  A small collection of interactive learning apps - built to test ideas fast, prove UX, and explore what learning can feel like beyond slide-based courses.
                 </p>
                 <p className="mt-6 text-xs font-semibold tracking-[0.18em] uppercase text-[var(--text)] opacity-45">
-                  Outcome: faster builds, fewer fixes, consistent UX, and WCAG-aligned layouts.
+                  Outcome: faster iteration, clearer stakeholder buy-in, and a stronger path from idea to build.
                 </p>
                 <Link
-                  to="/work/elearning-design-system"
+                  to="/work/react-learning-prototypes"
                   className="mt-8 inline-flex btn-outline items-center justify-center gap-2 px-5 py-3 text-sm font-heading rounded-xl"
                 >
-                  View project <span aria-hidden>→</span>
+                  View prototypes <span aria-hidden>→</span>
                 </Link>
               </div>
               <div className="bg-[rgba(26,20,70,0.03)] md:bg-[rgba(26,20,70,0.03)] dark:bg-white/6 dark:md:bg-white/8 p-8 md:p-10 flex items-center justify-center border-t border-black/10 md:border-t-0 md:border-l border-black/10 dark:border-white/10">
                 <img
-                  src={`${import.meta.env.BASE_URL}images/design-system/glenn-hammond-site-assets-elearning-design-system.jpg`}
-                  alt="eLearning Design System preview"
+                  src={placeholderImg}
+                  alt="React learning prototypes preview"
                   className="w-full max-w-[620px] h-auto block rounded-xl shadow-[0_18px_45px_rgba(2,6,23,0.12)]"
                   loading="lazy"
                   decoding="async"
@@ -612,23 +681,23 @@ export default function Home() {
 
 function ServiceCard({ title, text, items, icon, tag }) {
   return (
-    <div className="rounded-2xl border border-black/10 bg-white p-8 space-y-4 shadow-sm hover:shadow-md hover:-translate-y-1 hover:border-[var(--secondary)] transition">
+    <div className="site-card-strong p-7 md:p-8 space-y-4 transition hover:-translate-y-[2px] hover:shadow-lg hover:border-[var(--brand-primary)]">
       <div className="space-y-1">
-        <h3 className="font-heading text-xl text-slate-900">{title}</h3>
+        <h3 className="font-heading text-xl text-[var(--text)]">{title}</h3>
         {tag && (
-          <span className="inline-flex items-center rounded-full border border-black/10 px-3 py-0.5 text-[11px] uppercase tracking-[0.18em] text-slate-600">
+          <span className="inline-flex items-center rounded-full border border-black/10 bg-white/60 px-3 py-0.5 text-[11px] font-semibold uppercase tracking-[0.18em] text-[var(--text)] opacity-70">
             {tag}
           </span>
         )}
       </div>
 
       {items?.length ? (
-        <ul className="space-y-3 text-sm text-slate-700">
+        <ul className="space-y-3 text-sm text-[var(--text)] opacity-80">
           {items.map((item) => (
             <li key={item} className="relative pl-6">
               <span
                 aria-hidden="true"
-                className="absolute left-0 top-[0.15em] text-[0.95em] leading-none text-[var(--secondary)]"
+                className="absolute left-0 top-[0.12em] text-[0.95em] leading-none text-[var(--secondary)]"
               >
                 ★
               </span>
@@ -637,7 +706,7 @@ function ServiceCard({ title, text, items, icon, tag }) {
           ))}
         </ul>
       ) : (
-        <p className="text-sm text-slate-700">{text}</p>
+        <p className="text-sm text-[var(--text)] opacity-80">{text}</p>
       )}
     </div>
   );
