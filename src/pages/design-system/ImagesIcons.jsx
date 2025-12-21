@@ -69,7 +69,7 @@ export default function ImagesIcons() {
             <DetailBlock
               title="Illustration & diagrams"
               items={[
-                "Simple line or flat illustration aligned to the ISQ colour palette.",
+                "Simple line or flat illustration aligned to the organisation colour palette.",
                 "Used for concepts, processes, or where photography would be distracting.",
                 "Diagrams designed to be readable at typical laptop resolutions and projected in workshops.",
                 "Where diagrams are complex, provide a downloadable PDF version for zooming.",

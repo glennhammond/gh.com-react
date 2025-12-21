@@ -12,7 +12,7 @@ export default function CourseStructure() {
     <PageWrapper>
       <SEO
         title="Course Structure – eLearning Design System – Glenn Hammond"
-        description="Course flows for ISQ professional learning, aligning objectives, content flow, and assessment across Storyline, Rise, and H5P."
+        description="Course flows for professional learning, aligning objectives, content flow, and assessment across Storyline, Rise, and H5P."
         url="https://glennhammond.com/work/elearning-design-system/course-structure"
       />
 

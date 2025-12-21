@@ -61,7 +61,7 @@ export default function ElearningDesignSystemOverview() {
             <ObjectiveCard
               title="Visual & instructional consistency"
               items={[
-                "Align all modules with ISQ brand guidelines.",
+                "Align all modules with brand guidelines.",
                 "Use common layouts, interactions, and feedback patterns.",
                 "Create a recognisable experience across Storyline, Rise, and H5P.",
               ]}
@@ -184,7 +184,7 @@ export default function ElearningDesignSystemOverview() {
               title="Visual identity"
               items={[
                 "Font pairing: Century Gothic for headings, Open Sans for body copy.",
-                "Colour palette aligned with ISQ branding, with roles for backgrounds, accents and feedback.",
+                "Colour palette aligned with organisation branding, with roles for backgrounds, accents and feedback.",
                 "Iconography and imagery guidelines to keep courses visually coherent.",
                 "Button styles, layout templates and media treatments defined once and reused.",
               ]}
@@ -241,7 +241,7 @@ export default function ElearningDesignSystemOverview() {
             <DetailBlock
               title="Visual & instructional consistency"
               items={[
-                "Professional course presentation reinforces ISQ’s credibility.",
+                "Professional course presentation reinforces organiasation's credibility.",
                 "Common structures simplify learner navigation and reduce friction.",
                 "Instructional patterns (objectives, practice, feedback, reflection) are applied consistently.",
                 "Overall delivery reflects contemporary standards in professional learning.",

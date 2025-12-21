@@ -75,8 +75,8 @@ Keep your line spacing tight and predictable — 100–110% for headings, 120–
 
 | Token | Example | Use |
 | --- | --- | --- |
-| Accent 1 | ISQ Green `#38B449` | Primary |
-| Accent 2 | ISQ Orange `#F28B00` | Secondary |
+| Accent 1 | Green `#38B449` | Primary |
+| Accent 2 | Orange `#F28B00` | Secondary |
 | Accent 3 | Neutral `#F5F4F0` | Backgrounds |
 | Accent 4 | Dark `#1A1A1A` | Text and contrast |
 | Accent 5 | Highlight `#E6F0F5` | Hover and feedback |
@@ -152,7 +152,7 @@ Here’s where your template starts feeling *smart*.
 
 Add global variables for:
 
-- `var_Brand` (e.g. ISQ, CYA, GH)
+- `var_Brand` (e.g. , CYA, GH)
 - `var_Section`
 - `var_Progress`
 

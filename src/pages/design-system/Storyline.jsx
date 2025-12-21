@@ -32,7 +32,7 @@ export default function Storyline() {
                   { label: "Storyline" },
                 ]}
                 title="Storyline templates"
-                intro="A set of Storyline master files and slides that keep navigation, visuals, and xAPI tracking consistent across ISQ modules."
+                intro="A set of Storyline master files and slides that keep navigation, visuals, and xAPI tracking consistent across modules."
               />
             </div>
 

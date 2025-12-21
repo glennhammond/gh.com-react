@@ -381,8 +381,7 @@ export default function Work() {
 
               <p className="mt-2 max-w-3xl text-sm text-neutral-700 dark:text-white/85">
                 A reusable eLearning design system I created to speed up course builds, improve
-                consistency, and support WCAG-aligned layouts across Storyline, Rise, and H5P. It
-                underpins ISQ’s growing catalogue of professional learning, but is designed to be portable
+                consistency, and support WCAG-aligned layouts across Storyline, Rise, and H5P. It is designed to be portable
                 across clients and platforms.
               </p>
 
