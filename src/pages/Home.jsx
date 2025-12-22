@@ -147,7 +147,7 @@ export default function Home() {
       >
         <div
           aria-hidden="true"
-          className="pointer-events-none absolute inset-0 hidden md:block"
+          className="pointer-events-none absolute top-0 left-0 right-0 -bottom-24 z-0"
         >
           <div className="absolute -top-24 left-1/2 h-[520px] w-[520px] -translate-x-1/2 rounded-full bg-[radial-gradient(circle_at_center,rgba(255,62,127,0.22),transparent_60%)] blur-2xl" />
           <div className="absolute -bottom-28 -left-28 h-[520px] w-[520px] rounded-full bg-[radial-gradient(circle_at_center,rgba(0,255,209,0.18),transparent_60%)] blur-2xl" />
@@ -155,6 +155,7 @@ export default function Home() {
         <div
           className="
             w-full
+            relative z-10
             grid grid-cols-1
             gap-10
             items-start
@@ -191,41 +192,43 @@ export default function Home() {
             <p className="mt-6 max-w-[46ch] text-[var(--text)] opacity-75 text-lg leading-7">
               I design modern eLearning using intuitive UX/UI, scalable systems, and xAPI analytics.
             </p>
-            <div className="mt-7 flex flex-col gap-3 sm:flex-row sm:items-center sm:gap-4">
+            <div className="mt-6 flex flex-col items-stretch gap-3 sm:flex-row sm:flex-wrap sm:items-center">
+              <span className="inline-flex w-full max-w-[340px] justify-center text-center items-center rounded-full border border-[rgba(26,20,70,0.18)] bg-[rgba(26,20,70,0.06)] px-4 py-2 text-[12px] font-semibold uppercase tracking-[0.16em] text-[rgba(26,20,70,0.92)] shadow-[0_10px_30px_rgba(2,6,23,0.06)] sm:w-auto sm:max-w-none sm:justify-start sm:text-left sm:px-3 sm:py-1.5 sm:text-[11px] sm:tracking-[0.18em] sm:shadow-[0_8px_20px_rgba(2,6,23,0.05)] dark:border-white/15 dark:bg-white/5 dark:text-white/90">
+                Design systems · components
+              </span>
+              <span className="inline-flex w-full max-w-[340px] justify-center text-center items-center rounded-full border border-[rgba(26,20,70,0.18)] bg-[rgba(26,20,70,0.06)] px-4 py-2 text-[12px] font-semibold uppercase tracking-[0.16em] text-[rgba(26,20,70,0.92)] shadow-[0_10px_30px_rgba(2,6,23,0.06)] sm:w-auto sm:max-w-none sm:justify-start sm:text-left sm:px-3 sm:py-1.5 sm:text-[11px] sm:tracking-[0.18em] sm:shadow-[0_8px_20px_rgba(2,6,23,0.05)] dark:border-white/15 dark:bg-white/5 dark:text-white/90">
+                Storyline · Rise · H5P
+              </span>
+              <span className="inline-flex w-full max-w-[340px] justify-center text-center items-center rounded-full border border-[rgba(26,20,70,0.18)] bg-[rgba(26,20,70,0.06)] px-4 py-2 text-[12px] font-semibold uppercase tracking-[0.16em] text-[rgba(26,20,70,0.92)] shadow-[0_10px_30px_rgba(2,6,23,0.06)] sm:w-auto sm:max-w-none sm:justify-start sm:text-left sm:px-3 sm:py-1.5 sm:text-[11px] sm:tracking-[0.18em] sm:shadow-[0_8px_20px_rgba(2,6,23,0.05)] dark:border-white/15 dark:bg-white/5 dark:text-white/90">
+                xAPI - learning analytics
+              </span>
+            </div>
+           <p className="mt-6 max-w-[52ch] text-[var(--text)] opacity-75 text-lg leading-7 md:text-base md:leading-6 md:opacity-70">
+  End-to-end delivery - learning design, builds, and reporting for education, government, and regulated industries.
+</p>
+            <div className="mt-7 grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
               <Link
-                to="/work"
-                className="btn-cta font-heading inline-flex items-center justify-center w-full sm:w-auto px-6 py-4 text-base font-semibold rounded-xl shadow-[0_14px_34px_rgba(0,0,0,0.20)] transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black/20"
+                to="/services"
+                className="btn-cta font-heading inline-flex items-center justify-center w-full py-4 text-base font-semibold rounded-xl shadow-[0_14px_34px_rgba(0,0,0,0.20)] transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black/20"
               >
-                View work
+                View services
               </Link>
               <Link
                 to="/contact"
-                className="btn-outline font-heading inline-flex items-center justify-center w-full sm:w-auto px-6 py-4 text-base font-semibold rounded-xl transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black/20"
+                className="btn-outline font-heading inline-flex items-center justify-center w-full py-4 text-base font-semibold rounded-xl transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black/20"
               >
                 Contact
               </Link>
             </div>
-            <div className="mt-6 -mx-1 flex items-center gap-3 overflow-x-auto pb-2 sm:mx-0 sm:flex-wrap sm:overflow-visible sm:pb-0">
-              <span className="inline-flex shrink-0 whitespace-nowrap items-center rounded-full border border-black/10 bg-white/70 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.18em] text-slate-700">
-                Design systems
-              </span>
-              <span className="inline-flex shrink-0 whitespace-nowrap items-center rounded-full border border-black/10 bg-white/70 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.18em] text-slate-700">
-                Storyline · Rise · H5P
-              </span>
-              <span className="inline-flex shrink-0 whitespace-nowrap items-center rounded-full border border-black/10 bg-white/70 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.18em] text-slate-700">
-                xAPI · analytics
-              </span>
-            </div>
 
-            <div className="mt-7 hidden sm:grid sm:grid-cols-3 gap-3">
+            <div className="mt-7 hidden sm:grid md:hidden sm:grid-cols-3 gap-3">
               <div className="rounded-2xl border border-black/10 bg-white/70 backdrop-blur-sm p-4">
                 <p className="text-xs font-semibold tracking-[0.18em] uppercase text-slate-600">Premium craft</p>
                 <p className="mt-2 text-sm text-slate-800 leading-6">Clean UX, refined typography, and interaction patterns that feel right.</p>
               </div>
               <div className="rounded-2xl border border-black/10 bg-white/70 backdrop-blur-sm p-4">
                 <p className="text-xs font-semibold tracking-[0.18em] uppercase text-slate-600">Evidence-informed</p>
-                <p className="mt-2 text-sm text-slate-800 leading-6">Cognitive science applied - clarity, retrieval practice, and reduced load.</p>
-              </div>
+<p className="mt-2 text-sm text-slate-800 leading-6">Evidence-informed decisions - clarity, retrieval practice, and reduced load.</p>              </div>
               <div className="rounded-2xl border border-black/10 bg-white/70 backdrop-blur-sm p-4">
                 <p className="text-xs font-semibold tracking-[0.18em] uppercase text-slate-600">Production-ready</p>
                 <p className="mt-2 text-sm text-slate-800 leading-6">Reusable components, accessibility, and builds that are easy to maintain.</p>
@@ -267,8 +270,7 @@ export default function Home() {
                 </div>
               </div>
               <p className="mt-5 text-slate-700 leading-7">
-                A practical kit for building modern eLearning fast - templates, interaction patterns, accessibility, and production-ready guidance.
-              </p>
+A practical kit for building modern eLearning fast - interaction patterns, accessibility, and production-ready guidance.              </p>
 
               <div className="mt-7 grid grid-cols-2 gap-4">
                 <Link
@@ -350,8 +352,7 @@ export default function Home() {
                 </div>
 
                 <p className="mt-5 text-slate-700 leading-7">
-                  A practical kit for building modern eLearning fast - templates, interaction patterns, accessibility, and production-ready guidance.
-                </p>
+A practical kit for building modern eLearning fast - interaction patterns, accessibility, and production-ready guidance.                </p>
               </div>
 
               <div className="mt-7 flex flex-col items-stretch gap-4">
