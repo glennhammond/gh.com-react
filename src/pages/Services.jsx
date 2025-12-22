@@ -23,19 +23,32 @@ export default function Services() {
         ]}
         title="Services"
         right={
-          <div className="site-card overflow-hidden">
-            <div className="relative aspect-[16/10] w-full">
-              <img
-                src="/images/heroes/glenn-hammond-site-assets-hero-services.webp"
-                alt="Services hero"
-                className="absolute inset-0 h-full w-full object-cover"
-                loading="lazy"
-                decoding="async"
-              />
+          <div className="hidden md:block">
+            <div className="site-card overflow-hidden">
+              <div className="relative aspect-[16/10] w-full">
+                <img
+                  src="/images/heroes/glenn-hammond-site-assets-hero-services.webp"
+                  alt="Services hero"
+                  className="absolute inset-0 h-full w-full object-cover"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </div>
             </div>
           </div>
         }
       >
+        <div className="md:hidden site-card overflow-hidden mb-6">
+          <div className="relative aspect-[16/10] w-full">
+            <img
+              src="/images/heroes/glenn-hammond-site-assets-hero-services.webp"
+              alt="Services hero"
+              className="absolute inset-0 h-full w-full object-cover"
+              loading="lazy"
+              decoding="async"
+            />
+          </div>
+        </div>
         <p>
           You can engage me for a single stream (strategy, build, or data), or combine them end-to-end.
           My focus is practical delivery - clear decisions, clean execution, and measurable improvement.
@@ -161,14 +174,20 @@ function ServiceCard({ title, blurb, items, imageSrc, imageAlt }) {
           <h3 className="font-heading text-xl text-[var(--text)]">{title}</h3>
         </div>
 
-        {blurb && <p className="text-sm text-[var(--text)]/75">{blurb}</p>}
+        {blurb && <p className="text-base leading-7 text-[var(--text)]/75">{blurb}</p>}
 
-        <ul className="space-y-2 text-sm text-[var(--text)]/75">
+        <style>{`
+          .service-bullets { list-style: none !important; margin: 0 !important; padding: 0 !important; }
+          .service-bullets li { list-style: none !important; }
+          .service-bullets li::marker { content: none !important; }
+          .service-bullets li::before { content: none !important; }
+        `}</style>
+        <ul className="service-bullets w-full text-left list-none m-0 p-0 space-y-3 text-base leading-7 text-[var(--text)]/75">
           {items.map((item) => (
-            <li key={item} className="flex items-start gap-3">
+            <li key={item} className="list-none w-full grid grid-cols-[8px_1fr] items-start gap-1.5">
               <span
                 aria-hidden="true"
-                className="shrink-0 text-[var(--secondary)] leading-none mt-[0.38em]"
+                className="text-[var(--secondary)] leading-none text-[15px] mt-[6px] -ml-[3px]"
               >
                 ★
               </span>
