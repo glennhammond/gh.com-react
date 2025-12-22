@@ -161,11 +161,11 @@ export default function Home() {
             items-start
             md:grid-cols-2
             md:gap-12
-            md:items-center
+            md:items-stretch
           "
         >
           {/* Left */}
-          <div className="w-full max-w-[560px] mx-auto md:mx-0">
+          <div className="w-full max-w-[560px] mx-auto md:mx-0 md:flex md:flex-col md:h-full md:pb-9">
             <div className="mb-6 flex items-center gap-3">
               <span aria-hidden="true">🏆</span>
               <span className="text-sm font-semibold tracking-[0.18em] uppercase text-[var(--text)] opacity-70">
@@ -203,10 +203,7 @@ export default function Home() {
                 xAPI - learning analytics
               </span>
             </div>
-           <p className="mt-6 max-w-[52ch] text-[var(--text)] opacity-75 text-lg leading-7 md:text-base md:leading-6 md:opacity-70">
-  End-to-end delivery - learning design, builds, and reporting for education, government, and regulated industries.
-</p>
-            <div className="mt-7 grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
+            <div className="mt-7 md:mt-auto md:pt-8 grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
               <Link
                 to="/services"
                 className="btn-cta font-heading inline-flex items-center justify-center w-full py-4 text-base font-semibold rounded-xl shadow-[0_14px_34px_rgba(0,0,0,0.20)] transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black/20"
@@ -237,10 +234,12 @@ export default function Home() {
           </div>
 
           {/* Right - proof + actions card (desktop) */}
-          <div className="hidden md:block w-full md:max-w-[560px] md:ml-auto">
+          <div className="hidden md:block w-full md:max-w-[560px] md:ml-auto md:h-full">
             <div
               className="
                 rounded-2xl
+                h-full
+                flex flex-col
                 bg-white/90
                 backdrop-blur-sm
                 ring-1 ring-black/10
@@ -272,7 +271,7 @@ export default function Home() {
               <p className="mt-5 text-slate-700 leading-7">
 A practical kit for building modern eLearning fast - interaction patterns, accessibility, and production-ready guidance.              </p>
 
-              <div className="mt-7 grid grid-cols-2 gap-4">
+              <div className="mt-7 md:mt-auto md:pt-8 grid grid-cols-2 gap-4">
                 <Link
                   to="/work/elearning-design-system"
                   className="
