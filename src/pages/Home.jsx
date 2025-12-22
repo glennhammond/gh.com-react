@@ -190,7 +190,7 @@ export default function Home() {
               <span className="block">by Design</span>
             </h1>
             <p className="mt-6 max-w-[46ch] text-[var(--text)] opacity-75 text-lg leading-7">
-              Premium studio builds for professional learning - design-led, evidence-informed, and production-ready.
+              Premium builds for professional learning - design-led, evidence-informed, and production-ready.
             </p>
             <div className="mt-6 flex flex-wrap items-center gap-3">
               <span className="inline-flex items-center rounded-full border border-black/10 bg-white/70 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.18em] text-slate-700">
@@ -205,7 +205,7 @@ export default function Home() {
             </div>
             <div className="mt-7 grid grid-cols-1 sm:grid-cols-3 gap-3">
               <div className="rounded-2xl border border-black/10 bg-white/70 backdrop-blur-sm p-4">
-                <p className="text-xs font-semibold tracking-[0.18em] uppercase text-slate-600">Studio quality</p>
+                <p className="text-xs font-semibold tracking-[0.18em] uppercase text-slate-600">Premium craft</p>
                 <p className="mt-2 text-sm text-slate-800 leading-6">High-craft layouts, refined typography, and clean interaction patterns.</p>
               </div>
               <div className="rounded-2xl border border-black/10 bg-white/70 backdrop-blur-sm p-4">
@@ -296,14 +296,6 @@ export default function Home() {
                     View all work
                   </Link>
                 </div>
-                <div className="mt-4 text-center">
-                  <Link
-                    to="/services"
-                    className="text-sm font-heading text-[var(--link)] hover:text-[var(--link-hover)] hover:underline inline-flex items-center gap-2"
-                  >
-                    How I work <span aria-hidden>→</span>
-                  </Link>
-                </div>
               </div>
             </div>
           </div>
@@ -383,14 +375,6 @@ export default function Home() {
                   "
                 >
                   View all work
-                </Link>
-              </div>
-              <div className="mt-5">
-                <Link
-                  to="/services"
-                  className="text-sm font-heading text-[var(--link)] hover:text-[var(--link-hover)] hover:underline inline-flex items-center gap-2"
-                >
-                  How I work <span aria-hidden>→</span>
                 </Link>
               </div>
             </div>
@@ -506,6 +490,55 @@ export default function Home() {
           </Section>
         </div>
       </div>
+      {/* FEATURED WORK */}
+      <Section className="bg-[var(--bg-soft)]">
+        <Container className="space-y-10 fade-in-up">
+          <h2 className="font-heading text-2xl text-[var(--text)]">
+            Featured work
+          </h2>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
+            {featuredProjects.map((project) => (
+              <Link
+                key={project.slug}
+                to={project.to || `/work/${project.slug}`}
+                className="
+                  site-card-strong
+                  overflow-hidden
+                  transition
+                  hover:-translate-y-[2px]
+                  hover:shadow-lg
+                  hover:border-[var(--brand-primary)]
+                  focus-visible:outline-none
+                  focus-visible:ring-2
+                  focus-visible:ring-black/20
+                "
+              >
+                <ProjectImage src={project.image} alt={project.title} />
+                <div className="p-6 space-y-3">
+                  <h3 className="font-heading text-xl text-[var(--text)]">
+                    {project.title}
+                  </h3>
+                  <p className="text-sm text-[var(--text)] opacity-75">
+                    {project.subtitle}
+                  </p>
+                  <span className="text-sm font-heading text-[var(--link)]">
+                    Explore project →
+                  </span>
+                </div>
+              </Link>
+            ))}
+          </div>
+
+          <Link
+            to="/work"
+            className="text-sm text-[var(--brand-primary)] hover:underline inline-block font-heading"
+          >
+            View all projects →
+          </Link>
+        </Container>
+      </Section>
+
       {/* LATEST POSTS */}
       <Section className="bg-[var(--bg-soft)]">
         <Container className="space-y-8 fade-in-up">
@@ -571,55 +604,6 @@ export default function Home() {
             className="text-sm text-[var(--link)] hover:text-[var(--link-hover)] hover:underline inline-block font-heading"
           >
             View all posts →
-          </Link>
-        </Container>
-      </Section>
-
-      {/* FEATURED WORK */}
-      <Section className="bg-[var(--bg-soft)]">
-        <Container className="space-y-10 fade-in-up">
-          <h2 className="font-heading text-2xl text-[var(--text)]">
-            Featured work
-          </h2>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
-            {featuredProjects.map((project) => (
-              <Link
-                key={project.slug}
-                to={project.to || `/work/${project.slug}`}
-                className="
-                  site-card-strong
-                  overflow-hidden
-                  transition
-                  hover:-translate-y-[2px]
-                  hover:shadow-lg
-                  hover:border-[var(--brand-primary)]
-                  focus-visible:outline-none
-                  focus-visible:ring-2
-                  focus-visible:ring-black/20
-                "
-              >
-                <ProjectImage src={project.image} alt={project.title} />
-                <div className="p-6 space-y-3">
-                  <h3 className="font-heading text-xl text-[var(--text)]">
-                    {project.title}
-                  </h3>
-                  <p className="text-sm text-[var(--text)] opacity-75">
-                    {project.subtitle}
-                  </p>
-                  <span className="text-sm font-heading text-[var(--link)]">
-                    Explore project →
-                  </span>
-                </div>
-              </Link>
-            ))}
-          </div>
-
-          <Link
-            to="/work"
-            className="text-sm text-[var(--brand-primary)] hover:underline inline-block font-heading"
-          >
-            View all projects →
           </Link>
         </Container>
       </Section>

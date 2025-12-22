@@ -46,7 +46,7 @@ export default function PageHero({
     <HeroShell
       className={className}
       sectionClassName={sectionClassName}
-      containerClassName={`space-y-10 fade-in-up max-w-6xl ${containerClassName}`}
+      containerClassName={`space-y-10 fade-in-up ${containerClassName}`}
       noPadding={noPadding}
     >
       {renderBreadcrumb()}

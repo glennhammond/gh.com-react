@@ -3,15 +3,18 @@ import { NavLink, Link } from "react-router-dom";
 import ThemeToggle from "./ThemeToggle.jsx";
 
 const navItems = [
-  { to: "/about", label: "About" },
-  { to: "/blog", label: "Blog" },
-  { to: "/work", label: "Work" },
   { to: "/services", label: "Services" },
+  { to: "/work", label: "Work" },
+  { to: "/blog", label: "Blog" },
+  { to: "/about", label: "About" },
+  { to: "/contact", label: "Contact" },
 ];
-const desktopNavItems = [...navItems, { to: "/contact", label: "Contact" }];
+
+const desktopNavItems = navItems;
 
 export default function Header() {
   const [mobileOpen, setMobileOpen] = useState(false);
+  const debugLayout = false;
 
   useEffect(() => {
     document.body.style.overflow = mobileOpen ? "hidden" : "";
@@ -23,14 +26,14 @@ export default function Header() {
   return (
     <>
       <header className="sticky top-0 z-40 border-b border-black/5 dark:border-white/10 bg-white/90 dark:bg-[var(--bg)]/90 backdrop-blur-md transition-colors">
-        <div className="mx-auto max-w-6xl px-5 md:px-6">
+        <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
           <div className="flex h-16 items-center justify-between">
             <Link to="/" className="flex items-center gap-2">
               {/* Light mode */}
               <img
                 src="/images/logos/logo-glennhammond-dark.svg"
                 alt="Glenn Hammond"
-                className="h-8 md:h-9 w-auto max-w-[240px] dark:hidden"
+                className="h-7 md:h-8 w-auto max-w-[240px] dark:hidden translate-y-[1px] -ml-2"
                 loading="eager"
                 decoding="async"
               />
@@ -39,7 +42,7 @@ export default function Header() {
               <img
                 src="/images/logos/logo-glennhammond-light.svg"
                 alt="Glenn Hammond"
-                className="hidden h-8 md:h-9 w-auto max-w-[240px] dark:block"
+                className="hidden h-7 md:h-8 w-auto max-w-[240px] dark:block translate-y-[1px] -ml-2"
                 loading="eager"
                 decoding="async"
               />
