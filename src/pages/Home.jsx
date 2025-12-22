@@ -142,12 +142,12 @@ export default function Home() {
       {/* HERO */}
       <HeroShell
         noPadding
-        className="bg-[var(--bg)] relative overflow-x-hidden"
-        containerClassName="px-5 sm:px-6 pt-12 pb-10 md:pt-12 md:pb-10 lg:pt-14 lg:pb-12 flex flex-col items-start"
+        className="bg-[var(--bg-soft)] relative overflow-x-hidden !min-h-0 !h-auto"
+        containerClassName="px-5 sm:px-6 pt-12 pb-3 sm:pb-6 md:pt-12 md:pb-10 lg:pt-14 lg:pb-12 flex flex-col items-start"
       >
         <div
           aria-hidden="true"
-          className="pointer-events-none absolute inset-0"
+          className="pointer-events-none absolute inset-0 hidden md:block"
         >
           <div className="absolute -top-24 left-1/2 h-[520px] w-[520px] -translate-x-1/2 rounded-full bg-[radial-gradient(circle_at_center,rgba(255,62,127,0.22),transparent_60%)] blur-2xl" />
           <div className="absolute -bottom-28 -left-28 h-[520px] w-[520px] rounded-full bg-[radial-gradient(circle_at_center,rgba(0,255,209,0.18),transparent_60%)] blur-2xl" />
@@ -155,10 +155,9 @@ export default function Home() {
         <div
           className="
             w-full
-            h-full
             grid grid-cols-1
-            gap-14
-            items-center
+            gap-10
+            items-start
             md:grid-cols-2
             md:gap-12
             md:items-center
@@ -169,7 +168,7 @@ export default function Home() {
             <div className="mb-6 flex items-center gap-3">
               <span aria-hidden="true">🏆</span>
               <span className="text-sm font-semibold tracking-[0.18em] uppercase text-[var(--text)] opacity-70">
-                Award-winning eLearning
+                Award-winning eLearning specialist
               </span>
             </div>
             <h1
@@ -190,112 +189,46 @@ export default function Home() {
               <span className="block">by Design</span>
             </h1>
             <p className="mt-6 max-w-[46ch] text-[var(--text)] opacity-75 text-lg leading-7">
-              Premium builds for professional learning - design-led, evidence-informed, and production-ready.
+              I design modern eLearning using intuitive UX/UI, scalable systems, and xAPI analytics.
             </p>
-            <div className="mt-6 flex flex-wrap items-center gap-3">
-              <span className="inline-flex items-center rounded-full border border-black/10 bg-white/70 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.18em] text-slate-700">
-                Design system thinking
+            <div className="mt-7 flex flex-col gap-3 sm:flex-row sm:items-center sm:gap-4">
+              <Link
+                to="/work"
+                className="btn-cta font-heading inline-flex items-center justify-center w-full sm:w-auto px-6 py-4 text-base font-semibold rounded-xl shadow-[0_14px_34px_rgba(0,0,0,0.20)] transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black/20"
+              >
+                View work
+              </Link>
+              <Link
+                to="/contact"
+                className="btn-outline font-heading inline-flex items-center justify-center w-full sm:w-auto px-6 py-4 text-base font-semibold rounded-xl transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black/20"
+              >
+                Contact
+              </Link>
+            </div>
+            <div className="mt-6 -mx-1 flex items-center gap-3 overflow-x-auto pb-2 sm:mx-0 sm:flex-wrap sm:overflow-visible sm:pb-0">
+              <span className="inline-flex shrink-0 whitespace-nowrap items-center rounded-full border border-black/10 bg-white/70 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.18em] text-slate-700">
+                Design systems
               </span>
-              <span className="inline-flex items-center rounded-full border border-black/10 bg-white/70 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.18em] text-slate-700">
+              <span className="inline-flex shrink-0 whitespace-nowrap items-center rounded-full border border-black/10 bg-white/70 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.18em] text-slate-700">
                 Storyline · Rise · H5P
               </span>
-              <span className="inline-flex items-center rounded-full border border-black/10 bg-white/70 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.18em] text-slate-700">
+              <span className="inline-flex shrink-0 whitespace-nowrap items-center rounded-full border border-black/10 bg-white/70 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.18em] text-slate-700">
                 xAPI · analytics
               </span>
             </div>
-            <div className="mt-7 grid grid-cols-1 sm:grid-cols-3 gap-3">
+
+            <div className="mt-7 hidden sm:grid sm:grid-cols-3 gap-3">
               <div className="rounded-2xl border border-black/10 bg-white/70 backdrop-blur-sm p-4">
                 <p className="text-xs font-semibold tracking-[0.18em] uppercase text-slate-600">Premium craft</p>
-                <p className="mt-2 text-sm text-slate-800 leading-6">High-craft layouts, refined typography, and clean interaction patterns.</p>
+                <p className="mt-2 text-sm text-slate-800 leading-6">Clean UX, refined typography, and interaction patterns that feel right.</p>
               </div>
               <div className="rounded-2xl border border-black/10 bg-white/70 backdrop-blur-sm p-4">
                 <p className="text-xs font-semibold tracking-[0.18em] uppercase text-slate-600">Evidence-informed</p>
-                <p className="mt-2 text-sm text-slate-800 leading-6">Built on cognitive science - clarity, retrieval, and reduced load.</p>
+                <p className="mt-2 text-sm text-slate-800 leading-6">Cognitive science applied - clarity, retrieval practice, and reduced load.</p>
               </div>
               <div className="rounded-2xl border border-black/10 bg-white/70 backdrop-blur-sm p-4">
                 <p className="text-xs font-semibold tracking-[0.18em] uppercase text-slate-600">Production-ready</p>
-                <p className="mt-2 text-sm text-slate-800 leading-6">Reusable components, accessibility, and scalable maintenance.</p>
-              </div>
-            </div>
-            {/* Mobile CTAs */}
-            <div className="mt-6 md:hidden">
-              <div
-                className="
-                  rounded-2xl
-                  bg-white/90
-                  backdrop-blur-sm
-                  ring-1 ring-black/10
-                  shadow-[0_22px_70px_rgba(2,6,23,0.20)]
-                  p-6
-                  w-full
-                  transform-none
-                  hover:transform-none
-                  transition-none
-                "
-              >
-                <div className="space-y-4">
-
-                  <h2 className="font-heading text-2xl font-semibold leading-tight text-slate-900">
-                    eLearning Design System
-                  </h2>
-
-
-                  <div className="mt-5">
-                    <div className="overflow-hidden rounded-xl ring-1 ring-black/10 bg-white shadow-[0_18px_45px_rgba(2,6,23,0.12)]">
-                      <img
-                        src={`${import.meta.env.BASE_URL}images/design-system/glenn-hammond-site-assets-elearning-design-system.jpg`}
-                        alt="eLearning Design System preview"
-                        className="w-full h-auto block"
-                        loading="lazy"
-                        decoding="async"
-                      />
-                    </div>
-                  </div>
-                  <p className="mt-5 text-slate-700 leading-7">
-                    A practical kit for building modern eLearning fast - templates, interaction patterns, accessibility rules, and production-ready guidance.
-                  </p>
-                </div>
-
-                <div className="mt-7 flex flex-col items-stretch gap-4">
-                  <Link
-                    to="/work/elearning-design-system"
-                    className="
-                      btn-cta
-                      font-heading
-                      inline-flex items-center justify-center
-                      w-full
-                      py-4
-                      text-base font-semibold
-                      rounded-xl
-                      shadow-[0_14px_34px_rgba(0,0,0,0.20)]
-                      transition
-                      focus-visible:outline-none
-                      focus-visible:ring-2
-                      focus-visible:ring-black/20
-                    "
-                  >
-                    View the system
-                  </Link>
-
-                  <Link
-                    to="/work"
-                    className="
-                      btn-outline
-                      font-heading
-                      inline-flex items-center justify-center
-                      w-full
-                      py-4
-                      text-base font-semibold
-                      rounded-xl
-                      transition
-                      focus-visible:outline-none
-                      focus-visible:ring-2
-                      focus-visible:ring-black/20
-                    "
-                  >
-                    View all work
-                  </Link>
-                </div>
+                <p className="mt-2 text-sm text-slate-800 leading-6">Reusable components, accessibility, and builds that are easy to maintain.</p>
               </div>
             </div>
           </div>
@@ -334,7 +267,7 @@ export default function Home() {
                 </div>
               </div>
               <p className="mt-5 text-slate-700 leading-7">
-                A practical kit for building modern eLearning fast - templates, interaction patterns, accessibility rules, and production-ready guidance.
+                A practical kit for building modern eLearning fast - templates, interaction patterns, accessibility, and production-ready guidance.
               </p>
 
               <div className="mt-7 grid grid-cols-2 gap-4">
@@ -380,8 +313,110 @@ export default function Home() {
             </div>
           </div>
         </div>
-      </HeroShell>
 
+        {/* Mobile-only: keep these inside the hero so it feels connected */}
+        <div className="md:hidden w-full mt-10">
+          <div className="w-full max-w-[560px] mx-auto space-y-6">
+            {/* FEATURED CARD (MOBILE) */}
+            <div
+              className="
+                rounded-2xl
+                bg-white/90
+                backdrop-blur-sm
+                ring-1 ring-black/10
+                shadow-[0_22px_70px_rgba(2,6,23,0.20)]
+                p-6
+                w-full
+                transform-none
+                hover:transform-none
+                transition-none
+              "
+            >
+              <div className="space-y-4">
+                <h2 className="font-heading text-2xl font-semibold leading-tight text-slate-900">
+                  eLearning Design System
+                </h2>
+
+                <div className="mt-5">
+                  <div className="overflow-hidden rounded-xl ring-1 ring-black/10 bg-white shadow-[0_18px_45px_rgba(2,6,23,0.12)]">
+                    <img
+                      src={`${import.meta.env.BASE_URL}images/design-system/glenn-hammond-site-assets-elearning-design-system.jpg`}
+                      alt="eLearning Design System preview"
+                      className="w-full h-auto block"
+                      loading="lazy"
+                      decoding="async"
+                    />
+                  </div>
+                </div>
+
+                <p className="mt-5 text-slate-700 leading-7">
+                  A practical kit for building modern eLearning fast - templates, interaction patterns, accessibility, and production-ready guidance.
+                </p>
+              </div>
+
+              <div className="mt-7 flex flex-col items-stretch gap-4">
+                <Link
+                  to="/work/elearning-design-system"
+                  className="
+                    btn-cta
+                    font-heading
+                    inline-flex items-center justify-center
+                    w-full
+                    py-4
+                    text-base font-semibold
+                    rounded-xl
+                    shadow-[0_14px_34px_rgba(0,0,0,0.20)]
+                    transition
+                    focus-visible:outline-none
+                    focus-visible:ring-2
+                    focus-visible:ring-black/20
+                  "
+                >
+                  View the system
+                </Link>
+
+                <Link
+                  to="/work"
+                  className="
+                    btn-outline
+                    font-heading
+                    inline-flex items-center justify-center
+                    w-full
+                    py-4
+                    text-base font-semibold
+                    rounded-xl
+                    transition
+                    focus-visible:outline-none
+                    focus-visible:ring-2
+                    focus-visible:ring-black/20
+                  "
+                >
+                  View all work
+                </Link>
+              </div>
+            </div>
+
+            {/* WHAT YOU GET (MOBILE) */}
+            <div className="rounded-2xl border border-black/10 bg-white/70 backdrop-blur-sm p-4">
+              <p className="text-xs font-semibold tracking-[0.18em] uppercase text-slate-600">What you get</p>
+              <ul className="mt-3 space-y-2 text-sm text-slate-800 leading-6 list-none p-0 m-0 marker:text-transparent">
+                <li className="flex items-start gap-3 marker:text-transparent before:hidden before:content-['']">
+                  <span aria-hidden="true" className="text-[var(--secondary)]">★</span>
+                  <span><strong>Premium craft</strong> - clean UX, refined typography, and interaction patterns that feel right.</span>
+                </li>
+                <li className="flex items-start gap-3 marker:text-transparent before:hidden before:content-['']">
+                  <span aria-hidden="true" className="text-[var(--secondary)]">★</span>
+                  <span><strong>Evidence-informed</strong> - clarity, retrieval practice, and reduced cognitive load.</span>
+                </li>
+                <li className="flex items-start gap-3 marker:text-transparent before:hidden before:content-['']">
+                  <span aria-hidden="true" className="text-[var(--secondary)]">★</span>
+                  <span><strong>Production-ready</strong> - reusable components, accessibility, and builds that are easy to maintain.</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </HeroShell>
 
       {/* SERVICES + CLIENT LOGOS (mobile: services first, desktop: logos first) */}
       <div className="flex flex-col">
@@ -439,17 +474,17 @@ export default function Home() {
         {/* Mobile order: 1, Desktop order: 2 */}
         <div className="order-1 md:order-2">
           {/* SERVICES PREVIEW */}
-          <Section>
+          <Section className="bg-[var(--bg-soft)] !pt-4 md:!pt-12">
             <Container className="space-y-8 fade-in-up">
               <div className="space-y-3 max-w-[70ch]">
                 <span className="text-xs uppercase tracking-[0.18em] text-[var(--text)] opacity-60">
                   Services
                 </span>
                 <h2 className="font-heading text-2xl text-[var(--text)]">
-                  Premium learning design - from strategy to production
+                  Learning design, builds, and insight - end to end
                 </h2>
                 <p className="text-sm text-[var(--text)] opacity-70 leading-7">
-                  I design and produce premium digital learning with a clean UX, strong craft, and evidence-informed decisions - then make it scalable with templates, systems, and analytics.
+                  I turn complex content into clear, usable learning - then build it properly in Storyline, Rise, or H5P, and add xAPI reporting when it’s worth measuring.
                 </p>
               </div>
 
