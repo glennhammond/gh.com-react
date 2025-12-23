@@ -51,23 +51,23 @@ export default function Services() {
         </div>
         <p>
           Engage me for one stream - strategy, build, or analytics - or combine them end-to-end.
-          I focus on practical delivery: clear decisions, clean execution, measurable improvement.
+          I focus on practical delivery and measurable improvement.
         </p>
-        <div className="space-y-0">
-          <p className="text-[var(--text)]/80">Typical outputs:</p>
+        <div className="mt-6">
+          <p className="font-heading text-base text-[var(--text)]">Typical outputs:</p>
           <style>{`
             .service-bullets-hero { list-style: none !important; padding: 0 !important; padding-left: 2.25rem !important; }
             .service-bullets-hero li { list-style: none !important; padding: 0 !important; }
             .service-bullets-hero li::marker { content: none !important; }
             .service-bullets-hero li::before { content: none !important; }
           `}</style>
-          <ul className="service-bullets-hero w-full text-left list-none m-0 mt-6 space-y-6 text-base leading-7 text-[var(--text)]/80">
+          <ul className="service-bullets-hero w-full text-left list-none m-0 mt-4 space-y-3 text-base leading-6 text-[var(--text)]/80">
             {[
-              "eLearning consultancy + ID",
+              "eLearning consultancy",
               "Storyboards and scripts",
               "Storyline/Rise builds",
               "Video and graphic assets",
-              "xAPI statement design and instrumentation",
+              "xAPI integration",
               "LRS setup and reporting workflows",
             ].map((item) => (
               <li key={item} className="list-none relative pl-0">
