@@ -50,7 +50,7 @@ export default function Services() {
           </div>
         </div>
         <p>
-          Engage me for one stream - strategy, build, or analytics - or combine them end-to-end.
+          Either engage me a single stream - strategy, build, or analytics - or combine them end-to-end.
           I focus on practical delivery and measurable improvement.
         </p>
         <div className="mt-6">
