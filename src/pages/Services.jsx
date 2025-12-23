@@ -50,13 +50,38 @@ export default function Services() {
           </div>
         </div>
         <p>
-          You can engage me for a single stream (strategy, build, or data), or combine them end-to-end.
-          My focus is practical delivery - clear decisions, clean execution, and measurable improvement.
+          Engage me for one stream - strategy, build, or analytics - or combine them end-to-end.
+          I focus on practical delivery: clear decisions, clean execution, measurable improvement.
         </p>
-        <p>
-          Typical outputs include storyboards and scripts, Storyline/Rise builds, video assets, xAPI statements,
-          LRS configuration, and dashboards that support real reporting.
-        </p>
+        <div className="space-y-0">
+          <p className="text-[var(--text)]/80">Typical outputs:</p>
+          <style>{`
+            .service-bullets-hero { list-style: none !important; padding: 0 !important; padding-left: 2.25rem !important; }
+            .service-bullets-hero li { list-style: none !important; padding: 0 !important; }
+            .service-bullets-hero li::marker { content: none !important; }
+            .service-bullets-hero li::before { content: none !important; }
+          `}</style>
+          <ul className="service-bullets-hero w-full text-left list-none m-0 mt-6 space-y-6 text-base leading-7 text-[var(--text)]/80">
+            {[
+              "eLearning consultancy + ID",
+              "Storyboards and scripts",
+              "Storyline/Rise builds",
+              "Video and graphic assets",
+              "xAPI statement design and instrumentation",
+              "LRS setup and reporting workflows",
+            ].map((item) => (
+              <li key={item} className="list-none relative pl-0">
+                <span
+                  aria-hidden="true"
+                  className="absolute left-0 -translate-x-[18px] text-[var(--secondary)] leading-none text-[15px] top-[0.42em]"
+                >
+                  ★
+                </span>
+                <span className="block">{item}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
       </PageHero>
 
       {/* SERVICES GRID */}
@@ -65,12 +90,12 @@ export default function Services() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 fade-in-up">
             <ServiceCard
               title="Consultancy & instructional design"
-              blurb="Clarify the problem, define the learning approach, and design experiences that are buildable and measurable."
+              blurb="Get clarity, lock the approach, and design learning that’s buildable and measurable."
               items={[
                 "Discovery, needs analysis, and learning strategy",
-                "Curriculum design, storyboards, and scenario writing",
-                "Stakeholder alignment workshops and design sign-off",
-                "Accessibility, quality assurance, and evaluation planning",
+                "Curriculum design, storyboards, scripts, and scenarios",
+                "Stakeholder workshops and fast design sign-off",
+                "Accessibility, QA, and evaluation planning",
               ]}
               imageSrc="/images/heroes/glenn-hammond-site-assets-hero-services.webp"
               imageAlt="Learning strategy - notes and planning"
@@ -78,11 +103,11 @@ export default function Services() {
 
             <ServiceCard
               title="eLearning & media development"
-              blurb="Build polished learning experiences and media assets with strong UX, clean structure, and consistent design."
+              blurb="Build polished learning and media with strong UX, clean structure, and consistent design."
               items={[
-                "Storyline/Rise builds with strong UX and accessibility",
+                "Storyline/Rise builds - accessibility and QA baked in",
                 "Reusable templates, components, and design systems",
-                "Interactive video, microlearning, and supporting assets",
+                "Microlearning, interactions, and supporting assets",
                 "Video production, editing, and audio clean-up",
               ]}
               imageSrc="/images/heroes/glenn-hammond-site-assets-hero-services.webp"
@@ -91,12 +116,12 @@ export default function Services() {
 
             <ServiceCard
               title="xAPI & learning analytics"
-              blurb="Instrument your learning with xAPI and dashboards so you can see what’s working - and improve it."
+              blurb="Track what’s happening with xAPI and dashboards - then use the data to improve."
               items={[
                 "xAPI implementation, debugging, and statement design",
                 "LRS setup (Veracity, Learning Locker) and workflows",
-                "Sheets-based parsing/cleaning for faster reporting",
-                "Dashboards (Looker Studio) that turn data into insight",
+                "Parsing and cleaning (Sheets-first) for faster reporting",
+                "Looker Studio dashboards that turn data into decisions",
               ]}
               imageSrc="/images/work/glenn-hammond-site-assets-veracity.webp"
               imageAlt="Learning analytics - dashboard and data"
@@ -110,7 +135,7 @@ export default function Services() {
               <a href="/contact" className="font-heading text-[var(--secondary)] hover:underline">
                 Get in touch
               </a>{" "}
-              and we can map out the right mix of design, xAPI, and media support.
+              and we’ll map the right mix of design, build, and analytics.
             </p>
           </div>
         </Container>
@@ -124,14 +149,14 @@ export default function Services() {
               <span className="text-xs uppercase tracking-[0.18em] text-[var(--text)]/70">Approach</span>
               <h2 className="font-heading text-2xl text-[var(--text)]">How I work</h2>
               <p className="max-w-2xl text-[var(--text)]/80">
-                A simple way of working: clear decisions, steady momentum, clean delivery.
+                A simple process - clear decisions, steady momentum, clean delivery.
               </p>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
-              <StepCard title="Discover" icon="1" text="Define the audience, constraints, and success measures." />
-              <StepCard title="Design" icon="2" text="Storyboard, script, prototype, and lock scope." />
-              <StepCard title="Build" icon="3" text="Develop learning, media, and templates with QA." />
+              <StepCard title="Discover" icon="1" text="Define the audience, constraints, and what success looks like." />
+              <StepCard title="Design" icon="2" text="Storyboard, script, prototype - then lock scope." />
+              <StepCard title="Build" icon="3" text="Develop learning and media - with QA and accessibility." />
               <StepCard title="Measure" icon="4" text="Use xAPI and dashboards to iterate with confidence." />
             </div>
 
@@ -140,7 +165,7 @@ export default function Services() {
                 href="/work"
                 className="inline-flex items-center justify-center rounded-xl bg-white/80 dark:bg-white/10 backdrop-blur-sm border border-black/10 dark:border-white/15 px-5 py-3 text-sm font-heading text-[var(--text)] shadow-sm card-link focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--secondary)]/40"
               >
-                See examples in Work →
+                See work examples →
               </a>
             </div>
           </div>
@@ -184,14 +209,14 @@ function ServiceCard({ title, blurb, items, imageSrc, imageAlt }) {
         `}</style>
         <ul className="service-bullets w-full text-left list-none m-0 p-0 space-y-3 text-base leading-7 text-[var(--text)]/75">
           {items.map((item) => (
-            <li key={item} className="list-none w-full grid grid-cols-[8px_1fr] items-start gap-1.5">
+            <li key={item} className="list-none flex items-start gap-2.5">
               <span
                 aria-hidden="true"
-                className="text-[var(--secondary)] leading-none text-[15px] mt-[6px] -ml-[3px]"
+                className="shrink-0 w-[14px] -ml-[2px] text-[var(--secondary)] leading-none text-[15px] mt-[0.42em]"
               >
                 ★
               </span>
-              <span>{item}</span>
+              <span className="flex-1">{item}</span>
             </li>
           ))}
         </ul>
