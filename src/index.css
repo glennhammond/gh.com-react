@@ -48,6 +48,11 @@
     line-height: 1;
   }
 
+  /* If a component renders its own decorative bullet icon in the <li>, hide it so we only show ONE star */
+  main ul > li > span[aria-hidden="true"] {
+    display: none !important;
+  }
+
   main ul > li + li {
     margin-top: 0.45rem;
   }

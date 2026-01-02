@@ -1,23 +1,25 @@
 // src/components/layout/PageWrapper.jsx
 import React from "react";
 import { useLocation } from "react-router-dom";
+import Container from "./Container";
 
 export default function PageWrapper({
   children,
   className = "",
   container = false,
-  containerClassName = "mx-auto max-w-6xl px-4 sm:px-6 lg:px-8",
+  containerClassName = "",
 }) {
   const location = useLocation();
 
   return (
     <main className={`fade-in-up ${className}`.trim()}>
-      <div
-        key={location.pathname}
-        className={container ? containerClassName : undefined}
-      >
-        {children}
-      </div>
+      {container ? (
+        <Container key={location.pathname} className={containerClassName}>
+          {children}
+        </Container>
+      ) : (
+        <div key={location.pathname}>{children}</div>
+      )}
     </main>
   );
 }

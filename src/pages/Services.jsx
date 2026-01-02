@@ -1,4 +1,3 @@
-// src/pages/Services.jsx
 import React from "react";
 
 import PageWrapper from "../components/layout/PageWrapper";
@@ -12,10 +11,9 @@ export default function Services() {
     <PageWrapper>
       <SEO
         title="Services - Glenn Hammond"
-        description="Consultancy and instructional design, eLearning/media development, and xAPI learning analytics for modern digital learning."
+        description="Strategy, Storyline/Rise builds, and xAPI analytics - practical delivery end-to-end."
       />
 
-      {/* PAGE INTRO */}
       <PageHero
         breadcrumb={[
           { label: "Home", href: "/" },
@@ -49,35 +47,26 @@ export default function Services() {
             />
           </div>
         </div>
-        <p>
-          Either engage me a single stream - strategy, build, or analytics - or combine them end-to-end.
-          I focus on practical delivery and measurable improvement.
-        </p>
+
+        <p>I specialise in end-to-end learning delivery. Strategy, Storyline/Rise builds, and analytics.</p>
+
         <div className="mt-6">
-          <p className="font-heading text-base text-[var(--text)]">Typical outputs:</p>
-          <style>{`
-            .service-bullets-hero { list-style: none !important; padding: 0 !important; padding-left: 2.25rem !important; }
-            .service-bullets-hero li { list-style: none !important; padding: 0 !important; }
-            .service-bullets-hero li::marker { content: none !important; }
-            .service-bullets-hero li::before { content: none !important; }
-          `}</style>
-          <ul className="service-bullets-hero w-full text-left list-none m-0 mt-4 space-y-3 text-base leading-6 text-[var(--text)]/80">
+                 <ul className="mt-4 space-y-3 text-base leading-6 text-[var(--text)]/80">
             {[
-              "eLearning consultancy",
-              "Storyboards and scripts",
-              "Storyline/Rise builds",
-              "Video and graphic assets",
-              "xAPI integration",
-              "LRS setup and reporting workflows",
+              "Learning strategy and instructional design",
+              "Storyline and Rise builds",
+              "Video, graphics, and supporting assets",
+              "xAPI tracking and wrappers",
+              "LRS setup and reporting (Sheets - Looker Studio)",
             ].map((item) => (
-              <li key={item} className="list-none relative pl-0">
+              <li key={item} className="flex items-start gap-2.5">
                 <span
                   aria-hidden="true"
-                  className="absolute left-0 -translate-x-[18px] text-[var(--secondary)] leading-none text-[15px] top-[0.42em]"
+                  className="shrink-0 w-[14px] -ml-[2px] text-[var(--secondary)] leading-none text-[15px] mt-[0.42em]"
                 >
                   ★
                 </span>
-                <span className="block">{item}</span>
+                <span className="flex-1">{item}</span>
               </li>
             ))}
           </ul>
@@ -89,46 +78,38 @@ export default function Services() {
         <Container>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 fade-in-up">
             <ServiceCard
-              title="Consultancy & instructional design"
-              blurb="Get clarity, lock the approach, and design learning that’s buildable and measurable."
+              title="Learning strategy & instructional design"
+              blurb="Work out what needs to change, then shape learning that’s ready to build - and easy to sign off."
               items={[
-                "Discovery, needs analysis, and learning strategy",
-                "Curriculum design, storyboards, scripts, and scenarios",
-                "Stakeholder workshops and fast design sign-off",
-                "Accessibility, QA, and evaluation planning",
+                "Discovery, needs analysis, and performance goals",
+                "Curriculum maps, storyboards, scripts, and scenarios",
+                "Workshops that align stakeholders and speed sign-off",
+                "Accessibility, QA planning, and evaluation approach",
               ]}
-              imageSrc="/images/heroes/glenn-hammond-site-assets-hero-services.webp"
-              imageAlt="Learning strategy - notes and planning"
             />
 
             <ServiceCard
-              title="eLearning & media development"
-              blurb="Build polished learning and media with strong UX, clean structure, and consistent design."
+              title="eLearning & media production"
+              blurb="Studio-grade Storyline/Rise builds with modern UX, tidy structure, and consistent design."
               items={[
-                "Storyline/Rise builds - accessibility and QA baked in",
+                "Storyline and Rise builds - accessibility and QA included",
                 "Reusable templates, components, and design systems",
-                "Microlearning, interactions, and supporting assets",
-                "Video production, editing, and audio clean-up",
+                "Microlearning, interactions, job aids, and supporting assets",
+                "Video editing, graphics, and audio polish",
               ]}
-              imageSrc="/images/heroes/glenn-hammond-site-assets-hero-services.webp"
-              imageAlt="eLearning development - interface and timeline"
             />
 
             <ServiceCard
               title="xAPI & learning analytics"
-              blurb="Track what’s happening with xAPI and dashboards - then use the data to improve."
+              blurb="Instrument the learning, make the data usable, then turn it into reporting that supports decisions."
               items={[
-                "xAPI implementation, debugging, and statement design",
-                "LRS setup (Veracity, Learning Locker) and workflows",
-                "Parsing and cleaning (Sheets-first) for faster reporting",
-                "Looker Studio dashboards that turn data into decisions",
-              ]}
-              imageSrc="/images/work/glenn-hammond-site-assets-veracity.webp"
-              imageAlt="Learning analytics - dashboard and data"
+                "xAPI design, wrappers, debugging, and validation", 
+                "LRS setup and workflows (Veracity, Learning Locker)",
+                "Flattening and cleaning (Sheets-first) for faster analysis",
+                          ]}
             />
           </div>
 
-          {/* Soft CTA under the grid */}
           <div className="mt-10 text-sm text-[var(--text)]/80">
             <p>
               Not sure where your project fits?{" "}
@@ -140,101 +121,32 @@ export default function Services() {
           </div>
         </Container>
       </Section>
-
-      {/* HOW I WORK */}
-      <Section>
-        <Container>
-          <div className="space-y-6 fade-in-up">
-            <div className="space-y-2">
-              <span className="text-xs uppercase tracking-[0.18em] text-[var(--text)]/70">Approach</span>
-              <h2 className="font-heading text-2xl text-[var(--text)]">How I work</h2>
-              <p className="max-w-2xl text-[var(--text)]/80">
-                A simple process - clear decisions, steady momentum, clean delivery.
-              </p>
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
-              <StepCard title="Discover" icon="1" text="Define the audience, constraints, and what success looks like." />
-              <StepCard title="Design" icon="2" text="Storyboard, script, prototype - then lock scope." />
-              <StepCard title="Build" icon="3" text="Develop learning and media - with QA and accessibility." />
-              <StepCard title="Measure" icon="4" text="Use xAPI and dashboards to iterate with confidence." />
-            </div>
-
-            <div>
-              <a
-                href="/work"
-                className="inline-flex items-center justify-center rounded-xl bg-white/80 dark:bg-white/10 backdrop-blur-sm border border-black/10 dark:border-white/15 px-5 py-3 text-sm font-heading text-[var(--text)] shadow-sm card-link focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--secondary)]/40"
-              >
-                See work examples →
-              </a>
-            </div>
-          </div>
-        </Container>
-      </Section>
     </PageWrapper>
   );
 }
 
-function ServiceCard({ title, blurb, items, imageSrc, imageAlt }) {
+function ServiceCard({ title, blurb, items }) {
   return (
-    <div className="site-card overflow-hidden">
-      {/* Card header image */}
-      {imageSrc ? (
-        <div className="relative h-44 w-full">
-          <img
-            src={imageSrc}
-            alt={imageAlt || ""}
-            className="absolute inset-0 h-full w-full object-cover"
-            loading="lazy"
-            decoding="async"
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
-        </div>
-      ) : (
-        <div className="h-14 bg-gradient-to-r from-[#F5C84C] via-[#c01e84] to-[#970067]" />
-      )}
-
-      <div className="p-8 space-y-5">
-        <div>
-          <h3 className="font-heading text-xl text-[var(--text)]">{title}</h3>
-        </div>
-
-        {blurb && <p className="text-base leading-7 text-[var(--text)]/75">{blurb}</p>}
-
-        <style>{`
-          .service-bullets { list-style: none !important; margin: 0 !important; padding: 0 !important; }
-          .service-bullets li { list-style: none !important; }
-          .service-bullets li::marker { content: none !important; }
-          .service-bullets li::before { content: none !important; }
-        `}</style>
-        <ul className="service-bullets w-full text-left list-none m-0 p-0 space-y-3 text-base leading-7 text-[var(--text)]/75">
-          {items.map((item) => (
-            <li key={item} className="list-none flex items-start gap-2.5">
-              <span
-                aria-hidden="true"
-                className="shrink-0 w-[14px] -ml-[2px] text-[var(--secondary)] leading-none text-[15px] mt-[0.42em]"
-              >
-                ★
-              </span>
-              <span className="flex-1">{item}</span>
-            </li>
-          ))}
-        </ul>
+    <div className="site-card p-8 space-y-5">
+      <div>
+        <h3 className="font-heading text-xl text-[var(--text)]">{title}</h3>
       </div>
-    </div>
-  );
-}
 
-function StepCard({ title, icon, text }) {
-  return (
-    <div className="site-card p-5">
-      <div className="flex items-center gap-3">
-        <div className="h-9 w-9 rounded-full bg-[color:var(--secondary)]/12 border border-[color:var(--secondary)]/25 flex items-center justify-center text-[var(--secondary)] text-sm font-heading shadow-sm">
-          {icon}
-        </div>
-        <h3 className="font-heading text-base text-[var(--text)]">{title}</h3>
-      </div>
-      <p className="mt-3 text-sm text-[var(--text)]/75">{text}</p>
+      {blurb && <p className="text-base leading-7 text-[var(--text)]/75">{blurb}</p>}
+
+      <ul className="space-y-3 text-base leading-7 text-[var(--text)]/75">
+        {items.map((item) => (
+          <li key={item} className="flex items-start gap-2.5">
+            <span
+              aria-hidden="true"
+              className="shrink-0 w-[14px] -ml-[2px] text-[var(--secondary)] leading-none text-[15px] mt-[0.42em]"
+            >
+              ★
+            </span>
+            <span className="flex-1">{item}</span>
+          </li>
+        ))}
+      </ul>
     </div>
   );
 }

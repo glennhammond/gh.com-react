@@ -11,9 +11,12 @@ export function HeroShell({
   containerClassName = "",
   noPadding = false,
 }) {
+  const sectionClasses = `${sectionClassName} ${className}`.trim();
+  const containerClasses = `${containerClassName}`.trim();
+
   return (
-    <Section noPadding={noPadding} className={`${sectionClassName} ${className}`.trim()}>
-      <Container className={containerClassName}>{children}</Container>
+    <Section noPadding={noPadding} className={sectionClasses}>
+      <Container className={containerClasses}>{children}</Container>
     </Section>
   );
 }
@@ -46,7 +49,7 @@ export default function PageHero({
     <HeroShell
       className={className}
       sectionClassName={sectionClassName}
-      containerClassName={`space-y-10 fade-in-up ${containerClassName}`}
+      containerClassName={`space-y-10 fade-in-up ${containerClassName}`.trim()}
       noPadding={noPadding}
     >
       {renderBreadcrumb()}

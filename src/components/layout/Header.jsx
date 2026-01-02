@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { NavLink, Link } from "react-router-dom";
 import ThemeToggle from "./ThemeToggle.jsx";
+import Container from "./Container.jsx";
 
 const navItems = [
   { to: "/services", label: "Services" },
@@ -14,7 +15,6 @@ const desktopNavItems = navItems;
 
 export default function Header() {
   const [mobileOpen, setMobileOpen] = useState(false);
-  const debugLayout = false;
 
   useEffect(() => {
     document.body.style.overflow = mobileOpen ? "hidden" : "";
@@ -26,14 +26,14 @@ export default function Header() {
   return (
     <>
       <header className="sticky top-0 z-40 border-b border-black/5 dark:border-white/10 bg-white/90 dark:bg-[var(--bg)]/90 backdrop-blur-md transition-colors">
-        <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+        <Container>
           <div className="flex h-16 items-center justify-between">
             <Link to="/" className="flex items-center gap-2">
               {/* Light mode */}
               <img
                 src="/images/logos/logo-glennhammond-dark.svg"
                 alt="Glenn Hammond"
-                className="h-7 md:h-8 w-auto max-w-[240px] dark:hidden translate-y-[1px] -ml-2"
+                className="block h-7 md:h-8 w-auto max-w-[240px] dark:hidden"
                 loading="eager"
                 decoding="async"
               />
@@ -42,7 +42,7 @@ export default function Header() {
               <img
                 src="/images/logos/logo-glennhammond-light.svg"
                 alt="Glenn Hammond"
-                className="hidden h-7 md:h-8 w-auto max-w-[240px] dark:block translate-y-[1px] -ml-2"
+                className="hidden h-7 md:h-8 w-auto max-w-[240px] dark:block"
                 loading="eager"
                 decoding="async"
               />
@@ -67,9 +67,7 @@ export default function Header() {
             </nav>
 
             <div className="flex items-center gap-3">
-              <ThemeToggle
-                className="inline-flex h-10 w-10 items-center justify-center rounded-xl border border-black/10 bg-white/70 text-[var(--secondary)] backdrop-blur-sm transition hover:bg-white/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--secondary)]/40 dark:border-white/10 dark:bg-white/5 dark:hover:bg-white/10 shadow-none"
-              />
+              <ThemeToggle className="inline-flex h-10 w-10 items-center justify-center rounded-xl border border-black/10 bg-white/70 text-[var(--secondary)] backdrop-blur-sm transition hover:bg-white/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--secondary)]/40 dark:border-white/10 dark:bg-white/5 dark:hover:bg-white/10 shadow-none" />
 
               <button
                 type="button"
@@ -111,7 +109,7 @@ export default function Header() {
               </button>
             </div>
           </div>
-        </div>
+        </Container>
       </header>
 
       {/* Mobile menu overlay */}
@@ -190,7 +188,7 @@ export default function Header() {
             ))}
           </nav>
 
-          {/* Bottom CTA - keep this */}
+          {/* Bottom CTA */}
           <div className="mt-6 rounded-lg border border-black/10 bg-black/[0.03] p-4 dark:border-white/10 dark:bg-white/10">
             <p className="text-sm opacity-80">Want to talk about a project?</p>
             <Link
