@@ -48,30 +48,38 @@ export default function PageHero({
   return (
     <HeroShell
       className={className}
-      sectionClassName={sectionClassName}
+      sectionClassName={`${sectionClassName} page-hero hero-wash`.trim()}
       containerClassName={`space-y-10 fade-in-up ${containerClassName}`.trim()}
       noPadding={noPadding}
     >
       {renderBreadcrumb()}
 
-      <div className="grid gap-10 lg:grid-cols-2 lg:items-start">
+      <div className="space-y-6">
         <header className="space-y-4">
           {eyebrow ? (
-            <p className="text-xs uppercase tracking-[0.18em] text-[var(--text)]/60">{eyebrow}</p>
+            <p className="text-xs uppercase tracking-[0.18em] text-[var(--nostalgia-blue)]/80">
+              {eyebrow}
+            </p>
           ) : null}
 
           {title ? (
-            <h1 className="font-heading text-4xl md:text-5xl text-[var(--text)]">{title}</h1>
-          ) : null}
-
-          {children ? (
-            <div className={`text-[var(--text)]/75 max-w-3xl leading-relaxed ${introClassName}`.trim()}>
-              {children}
-            </div>
+            <h1 className="font-heading hero-title text-4xl md:text-5xl">{title}</h1>
           ) : null}
         </header>
 
-        {right ? <div className="w-full">{right}</div> : null}
+        <div className="grid gap-10 lg:grid-cols-2 lg:items-start">
+          {children ? (
+            <div
+              className={`hero-text-panel text-[var(--text)]/78 max-w-3xl leading-relaxed ${introClassName}`.trim()}
+            >
+              {children}
+            </div>
+          ) : (
+            <div />
+          )}
+
+          {right ? <div className="w-full">{right}</div> : null}
+        </div>
       </div>
     </HeroShell>
   );

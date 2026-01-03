@@ -5,13 +5,21 @@
 @layer components {
   /* Site-wide card surface (light mode) */
   .site-card {
-    @apply rounded-xl border border-black/5 bg-white/60 backdrop-blur-sm shadow-sm;
+    /* Slightly more "print" character: warm surface, a touch more edge, soft offset shadow */
+    @apply rounded-xl border bg-white/70 backdrop-blur-sm;
+    border-color: color-mix(in srgb, var(--card-border) 78%, #000 22%);
+    box-shadow: 0 12px 26px rgba(0, 0, 0, 0.10), 0 3px 0 rgba(0, 0, 0, 0.10);
   }
 
   /* Slightly stronger variant for key cards (light mode) */
   .site-card-strong {
-    @apply rounded-xl border border-black/5 bg-white/70 backdrop-blur-sm shadow-md;
+    @apply rounded-xl border bg-white/80 backdrop-blur-sm;
+    border-color: color-mix(in srgb, var(--card-border) 70%, #000 30%);
+    box-shadow: 0 18px 40px rgba(0, 0, 0, 0.12), 0 4px 0 rgba(0, 0, 0, 0.12);
   }
+  .page-hero {
+  background-color: transparent;
+}
 }
 
 @layer base {
@@ -43,7 +51,7 @@
     position: absolute;
     left: 0;
     top: 0.38em; /* align with first line */
-    color: var(--color-brand-accent, #FF3E7F);
+    color: #8CB8E7;
     font-size: 1em;
     line-height: 1;
   }
@@ -95,41 +103,52 @@
 
   --font-body: "open-sans", "Open Sans", system-ui, sans-serif;
 
-  /* Core colour system */
-  --bg: #F7F4FF;        /* cool off-white with a hint of ink */
-  --bg-soft: #ffffff;   /* cards, panels */
-  --hero-bg: #F2F0FF;   /* soft hero tint with a hint of ink */
+  /* Core colour system — Nostalgic cool (paper + primaries) */
+  --bg: #F4E8D7;        /* warm paper */
+  --bg-soft: #FFF7EC;   /* card paper */
+  --hero-bg: #EAF2FB;   /* airy tint (blue-leaning) */
 
-  --text: rgba(26, 20, 70, 0.86);      /* lighter ink navy */
-  --heading: rgba(26, 20, 70, 0.90);
-  --muted: rgba(26, 20, 70, 0.70);
-  --text-muted: rgba(26, 20, 70, 0.70);
+  /* Ink (keep your existing navy vibe, just warmed slightly for paper) */
+  --text: rgba(26, 20, 70, 0.86);
+  --heading: rgba(26, 20, 70, 0.92);
+  --muted: rgba(26, 20, 70, 0.72);
+  --text-muted: rgba(26, 20, 70, 0.72);
 
-  /* Brand colours — Option B (Ink Navy + Electric Coral) */
-  --color-brand-primary: #1A1446;      /* main brand */
-  --color-brand-accent: #FF3E7F;       /* coral accent */
-  --color-brand-soft: rgba(255, 62, 127, 0.12);
+  /* Palette from your reference */
+  --nostalgia-blue: #8DB9E8;
+  --nostalgia-cream: #F4E8D7;
+  --nostalgia-peach: #EFA892;
+  --nostalgia-red: #E90A0A;
 
-  /* Link colours (darker coral for legibility on white) */
-  --link: #D81B60;
-  --link-hover: #B91552;
+  /* Heading accents (use sparingly for character) */
+  --heading-accent: var(--nostalgia-red);
+  --heading-accent-2: var(--nostalgia-blue);
+  --heading-underline: color-mix(in srgb, var(--nostalgia-red) 28%, transparent);
 
-  /* CTA / emphasis colour (ink navy for primary CTAs) */
-  --cta: #1A1446;
-  --cta-strong: #120F33;
-  --cta-soft: rgba(26, 20, 70, 0.12);
+  /* Brand colours */
+  --color-brand-primary: #1A1446;      /* ink navy */
+  --color-brand-accent: var(--nostalgia-red);
+  --color-brand-soft: color-mix(in srgb, var(--nostalgia-red) 14%, transparent);
+
+  /* Link colours (red-led, but not neon) */
+  --link: #C90808;
+  --link-hover: #A00707;
+
+  /* CTA / emphasis colour (red on paper) */
+  --cta: var(--nostalgia-red);
+  --cta-strong: #B70707;
+  --cta-soft: color-mix(in srgb, var(--nostalgia-red) 18%, transparent);
   --cta-text: #ffffff;
 
-  /* Secondary colour */
-  --secondary: #FF3E7F;
-  --secondary-strong: #E82F6F;
-  --secondary-soft: rgba(255, 62, 127, 0.16);
-
+  /* Secondary colour (peach for panels/chips) */
+  --secondary: var(--nostalgia-peach);
+  --secondary-strong: #E98E73;
+  --secondary-soft: color-mix(in srgb, var(--nostalgia-peach) 34%, transparent);
   /* Card tokens (used for consistent card styling across themes) */
   --card-bg: #ffffff;
   --card-bg-strong: #ffffff;
-  --card-border: #D7DCE8;
-  --card-shadow: 0 18px 60px rgba(15, 23, 42, 0.14), 0 6px 16px rgba(15, 23, 42, 0.08);
+--card-border: rgba(26, 20, 70, 0.18);  
+--card-shadow: 0 18px 60px rgba(15, 23, 42, 0.14), 0 6px 16px rgba(15, 23, 42, 0.08);
   --card-title: var(--heading);
   --card-text: rgba(26, 20, 70, 0.84);
   --card-muted: rgba(26, 20, 70, 0.64);
@@ -160,6 +179,12 @@
   --cat-ai: #00acc1;
   --cat-ux: #1a237e;
   --cat-general: #37474f;
+
+  /* Hero accents (balanced red + blue) */
+--hero-accent: var(--nostalgia-red);
+--hero-balance: var(--nostalgia-blue);
+--hero-accent-soft: color-mix(in srgb, var(--nostalgia-red) 16%, transparent);
+--hero-balance-soft: color-mix(in srgb, var(--nostalgia-blue) 34%, transparent);
 }
 
 /* -------------------------------------------------------
@@ -199,7 +224,11 @@ html.dark {
   /* Card tokens (dark mode uses bright white cards on blue) */
   --card-bg: rgba(247, 250, 255, 0.96);   /* faint blue-tinted white */
   --card-bg-strong: #ffffff;
-  --card-border: rgba(29, 78, 216, 0.14); /* subtle indigo edge */
+  --card-border: rgba(26, 20, 70, 0.18);
+
+  --heading-accent: #FF3E7F;
+  --heading-accent-2: rgba(141, 185, 232, 0.95);
+  --heading-underline: rgba(255, 62, 127, 0.22);
   --card-shadow: 0 38px 110px rgba(0, 0, 0, 0.32), 0 14px 34px rgba(0, 0, 0, 0.18);
   --card-title: #1E3A8A;
   --card-text: rgba(15, 23, 42, 0.88);
@@ -231,17 +260,23 @@ html.dark {
   --cat-ai: #5fd4e4;
   --cat-ux: #818cf8;
   --cat-general: #94a3b8;
+
+  --hero-accent: var(--heading-accent);
+--hero-balance: var(--heading-accent-2);
+--hero-accent-soft: rgba(255, 62, 127, 0.22);
+--hero-balance-soft: rgba(141, 185, 232, 0.22);
+}
+
+/* Light mode background: plain paper */
+html:not(.dark) {
+  background-color: var(--bg);
+  background-image: none;
 }
 
 /* Subtle indigo depth so the background reads "royal indigo" not black */
 html.dark body {
   background-color: var(--bg) !important;
-  background-image:
-    radial-gradient(1000px circle at 18% 18%, rgba(255, 77, 141, 0.16), transparent 62%),
-    radial-gradient(900px circle at 82% 36%, rgba(192, 132, 252, 0.12), transparent 64%),
-    radial-gradient(1200px circle at 52% 95%, rgba(59, 130, 246, 0.06), transparent 66%);
-  background-attachment: fixed;
-  background-repeat: no-repeat;
+  background-image: none !important;
 }
 
 
@@ -538,6 +573,84 @@ html.dark main :is(
   max-width: 68ch;
 }
 
+/* Keep headings ink-led for readability, but allow accents */
+.prose :is(h1, h2, h3, h4) {
+  color: var(--heading);
+}
+
+/* Optional: add className="title-red" / "title-blue" to any heading */
+.title-red { color: var(--heading-accent) !important; }
+.title-blue { color: var(--heading-accent-2) !important; }
+
+/* Optional: nostalgic underline that feels like print marker */
+.title-underline {
+  display: inline;
+  padding-bottom: 0.08em;
+  box-decoration-break: clone;
+  background-image: linear-gradient(transparent 62%, var(--heading-underline) 0);
+}
+
+/* Optional: tiny "label" chip before headings for a bit of 70s/80s flavour */
+.title-label {
+  display: inline-block;
+  margin-right: 0.5rem;
+  padding: 0.15rem 0.5rem;
+  border-radius: 999px;
+  border: 1px solid rgba(26, 20, 70, 0.22);
+  background: color-mix(in srgb, var(--nostalgia-blue) 22%, var(--bg-soft));
+  box-shadow: 0 2px 0 rgba(0, 0, 0, 0.12);
+  font-size: 0.72em;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+/* -------------------------------------------------------
+   HERO UTILITIES
+------------------------------------------------------- */
+
+.hero-title {
+  color: var(--hero-accent) !important;
+  font-weight: 850;
+  letter-spacing: -0.03em;
+  line-height: 1.03;
+}
+
+.page-hero h1 {
+  color: var(--hero-accent) !important;
+  font-weight: 850;
+  letter-spacing: -0.03em;
+  line-height: 1.03;
+}
+
+@media (max-width: 640px) {
+  .page-hero h1 {
+    font-size: clamp(2.6rem, 8.2vw, 3.25rem);
+  }
+}
+
+.hero-wash {
+  background: none !important;
+
+  .hero-text-panel{
+  display:block;
+  background:#FFF7EC;                 /* your paper-card (bg-soft) */
+  border:1px solid rgba(26,20,70,.22);
+  border-radius:1.25rem;
+  padding:1.25rem;
+  box-shadow:0 14px 34px rgba(0,0,0,.10), 0 3px 0 rgba(0,0,0,.10);
+}
+
+@media (min-width:768px){
+  .hero-text-panel{
+    background:transparent;
+    border:0;
+    box-shadow:none;
+    padding:0;
+  }
+}
+}
+
 /* Only animate colours during an intentional theme toggle */
 html.theme-transition,
 html.theme-transition * {
@@ -568,39 +681,14 @@ body {
 
 
 /* Light mode - inkier ambient wash (navy/purple leads, pink is just a whisper) */
-html:not(.dark) {
-  background-color: var(--bg);
-  background-image:
-    radial-gradient(1250px circle at 10% 0%, rgba(26, 20, 70, 0.38), transparent 58%),
-    radial-gradient(1200px circle at 92% 12%, rgba(26, 20, 70, 0.22), transparent 56%),
-    radial-gradient(1200px circle at 78% 46%, rgba(255, 62, 127, 0.035), transparent 56%),
-    radial-gradient(1600px circle at 55% 94%, rgba(26, 20, 70, 0.26), transparent 66%),
-    linear-gradient(180deg, rgba(255, 255, 255, 0.70), rgba(255, 255, 255, 0));
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-size: 150% 150%, 155% 155%, 130% 130%, 165% 165%, 100% 100%;
-  filter: saturate(1.02) contrast(1.02);
-}
+/* See consolidated rule above for html:not(.dark) background properties */
 
 /* Let the html background show through */
 html:not(.dark) body {
   background-color: transparent;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  html:not(.dark) {
-    animation: lightWashShift 18s ease-in-out infinite alternate;
-  }
-}
 
-@keyframes lightWashShift {
-  from {
-    background-position: 0% 0%, 100% 0%, 50% 50%, 50% 100%, 0 0;
-  }
-  to {
-    background-position: 8% 4%, 92% 8%, 56% 46%, 48% 96%, 0 0;
-  }
-}
 
 /* 🔹 New: slightly larger again from tablet up */
 @media (min-width: 768px) {
@@ -854,4 +942,4 @@ html:not(.dark) main :is(a, button).bg-orange-300 {
   background-color: var(--cta) !important;
   border-color: var(--cta-strong) !important;
   color: var(--cta-text) !important;
-}
+} 
