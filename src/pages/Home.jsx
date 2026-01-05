@@ -44,6 +44,17 @@ const clients = [
 export default function Home() {
   const placeholderImg = `${import.meta.env.BASE_URL}images/placeholders/placeholder-post.jpg`;
 
+  // HERO CTA A/B
+  // A = consulting-first ("How I work" is primary)
+  // B = system-first ("View the system" is primary)
+  const HERO_CTA_VARIANT = "A";
+
+  const ctaPrimary = "btn-cta font-heading inline-flex items-center justify-center w-full py-4 text-base font-semibold rounded-xl shadow-[0_14px_34px_rgba(0,0,0,0.20)] transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black/20";
+  const ctaSecondary = "btn-outline font-heading inline-flex items-center justify-center w-full py-4 text-base font-semibold rounded-xl transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black/20";
+
+  const howIWorkClass = HERO_CTA_VARIANT === "A" ? ctaPrimary : ctaSecondary;
+  const viewSystemClass = HERO_CTA_VARIANT === "A" ? ctaSecondary : ctaPrimary;
+
   // FEATURED WORK (explicit order)
   const pickBySlug = (slug) => projects.find((p) => p?.slug === slug);
   const pickByIncludes = (needle) =>
@@ -135,22 +146,22 @@ export default function Home() {
     <PageWrapper>
       <SEO
         title="Glenn Hammond - eLearning Specialist, Designer & Developer"
-        description="Modern, evidence-informed learning design, Storyline development, xAPI analytics, and high-quality media for organisations."
+        description="Learning strategy, delivery frameworks, and analytics - measurable improvement end-to-end."
         url="https://glennhammond.com/"
       />
 
       {/* HERO */}
       <HeroShell
         noPadding
-        className="bg-[var(--bg-soft)] relative overflow-x-hidden !min-h-0 !h-auto"
-        containerClassName="px-5 sm:px-6 pt-12 pb-3 sm:pb-6 md:pt-12 md:pb-10 lg:pt-14 lg:pb-12 flex flex-col items-start"
+        className="bg-[var(--bg-soft)] relative overflow-hidden !min-h-0 !h-auto"
+        containerClassName="px-5 sm:px-6 pt-12 pb-2 sm:pb-4 md:pt-12 md:pb-0 lg:pt-14 lg:pb-0 flex flex-col items-start"
       >
         <div
           aria-hidden="true"
-          className="pointer-events-none absolute top-0 left-0 right-0 -bottom-24 z-0"
+          className="pointer-events-none absolute top-0 left-0 right-0 bottom-0 z-0"
         >
           <div className="absolute -top-24 left-1/2 h-[520px] w-[520px] -translate-x-1/2 rounded-full bg-[radial-gradient(circle_at_center,rgba(255,62,127,0.22),transparent_60%)] blur-2xl" />
-          <div className="absolute -bottom-28 -left-28 h-[520px] w-[520px] rounded-full bg-[radial-gradient(circle_at_center,rgba(0,255,209,0.18),transparent_60%)] blur-2xl" />
+          <div className="absolute -bottom-20 -left-28 h-[520px] w-[520px] rounded-full bg-[radial-gradient(circle_at_center,rgba(0,255,209,0.18),transparent_60%)] blur-2xl" />
         </div>
         <div
           className="
@@ -165,7 +176,7 @@ export default function Home() {
           "
         >
           {/* Left */}
-          <div className="w-full max-w-[560px] mx-auto md:mx-0 md:flex md:flex-col md:h-full md:pb-9">
+          <div className="w-full max-w-[560px] mx-auto md:mx-0 md:flex md:flex-col md:h-full md:pb-4">
             <div className="mb-6 flex items-center gap-3">
               <span aria-hidden="true">🏆</span>
               <span className="text-sm font-semibold tracking-[0.18em] uppercase text-[var(--text)] opacity-70">
@@ -189,7 +200,7 @@ export default function Home() {
               <span className="block">Better Learning</span>
               <span className="block">by Design</span>
             </h1>
-            <p className="mt-6 max-w-[46ch] text-[var(--text)] opacity-75 text-lg leading-7">
+            <p className="mt-6 max-w-[52ch] text-[var(--text)] opacity-75 text-lg leading-7">
               I design modern eLearning.<br />
               Intuitive UX/UI, scalable systems, and xAPI analytics.
             </p>
@@ -207,9 +218,9 @@ export default function Home() {
             <div className="mt-7 md:mt-auto md:pt-8 grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
               <Link
                 to="/services"
-                className="btn-cta font-heading inline-flex items-center justify-center w-full py-4 text-base font-semibold rounded-xl shadow-[0_14px_34px_rgba(0,0,0,0.20)] transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black/20"
+                className={howIWorkClass}
               >
-                View services
+                How I work
               </Link>
               <Link
                 to="/contact"
@@ -254,7 +265,7 @@ export default function Home() {
             >
 
               <h2 className="mt-3 font-heading text-3xl font-semibold leading-tight text-slate-900">
-                eLearning Design System
+                The Design system behind my work
               </h2>
 
 
@@ -275,39 +286,14 @@ A practical kit for building modern eLearning fast - interaction patterns, acces
               <div className="mt-7 md:mt-auto md:pt-8 grid grid-cols-2 gap-4">
                 <Link
                   to="/work/elearning-design-system"
-                  className="
-                    btn-cta
-                    font-heading
-                    inline-flex items-center justify-center
-                    w-full
-                    py-4
-                    text-base font-semibold
-                    rounded-xl
-                    shadow-[0_14px_34px_rgba(0,0,0,0.20)]
-                    transition
-                    focus-visible:outline-none
-                    focus-visible:ring-2
-                    focus-visible:ring-black/20
-                  "
+                  className={viewSystemClass}
                 >
                   View the system
                 </Link>
 
                 <Link
                   to="/work"
-                  className="
-                    btn-outline
-                    font-heading
-                    inline-flex items-center justify-center
-                    w-full
-                    py-4
-                    text-base font-semibold
-                    rounded-xl
-                    transition
-                    focus-visible:outline-none
-                    focus-visible:ring-2
-                    focus-visible:ring-black/20
-                  "
+                  className={HERO_CTA_VARIANT === "A" ? ctaSecondary : ctaSecondary}
                 >
                   View all work
                 </Link>
@@ -336,7 +322,7 @@ A practical kit for building modern eLearning fast - interaction patterns, acces
             >
               <div className="space-y-4">
                 <h2 className="font-heading text-2xl font-semibold leading-tight text-slate-900">
-                  eLearning Design System
+                  Design system behind my work
                 </h2>
 
                 <div className="mt-5">
@@ -358,39 +344,14 @@ A practical kit for building modern eLearning fast - interaction patterns, acces
               <div className="mt-7 flex flex-col items-stretch gap-4">
                 <Link
                   to="/work/elearning-design-system"
-                  className="
-                    btn-cta
-                    font-heading
-                    inline-flex items-center justify-center
-                    w-full
-                    py-4
-                    text-base font-semibold
-                    rounded-xl
-                    shadow-[0_14px_34px_rgba(0,0,0,0.20)]
-                    transition
-                    focus-visible:outline-none
-                    focus-visible:ring-2
-                    focus-visible:ring-black/20
-                  "
+                  className={viewSystemClass}
                 >
                   View the system
                 </Link>
 
                 <Link
                   to="/work"
-                  className="
-                    btn-outline
-                    font-heading
-                    inline-flex items-center justify-center
-                    w-full
-                    py-4
-                    text-base font-semibold
-                    rounded-xl
-                    transition
-                    focus-visible:outline-none
-                    focus-visible:ring-2
-                    focus-visible:ring-black/20
-                  "
+                  className={ctaSecondary}
                 >
                   View all work
                 </Link>
@@ -425,15 +386,10 @@ A practical kit for building modern eLearning fast - interaction patterns, acces
         <div className="order-2 md:order-1">
           {/* CLIENT LOGOS */}
           <Section className="bg-[var(--bg-soft)] border-y border-black/5 dark:border-white/10">
-            <Container className="py-6 md:py-8 fade-in-up">
+            <Container className="pt-2 pb-6 md:pt-3 md:pb-8 fade-in-up">
               <div className="w-full max-w-[560px] mx-auto sm:max-w-none">
-                <div className="mb-6 md:mb-7 space-y-2 text-center sm:text-left">
-                  <p className="text-xs font-semibold tracking-[0.18em] uppercase text-[var(--text)] opacity-60">
-                    Trusted by
-                  </p>
-                  <p className="text-sm text-[var(--text)] opacity-70">
-                    Education, government, and regulated industries.
-                  </p>
+                <div className="mb-4 md:mb-5 space-y-2 text-center sm:text-left">
+         
                 </div>
                 <div className="grid w-full grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-x-8 gap-y-12 place-items-stretch sm:place-items-center">
                   {clients.map((client) => (
@@ -482,36 +438,36 @@ A practical kit for building modern eLearning fast - interaction patterns, acces
                   Services
                 </span>
                 <h2 className="font-heading text-2xl text-[var(--text)]">
-                  Learning design, builds, and insight - end to end
+                  Strategy, frameworks, and analytics - end to end
                 </h2>
                 <p className="text-sm text-[var(--text)] opacity-70 leading-7">
-                  I turn complex content into clear, usable learning - then build it properly in Storyline, Rise, or H5P, and add xAPI reporting when it’s worth measuring.
+                  I design learning that’s buildable, testable, and trackable - whether I’m leading the work or supporting an internal team.
                 </p>
               </div>
 
               <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
                 <ServiceCard
-                  title="Consultancy & instructional design"
+                  title="Learning strategy & solution design"
                   items={[
-                    "Discovery, needs analysis, and learning strategy",
-                    "Curriculum design, storyboards, and scenario writing",
-                    "Stakeholder alignment and quality assurance",
+                    "Discovery, needs analysis, and performance goals",
+                    "Learning architecture and program structure",
+                    "Sign-off-ready storyboards, scripts, and scenarios",
                   ]}
                 />
                 <ServiceCard
-                  title="eLearning & media development"
+                  title="Frameworks & delivery support"
                   items={[
-                    "Storyline/Rise builds with strong UX and accessibility",
-                    "Reusable templates, components, and design systems",
-                    "Video production, editing, and microlearning assets",
+                    "Modular design systems for Storyline and Rise",
+                    "Reusable templates, components, and accessibility patterns",
+                    "Delivery support in Storyline/Rise when it adds value",
                   ]}
                 />
                 <ServiceCard
-                  title="xAPI & learning analytics"
+                  title="Learning data & analytics"
                   items={[
-                    "xAPI implementation, debugging, and statement design",
-                    "Veracity/Learning Locker setup and reporting workflows",
-                    "Dashboards that turn learning data into insight",
+                    "xAPI strategy, wrappers, debugging, and validation",
+                    "LRS setup and reporting workflows",
+                    "Dashboards that go beyond completion rates",
                   ]}
                 />
               </div>
@@ -520,7 +476,7 @@ A practical kit for building modern eLearning fast - interaction patterns, acces
                 to="/services"
                 className="text-sm text-[var(--link)] hover:text-[var(--link-hover)] hover:underline inline-block font-heading"
               >
-                View all services →
+                See how I work →
               </Link>
             </Container>
           </Section>

@@ -11,7 +11,7 @@ export default function Services() {
     <PageWrapper>
       <SEO
         title="Services - Glenn Hammond"
-        description="Strategy, Storyline/Rise builds, and xAPI analytics - practical delivery end-to-end."
+        description="Learning strategy, delivery frameworks, and analytics - measurable improvement end-to-end."
       />
 
       <PageHero
@@ -50,16 +50,20 @@ export default function Services() {
         </div>
 
         <div className="mt-4 md:mt-0 rounded-2xl border border-[rgba(26,20,70,0.18)] bg-[var(--bg-soft)] p-5 shadow-[0_14px_34px_rgba(0,0,0,0.10),0_3px_0_rgba(0,0,0,0.10)] md:max-w-[48ch] md:bg-white/55 md:p-6 md:shadow-[0_18px_44px_rgba(0,0,0,0.10),0_4px_0_rgba(0,0,0,0.10)] lg:p-7">
-
- 
+          <div className="space-y-3">
+            <p className="font-heading text-lg leading-7 text-[var(--text)]">
+              I design learning that drives measurable improvement.
+            </p>
+  
+          </div>
           <div className="mt-4">
             <ul className="mt-2 grid gap-y-3 gap-x-6 md:grid-cols-2 text-base leading-6 text-[var(--text)]/80">
               {[
-                "Learning strategy and instructional design",
-                "Storyline and Rise builds",
-                "Video, graphics, and supporting assets",
-                "xAPI tracking and wrappers",
-                "LRS setup and reporting",
+                "Learning strategy and solution design",
+                "Frameworks, templates, and design systems",
+                "Analytics-first learning design (xAPI when needed)",
+                "LRS setup and reporting workflows",
+                "Delivery support in Storyline/Rise (when it adds value)",
               ].map((item) => (
                 <li key={item} className="flex items-start gap-2.5">
                   <span
@@ -81,45 +85,48 @@ export default function Services() {
         <Container>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 fade-in-up">
             <ServiceCard
-              title="Learning strategy & instructional design"
-              blurb="Pinpoint what’s not working, choose the right solution, and design learning you can track."
+              title="Learning strategy & solution design"
+              blurb="Define the performance gap, choose the right approach, and design learning that’s buildable, testable, and trackable."
               items={[
                 "Discovery, needs analysis, and performance goals",
-                "Curriculum maps, storyboards, scripts, and scenarios",
+                "Learning architecture, modality decisions, and program structure",
+                "Sign-off-ready storyboards, scripts, and scenario design",
                 "Workshops that align stakeholders and keep decisions moving",
                 "Accessibility, QA planning, and evaluation approach",
               ]}
             />
 
             <ServiceCard
-              title="eLearning & media production"
-              blurb="Modern Storyline and Rise builds. Consistent UX, structure, and reusable design system."
+              title="Frameworks, systems & delivery support"
+              blurb="Reusable patterns and consistent UX that make learning easier to build, maintain, and scale. Delivery support when it de-risks the work."
               items={[
-                "Storyline and Rise builds - accessibility and QA included",
-                "Reusable templates, components, and design systems",
-                "Microlearning, interactions, job aids, and supporting assets",
-                "Video editing, graphics, and audio polish",
+                "Modular design systems for Storyline and Rise",
+                "Reusable templates, components, and accessibility patterns",
+                "Prototyping complex interactions and learning flows",
+                "Delivery support in Storyline/Rise when it unblocks the project",
+                "Video, graphics, and supporting assets as needed",
               ]}
             />
 
             <ServiceCard
-              title="xAPI & learning analytics"
-              blurb="Instrument the learning, make the data usable, then turn it into reporting that supports decisions."
+              title="Learning data & analytics"
+              blurb="Design measurement in from day one - make the data usable, then turn it into reporting that supports decisions."
               items={[
-                "xAPI design, wrappers, debugging, and validation",
+                "xAPI strategy, wrappers, debugging, and validation",
                 "LRS setup and workflows (Veracity, Learning Locker)",
-                "Flattening and cleaning (Sheets-first) for faster analysis",
+                "Sheets-first flattening and cleaning for faster analysis",
+                "Dashboards and reporting that go beyond completion rates",
               ]}
             />
           </div>
 
           <div className="mt-10 text-sm text-[var(--text)]/80">
             <p>
-              Not sure where your project fits?{" "}
+              Not sure what you need yet?{" "}
               <a href="/contact" className="font-heading text-[var(--secondary)] hover:underline">
                 Get in touch
               </a>{" "}
-              and we’ll map the right mix of design, build, and analytics.
+              and we’ll work out the right mix of strategy, frameworks, and measurement.
             </p>
           </div>
         </Container>
