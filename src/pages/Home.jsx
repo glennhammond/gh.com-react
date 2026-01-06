@@ -100,7 +100,7 @@ export default function Home() {
           title: "Cognitive Science",
           subtitle:
             "Evidence-informed learning design for Queensland schools - grounded in cognitive load, retrieval practice, and explicit teaching.",
-          to: "/services",
+          to: "#",
           image: placeholderImg,
         };
       }
@@ -276,25 +276,7 @@ export default function Home() {
               </div>
             </div>
 
-            {/* What you get (mobile) */}
-            <div className="mt-8 md:hidden rounded-2xl border border-black/10 bg-white/70 backdrop-blur-sm p-4">
-              <p className="text-xs font-semibold tracking-[0.18em] uppercase text-slate-600">What you get</p>
-              <ul className="mt-3 space-y-2 text-sm text-slate-800 leading-6 list-none p-0 m-0 marker:text-transparent">
-                <li className="flex items-start gap-3 marker:text-transparent before:hidden before:content-['']">
-                  <span aria-hidden="true" className="text-[var(--secondary)]">★</span>
-                  <span><strong>Premium craft</strong> - clean UX, refined typography, and interaction patterns that feel right.</span>
-                </li>
-                <li className="flex items-start gap-3 marker:text-transparent before:hidden before:content-['']">
-                  <span aria-hidden="true" className="text-[var(--secondary)]">★</span>
-                  <span><strong>Evidence-informed</strong> - clarity, retrieval practice, and reduced cognitive load.</span>
-                </li>
-                <li className="flex items-start gap-3 marker:text-transparent before:hidden before:content-['']">
-                  <span aria-hidden="true" className="text-[var(--secondary)]">★</span>
-                  <span><strong>Production-ready</strong> - reusable components, accessibility, and builds that are easy to maintain.</span>
-                </li>
-              </ul>
-            </div>
-
+           
             <div className="mt-7 hidden sm:grid md:hidden sm:grid-cols-3 gap-3">
               <div className="rounded-2xl border border-black/10 bg-white/70 backdrop-blur-sm p-4">
                 <p className="text-xs font-semibold tracking-[0.18em] uppercase text-slate-600">Premium craft</p>
