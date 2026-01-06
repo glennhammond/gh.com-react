@@ -15,6 +15,7 @@ export default function Services() {
       />
 
       <PageHero
+        variant="split"
         eyebrow="End-to-end learning delivery"
         breadcrumb={[
           { label: "Home", href: "/" },
@@ -49,15 +50,12 @@ export default function Services() {
           </div>
         </div>
 
-        <div className="mt-4 md:mt-0 rounded-2xl border border-[rgba(26,20,70,0.18)] bg-[var(--bg-soft)] p-5 shadow-[0_14px_34px_rgba(0,0,0,0.10),0_3px_0_rgba(0,0,0,0.10)] md:max-w-[48ch] md:bg-white/55 md:p-6 md:shadow-[0_18px_44px_rgba(0,0,0,0.10),0_4px_0_rgba(0,0,0,0.10)] lg:p-7">
-          <div className="space-y-3">
-            <p className="font-heading text-lg leading-7 text-[var(--text)]">
-              I design learning that drives measurable improvement.
-            </p>
-  
-          </div>
+        <div className="rounded-2xl border border-[rgba(26,20,70,0.18)] bg-[var(--bg-soft)] p-5 shadow-[0_14px_34px_rgba(0,0,0,0.10),0_3px_0_rgba(0,0,0,0.10)] md:max-w-[60ch] md:bg-white/55 md:p-6 md:shadow-[0_18px_44px_rgba(0,0,0,0.10),0_4px_0_rgba(0,0,0,0.10)] lg:p-7">
+          <p className="font-heading text-lg leading-7 text-[var(--text)]">
+            I design learning that drives measurable improvement.
+          </p>
           <div className="mt-4">
-            <ul className="mt-2 grid gap-y-3 gap-x-6 md:grid-cols-2 text-base leading-6 text-[var(--text)]/80">
+            <ul className="mt-2 grid gap-y-3 gap-x-6 sm:grid-cols-2 text-base leading-6 text-[var(--text)]/80">
               {[
                 "Learning strategy and solution design",
                 "Frameworks, templates, and design systems",
@@ -137,7 +135,7 @@ export default function Services() {
 
 function ServiceCard({ title, blurb, items }) {
   return (
-    <div className="site-card p-8 space-y-5">
+    <div className="site-card p-6 md:p-7 space-y-5">
       <div>
         <h3 className="font-heading text-xl text-[var(--text)]">{title}</h3>
       </div>

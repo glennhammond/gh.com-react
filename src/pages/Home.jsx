@@ -47,7 +47,7 @@ export default function Home() {
   // HERO CTA A/B
   // A = consulting-first ("How I work" is primary)
   // B = system-first ("View the system" is primary)
-  const HERO_CTA_VARIANT = "A";
+  const HERO_CTA_VARIANT = "B";
 
   const ctaPrimary = "btn-cta font-heading inline-flex items-center justify-center w-full py-4 text-base font-semibold rounded-xl shadow-[0_14px_34px_rgba(0,0,0,0.20)] transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black/20";
   const ctaSecondary = "btn-outline font-heading inline-flex items-center justify-center w-full py-4 text-base font-semibold rounded-xl transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black/20";
@@ -180,7 +180,7 @@ export default function Home() {
             <div className="mb-6 flex items-center gap-3">
               <span aria-hidden="true">🏆</span>
               <span className="text-sm font-semibold tracking-[0.18em] uppercase text-[var(--text)] opacity-70">
-                Award-winning eLearning specialist
+                Award-winning<br></br> eLearning specialist
               </span>
             </div>
             <h1
@@ -215,19 +215,20 @@ export default function Home() {
                 xAPI - learning analytics
               </span>
             </div>
-            <div className="mt-7 md:mt-auto md:pt-8 grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
-              <Link
-                to="/services"
-                className={howIWorkClass}
-              >
-                How I work
-              </Link>
-              <Link
-                to="/contact"
-                className="btn-outline font-heading inline-flex items-center justify-center w-full py-4 text-base font-semibold rounded-xl transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black/20"
-              >
-                Contact
-              </Link>
+            <div className="mt-7 md:mt-auto md:pt-8">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
+                <Link to="/work/elearning-design-system" className={viewSystemClass}>
+                  View the system
+                </Link>
+              </div>
+              <div className="mt-4">
+                <Link
+                  to="/contact"
+                  className="text-sm text-[var(--link)] hover:text-[var(--link-hover)] hover:underline font-heading"
+                >
+                  Contact →
+                </Link>
+              </div>
             </div>
 
             <div className="mt-7 hidden sm:grid md:hidden sm:grid-cols-3 gap-3">
@@ -237,7 +238,8 @@ export default function Home() {
               </div>
               <div className="rounded-2xl border border-black/10 bg-white/70 backdrop-blur-sm p-4">
                 <p className="text-xs font-semibold tracking-[0.18em] uppercase text-slate-600">Evidence-informed</p>
-<p className="mt-2 text-sm text-slate-800 leading-6">Evidence-informed decisions - clarity, retrieval practice, and reduced load.</p>              </div>
+                <p className="mt-2 text-sm text-slate-800 leading-6">Evidence-informed decisions - clarity, retrieval practice, and reduced load.</p>
+              </div>
               <div className="rounded-2xl border border-black/10 bg-white/70 backdrop-blur-sm p-4">
                 <p className="text-xs font-semibold tracking-[0.18em] uppercase text-slate-600">Production-ready</p>
                 <p className="mt-2 text-sm text-slate-800 leading-6">Reusable components, accessibility, and builds that are easy to maintain.</p>
@@ -263,11 +265,9 @@ export default function Home() {
                 transition-none
               "
             >
-
               <h2 className="mt-3 font-heading text-3xl font-semibold leading-tight text-slate-900">
-                The Design system behind my work
+                The design system behind my work
               </h2>
-
 
               <div className="mt-5">
                 <div className="overflow-hidden rounded-xl ring-1 ring-black/10 bg-white shadow-[0_18px_45px_rgba(2,6,23,0.12)]">
@@ -281,23 +281,14 @@ export default function Home() {
                 </div>
               </div>
               <p className="mt-5 text-slate-700 leading-7">
-A practical kit for building modern eLearning fast - interaction patterns, accessibility, and production-ready guidance.              </p>
+  A practical kit for building modern eLearning fast - interaction patterns, accessibility, and production-ready guidance.
+</p>
 
-              <div className="mt-7 md:mt-auto md:pt-8 grid grid-cols-2 gap-4">
-                <Link
-                  to="/work/elearning-design-system"
-                  className={viewSystemClass}
-                >
-                  View the system
-                </Link>
-
-                <Link
-                  to="/work"
-                  className={HERO_CTA_VARIANT === "A" ? ctaSecondary : ctaSecondary}
-                >
-                  View all work
-                </Link>
-              </div>
+         <div className="mt-7 md:mt-auto md:pt-8">
+  <Link to="/work/elearning-design-system" className={viewSystemClass}>
+    View the system
+  </Link>
+</div>
             </div>
           </div>
         </div>
@@ -340,22 +331,6 @@ A practical kit for building modern eLearning fast - interaction patterns, acces
                 <p className="mt-5 text-slate-700 leading-7">
 A practical kit for building modern eLearning fast - interaction patterns, accessibility, and production-ready guidance.                </p>
               </div>
-
-              <div className="mt-7 flex flex-col items-stretch gap-4">
-                <Link
-                  to="/work/elearning-design-system"
-                  className={viewSystemClass}
-                >
-                  View the system
-                </Link>
-
-                <Link
-                  to="/work"
-                  className={ctaSecondary}
-                >
-                  View all work
-                </Link>
-              </div>
             </div>
 
             {/* WHAT YOU GET (MOBILE) */}
@@ -380,108 +355,39 @@ A practical kit for building modern eLearning fast - interaction patterns, acces
         </div>
       </HeroShell>
 
-      {/* SERVICES + CLIENT LOGOS (mobile: services first, desktop: logos first) */}
-      <div className="flex flex-col">
-        {/* Mobile order: 2, Desktop order: 1 */}
-        <div className="order-2 md:order-1">
-          {/* CLIENT LOGOS */}
-          <Section className="bg-[var(--bg-soft)] border-y border-black/5 dark:border-white/10">
-            <Container className="pt-2 pb-6 md:pt-3 md:pb-8 fade-in-up">
-              <div className="w-full max-w-[560px] mx-auto sm:max-w-none">
-                <div className="mb-4 md:mb-5 space-y-2 text-center sm:text-left">
-         
+      {/* TRUSTED BY */}
+      <Section className="bg-[var(--bg-soft)] border-y border-black/5 dark:border-white/10">
+        <Container className="pt-2 pb-6 md:pt-3 md:pb-8 fade-in-up">
+          <div className="w-full max-w-[560px] mx-auto sm:max-w-none">
+            <div className="grid w-full grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-x-8 gap-y-12 place-items-stretch sm:place-items-center">
+              {clients.map((client) => (
+                <div key={client.name} className="flex items-center justify-center w-full">
+                  <div className="w-[68%] max-w-[381px] mx-auto sm:mx-0 sm:w-[162px] md:w-[180px] min-h-12 flex items-center justify-center">
+                    <img
+                      src={client.lightSrc}
+                      alt={client.name}
+                      className={`w-full h-auto max-h-[136px] sm:max-h-[41px] object-contain origin-center opacity-90 block dark:hidden ${
+                        client.className || ""
+                      }`}
+                      loading="lazy"
+                      decoding="async"
+                    />
+                    <img
+                      src={client.darkSrc}
+                      alt={client.name}
+                      className={`w-full h-auto max-h-[136px] sm:max-h-[41px] object-contain origin-center opacity-90 hidden dark:block ${
+                        client.className || ""
+                      }`}
+                      loading="lazy"
+                      decoding="async"
+                    />
+                  </div>
                 </div>
-                <div className="grid w-full grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-x-8 gap-y-12 place-items-stretch sm:place-items-center">
-                  {clients.map((client) => (
-                    <div key={client.name} className="flex items-center justify-center w-full">
-                      {/*
-                        Normalise scaling across breakpoints:
-                        - fixed width box so all logos are the same visual width on mobile
-                        - fixed max-height so wordmarks stay tidy
-                        - object-contain to preserve aspect ratio
-                      */}
-                      <div className="w-[68%] max-w-[381px] mx-auto sm:mx-0 sm:w-[162px] md:w-[180px] min-h-12 flex items-center justify-center">
-                        <img
-                          src={client.lightSrc}
-                          alt={client.name}
-                          className={`w-full h-auto max-h-[136px] sm:max-h-[41px] object-contain origin-center opacity-90 block dark:hidden ${
-                            client.className || ""
-                          }`}
-                          loading="lazy"
-                          decoding="async"
-                        />
-                        <img
-                          src={client.darkSrc}
-                          alt={client.name}
-                          className={`w-full h-auto max-h-[136px] sm:max-h-[41px] object-contain origin-center opacity-90 hidden dark:block ${
-                            client.className || ""
-                          }`}
-                          loading="lazy"
-                          decoding="async"
-                        />
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </Container>
-          </Section>
-        </div>
-
-        {/* Mobile order: 1, Desktop order: 2 */}
-        <div className="order-1 md:order-2">
-          {/* SERVICES PREVIEW */}
-          <Section className="bg-[var(--bg-soft)] !pt-4 md:!pt-12">
-            <Container className="space-y-8 fade-in-up">
-              <div className="space-y-3 max-w-[70ch]">
-                <span className="text-xs uppercase tracking-[0.18em] text-[var(--text)] opacity-60">
-                  Services
-                </span>
-                <h2 className="font-heading text-2xl text-[var(--text)]">
-                  Strategy, frameworks, and analytics - end to end
-                </h2>
-                <p className="text-sm text-[var(--text)] opacity-70 leading-7">
-                  I design learning that’s buildable, testable, and trackable - whether I’m leading the work or supporting an internal team.
-                </p>
-              </div>
-
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
-                <ServiceCard
-                  title="Learning strategy & solution design"
-                  items={[
-                    "Discovery, needs analysis, and performance goals",
-                    "Learning architecture and program structure",
-                    "Sign-off-ready storyboards, scripts, and scenarios",
-                  ]}
-                />
-                <ServiceCard
-                  title="Frameworks & delivery support"
-                  items={[
-                    "Modular design systems for Storyline and Rise",
-                    "Reusable templates, components, and accessibility patterns",
-                    "Delivery support in Storyline/Rise when it adds value",
-                  ]}
-                />
-                <ServiceCard
-                  title="Learning data & analytics"
-                  items={[
-                    "xAPI strategy, wrappers, debugging, and validation",
-                    "LRS setup and reporting workflows",
-                    "Dashboards that go beyond completion rates",
-                  ]}
-                />
-              </div>
-
-              <Link
-                to="/services"
-                className="text-sm text-[var(--link)] hover:text-[var(--link-hover)] hover:underline inline-block font-heading"
-              >
-                See how I work →
-              </Link>
-            </Container>
-          </Section>
-        </div>
-      </div>
+              ))}
+            </div>
+          </div>
+        </Container>
+      </Section>
       {/* FEATURED WORK */}
       <Section className="bg-[var(--bg-soft)]">
         <Container className="space-y-10 fade-in-up">
@@ -527,6 +433,57 @@ A practical kit for building modern eLearning fast - interaction patterns, acces
             className="text-sm text-[var(--brand-primary)] hover:underline inline-block font-heading"
           >
             View all projects →
+          </Link>
+        </Container>
+      </Section>
+
+      {/* SERVICES PREVIEW */}
+      <Section className="bg-[var(--bg-soft)] !pt-4 md:!pt-12">
+        <Container className="space-y-8 fade-in-up">
+          <div className="space-y-3 max-w-[70ch]">
+            <span className="text-xs uppercase tracking-[0.18em] text-[var(--text)] opacity-60">
+              Services
+            </span>
+            <h2 className="font-heading text-2xl text-[var(--text)]">
+              Strategy, frameworks, and analytics - end to end
+            </h2>
+            <p className="text-sm text-[var(--text)] opacity-70 leading-7">
+              I design learning that’s buildable, testable, and trackable - whether I’m leading the work or supporting an internal team.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
+            <ServiceCard
+              title="Learning strategy & solution design"
+              items={[
+                "Discovery, needs analysis, and performance goals",
+                "Learning architecture and program structure",
+                "Sign-off-ready storyboards, scripts, and scenarios",
+              ]}
+            />
+            <ServiceCard
+              title="Frameworks & delivery support"
+              items={[
+                "Modular design systems for Storyline and Rise",
+                "Reusable templates, components, and accessibility patterns",
+                "Delivery support in Storyline/Rise when it adds value",
+              ]}
+            />
+            <ServiceCard
+              title="Learning data & analytics"
+              items={[
+                "xAPI strategy, wrappers, debugging, and validation",
+                "LRS setup and reporting workflows",
+                "Dashboards that go beyond completion rates",
+              ]}
+            />
+          </div>
+
+          <Link
+            to="/services"
+            className="text-sm text-[var(--link)] hover:text-[var(--link-hover)] hover:underline inline-block font-heading"
+          >
+            See how I work →
           </Link>
         </Container>
       </Section>

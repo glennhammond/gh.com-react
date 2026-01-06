@@ -32,7 +32,7 @@ export default function FlightExaminerRatingCourse() {
       { label: "Role", value: "Instructional Design Lead" },
       { label: "Organisation", value: "CASA" },
       { label: "Tools", value: "Storyline, UI system, LMS" },
-      { label: "Year", value: "202X" },
+      { label: "Year", value: "2024" },
     ],
     highlights: [
       "Built a reusable, polished course UI system",
@@ -108,11 +108,13 @@ export default function FlightExaminerRatingCourse() {
 
       {/* PAGE HERO */}
       <PageHero
+        variant="split"
+        eyebrow="Case study"
         breadcrumb={project.breadcrumb}
         title={project.title}
         right={
           <div className="hidden lg:block max-w-xl ml-auto">
-            <div className="aspect-[16/9] overflow-hidden rounded-2xl border border-black/10 bg-white shadow-sm dark:border-white/10 dark:bg-white/5">
+            <div className="aspect-[16/9] overflow-hidden rounded-2xl border border-black/10 bg-white shadow-[0_14px_34px_rgba(0,0,0,0.10),0_3px_0_rgba(0,0,0,0.10)] dark:border-white/10 dark:bg-white/5">
               <img
                 src={project.heroImage}
                 alt=""
@@ -123,11 +125,8 @@ export default function FlightExaminerRatingCourse() {
             </div>
           </div>
         }
-        introClassName="mt-6 space-y-6"
       >
-        <p className="text-base md:text-lg leading-relaxed text-neutral-700/90 dark:text-white/80 max-w-2xl">
-          {project.subtitle}
-        </p>
+        <p>{project.subtitle}</p>
       </PageHero>
 
       {/* HERO SUPPORTING CONTENT */}

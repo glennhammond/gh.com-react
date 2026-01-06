@@ -103,10 +103,10 @@
 
   --font-body: "open-sans", "Open Sans", system-ui, sans-serif;
 
-  /* Core colour system — Nostalgic cool (paper + primaries) */
-  --bg: #F4E8D7;        /* warm paper */
-  --bg-soft: #FFF7EC;   /* card paper */
-  --hero-bg: #EAF2FB;   /* airy tint (blue-leaning) */
+  /* Core colour system — Crisp modern (clean paper + primaries) */
+  --bg: #ffffff;        /* clean paper */
+  --bg-soft: #f6f7fb;   /* cool, modern soft surface */
+  --hero-bg: #eef2ff;   /* gentle cool tint for hero areas */
 
   /* Ink (keep your existing navy vibe, just warmed slightly for paper) */
   --text: rgba(26, 20, 70, 0.86);
@@ -634,7 +634,7 @@ html.dark main :is(
 
   .hero-text-panel{
   display:block;
-  background:#FFF7EC;                 /* your paper-card (bg-soft) */
+  background: var(--bg-soft);         /* matches light mode surface */
   border:1px solid rgba(26,20,70,.22);
   border-radius:1.25rem;
   padding:1.25rem;

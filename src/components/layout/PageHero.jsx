@@ -28,11 +28,49 @@ export default function PageHero({
   right = null,
   children,
   className = "",
-  noPadding = true,
-  sectionClassName = "pb-4 md:pb-6",
-  containerClassName = "pt-10 pb-4 md:pt-12 md:pb-6",
-  introClassName = "space-y-3",
+  /**
+   * Variants centralise vertical rhythm + layout so pages don’t freestyle spacing.
+   * - standard: single-column hero
+   * - split: two-column hero (intro left, panel right)
+   * - compact: tighter padding for small pages
+   */
+  variant = "standard",
+  /**
+   * Back-compat props (try not to use per-page):
+   * - noPadding, sectionClassName, containerClassName
+   */
+  noPadding = false,
+  sectionClassName = "",
+  containerClassName = "",
+  introClassName = "space-y-2",
 }) {
+  const variants = {
+    standard: {
+      section: "pt-4 pb-10 md:pt-6 md:pb-12",
+      container: "space-y-6",
+      titleWrap: "space-y-4",
+      introWrap: "max-w-3xl",
+      grid: "",
+    },
+    split: {
+      section: "pt-4 pb-10 md:pt-6 md:pb-12",
+      container: "space-y-8",
+      titleWrap: "space-y-4",
+      introWrap: "max-w-3xl",
+      grid: "grid gap-10 lg:grid-cols-2 lg:items-start",
+    },
+    compact: {
+      section: "pt-3 pb-6 md:pt-4 md:pb-8",
+      container: "space-y-4",
+      titleWrap: "space-y-3",
+      introWrap: "max-w-2xl",
+      grid: "",
+    },
+  };
+
+  const v = variants[variant] || variants.standard;
+  const isSplitLayout = variant === "split" || Boolean(right);
+
   const renderBreadcrumb = () => {
     if (!breadcrumb) return null;
 
@@ -48,14 +86,15 @@ export default function PageHero({
   return (
     <HeroShell
       className={className}
-      sectionClassName={`${sectionClassName} page-hero hero-wash`.trim()}
-      containerClassName={`space-y-10 fade-in-up ${containerClassName}`.trim()}
+      // Centralised rhythm first, with optional back-compat overrides appended.
+      sectionClassName={`${v.section} ${sectionClassName} page-hero hero-wash`.trim()}
+      containerClassName={`${v.container} fade-in-up ${containerClassName}`.trim()}
       noPadding={noPadding}
     >
       {renderBreadcrumb()}
 
-      <div className="space-y-6">
-        <header className="space-y-4">
+      <div className={v.titleWrap}>
+        <header className="space-y-3">
           {eyebrow ? (
             <p className="text-xs uppercase tracking-[0.18em] text-[var(--nostalgia-blue)]/80">
               {eyebrow}
@@ -67,19 +106,27 @@ export default function PageHero({
           ) : null}
         </header>
 
-        <div className="grid gap-10 lg:grid-cols-2 lg:items-start">
-          {children ? (
+        {isSplitLayout ? (
+          <div className={v.grid || variants.split.grid}>
             <div
-              className={`hero-text-panel text-[var(--text)]/78 max-w-3xl leading-relaxed ${introClassName}`.trim()}
+              className={`hero-text-panel text-[var(--text)]/78 leading-relaxed ${
+                v.introWrap
+              } ${introClassName}`.trim()}
             >
               {children}
             </div>
-          ) : (
-            <div />
-          )}
 
-          {right ? <div className="w-full">{right}</div> : null}
-        </div>
+            {right ? <div className="w-full">{right}</div> : <div />}
+          </div>
+        ) : (
+          <div
+            className={`hero-text-panel text-[var(--text)]/78 leading-relaxed ${
+              v.introWrap
+            } ${introClassName}`.trim()}
+          >
+            {children}
+          </div>
+        )}
       </div>
     </HeroShell>
   );
