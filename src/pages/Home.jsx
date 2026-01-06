@@ -146,7 +146,7 @@ export default function Home() {
     <PageWrapper>
       <SEO
         title="Glenn Hammond - eLearning Specialist, Designer & Developer"
-        description="Learning strategy, delivery frameworks, and analytics - measurable improvement end-to-end."
+        description="I design learning environments that help people think, decide, and improve - with strategy, Storyline/Rise builds, and xAPI analytics."
         url="https://glennhammond.com/"
       />
 
@@ -201,9 +201,54 @@ export default function Home() {
               <span className="block">by Design</span>
             </h1>
             <p className="mt-6 max-w-[52ch] text-[var(--text)] opacity-75 text-lg leading-7">
-              I design modern eLearning.<br />
-              Intuitive UX/UI, scalable systems, and xAPI analytics.
+              I design learning environments that help people think, decide, and improve.<br />
+              Strategy, Storyline & Rise builds, and xAPI analytics.
             </p>
+            {/* Mobile-only: featured system card (higher in the hero) */}
+            <div className="md:hidden w-full mt-8">
+              <div
+                className="
+                  rounded-2xl
+                  bg-white/90
+                  backdrop-blur-sm
+                  ring-1 ring-black/10
+                  shadow-[0_22px_70px_rgba(2,6,23,0.20)]
+                  p-6
+                  w-full
+                  transform-none
+                  hover:transform-none
+                  transition-none
+                "
+              >
+                <div className="space-y-4">
+                  <h2 className="font-heading text-2xl font-semibold leading-tight text-slate-900">
+                    Design system behind my work
+                  </h2>
+
+                  <div className="mt-5">
+                    <div className="overflow-hidden rounded-xl ring-1 ring-black/10 bg-white shadow-[0_18px_45px_rgba(2,6,23,0.12)]">
+                      <img
+                        src={`${import.meta.env.BASE_URL}images/design-system/glenn-hammond-site-assets-elearning-design-system.jpg`}
+                        alt="eLearning Design System preview"
+                        className="w-full h-auto block"
+                        loading="lazy"
+                        decoding="async"
+                      />
+                    </div>
+                  </div>
+
+                  <p className="mt-5 text-slate-700 leading-7">
+                    A practical kit for building modern eLearning fast - interaction patterns, accessibility, and production-ready guidance.
+                  </p>
+
+                  <div className="mt-6">
+                    <Link to="/work/elearning-design-system" className={viewSystemClass}>
+                      View the system
+                    </Link>
+                  </div>
+                </div>
+              </div>
+            </div>
             <div className="mt-6 flex flex-col items-stretch gap-3 sm:flex-row sm:flex-wrap sm:items-center">
               <span className="inline-flex w-full max-w-[340px] justify-center text-center items-center rounded-full border border-[rgba(26,20,70,0.18)] bg-[rgba(26,20,70,0.06)] px-4 py-2 text-[12px] font-semibold uppercase tracking-[0.16em] text-[rgba(26,20,70,0.92)] shadow-[0_10px_30px_rgba(2,6,23,0.06)] sm:w-auto sm:max-w-none sm:justify-start sm:text-left sm:px-3 sm:py-1.5 sm:text-[11px] sm:tracking-[0.18em] sm:shadow-[0_8px_20px_rgba(2,6,23,0.05)] dark:border-white/15 dark:bg-white/5 dark:text-white/90">
                 instructional design consultant
@@ -217,8 +262,8 @@ export default function Home() {
             </div>
             <div className="mt-7 md:mt-auto md:pt-8">
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
-                <Link to="/work/elearning-design-system" className={viewSystemClass}>
-                  View the system
+                <Link to="/services" className={howIWorkClass}>
+                  How I work
                 </Link>
               </div>
               <div className="mt-4">
@@ -229,6 +274,25 @@ export default function Home() {
                   Contact →
                 </Link>
               </div>
+            </div>
+
+            {/* What you get (mobile) */}
+            <div className="mt-8 md:hidden rounded-2xl border border-black/10 bg-white/70 backdrop-blur-sm p-4">
+              <p className="text-xs font-semibold tracking-[0.18em] uppercase text-slate-600">What you get</p>
+              <ul className="mt-3 space-y-2 text-sm text-slate-800 leading-6 list-none p-0 m-0 marker:text-transparent">
+                <li className="flex items-start gap-3 marker:text-transparent before:hidden before:content-['']">
+                  <span aria-hidden="true" className="text-[var(--secondary)]">★</span>
+                  <span><strong>Premium craft</strong> - clean UX, refined typography, and interaction patterns that feel right.</span>
+                </li>
+                <li className="flex items-start gap-3 marker:text-transparent before:hidden before:content-['']">
+                  <span aria-hidden="true" className="text-[var(--secondary)]">★</span>
+                  <span><strong>Evidence-informed</strong> - clarity, retrieval practice, and reduced cognitive load.</span>
+                </li>
+                <li className="flex items-start gap-3 marker:text-transparent before:hidden before:content-['']">
+                  <span aria-hidden="true" className="text-[var(--secondary)]">★</span>
+                  <span><strong>Production-ready</strong> - reusable components, accessibility, and builds that are easy to maintain.</span>
+                </li>
+              </ul>
             </div>
 
             <div className="mt-7 hidden sm:grid md:hidden sm:grid-cols-3 gap-3">
@@ -293,66 +357,7 @@ export default function Home() {
           </div>
         </div>
 
-        {/* Mobile-only: keep these inside the hero so it feels connected */}
-        <div className="md:hidden w-full mt-10">
-          <div className="w-full max-w-[560px] mx-auto space-y-6">
-            {/* FEATURED CARD (MOBILE) */}
-            <div
-              className="
-                rounded-2xl
-                bg-white/90
-                backdrop-blur-sm
-                ring-1 ring-black/10
-                shadow-[0_22px_70px_rgba(2,6,23,0.20)]
-                p-6
-                w-full
-                transform-none
-                hover:transform-none
-                transition-none
-              "
-            >
-              <div className="space-y-4">
-                <h2 className="font-heading text-2xl font-semibold leading-tight text-slate-900">
-                  Design system behind my work
-                </h2>
-
-                <div className="mt-5">
-                  <div className="overflow-hidden rounded-xl ring-1 ring-black/10 bg-white shadow-[0_18px_45px_rgba(2,6,23,0.12)]">
-                    <img
-                      src={`${import.meta.env.BASE_URL}images/design-system/glenn-hammond-site-assets-elearning-design-system.jpg`}
-                      alt="eLearning Design System preview"
-                      className="w-full h-auto block"
-                      loading="lazy"
-                      decoding="async"
-                    />
-                  </div>
-                </div>
-
-                <p className="mt-5 text-slate-700 leading-7">
-A practical kit for building modern eLearning fast - interaction patterns, accessibility, and production-ready guidance.                </p>
-              </div>
-            </div>
-
-            {/* WHAT YOU GET (MOBILE) */}
-            <div className="rounded-2xl border border-black/10 bg-white/70 backdrop-blur-sm p-4">
-              <p className="text-xs font-semibold tracking-[0.18em] uppercase text-slate-600">What you get</p>
-              <ul className="mt-3 space-y-2 text-sm text-slate-800 leading-6 list-none p-0 m-0 marker:text-transparent">
-                <li className="flex items-start gap-3 marker:text-transparent before:hidden before:content-['']">
-                  <span aria-hidden="true" className="text-[var(--secondary)]">★</span>
-                  <span><strong>Premium craft</strong> - clean UX, refined typography, and interaction patterns that feel right.</span>
-                </li>
-                <li className="flex items-start gap-3 marker:text-transparent before:hidden before:content-['']">
-                  <span aria-hidden="true" className="text-[var(--secondary)]">★</span>
-                  <span><strong>Evidence-informed</strong> - clarity, retrieval practice, and reduced cognitive load.</span>
-                </li>
-                <li className="flex items-start gap-3 marker:text-transparent before:hidden before:content-['']">
-                  <span aria-hidden="true" className="text-[var(--secondary)]">★</span>
-                  <span><strong>Production-ready</strong> - reusable components, accessibility, and builds that are easy to maintain.</span>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
+        
       </HeroShell>
 
       {/* TRUSTED BY */}
@@ -445,10 +450,10 @@ A practical kit for building modern eLearning fast - interaction patterns, acces
               Services
             </span>
             <h2 className="font-heading text-2xl text-[var(--text)]">
-              Strategy, frameworks, and analytics - end to end
+              Strategy, frameworks, and analytics - from idea to evidence
             </h2>
             <p className="text-sm text-[var(--text)] opacity-70 leading-7">
-              I design learning that’s buildable, testable, and trackable - whether I’m leading the work or supporting an internal team.
+              I design learning that’s buildable, testable, and meaningful - whether I’m leading the work or supporting an internal team.
             </p>
           </div>
 
