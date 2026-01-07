@@ -395,9 +395,9 @@ export default function Home() {
             <ServiceCard
               title="Learning strategy & conditions"
               items={[
-                "Clarify the performance goal - what people need to do, not just know",
+                "Clarify the real-world outcome - what people need to do, not just know",
                 "Audience, constraints, and the real context of work",
-                "Storyboards and scenarios that build judgement, not rote compliance",
+                "Storyboards and scenarios that build judgement, not rote box-ticking",
               ]}
             />
             <ServiceCard

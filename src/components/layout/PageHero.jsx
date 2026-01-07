@@ -27,6 +27,7 @@ export default function PageHero({
   breadcrumb = null,
   right = null,
   children,
+  plainBody = false,
   className = "",
   /**
    * Variants centralise vertical rhythm + layout so pages don’t freestyle spacing.
@@ -70,6 +71,7 @@ export default function PageHero({
 
   const v = variants[variant] || variants.standard;
   const isSplitLayout = variant === "split" || Boolean(right);
+  const introPanelClass = `${plainBody ? "" : "hero-text-panel"} text-[var(--text)]/78 leading-relaxed ${v.introWrap} ${introClassName}`.trim();
 
   const renderBreadcrumb = () => {
     if (!breadcrumb) return null;
@@ -108,22 +110,14 @@ export default function PageHero({
 
         {isSplitLayout ? (
           <div className={v.grid || variants.split.grid}>
-            <div
-              className={`hero-text-panel text-[var(--text)]/78 leading-relaxed ${
-                v.introWrap
-              } ${introClassName}`.trim()}
-            >
+            <div className={introPanelClass}>
               {children}
             </div>
 
             {right ? <div className="w-full">{right}</div> : <div />}
           </div>
         ) : (
-          <div
-            className={`hero-text-panel text-[var(--text)]/78 leading-relaxed ${
-              v.introWrap
-            } ${introClassName}`.trim()}
-          >
+          <div className={introPanelClass}>
             {children}
           </div>
         )}
