@@ -178,7 +178,7 @@ export default function Home() {
           {/* Left */}
           <div className="w-full max-w-[560px] mx-auto md:mx-0 md:flex md:flex-col md:h-full md:pb-4">
             <div className="mb-6 flex items-center gap-3">
-              <span aria-hidden="true">🏆</span>
+              <span aria-hidden="true" className="text-3xl leading-none">🏆</span>
               <span className="text-sm font-semibold tracking-[0.18em] uppercase text-[var(--text)] opacity-70">
                 Award-winning<br></br> eLearning specialist
               </span>
@@ -375,6 +375,58 @@ export default function Home() {
           </div>
         </Container>
       </Section>
+
+      {/* SERVICES PREVIEW */}
+      <Section className="bg-[var(--bg-soft)] !pt-4 md:!pt-12">
+        <Container className="space-y-8 fade-in-up">
+          <div className="space-y-3 max-w-[70ch]">
+            <span className="text-xs uppercase tracking-[0.18em] text-[var(--text)] opacity-60">
+              Ways I work
+            </span>
+            <h2 className="font-heading text-2xl text-[var(--text)]">
+              Designing the conditions for better learning
+            </h2>
+            <p className="text-sm text-[var(--text)] opacity-70 leading-7">
+              I focus on environments that respect how people learn - clear goals, good judgement, and practice that transfers to real work. The work is practical, buildable, and measurable.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
+            <ServiceCard
+              title="Learning strategy & conditions"
+              items={[
+                "Clarify the performance goal - what people need to do, not just know",
+                "Audience, constraints, and the real context of work",
+                "Storyboards and scenarios that build judgement, not rote compliance",
+              ]}
+            />
+            <ServiceCard
+              title="Build systems & learning environments"
+              items={[
+                "Design systems for Storyline and Rise - consistent, reusable patterns",
+                "Interaction design that feels human: clarity, pacing, and feedback",
+                "Accessibility and maintainable builds (so teams can keep improving)",
+              ]}
+            />
+            <ServiceCard
+              title="Evidence & improvement"
+              items={[
+                "xAPI strategy, wrappers, and statement design that matches intent",
+                "LRS setup, QA, and debugging so data is trustworthy",
+                "Dashboards that support reflection and iteration - beyond completion",
+              ]}
+            />
+          </div>
+
+          <Link
+            to="/services"
+            className="text-sm text-[var(--link)] hover:text-[var(--link-hover)] hover:underline inline-block font-heading"
+          >
+            See how I work →
+          </Link>
+        </Container>
+      </Section>
+
       {/* FEATURED WORK */}
       <Section className="bg-[var(--bg-soft)]">
         <Container className="space-y-10 fade-in-up">
@@ -424,57 +476,7 @@ export default function Home() {
         </Container>
       </Section>
 
-      {/* SERVICES PREVIEW */}
-      <Section className="bg-[var(--bg-soft)] !pt-4 md:!pt-12">
-        <Container className="space-y-8 fade-in-up">
-          <div className="space-y-3 max-w-[70ch]">
-            <span className="text-xs uppercase tracking-[0.18em] text-[var(--text)] opacity-60">
-              Services
-            </span>
-            <h2 className="font-heading text-2xl text-[var(--text)]">
-              Strategy, frameworks, and analytics - from idea to evidence
-            </h2>
-            <p className="text-sm text-[var(--text)] opacity-70 leading-7">
-              I design learning that’s buildable, testable, and meaningful - whether I’m leading the work or supporting an internal team.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
-            <ServiceCard
-              title="Learning strategy & solution design"
-              items={[
-                "Discovery, needs analysis, and performance goals",
-                "Learning architecture and program structure",
-                "Sign-off-ready storyboards, scripts, and scenarios",
-              ]}
-            />
-            <ServiceCard
-              title="Frameworks & delivery support"
-              items={[
-                "Modular design systems for Storyline and Rise",
-                "Reusable templates, components, and accessibility patterns",
-                "Delivery support in Storyline/Rise when it adds value",
-              ]}
-            />
-            <ServiceCard
-              title="Learning data & analytics"
-              items={[
-                "xAPI strategy, wrappers, debugging, and validation",
-                "LRS setup and reporting workflows",
-                "Dashboards that go beyond completion rates",
-              ]}
-            />
-          </div>
-
-          <Link
-            to="/services"
-            className="text-sm text-[var(--link)] hover:text-[var(--link-hover)] hover:underline inline-block font-heading"
-          >
-            See how I work →
-          </Link>
-        </Container>
-      </Section>
-
+      
       {/* LATEST POSTS */}
       <Section className="bg-[var(--bg-soft)]">
         <Container className="space-y-8 fade-in-up">

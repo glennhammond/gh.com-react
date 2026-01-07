@@ -16,7 +16,6 @@ export default function Services() {
 
       <PageHero
         variant="split"
-        eyebrow="End-to-end learning delivery"
         breadcrumb={[
           { label: "Home", href: "/" },
           { label: "Services" },

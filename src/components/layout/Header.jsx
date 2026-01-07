@@ -8,7 +8,6 @@ const navItems = [
   { to: "/work", label: "Work" },
   { to: "/blog", label: "Blog" },
   { to: "/about", label: "About" },
-  { to: "/contact", label: "Contact" },
 ];
 
 const desktopNavItems = navItems;
@@ -134,8 +133,8 @@ export default function Header() {
             "absolute top-0 right-0 z-10 h-full w-full sm:w-[86%] sm:max-w-sm",
             "overflow-y-auto",
             "transition-transform duration-200",
-            "bg-[#1a2a6b] text-white",
-            "shadow-2xl",
+            "bg-white/95 text-[var(--text)] dark:bg-[#151041] dark:text-white",
+            "ring-1 ring-black/10 shadow-[0_22px_70px_rgba(2,6,23,0.22)]",
             "border-l border-black/10 dark:border-white/10",
             "px-5 pt-4 pb-6",
             mobileOpen ? "translate-x-0" : "translate-x-full",
@@ -148,7 +147,7 @@ export default function Header() {
               type="button"
               aria-label="Close menu"
               onClick={() => setMobileOpen(false)}
-              className="h-11 w-11 grid place-items-center rounded-xl border border-white/10 bg-white/5 text-[var(--brand-primary)] shadow-[0_10px_24px_rgba(0,0,0,0.18)] transition hover:bg-white/10 hover:-translate-y-[1px] active:translate-y-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--brand-primary)]/50"
+              className="h-11 w-11 grid place-items-center rounded-xl border border-black/10 bg-white/70 text-[var(--secondary)] shadow-sm transition hover:bg-white/90 hover:-translate-y-[1px] active:translate-y-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--secondary)]/40 dark:border-white/10 dark:bg-white/10 dark:text-[var(--secondary)] dark:hover:bg-white/15"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -156,7 +155,7 @@ export default function Header() {
                 fill="none"
                 stroke="currentColor"
                 strokeWidth="2"
-                className="h-5 w-5 text-[var(--brand-primary)]"
+                className="h-5 w-5"
               >
                 <path
                   strokeLinecap="round"
@@ -175,7 +174,7 @@ export default function Header() {
                 onClick={() => setMobileOpen(false)}
                 className={({ isActive }) =>
                   [
-                    "block rounded-lg px-4 py-4 text-[1.05rem] font-heading font-medium transition",
+                    "block rounded-lg px-4 py-4 text-[1.05rem] font-heading font-semibold transition text-[var(--text)] dark:text-white hover:text-[var(--link)]",
                     isActive
                       ? "bg-black/5 dark:bg-white/15"
                       : "hover:bg-black/5 dark:hover:bg-white/10",
@@ -189,12 +188,12 @@ export default function Header() {
           </nav>
 
           {/* Bottom CTA */}
-          <div className="mt-6 rounded-lg border border-black/10 bg-black/[0.03] p-4 dark:border-white/10 dark:bg-white/10">
-            <p className="text-sm opacity-80">Want to talk about a project?</p>
+          <div className="mt-8 rounded-2xl border border-black/10 bg-white/70 backdrop-blur-sm p-5 dark:border-white/10 dark:bg-white/10">
+            <p className="text-sm text-[var(--text)]/80 dark:text-white/80">Want to talk about a project?</p>
             <Link
               to="/contact"
               onClick={() => setMobileOpen(false)}
-              className="mt-3 inline-flex rounded-lg px-4 py-3 font-heading font-semibold bg-[var(--secondary)] text-white"
+              className="btn-cta mt-3 inline-flex items-center justify-center px-5 py-3"
             >
               Contact
             </Link>
