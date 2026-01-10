@@ -11,7 +11,13 @@ import { projects } from "../data/projects";
 import { posts } from "../posts/posts";
 import ProjectImage from "../components/ProjectImage";
 import SEO from "../components/ui/SEO.jsx";
-
+const heroWashStyle = {
+  background:
+    "radial-gradient(1400px circle at 12% 34%, color-mix(in srgb, var(--nostalgia-cream) 60%, transparent), transparent 64%)," +
+    "radial-gradient(900px circle at 86% 18%, color-mix(in srgb, var(--nostalgia-red) 7%, transparent), transparent 58%)," +
+    "linear-gradient(180deg, var(--hero-bg), transparent 72%)",
+  backgroundRepeat: "no-repeat",
+};
 // Client logos (SVG, light/dark mode)
 const clients = [
   {
@@ -151,17 +157,18 @@ export default function Home() {
       />
 
       {/* HERO */}
-      <HeroShell
-        noPadding
-        className="bg-[var(--bg-soft)] relative overflow-hidden !min-h-0 !h-auto"
-        containerClassName="px-5 sm:px-6 pt-12 pb-2 sm:pb-4 md:pt-12 md:pb-0 lg:pt-14 lg:pb-0 flex flex-col items-start"
-      >
+ <HeroShell
+  noPadding
+  className="bg-[var(--bg-soft)] !min-h-0 !h-auto"
+  containerClassName="px-5 sm:px-6 pt-12 pb-2 sm:pb-4 md:pt-12 md:pb-0 lg:pt-14 lg:pb-0 flex flex-col items-start"
+  withWash
+  washStyle={heroWashStyle}
+>
         <div
           aria-hidden="true"
           className="pointer-events-none absolute top-0 left-0 right-0 bottom-0 z-0"
         >
-          <div className="absolute -top-24 left-1/2 h-[520px] w-[520px] -translate-x-1/2 rounded-full bg-[radial-gradient(circle_at_center,rgba(255,62,127,0.22),transparent_60%)] blur-2xl" />
-          <div className="absolute -bottom-20 -left-28 h-[520px] w-[520px] rounded-full bg-[radial-gradient(circle_at_center,rgba(0,255,209,0.18),transparent_60%)] blur-2xl" />
+ 
         </div>
         <div
           className="
@@ -342,52 +349,19 @@ export default function Home() {
         
       </HeroShell>
 
-      {/* TRUSTED BY */}
-      <Section className="bg-[var(--bg-soft)] border-y border-black/5 dark:border-white/10">
-        <Container className="pt-2 pb-6 md:pt-3 md:pb-8 fade-in-up">
-          <div className="w-full max-w-[560px] mx-auto sm:max-w-none">
-            <div className="grid w-full grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-x-8 gap-y-12 place-items-stretch sm:place-items-center">
-              {clients.map((client) => (
-                <div key={client.name} className="flex items-center justify-center w-full">
-                  <div className="w-[68%] max-w-[381px] mx-auto sm:mx-0 sm:w-[162px] md:w-[180px] min-h-12 flex items-center justify-center">
-                    <img
-                      src={client.lightSrc}
-                      alt={client.name}
-                      className={`w-full h-auto max-h-[136px] sm:max-h-[41px] object-contain origin-center opacity-90 block dark:hidden ${
-                        client.className || ""
-                      }`}
-                      loading="lazy"
-                      decoding="async"
-                    />
-                    <img
-                      src={client.darkSrc}
-                      alt={client.name}
-                      className={`w-full h-auto max-h-[136px] sm:max-h-[41px] object-contain origin-center opacity-90 hidden dark:block ${
-                        client.className || ""
-                      }`}
-                      loading="lazy"
-                      decoding="async"
-                    />
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </Container>
-      </Section>
-
+   
       {/* SERVICES PREVIEW */}
       <Section className="bg-[var(--bg-soft)] !pt-4 md:!pt-12">
         <Container className="space-y-8 fade-in-up">
           <div className="space-y-3 max-w-[70ch]">
             <span className="text-xs uppercase tracking-[0.18em] text-[var(--text)] opacity-60">
-              Ways I work
+              The way I work
             </span>
             <h2 className="font-heading text-2xl text-[var(--text)]">
               Designing the conditions for better learning
             </h2>
             <p className="text-sm text-[var(--text)] opacity-70 leading-7">
-              I focus on environments that respect how people learn - clear goals, good judgement, and practice that transfers to real work. The work is practical, buildable, and measurable.
+              I focus on environments that respect how people learn - clear goals, good judgement, and practice that transfers to real work. The work is practical, scalable, and measurable.
             </p>
           </div>
 
@@ -426,6 +400,40 @@ export default function Home() {
           </Link>
         </Container>
       </Section>
+         {/* TRUSTED BY */}
+      <Section className="bg-[var(--bg-soft)] border-y border-black/5 dark:border-white/10">
+        <Container className="pt-2 pb-6 md:pt-3 md:pb-8 fade-in-up">
+          <div className="w-full max-w-[560px] mx-auto sm:max-w-none">
+            <div className="grid w-full grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-x-8 gap-y-12 place-items-stretch sm:place-items-center">
+              {clients.map((client) => (
+                <div key={client.name} className="flex items-center justify-center w-full">
+                  <div className="w-[68%] max-w-[381px] mx-auto sm:mx-0 sm:w-[162px] md:w-[180px] min-h-12 flex items-center justify-center">
+                    <img
+                      src={client.lightSrc}
+                      alt={client.name}
+                      className={`w-full h-auto max-h-[136px] sm:max-h-[41px] object-contain origin-center opacity-90 block dark:hidden ${
+                        client.className || ""
+                      }`}
+                      loading="lazy"
+                      decoding="async"
+                    />
+                    <img
+                      src={client.darkSrc}
+                      alt={client.name}
+                      className={`w-full h-auto max-h-[136px] sm:max-h-[41px] object-contain origin-center opacity-90 hidden dark:block ${
+                        client.className || ""
+                      }`}
+                      loading="lazy"
+                      decoding="async"
+                    />
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </Container>
+      </Section>
+
 
       {/* FEATURED WORK */}
       <Section className="bg-[var(--bg-soft)]">

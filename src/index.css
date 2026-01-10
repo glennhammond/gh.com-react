@@ -104,9 +104,9 @@
   --font-body: "open-sans", "Open Sans", system-ui, sans-serif;
 
   /* Core colour system — Crisp modern (clean paper + primaries) */
-  --bg: #ffffff;        /* clean paper */
-  --bg-soft: #f6f7fb;   /* cool, modern soft surface */
-  --hero-bg: #eef2ff;   /* gentle cool tint for hero areas */
+--bg: #ffffff;        
+--bg-soft: #FBFAF8;   /* warm, paper soft surface */
+--hero-bg: #F7F4F0;   /* warm hero tint */
 
   /* Ink (keep your existing navy vibe, just warmed slightly for paper) */
   --text: rgba(26, 20, 70, 0.86);
@@ -183,8 +183,8 @@
   /* Hero accents (balanced red + blue) */
 --hero-accent: var(--nostalgia-red);
 --hero-balance: var(--nostalgia-blue);
---hero-accent-soft: color-mix(in srgb, var(--nostalgia-red) 16%, transparent);
---hero-balance-soft: color-mix(in srgb, var(--nostalgia-blue) 34%, transparent);
+--hero-accent-soft: color-mix(in srgb, var(--nostalgia-red) 10%, transparent);
+--hero-balance-soft: color-mix(in srgb, var(--nostalgia-blue) 18%, transparent);
 }
 
 /* -------------------------------------------------------
@@ -629,27 +629,42 @@ html.dark main :is(
   }
 }
 
+.page-hero,
 .hero-wash {
-  background: none !important;
-
-  .hero-text-panel{
-  display:block;
-  background: var(--bg-soft);         /* matches light mode surface */
-  border:1px solid rgba(26,20,70,.22);
-  border-radius:1.25rem;
-  padding:1.25rem;
-  box-shadow:0 14px 34px rgba(0,0,0,.10), 0 3px 0 rgba(0,0,0,.10);
+  /* Light-mode hero wash: warm + neutral so the red CTA feels cohesive */
+  background:
+    radial-gradient(
+      1400px circle at 12% 34%,
+      color-mix(in srgb, var(--nostalgia-cream) 60%, transparent),
+      transparent 64%
+    ),
+    radial-gradient(
+      900px circle at 86% 18%,
+      color-mix(in srgb, var(--nostalgia-red) 7%, transparent),
+      transparent 58%
+    ),
+    linear-gradient(180deg, var(--hero-bg), transparent 72%) !important;
+  background-repeat: no-repeat;
 }
 
-@media (min-width:768px){
-  .hero-text-panel{
-    background:transparent;
-    border:0;
-    box-shadow:none;
-    padding:0;
+.hero-wash .hero-text-panel {
+  display: block;
+  background: var(--bg-soft); /* matches light mode surface */
+  border: 1px solid rgba(26, 20, 70, 0.22);
+  border-radius: 1.25rem;
+  padding: 1.25rem;
+  box-shadow: 0 14px 34px rgba(0, 0, 0, 0.10), 0 3px 0 rgba(0, 0, 0, 0.10);
+}
+
+@media (min-width: 768px) {
+  .hero-wash .hero-text-panel {
+    background: transparent;
+    border: 0;
+    box-shadow: none;
+    padding: 0;
   }
 }
-}
+
 
 /* Only animate colours during an intentional theme toggle */
 html.theme-transition,

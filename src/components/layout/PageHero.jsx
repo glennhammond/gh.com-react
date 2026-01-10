@@ -10,13 +10,28 @@ export function HeroShell({
   sectionClassName = "",
   containerClassName = "",
   noPadding = false,
+  withWash = false,
+  washStyle = undefined,
 }) {
   const sectionClasses = `${sectionClassName} ${className}`.trim();
   const containerClasses = `${containerClassName}`.trim();
 
   return (
-    <Section noPadding={noPadding} className={sectionClasses}>
-      <Container className={containerClasses}>{children}</Container>
+    <Section
+      noPadding={noPadding}
+      className={`${sectionClasses} ${withWash ? "relative overflow-hidden" : ""}`.trim()}
+    >
+      {withWash ? (
+        <div
+          aria-hidden="true"
+          className="absolute inset-0 pointer-events-none"
+          style={washStyle}
+        />
+      ) : null}
+
+      <Container className={`${containerClasses} ${withWash ? "relative" : ""}`.trim()}>
+        {children}
+      </Container>
     </Section>
   );
 }
@@ -85,13 +100,23 @@ export default function PageHero({
     return breadcrumb;
   };
 
+  const washStyle = {
+    background:
+      "radial-gradient(1400px circle at 12% 34%, color-mix(in srgb, var(--nostalgia-cream) 60%, transparent), transparent 64%)," +
+      "radial-gradient(900px circle at 86% 18%, color-mix(in srgb, var(--nostalgia-red) 7%, transparent), transparent 58%)," +
+      "linear-gradient(180deg, var(--hero-bg), transparent 72%)",
+    backgroundRepeat: "no-repeat",
+  };
+
   return (
     <HeroShell
       className={className}
       // Centralised rhythm first, with optional back-compat overrides appended.
-      sectionClassName={`${v.section} ${sectionClassName} page-hero hero-wash`.trim()}
+      sectionClassName={`${v.section} ${sectionClassName} page-hero`.trim()}
       containerClassName={`${v.container} fade-in-up ${containerClassName}`.trim()}
       noPadding={noPadding}
+      withWash
+      washStyle={washStyle}
     >
       {renderBreadcrumb()}
 
@@ -110,16 +135,12 @@ export default function PageHero({
 
         {isSplitLayout ? (
           <div className={v.grid || variants.split.grid}>
-            <div className={introPanelClass}>
-              {children}
-            </div>
+            <div className={introPanelClass}>{children}</div>
 
             {right ? <div className="w-full">{right}</div> : <div />}
           </div>
         ) : (
-          <div className={introPanelClass}>
-            {children}
-          </div>
+          <div className={introPanelClass}>{children}</div>
         )}
       </div>
     </HeroShell>
