@@ -629,31 +629,27 @@ html.dark main :is(
   }
 }
 
-.page-hero,
+/* Default PageHero background should stay clean + consistent across pages */
+.page-hero {
+  background: transparent !important;
+}
+
+/* Apply a wash only when intentionally opted-in */
 .hero-wash {
-  /* Light-mode hero wash: warm + neutral so the red CTA feels cohesive */
+  /* Editorial calm: warm paper (two-layer wash) */
   background:
-    radial-gradient(
-      1400px circle at 12% 34%,
-      color-mix(in srgb, var(--nostalgia-cream) 60%, transparent),
-      transparent 64%
-    ),
-    radial-gradient(
-      900px circle at 86% 18%,
-      color-mix(in srgb, var(--nostalgia-red) 7%, transparent),
-      transparent 58%
-    ),
+    radial-gradient(1200px circle at 16% 28%, rgba(247, 244, 240, 0.95), transparent 62%),
     linear-gradient(180deg, var(--hero-bg), transparent 72%) !important;
   background-repeat: no-repeat;
 }
 
 .hero-wash .hero-text-panel {
   display: block;
-  background: var(--bg-soft); /* matches light mode surface */
-  border: 1px solid rgba(26, 20, 70, 0.22);
-  border-radius: 1.25rem;
+  background: var(--bg); /* cleaner, more editorial */
+  border: 1px solid rgba(26, 20, 70, 0.16);
+  border-radius: 1rem;
   padding: 1.25rem;
-  box-shadow: 0 14px 34px rgba(0, 0, 0, 0.10), 0 3px 0 rgba(0, 0, 0, 0.10);
+  box-shadow: 0 10px 22px rgba(0, 0, 0, 0.08), 0 2px 0 rgba(0, 0, 0, 0.08);
 }
 
 @media (min-width: 768px) {

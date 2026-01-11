@@ -5,7 +5,7 @@ export const projects = [
     title: "TAFE QLD Pathways",
     category: "Elearning",
     subtitle:
-      "Interactive pathways for construction and data students, blending UX with practical course info.",
+      "Interactive pathways for students considering construction pathways, blending UX with practical course info.",
     meta: "TAFE Queensland · Pathways · UX & eLearning",
     image: "/images/elearning-tafe-pathways-construction-data.jpg",
   },

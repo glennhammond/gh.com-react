@@ -13,8 +13,7 @@ import ProjectImage from "../components/ProjectImage";
 import SEO from "../components/ui/SEO.jsx";
 const heroWashStyle = {
   background:
-    "radial-gradient(1400px circle at 12% 34%, color-mix(in srgb, var(--nostalgia-cream) 60%, transparent), transparent 64%)," +
-    "radial-gradient(900px circle at 86% 18%, color-mix(in srgb, var(--nostalgia-red) 7%, transparent), transparent 58%)," +
+    "radial-gradient(1400px circle at 12% 34%, rgba(255, 244, 236, 0.85), transparent 64%)," +
     "linear-gradient(180deg, var(--hero-bg), transparent 72%)",
   backgroundRepeat: "no-repeat",
 };
@@ -159,7 +158,7 @@ export default function Home() {
       {/* HERO */}
  <HeroShell
   noPadding
-  className="bg-[var(--bg-soft)] !min-h-0 !h-auto"
+className="bg-[var(--bg)] !min-h-0 !h-auto"
   containerClassName="px-5 sm:px-6 pt-12 pb-2 sm:pb-4 md:pt-12 md:pb-0 lg:pt-14 lg:pb-0 flex flex-col items-start"
   withWash
   washStyle={heroWashStyle}

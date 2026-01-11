@@ -44,6 +44,7 @@ export default function PageHero({
   children,
   plainBody = false,
   className = "",
+  withWash = false,
   /**
    * Variants centralise vertical rhythm + layout so pages don’t freestyle spacing.
    * - standard: single-column hero
@@ -102,8 +103,7 @@ export default function PageHero({
 
   const washStyle = {
     background:
-      "radial-gradient(1400px circle at 12% 34%, color-mix(in srgb, var(--nostalgia-cream) 60%, transparent), transparent 64%)," +
-      "radial-gradient(900px circle at 86% 18%, color-mix(in srgb, var(--nostalgia-red) 7%, transparent), transparent 58%)," +
+      "radial-gradient(1200px circle at 16% 28%, rgba(247, 244, 240, 0.95), transparent 62%)," +
       "linear-gradient(180deg, var(--hero-bg), transparent 72%)",
     backgroundRepeat: "no-repeat",
   };
@@ -115,8 +115,8 @@ export default function PageHero({
       sectionClassName={`${v.section} ${sectionClassName} page-hero`.trim()}
       containerClassName={`${v.container} fade-in-up ${containerClassName}`.trim()}
       noPadding={noPadding}
-      withWash
-      washStyle={washStyle}
+      withWash={withWash}
+      washStyle={withWash ? washStyle : undefined}
     >
       {renderBreadcrumb()}
 
