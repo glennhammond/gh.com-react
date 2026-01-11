@@ -13,9 +13,10 @@ import ProjectImage from "../components/ProjectImage";
 import SEO from "../components/ui/SEO.jsx";
 const heroWashStyle = {
   background:
-    "radial-gradient(1400px circle at 12% 34%, rgba(255, 244, 236, 0.85), transparent 64%)," +
-    "linear-gradient(180deg, var(--hero-bg), transparent 72%)",
+    "radial-gradient(1200px circle at 12% 30%, rgba(255, 244, 236, 0.55), transparent 62%)," +
+    "linear-gradient(180deg, var(--hero-bg), transparent 70%)",
   backgroundRepeat: "no-repeat",
+  opacity: 0.75,
 };
 // Client logos (SVG, light/dark mode)
 const clients = [
@@ -163,13 +164,7 @@ className="bg-[var(--bg)] !min-h-0 !h-auto"
   withWash
   washStyle={heroWashStyle}
 >
-        <div
-          aria-hidden="true"
-          className="pointer-events-none absolute top-0 left-0 right-0 bottom-0 z-0"
-        >
- 
-        </div>
-        <div
+           <div
           className="
             w-full
             relative z-10
@@ -215,8 +210,7 @@ className="bg-[var(--bg)] !min-h-0 !h-auto"
               <div
                 className="
                   rounded-2xl
-                  bg-white/90
-                  backdrop-blur-sm
+                  bg-white/95
                   ring-1 ring-black/10
                   shadow-[0_22px_70px_rgba(2,6,23,0.20)]
                   p-6
@@ -333,7 +327,7 @@ className="bg-[var(--bg)] !min-h-0 !h-auto"
                 </div>
               </div>
               <p className="mt-5 text-slate-700 leading-7">
-  A practical kit for building modern eLearning fast - interaction patterns, accessibility, and production-ready guidance.
+  A practical kit for modern eLearning - designed to keep the focus on people, not process.
 </p>
 
          <div className="mt-7 md:mt-auto md:pt-8">
@@ -434,55 +428,56 @@ className="bg-[var(--bg)] !min-h-0 !h-auto"
       </Section>
 
 
-      {/* FEATURED WORK */}
-      <Section className="bg-[var(--bg-soft)]">
-        <Container className="space-y-10 fade-in-up">
-          <h2 className="font-heading text-2xl text-[var(--text)]">
-            Featured work
-          </h2>
+      {/* 
+  FEATURED WORK
+  <Section className="bg-[var(--bg-soft)]">
+    <Container className="space-y-10 fade-in-up">
+      <h2 className="font-heading text-2xl text-[var(--text)]">
+        Featured work
+      </h2>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
-            {featuredProjects.map((project) => (
-              <Link
-                key={project.slug}
-                to={project.to || `/work/${project.slug}`}
-                className="
-                  site-card-strong
-                  overflow-hidden
-                  transition
-                  hover:-translate-y-[2px]
-                  hover:shadow-lg
-                  hover:border-[var(--brand-primary)]
-                  focus-visible:outline-none
-                  focus-visible:ring-2
-                  focus-visible:ring-black/20
-                "
-              >
-                <ProjectImage src={project.image} alt={project.title} />
-                <div className="p-6 space-y-3">
-                  <h3 className="font-heading text-xl text-[var(--text)]">
-                    {project.title}
-                  </h3>
-                  <p className="text-sm text-[var(--text)] opacity-75">
-                    {project.subtitle}
-                  </p>
-                  <span className="text-sm font-heading text-[var(--link)]">
-                    Explore project →
-                  </span>
-                </div>
-              </Link>
-            ))}
-          </div>
-
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
+        {featuredProjects.map((project) => (
           <Link
-            to="/work"
-            className="text-sm text-[var(--brand-primary)] hover:underline inline-block font-heading"
+            key={project.slug}
+            to={project.to || `/work/${project.slug}`}
+            className="
+              site-card-strong
+              overflow-hidden
+              transition
+              hover:-translate-y-[2px]
+              hover:shadow-lg
+              hover:border-[var(--brand-primary)]
+              focus-visible:outline-none
+              focus-visible:ring-2
+              focus-visible:ring-black/20
+            "
           >
-            View all projects →
+            <ProjectImage src={project.image} alt={project.title} />
+            <div className="p-6 space-y-3">
+              <h3 className="font-heading text-xl text-[var(--text)]">
+                {project.title}
+              </h3>
+              <p className="text-sm text-[var(--text)] opacity-75">
+                {project.subtitle}
+              </p>
+              <span className="text-sm font-heading text-[var(--link)]">
+                Explore project →
+              </span>
+            </div>
           </Link>
-        </Container>
-      </Section>
+        ))}
+      </div>
 
+      <Link
+        to="/work"
+        className="text-sm text-[var(--brand-primary)] hover:underline inline-block font-heading"
+      >
+        View all projects →
+      </Link>
+    </Container>
+  </Section>
+*/}
       
       {/* LATEST POSTS */}
       <Section className="bg-[var(--bg-soft)]">
