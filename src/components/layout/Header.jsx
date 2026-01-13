@@ -8,6 +8,7 @@ const navItems = [
   { to: "/work", label: "Work" },
   { to: "/blog", label: "Blog" },
   { to: "/about", label: "About" },
+    { to: "/contact", label: "Contact" },
 ];
 
 const desktopNavItems = navItems;

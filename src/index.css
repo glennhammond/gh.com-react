@@ -191,63 +191,64 @@
    DARK MODE
 ------------------------------------------------------- */
 html.dark {
-  /* Core colour system — dark mode */
-  --bg: #1A1446; /* deep indigo */
-  --bg-soft: rgba(255, 255, 255, 0.08); /* subtle panels on charcoal */
-  --hero-bg: #151041; /* slightly deeper indigo for hero */
+  /* Core colour system — warm black (pairs with red CTA) */
+  --bg: #0F0D0B;               /* warm charcoal */
+  --bg-soft: #171310;          /* elevated surface */
+  --hero-bg: var(--bg);        /* hero stays flat + clean */
 
-  --text: #ffffff;
-  --heading: var(--text);
-  --muted: rgba(255, 255, 255, 0.82);
-  --text-muted: rgba(255, 255, 255, 0.82);
+  --text: #F5F2EE;
+  --heading: #F5F2EE;
+  --muted: rgba(245, 242, 238, 0.82);
+  --text-muted: rgba(245, 242, 238, 0.82);
 
-  /* Brand colours — white on magenta */
-  --color-brand-primary: #ffffff;      /* headings / main copy */
-  --color-brand-accent: #FF3E7F;
-  --color-brand-soft: rgba(255, 255, 255, 0.10);
+  /* Brand colours — keep red consistent with light mode */
+  --color-brand-primary: #F5F2EE;
+  --color-brand-accent: var(--nostalgia-red);
+  --color-brand-soft: rgba(245, 242, 238, 0.10);
 
-  /* Secondary colour — pink (replaces gold accents) */
-  --secondary: #FF4D8D;
-  --secondary-strong: #FF3E7F;
-  --secondary-soft: rgba(255, 77, 141, 0.20);
+  /* Secondary colour — warm peach/cream (no hot pink, no blue cast) */
+  --secondary: var(--nostalgia-peach);
+  --secondary-strong: #E98E73;
+  --secondary-soft: rgba(239, 168, 146, 0.20);
 
-  /* CTA / emphasis colour (coral on deep indigo for contrast) */
-  --cta: #FF3E7F;
-  --cta-strong: #E92A73;
-  --cta-soft: rgba(255, 62, 127, 0.22);
-  --cta-text: #1A1446;
+  /* CTA / emphasis colour — align with light mode red */
+  --cta: var(--nostalgia-red);
+  --cta-strong: #B70707;
+  --cta-soft: rgba(233, 10, 10, 0.22);
+  --cta-text: #ffffff;
 
-  /* Link colours */
-  --link: #FF4D8D;
-  --link-hover: #FF76A8;
+  /* Link colours — align with light mode red */
+  --link: var(--nostalgia-red);
+  --link-hover: color-mix(in srgb, var(--nostalgia-red) 75%, #ffffff);
 
-  /* Card tokens (dark mode uses bright white cards on blue) */
-  --card-bg: rgba(247, 250, 255, 0.96);   /* faint blue-tinted white */
+  /* Card tokens (dark mode uses warm-white cards on warm charcoal) */
+  --card-bg: rgba(255, 255, 255, 0.96);
   --card-bg-strong: #ffffff;
-  --card-border: rgba(26, 20, 70, 0.18);
+  --card-border: rgba(15, 13, 11, 0.18);
 
-  --heading-accent: #FF3E7F;
-  --heading-accent-2: rgba(141, 185, 232, 0.95);
-  --heading-underline: rgba(255, 62, 127, 0.22);
-  --card-shadow: 0 38px 110px rgba(0, 0, 0, 0.32), 0 14px 34px rgba(0, 0, 0, 0.18);
-  --card-title: #1E3A8A;
+  --heading-accent: var(--nostalgia-red);
+  --heading-accent-2: rgba(244, 232, 215, 0.95); /* cream */
+  --heading-underline: rgba(233, 10, 10, 0.22);
+
+  --card-shadow: 0 38px 110px rgba(0, 0, 0, 0.42), 0 14px 34px rgba(0, 0, 0, 0.22);
+  --card-title: #1A1446; /* keep ink navy for headings on light cards */
   --card-text: rgba(15, 23, 42, 0.88);
   --card-muted: rgba(15, 23, 42, 0.68);
   --card-link: var(--link);
 
   /* Short aliases */
   --brand-primary: var(--color-brand-primary);
-  --brand-primary-dark: #1E40AF;       /* deeper blue for hover */
-  --brand-primary-soft: rgba(59, 130, 246, 0.18);
+  --brand-primary-dark: rgba(245, 242, 238, 0.88);
+  --brand-primary-soft: rgba(245, 242, 238, 0.12);
 
-  /* Accent aliases used in components */
-  --accent: var(--secondary);
-  --accent-strong: var(--secondary-strong);
-  --accent-soft: rgba(59, 130, 246, 0.18);
-  --accent-soft-2: rgba(59, 130, 246, 0.28);
+  /* Accent aliases used in components (lean red, not blue) */
+  --accent: var(--cta);
+  --accent-strong: var(--cta-strong);
+  --accent-soft: rgba(233, 10, 10, 0.14);
+  --accent-soft-2: rgba(233, 10, 10, 0.22);
   --accent-warm: var(--secondary);
 
-  --shadow-soft: 0 18px 44px rgba(0, 0, 0, 0.40);
+  --shadow-soft: 0 18px 44px rgba(0, 0, 0, 0.48);
 
   /* Muted but harmonious category colours */
   --cat-design: #60a5fa;
@@ -261,10 +262,11 @@ html.dark {
   --cat-ux: #818cf8;
   --cat-general: #94a3b8;
 
+  /* Hero accents (balanced warm + red) */
   --hero-accent: var(--heading-accent);
---hero-balance: var(--heading-accent-2);
---hero-accent-soft: rgba(255, 62, 127, 0.22);
---hero-balance-soft: rgba(141, 185, 232, 0.22);
+  --hero-balance: var(--heading-accent-2);
+  --hero-accent-soft: rgba(233, 10, 10, 0.20);
+  --hero-balance-soft: rgba(244, 232, 215, 0.18);
 }
 
 /* Light mode background: plain paper */
@@ -273,20 +275,30 @@ html:not(.dark) {
   background-image: none;
 }
 
-/* Subtle indigo depth so the background reads "royal indigo" not black */
+/* Warm charcoal depth so dark mode reads premium (not blue) */
 html.dark body {
   background-color: var(--bg) !important;
   background-image: none !important;
 }
 
 
-/* Dark mode - keep header + footer consistent, darker indigo than the page */
+/* Dark mode - keep header + footer consistent with the warm charcoal */
 html.dark header,
 html.dark footer {
-  /* darker shade of the base indigo (#1A1446) */
-  background-color: #151041 !important;
+  background-color: var(--bg) !important;
 }
-
+/* Dark mode - remove the hero wash gradient (keep hero clean + flat) */
+html.dark .hero-wash {
+  background: none !important;
+  opacity: 0 !important;
+}
+/* Fallback - if the hero uses inline gradient backgrounds, strip them in dark mode */
+html.dark .page-hero [style*="radial-gradient"],
+html.dark .page-hero [style*="linear-gradient"],
+html.dark .page-hero [style*="gradient("] {
+  background: none !important;
+  background-image: none !important;
+}
 html.dark header,
 html.dark footer {
   background-image: none !important;
@@ -636,9 +648,10 @@ html.dark main :is(
 
 /* Apply a wash only when intentionally opted-in */
 .hero-wash {
-  /* Editorial calm: warm paper (two-layer wash) */
+  /* Editorial calm: warm paper + a whisper of ink depth */
   background:
     radial-gradient(1200px circle at 16% 28%, rgba(247, 244, 240, 0.95), transparent 62%),
+    radial-gradient(1000px circle at 86% 18%, rgba(26, 20, 70, 0.035), transparent 60%),
     linear-gradient(180deg, var(--hero-bg), transparent 72%) !important;
   background-repeat: no-repeat;
 }

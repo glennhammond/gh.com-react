@@ -74,7 +74,7 @@ export default function PageHero({
       container: "space-y-8",
       titleWrap: "space-y-4",
       introWrap: "max-w-3xl",
-      grid: "grid gap-10 lg:grid-cols-2 lg:items-start",
+      grid: "grid gap-10 lg:grid-cols-[minmax(0,1fr)_minmax(0,560px)] lg:items-start",
     },
     compact: {
       section: "pt-3 pb-6 md:pt-4 md:pb-8",
@@ -121,26 +121,50 @@ export default function PageHero({
       {renderBreadcrumb()}
 
       <div className={v.titleWrap}>
-        <header className="space-y-3">
-          {eyebrow ? (
-            <p className="text-xs uppercase tracking-[0.18em] text-[var(--nostalgia-blue)]/80">
-              {eyebrow}
-            </p>
-          ) : null}
-
-          {title ? (
-            <h1 className="font-heading hero-title text-4xl md:text-5xl">{title}</h1>
-          ) : null}
-        </header>
-
         {isSplitLayout ? (
           <div className={v.grid || variants.split.grid}>
-            <div className={introPanelClass}>{children}</div>
+            <div className="min-w-0 space-y-4">
+              <header className="space-y-3">
+                {eyebrow ? (
+                  <p className="text-xs uppercase tracking-[0.18em] text-[var(--nostalgia-blue)]/80">
+                    {eyebrow}
+                  </p>
+                ) : null}
 
-            {right ? <div className="w-full">{right}</div> : <div />}
+                {title ? (
+                  <h1 className="font-heading hero-title text-4xl md:text-5xl max-w-[18ch]">
+                    {title}
+                  </h1>
+                ) : null}
+              </header>
+
+              <div className={introPanelClass}>{children}</div>
+            </div>
+
+            {right ? (
+              <div className="w-full lg:max-w-[560px] lg:justify-self-end lg:self-start">
+                {right}
+              </div>
+            ) : (
+              <div />
+            )}
           </div>
         ) : (
-          <div className={introPanelClass}>{children}</div>
+          <>
+            <header className="space-y-3">
+              {eyebrow ? (
+                <p className="text-xs uppercase tracking-[0.18em] text-[var(--nostalgia-blue)]/80">
+                  {eyebrow}
+                </p>
+              ) : null}
+
+              {title ? (
+                <h1 className="font-heading hero-title text-4xl md:text-5xl">{title}</h1>
+              ) : null}
+            </header>
+
+            <div className={introPanelClass}>{children}</div>
+          </>
         )}
       </div>
     </HeroShell>

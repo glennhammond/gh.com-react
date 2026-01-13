@@ -16,7 +16,7 @@ const elearningSections = [
   {
     slug: "overview",
     title: "eLearning Design System",
-    description: "What this system is, how it works, and how to use it.",
+    description: "What it is, how it works, and how to use it day to day.",
     // Overview is this ProjectPage itself
     href: "/design-system",
     image: "/images/elearning-design-system.png",
@@ -24,14 +24,14 @@ const elearningSections = [
   {
     slug: "atomic-design",
     title: "Atomic Design",
-    description: "A simple component mindset to keep builds consistent and scalable.",
+    description: "A component mindset to keep builds consistent and scalable.",
     href: "/design-system/atomic-design",
     image: "/images/atomic-design.png",
   },
   {
     slug: "core-more-bore",
     title: "Core, More & Bore",
-    description: "A practical content model for balancing essentials, depth, and extras.",
+    description: "A content model for balancing essentials, depth, and extras.",
     href: "/design-system/core-more-bore",
     image: "/images/core-more-bore.png",
   },
@@ -45,7 +45,7 @@ const elearningSections = [
   {
     slug: "typography",
     title: "Typography",
-    description: "Hierarchy, sizing, and spacing decisions for readable learning.",
+    description: "Hierarchy, sizing, and spacing rules for readable learning.",
     href: "/design-system/typography",
     image: "/images/typography.png",
     fallbackImage: "/images/design-system-typography.png",
@@ -53,7 +53,7 @@ const elearningSections = [
   {
     slug: "images-icons",
     title: "Images & Icons",
-    description: "Image style, icon rules, and visual consistency across courses.",
+    description: "Image and icon rules for consistent, on-brand screens.",
     href: "/design-system/images-icons",
     image: "/images/icons.png",
   },
@@ -67,7 +67,7 @@ const elearningSections = [
   {
     slug: "asset-register",
     title: "Asset Register",
-    description: "How I manage assets, naming, and source files for clean handover.",
+    description: "Asset naming, storage, and source files for clean handover.",
     href: "/design-system/asset-register",
     image: "/images/asset-register.png",
   },
@@ -109,7 +109,7 @@ export default function ProjectPage() {
   const isElearningDesignSystem = slug === "elearning-design-system";
 
   const lead = isElearningDesignSystem
-    ? "An eLearning design system for consistent structure, UX, and production."
+    ? "A practical eLearning design system for consistent UX and faster production."
     : (project.subtitle || project.description || project.longDescription || "");
 
   return (
@@ -132,7 +132,11 @@ export default function ProjectPage() {
         }
         title={project.title}
         lead={lead}
-        containerClassName="pt-11 pb-3 md:pt-13 md:pb-5"
+        containerClassName={
+          isElearningDesignSystem
+            ? "pt-11 pb-1 md:pt-13 md:pb-2"
+            : "pt-11 pb-3 md:pt-13 md:pb-5"
+        }
         right={
           <div className="hidden lg:block w-full max-w-xl">
             <div className="site-card overflow-hidden">
@@ -152,7 +156,7 @@ export default function ProjectPage() {
       >
         {isElearningDesignSystem ? (
           <p className="text-base md:text-lg leading-relaxed text-neutral-700/90 dark:text-white/80 max-w-2xl">
-            Defines standards for layout, typography, templates, interaction conventions, accessibility, and Storyline - making builds easier to maintain and update.
+            Standards for layout, typography, templates, interaction conventions, accessibility, and Storyline - so builds stay consistent and maintainable.
           </p>
         ) : null}
 
@@ -170,16 +174,18 @@ export default function ProjectPage() {
           </ul>
         ) : null}
 
-        <div className="pt-2">
-          <Link
-            to="/work"
-            className="inline-flex items-center gap-2 text-sm text-[var(--text)]/70 hover:text-[var(--text)] transition"
-          >
-            ← Back to all work
-          </Link>
-        </div>
+        {!isElearningDesignSystem && (
+          <div className="pt-2">
+            <Link
+              to="/work"
+              className="inline-flex items-center gap-2 text-sm text-[var(--text)]/70 hover:text-[var(--text)] transition"
+            >
+              ← Back to all work
+            </Link>
+          </div>
+        )}
       </PageHero>
-      <Section className="pt-7 md:pt-9">
+      <Section className={isElearningDesignSystem ? "pt-2 md:pt-3" : "pt-7 md:pt-9"}>
         <Container className="space-y-10 max-w-6xl">
           {/* eLearning Design System grid */}
           {isElearningDesignSystem && (
@@ -189,7 +195,7 @@ export default function ProjectPage() {
                   Explore the system
                 </h2>
                 <p className="text-[var(--text)]/70 leading-relaxed max-w-2xl">
-                  Explore the key building blocks - from structure and typography through to Storyline standards.
+                  Start with the overview, then dive into the standards I use to design, build, and hand over courses.
                 </p>
               </div>
 
@@ -273,4 +279,4 @@ export default function ProjectPage() {
       </Section>
     </PageWrapper>
   );
-}
+} 
