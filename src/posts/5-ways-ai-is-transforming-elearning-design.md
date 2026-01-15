@@ -14,6 +14,7 @@ tags:
   - "QA"
 description: "Five practical ways AI is changing how we scope, design, build, and QA eLearning - with the caveats that matter."
 slug: "5-ways-ai-is-transforming-elearning-design"
+image: /images/blog/blog-5-ways.jpg
 ---
 
 AI is already useful in just about everything - writing, design, analysis, admin. eLearning is no different.

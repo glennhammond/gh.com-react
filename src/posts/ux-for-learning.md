@@ -5,7 +5,7 @@ date: 2025-03-14
 category: UX
 categoryColor: #4CAF50
 tags: [ux, design, elearning, product-thinking]
-image: /images/img-placeholder-1200.jpg
+image: /images/blog/blog-UX-for-Learning.jpg
 ---
 
 ## **The first 10 seconds decide everything**

@@ -5,7 +5,7 @@ date: 2025-11-30
 category: Storyline
 categoryColor: #9C27B0
 tags: [storyline, authoring-tools, production, development]
-image: /images/img-placeholder-1200.jpg
+image: /images/blog/blog-Master-Slides-in-Storyline.jpg
 ---
 
 ## Why I Always Start with Master Slides… and Then Abandon Them

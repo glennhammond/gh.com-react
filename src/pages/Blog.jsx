@@ -386,11 +386,7 @@ export default function Blog() {
         title="I mostly think about design, education, AI and music"
         introClassName="mt-6"
       >
-        <p className="text-base md:text-lg leading-relaxed text-neutral-700/90 dark:text-white/80">
-          Writing about design systems, UX, UI, xAPI
-        </p>
-
-        <div className="mt-12 flex flex-col gap-4 md:flex-row md:items-center md:justify-between md:gap-6">
+             <div className="mt-12 flex flex-col gap-4 md:flex-row md:items-center md:justify-between md:gap-6">
           {/* Category filter chips */}
           <div className="min-w-0 max-w-full flex flex-wrap items-center gap-3">
             <Chip label="All" active={filter === "all"} onClick={() => setFilter("all")} />

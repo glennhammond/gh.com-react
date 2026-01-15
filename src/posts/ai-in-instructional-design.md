@@ -13,6 +13,7 @@ tags:
   - "Learning strategy"
 description: "Where AI genuinely helps instructional design, where it doesn’t, and how to use it without producing bland courses."
 slug: "ai-in-instructional-design"
+image: /images/blog/blog-AI-in-Instructional-Design.jpg
 ---
 
 AI is useful in instructional design when it supports thinking rather than pretending to be the thinker.  

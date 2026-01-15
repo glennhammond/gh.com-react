@@ -4,6 +4,7 @@ slug: moving-from-wordpress-to-react
 date: 2025-12-21
 category: Building in public
 summary: A practical write-up of my migration from a WordPress portfolio to a React build - including content migration, SEO, redirects, and the little details that matter.
+image: /images/blog/blog-Moving-from-WordPress-to-React.jpg
 ---
 
 I’ve run my personal site on WordPress for years. It did the job - I could publish, tweak pages quickly, and lean on plugins when I needed extra functionality.
