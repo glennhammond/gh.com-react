@@ -202,7 +202,7 @@ className="bg-[var(--bg)] !min-h-0 !h-auto"
               <span className="block">by Design</span>
             </h1>
             <p className="mt-6 max-w-[52ch] text-[var(--text)] opacity-75 text-lg leading-7">
-              I design learning environments that help people think, decide, and improve.<br />
+              I design learning that helps people think, decide, and improve.<br />
               Strategy, Storyline & Rise builds, and xAPI analytics.
             </p>
             {/* Mobile-only: featured system card (higher in the hero) */}
