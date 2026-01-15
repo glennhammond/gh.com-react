@@ -48,16 +48,7 @@ export default function Services() {
           </div>
         </div>
 
-        <div className="space-y-3 max-w-3xl text-sm md:text-base leading-relaxed text-[var(--text)]/75">
-          <p>
-            I design learning that drives measurable improvement - strategy, build, and measurement working together.
-          </p>
-          <p>
-            Use me for end-to-end delivery, or plug me in where the project needs stronger structure, cleaner UX, or better data.
-          </p>
-        </div>
-
-        <ul className="mt-6 space-y-3 text-base leading-6 text-[var(--text)]/80">
+        <ul className="mt-10 md:mt-12 space-y-3 text-base leading-6 text-[var(--text)]/80">
           {[
             "Learning strategy and solution design",
             "Frameworks, templates, and design systems",
