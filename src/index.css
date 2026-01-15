@@ -24,44 +24,53 @@
 
 @layer base {
   /* Pink star bullets for unordered lists in main content.
-     This is the single source of truth (covers prose, cards, panels, DS pages, etc.). */
-  main ul,
-  main ul li {
+     Single source of truth (covers prose, cards, panels, DS pages, etc.). */
+  /* Force-disable native bullets inside main (including Tailwind Typography). */
+  main :where(ul),
+  main :where(ul) li {
     list-style: none !important;
   }
 
-  main ul li::marker {
+  main :where(ul) li::marker {
     content: "" !important;
     color: transparent !important;
   }
 
-  main ul {
+  main :where(ul) {
     margin: 0;
-    padding-left: 0;
+    padding-left: 0 !important;
   }
 
-  main ul > li {
+  /* Reserve a stable gutter so text never overlaps the star.
+     Apply to all ULs in main, and explicitly to `.prose` to beat typography defaults. */
+  main :where(ul) > li,
+  main .prose :where(ul) > li {
     position: relative;
     display: block;
-    padding-left: 1.6rem; /* space for the star */
+    padding-left: 2.25rem !important;
   }
 
-  main ul > li::before {
+  main :where(ul) > li::before,
+  main .prose :where(ul) > li::before {
     content: "★";
     position: absolute;
     left: 0;
-    top: 0.38em; /* align with first line */
+    top: 0.95em;
+    transform: translateY(-50%);
+    width: 1.75rem;
+    text-align: center;
     color: #8CB8E7;
     font-size: 1em;
     line-height: 1;
+    pointer-events: none;
   }
 
   /* If a component renders its own decorative bullet icon in the <li>, hide it so we only show ONE star */
-  main ul > li > span[aria-hidden="true"] {
+  main :where(ul) > li > span[aria-hidden="true"] {
     display: none !important;
   }
 
-  main ul > li + li {
+  main :where(ul) > li + li {
     margin-top: 0.45rem;
   }
 
@@ -91,6 +100,7 @@
   .prose ul > li > :is(span, i, em, strong, div).rounded-full.size-3 {
     display: none !important;
   }
+
 }
 
 /* -------------------------------------------------------
