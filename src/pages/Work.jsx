@@ -3,7 +3,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 import PageWrapper from "../components/layout/PageWrapper";
-import Breadcrumb from "../components/ui/Breadcrumb.jsx";
+import PageHero from "../components/layout/PageHero";
 import Section from "../components/layout/Section";
 import Container from "../components/layout/Container";
 import SEO from "../components/ui/SEO.jsx";
@@ -46,54 +46,51 @@ export default function Work() {
         ]}
       />
 
-      {/* PAGE INTRO / HERO */}
-      <Section noPadding className="pb-4 md:pb-6">
-        <Container className="pt-4 pb-4 md:pt-6 md:pb-6">
-          <div className="grid gap-8 lg:grid-cols-2 lg:items-start">
-            <div className="space-y-4">
-              <Breadcrumb
-                items={[
-                  { label: "Home", href: "/" },
-                  { label: "Work" },
-                ]}
+      <PageHero
+        variant="split"
+        items={[
+          { label: "Home", href: "/" },
+          { label: "Work" },
+        ]}
+        eyebrow="Selected work"
+        title="Modern learning design"
+        right={
+          <div className="hidden md:block self-start">
+            <div className="aspect-[16/9] overflow-hidden rounded-2xl border border-black/10 bg-white shadow-[0_14px_34px_rgba(0,0,0,0.10),0_3px_0_rgba(0,0,0,0.10)] dark:border-white/10 dark:bg-white/5">
+              <img
+                src={`${base}images/work/glenn-hammond-site-assets-gh-elearning-design-system.webp`}
+                alt="Preview of eLearning Design System tiles"
+                className="h-full w-full object-cover"
+                loading="lazy"
+                decoding="async"
               />
-
-              <header className="space-y-3">
-                <p className="text-xs uppercase tracking-[0.18em] text-[var(--nostalgia-blue)]/80">
-                  Selected work
-                </p>
-
-                <h1 className="font-heading text-4xl md:text-5xl leading-[0.95] tracking-tight text-[var(--hero-accent)]">
-                  Modern learning design
-                </h1>
-
-                <div className="space-y-3 max-w-3xl text-sm md:text-base leading-relaxed text-[var(--text)]/75">
-                  <p>
-                    A selection of projects where learning strategy, UX, and production needed to align.
-                  </p>
-                  <p>
-                    Each example shows how I use repeatable patterns to keep experiences consistent and delivery
-                    efficient across complex content and multiple modules.
-                  </p>
-                </div>
-              </header>
-            </div>
-
-            {/* Right image (unchanged) */}
-            <div className="hidden lg:block">
-              <div className="aspect-[16/9] overflow-hidden rounded-2xl border border-black/10 bg-white shadow-[0_14px_34px_rgba(0,0,0,0.10),0_3px_0_rgba(0,0,0,0.10)] dark:border-white/10 dark:bg-white/5">
-                <img
-                  src={`${base}images/work/glenn-hammond-site-assets-gh-elearning-design-system.webp`}
-                  alt="Preview of eLearning Design System tiles"
-                  className="h-full w-full object-cover"
-                  loading="lazy"
-                  decoding="async"
-                />
-              </div>
             </div>
           </div>
-        </Container>
-      </Section>
+        }
+      >
+        {/* Mobile hero image */}
+        <div className="md:hidden mb-6">
+          <div className="aspect-[16/9] overflow-hidden rounded-2xl border border-black/10 bg-white shadow-[0_14px_34px_rgba(0,0,0,0.10),0_3px_0_rgba(0,0,0,0.10)] dark:border-white/10 dark:bg-white/5">
+            <img
+              src={`${base}images/work/glenn-hammond-site-assets-gh-elearning-design-system.webp`}
+              alt="Preview of eLearning Design System tiles"
+              className="h-full w-full object-cover"
+              loading="lazy"
+              decoding="async"
+            />
+          </div>
+        </div>
+
+        <div className="space-y-3 max-w-3xl text-sm md:text-base leading-relaxed text-[var(--text)]/75">
+          <p>
+            A selection of projects where learning strategy, UX, and production needed to align.
+          </p>
+          <p>
+            Each example shows how I use repeatable patterns to keep experiences consistent and delivery
+            efficient across complex content and multiple modules.
+          </p>
+        </div>
+      </PageHero>
 
 
       {/* CYA + CASA SECTION */}

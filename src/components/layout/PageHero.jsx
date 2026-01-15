@@ -40,6 +40,7 @@ export default function PageHero({
   title,
   eyebrow = null,
   breadcrumb = null,
+  items = null,
   right = null,
   children,
   plainBody = false,
@@ -74,7 +75,7 @@ export default function PageHero({
       container: "space-y-8",
       titleWrap: "space-y-4",
       introWrap: "max-w-3xl",
-      grid: "grid gap-10 lg:grid-cols-[minmax(0,1fr)_minmax(0,560px)] lg:items-start",
+      grid: "grid gap-10 items-start lg:grid-cols-[minmax(0,1fr)_minmax(0,560px)] lg:items-start",
     },
     compact: {
       section: "pt-3 pb-6 md:pt-4 md:pb-8",
@@ -90,15 +91,16 @@ export default function PageHero({
   const introPanelClass = `${plainBody ? "" : "hero-text-panel"} text-[var(--text)]/78 leading-relaxed ${v.introWrap} ${introClassName}`.trim();
 
   const renderBreadcrumb = () => {
-    if (!breadcrumb) return null;
+    const source = breadcrumb ?? items;
+    if (!source) return null;
 
     // If an array is provided, assume it’s Breadcrumb items
-    if (Array.isArray(breadcrumb)) {
-      return <Breadcrumb items={breadcrumb} />;
+    if (Array.isArray(source)) {
+      return <Breadcrumb items={source} />;
     }
 
     // Otherwise assume it’s already a rendered element
-    return breadcrumb;
+    return source;
   };
 
   const washStyle = {
@@ -126,7 +128,7 @@ export default function PageHero({
             <div className="min-w-0 space-y-4">
               <header className="space-y-3">
                 {eyebrow ? (
-                  <p className="text-xs uppercase tracking-[0.18em] text-[var(--nostalgia-blue)]/80">
+                  <p className="text-xs uppercase tracking-[0.18em] text-[var(--nostalgia-blue)]/80 leading-none">
                     {eyebrow}
                   </p>
                 ) : null}
@@ -142,7 +144,7 @@ export default function PageHero({
             </div>
 
             {right ? (
-              <div className="w-full lg:max-w-[560px] lg:justify-self-end lg:self-start">
+              <div className="w-full lg:max-w-[560px] lg:justify-self-end self-start lg:self-start [&>*]:mt-0 [&>*]:pt-0">
                 {right}
               </div>
             ) : (
@@ -153,7 +155,7 @@ export default function PageHero({
           <>
             <header className="space-y-3">
               {eyebrow ? (
-                <p className="text-xs uppercase tracking-[0.18em] text-[var(--nostalgia-blue)]/80">
+                <p className="text-xs uppercase tracking-[0.18em] text-[var(--nostalgia-blue)]/80 leading-none">
                   {eyebrow}
                 </p>
               ) : null}

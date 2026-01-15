@@ -20,61 +20,62 @@ export default function Services() {
           { label: "Home", href: "/" },
           { label: "Services" },
         ]}
+        eyebrow="What I do"
         title="Services"
         right={
-          <div className="hidden md:block">
-            <div className="hero-image-frame grain">
-              <div className="relative aspect-[16/10] w-full">
-                <img
-                  src="/images/heroes/glenn-hammond-site-assets-hero-services.webp"
-                  alt="Services hero"
-                  className="absolute inset-0 h-full w-full object-cover"
-                  loading="lazy"
-                  decoding="async"
-                />
-              </div>
+          <div className="hidden md:block self-start">
+            <div className="aspect-[16/9] overflow-hidden rounded-2xl border border-black/10 bg-white shadow-[0_14px_34px_rgba(0,0,0,0.10),0_3px_0_rgba(0,0,0,0.10)] dark:border-white/10 dark:bg-white/5">
+              <img
+                src="/images/heroes/glenn-hammond-site-assets-hero-services.webp"
+                alt="Services hero"
+                className="h-full w-full object-cover"
+                loading="lazy"
+                decoding="async"
+              />
             </div>
           </div>
         }
       >
-        <div className="md:hidden hero-image-frame grain mb-6">
-          <div className="relative aspect-[16/10] w-full">
+        <div className="md:hidden mb-6">
+          <div className="aspect-[16/9] overflow-hidden rounded-2xl border border-black/10 bg-white shadow-[0_14px_34px_rgba(0,0,0,0.10),0_3px_0_rgba(0,0,0,0.10)] dark:border-white/10 dark:bg-white/5">
             <img
               src="/images/heroes/glenn-hammond-site-assets-hero-services.webp"
               alt="Services hero"
-              className="absolute inset-0 h-full w-full object-cover"
+              className="h-full w-full object-cover"
               loading="lazy"
               decoding="async"
             />
           </div>
         </div>
 
-        <div className="rounded-2xl border border-[rgba(26,20,70,0.18)] bg-[var(--bg-soft)] p-5 shadow-[0_14px_34px_rgba(0,0,0,0.10),0_3px_0_rgba(0,0,0,0.10)] md:max-w-[60ch] md:bg-white/55 md:p-6 md:shadow-[0_18px_44px_rgba(0,0,0,0.10),0_4px_0_rgba(0,0,0,0.10)] lg:p-7">
-          <p className="font-heading text-lg leading-7 text-[var(--text)]">
-            I design learning that drives measurable improvement.
+        <div className="space-y-3 max-w-3xl text-sm md:text-base leading-relaxed text-[var(--text)]/75">
+          <p>
+            I design learning that drives measurable improvement - strategy, build, and measurement working together.
           </p>
-          <div className="mt-4">
-            <ul className="mt-2 grid gap-y-3 gap-x-6 sm:grid-cols-2 text-base leading-6 text-[var(--text)]/80">
-              {[
-                "Learning strategy and solution design",
-                "Frameworks, templates, and design systems",
-                "Analytics-first learning design (xAPI when needed)",
-                "LRS setup and reporting workflows",
-                "Delivery support in Storyline/Rise (when it adds value)",
-              ].map((item) => (
-                <li key={item} className="flex items-start gap-2.5">
-                  <span
-                    aria-hidden="true"
-                    className="shrink-0 w-[14px] -ml-[2px] text-[#8CB8E7] leading-none text-[15px] mt-[0.42em]"
-                  >
-                    ★
-                  </span>
-                  <span className="flex-1">{item}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
+          <p>
+            Use me for end-to-end delivery, or plug me in where the project needs stronger structure, cleaner UX, or better data.
+          </p>
         </div>
+
+        <ul className="mt-6 space-y-3 text-base leading-6 text-[var(--text)]/80">
+          {[
+            "Learning strategy and solution design",
+            "Frameworks, templates, and design systems",
+            "Analytics-first learning design & xAPI",
+            "LRS setup and reporting workflows",
+            "Delivery support in Storyline/Rise",
+          ].map((item) => (
+            <li key={item} className="flex items-start gap-2.5">
+              <span
+                aria-hidden="true"
+                className="shrink-0 w-[14px] -ml-[2px] text-[#8CB8E7] leading-none text-[15px] mt-[0.42em]"
+              >
+                ★
+              </span>
+              <span className="flex-1">{item}</span>
+            </li>
+          ))}
+        </ul>
       </PageHero>
 
       {/* SERVICES GRID */}
@@ -101,7 +102,7 @@ export default function Services() {
                 "Reusable templates, components, and accessibility patterns",
                 "Prototyping complex interactions and learning flows",
                 "Delivery support in Storyline/Rise when it unblocks the project",
-                "Video, graphics, and supporting assets as needed",
+                "Video, graphics, and supporting assets",
               ]}
             />
 

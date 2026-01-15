@@ -11,7 +11,7 @@ export default function ProjectImage({
   return (
     <div
       className={`
-        relative overflow-hidden rounded-3xl 
+        relative overflow-hidden rounded-3xl self-start
         border border-black/10 dark:border-white/10
         shadow-sm 
         ${wide ? "w-full" : ""}
@@ -35,7 +35,7 @@ export default function ProjectImage({
         alt={alt}
         onLoad={() => setLoaded(true)}
         className={`
-          w-full h-auto object-cover 
+          block w-full h-auto object-cover 
           transition-all duration-700
           ${loaded ? "opacity-100" : "opacity-0"}
         `}
