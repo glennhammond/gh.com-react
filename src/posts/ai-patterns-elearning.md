@@ -2,6 +2,7 @@
 title: AI Patterns That Actually Improve Digital Learning
 summary: AI isn’t a magic trick — it’s a set of patterns. Here are the AI workflows that genuinely enhance learning design rather than distract from it.
 date: 2025-03-02
+status: draft
 category: AI
 categoryColor: #3F51B5
 tags: [ai, learning-design, workflows, design]

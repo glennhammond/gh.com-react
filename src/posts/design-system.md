@@ -2,6 +2,7 @@
 title: Building the eLearning Design System
 summary: This post breaks down how I approached building a unified design system for eLearning, why it matters, and what Ive learned.
 date: 2025-02-10
+status: draft
 category: UX
 categoryColor: #4CAF50
 tags: [ux, design, elearning, product-thinking]

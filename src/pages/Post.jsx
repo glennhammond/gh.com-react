@@ -102,6 +102,27 @@ export default function Post() {
   const type = ((post?.type || "post") + "").toLowerCase();
   const isScrandalous = section === "scrandalous";
 
+  // Hide drafts/unpublished posts when accessed directly (production only)
+  const isPublished = (post?.status ?? "published") === "published";
+  if (import.meta?.env?.PROD && !isPublished) {
+    return (
+      <PageWrapper>
+        <SEO title="Post not found - Glenn Hammond" />
+        <Section>
+          <Container className="py-24 text-center space-y-4">
+            <h1 className="font-heading text-3xl">Post not found</h1>
+            <Link
+              to={currentBase === "scrandalous" ? "/scrandalous" : "/blog"}
+              className="text-brand-primary text-sm"
+            >
+              ← Back to {currentBase === "scrandalous" ? "Scrandalous" : "blog"}
+            </Link>
+          </Container>
+        </Section>
+      </PageWrapper>
+    );
+  }
+
   // Force the preferred route so we never have duplicate URLs for the same content.
   const desiredBase = isScrandalous ? "scrandalous" : "blog";
   if (post && desiredBase !== currentBase) {

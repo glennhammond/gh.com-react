@@ -2,6 +2,7 @@
 title: Helpful Storyline Tips
 summary: Storyline is powerful, but it’s easy to overcomplicate things. Here are the practical techniques I use every day to build cleaner, faster, more reliable modules.
 date: 2025-02-21
+status: draft
 category: Storyline
 categoryColor: #9C27B0
 tags: [storyline, authoring-tools, production, development]

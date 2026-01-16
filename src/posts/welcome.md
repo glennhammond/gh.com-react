@@ -1,6 +1,7 @@
 ---
 title: Welcome
 date: 2025-01-10
+status: draft
 summary: Sharing thoughts on eLearning, design systems, xAPI, and creative workflow.
 tags: [Intro]
 category: General

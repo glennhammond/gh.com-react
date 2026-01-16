@@ -2,7 +2,7 @@
 title: "How to set Moodle's login page as the site's landing page"
 date: 2013-07-30
 lastmod: 2013-07-30
-draft: false
+status: draft
 categories:
   - "Export"
   - "Moodle"

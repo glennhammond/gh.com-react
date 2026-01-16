@@ -56,7 +56,7 @@ export default function Header() {
                   className={({ isActive }) =>
                     `text-sm font-heading tracking-wide transition-colors ${
                       isActive
-                        ? "text-[var(--secondary)]"
+                        ? "text-[var(--nostalgia-red)]"
                         : "text-[var(--text)]/80 hover:text-[var(--text)]"
                     }`
                   }
@@ -177,7 +177,7 @@ export default function Header() {
                   [
                     "block rounded-lg px-4 py-4 text-[1.05rem] font-heading font-semibold transition text-[var(--text)] dark:text-white hover:text-[var(--link)]",
                     isActive
-                      ? "bg-black/5 dark:bg-white/15"
+                      ? "bg-black/5 dark:bg-white/15 text-[var(--nostalgia-red)]"
                       : "hover:bg-black/5 dark:hover:bg-white/10",
                     "focus:outline-none focus-visible:ring-2 focus-visible:ring-black/30 dark:focus-visible:ring-white/40",
                   ].join(" ")

@@ -5,7 +5,7 @@ date: 2025-03-04
 category: xAPI
 categoryColor: #00AEEF
 tags: [xapi, analytics, lrs, learning-data]
-image: /images/img-placeholder-1200.jpg
+image: /images/blog/blog-understanding-xapi-for-learning-designers.jpg
 ---
 
 # Understanding xAPI for Learning Designers

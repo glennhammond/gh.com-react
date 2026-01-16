@@ -48,7 +48,7 @@ export default function Services() {
           </div>
         </div>
 
-        <ul className="mt-10 md:mt-12 space-y-3 text-base leading-6 text-[var(--text)]/80">
+        <ul className="mt-20 md:mt-24 space-y-3 text-base leading-6 text-[var(--text)]/80">
           {[
             "Learning strategy and solution design",
             "Frameworks, templates, and design systems",

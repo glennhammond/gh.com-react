@@ -108,6 +108,14 @@ export const posts = Object.entries(markdownFiles).map(
     // Prefer `hero` (new) then `image` (old) then default
     const hero = data.hero || data.image || DEFAULT_POST_IMAGE;
 
+    // Publication status (supports `status: draft|published`, or legacy booleans)
+    const status = (
+      data.status ||
+      (data.published === false ? "draft" : "") ||
+      (data.draft === true ? "draft" : "") ||
+      "published"
+    ).toString();
+
     return {
       slug,
       title: data.title || slug,
@@ -115,6 +123,7 @@ export const posts = Object.entries(markdownFiles).map(
       date: data.date || dateFromFilename(baseName) || "",
       category: data.category || "General",
       summary: data.summary || "",
+      status,
 
       // Backwards-compatible: keep `image`, but promote `hero` as preferred
       hero,

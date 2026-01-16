@@ -2,6 +2,7 @@
 title: I Highly Recommend xAPI for Learning Designers
 summary: xAPI looks technical from the outside, but at its core it’s a simple language for describing learning behaviour. Here’s how to think about it as a designer — not a developer.
 date: 2025-02-18
+status: draft
 category: xAPI
 categoryColor: #00AEEF
 tags: [xapi, analytics, lrs, learning-data]

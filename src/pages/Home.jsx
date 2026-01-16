@@ -263,7 +263,7 @@ className="bg-[var(--bg)] !min-h-0 !h-auto"
             <div className="mt-7 md:mt-auto md:pt-8">
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
                 <Link to="/services" className={howIWorkClass}>
-                  How I work
+                  How I can help
                 </Link>
               </div>
               <div className="mt-4">
@@ -348,7 +348,7 @@ className="bg-[var(--bg)] !min-h-0 !h-auto"
         <Container className="space-y-8 fade-in-up">
           <div className="space-y-3 max-w-[70ch]">
             <span className="text-xs uppercase tracking-[0.18em] text-[var(--text)] opacity-60">
-              The way I work
+              How I can help
             </span>
             <h2 className="font-heading text-2xl text-[var(--text)]">
               Designing the conditions for better learning
@@ -389,7 +389,7 @@ className="bg-[var(--bg)] !min-h-0 !h-auto"
             to="/services"
             className="text-sm text-[var(--link)] hover:text-[var(--link-hover)] hover:underline inline-block font-heading"
           >
-            See how I work →
+            How I can help →
           </Link>
         </Container>
       </Section>

@@ -116,6 +116,7 @@ export function Scrandalous() {
   const scrandalousItems = useMemo(() => {
     return posts
       .filter((p) => ((p.section || "blog") + "").toLowerCase() === "scrandalous")
+      .filter((p) => (p.status ?? "published") === "published")
       .slice()
       .sort((a, b) => parseDateMs(b.date) - parseDateMs(a.date));
   }, []);
@@ -308,6 +309,7 @@ export function Scrandalous() {
 export default function Blog() {
   const [filter, setFilter] = useState("all");
   const [searchQuery, setSearchQuery] = useState("");
+  // Hide drafts (dev + prod)
 
   const categories = [
     "UX",
@@ -354,6 +356,7 @@ export default function Blog() {
     return posts
       // Keep Blog and Scrandalous separate (Scrandalous will have its own page)
       .filter((p) => (p.section || "blog").toLowerCase() !== "scrandalous")
+      .filter((p) => (p.status ?? "published") === "published")
       .filter((p) => {
         if (filter !== "all") {
           return mapCategory(p.category) === mapCategory(filter);
