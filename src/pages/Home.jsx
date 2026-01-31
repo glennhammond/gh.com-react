@@ -195,7 +195,7 @@ export default function Home() {
                 drop-shadow-[0_10px_30px_rgba(0,0,0,0.14)]
               "
             >
-              <span className="block">Designing learning systems that change behaviour.</span>
+              <span className="block">Designing learning systems that change behaviour</span>
               
             </h1>
             <div className="mt-6 max-w-[62ch]">
@@ -264,7 +264,7 @@ export default function Home() {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
             <ServiceCard
-              title="Learning strategy & conditions"
+              title="Learning strategy"
               items={[
                 "Clarify the real-world outcome - what people need to do, not just know",
                 "Audience, constraints, and the real context of work",
@@ -272,7 +272,7 @@ export default function Home() {
               ]}
             />
             <ServiceCard
-              title="Build systems & learning environments"
+              title="Learning environments"
               items={[
                 "Design systems for Storyline and Rise - consistent, reusable patterns",
                 "Interaction design that feels human: clarity, pacing, and feedback",
