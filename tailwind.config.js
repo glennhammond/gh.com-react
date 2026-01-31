@@ -18,13 +18,13 @@ export default {
         soft: "var(--shadow-soft)",
       },
       borderRadius: {
-        // Global tweak - consistent 6px rounding (crisp + modern)
-        sm: "0.375rem", // 6px
-        md: "0.375rem", // 6px
-        lg: "0.375rem", // 6px
-        xl: "0.375rem", // 6px
-        "2xl": "0.375rem", // 6px
-        "3xl": "0.375rem", // 6px
+        // Global tweak - consistent 4px rounding (crisper)
+        sm: "0.25rem", // 4px
+        md: "0.25rem", // 4px
+        lg: "0.25rem", // 4px
+        xl: "0.25rem", // 4px
+        "2xl": "0.25rem", // 4px
+        "3xl": "0.25rem", // 4px
       },
     },
   },

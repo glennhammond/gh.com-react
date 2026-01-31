@@ -159,8 +159,8 @@ export default function Home() {
       {/* HERO */}
  <HeroShell
   noPadding
-className="bg-[var(--bg)] !min-h-0 !h-auto"
-  containerClassName="px-5 sm:px-6 pt-12 pb-2 sm:pb-4 md:pt-12 md:pb-0 lg:pt-14 lg:pb-0 flex flex-col items-start"
+  className="bg-[var(--bg)] !min-h-0 !h-auto"
+  containerClassName="px-5 sm:px-8 lg:px-10 pt-12 pb-2 sm:pb-4 md:pt-12 md:pb-0 lg:pt-14 lg:pb-0 flex flex-col items-start"
   withWash
   washStyle={heroWashStyle}
 >
@@ -171,13 +171,10 @@ className="bg-[var(--bg)] !min-h-0 !h-auto"
             grid grid-cols-1
             gap-10
             items-start
-            md:grid-cols-2
-            md:gap-12
-            md:items-stretch
           "
         >
           {/* Left */}
-          <div className="w-full max-w-[560px] mx-auto md:mx-0 md:flex md:flex-col md:h-full md:pb-4">
+          <div className="w-full max-w-[880px] mx-auto md:mx-0 md:flex md:flex-col md:h-full md:pb-4">
             <div className="mb-6 flex items-center gap-3">
               <span aria-hidden="true" className="text-3xl leading-none">🏆</span>
               <span className="text-sm font-semibold tracking-[0.18em] uppercase text-[var(--text)] opacity-70">
@@ -191,79 +188,29 @@ className="bg-[var(--bg)] !min-h-0 !h-auto"
                 font-semibold
                 tracking-tight
                 leading-[0.9]
-                max-w-[16ch]
+                max-w-[24ch]
                 text-5xl
                 sm:text-6xl
                 md:text-7xl
                 drop-shadow-[0_10px_30px_rgba(0,0,0,0.14)]
               "
             >
-              <span className="block">Better Learning</span>
-              <span className="block">by Design</span>
+              <span className="block">Designing learning systems that change behaviour.</span>
+              
             </h1>
-            <p className="mt-6 max-w-[52ch] text-[var(--text)] opacity-75 text-lg leading-7">
-              I design learning that helps people think, decide, and improve.<br />
-              Strategy, Storyline & Rise builds, and xAPI analytics.
-            </p>
-            {/* Mobile-only: featured system card (higher in the hero) */}
-            <div className="md:hidden w-full mt-8">
-              <div
-                className="
-                  rounded-2xl
-                  bg-white/95
-                  ring-1 ring-black/10
-                  shadow-[0_22px_70px_rgba(2,6,23,0.20)]
-                  p-6
-                  w-full
-                  transform-none
-                  hover:transform-none
-                  transition-none
-                "
-              >
-                <div className="space-y-4">
-                  <h2 className="font-heading text-2xl font-semibold leading-tight text-slate-900">
-                    Design system behind my work
-                  </h2>
-
-                  <div className="mt-5">
-                    <div className="overflow-hidden rounded-xl ring-1 ring-black/10 bg-white shadow-[0_18px_45px_rgba(2,6,23,0.12)]">
-                      <img
-                        src={`${import.meta.env.BASE_URL}images/design-system/glenn-hammond-site-assets-elearning-design-system.jpg`}
-                        alt="eLearning Design System preview"
-                        className="w-full h-auto block"
-                        loading="lazy"
-                        decoding="async"
-                      />
-                    </div>
-                  </div>
-
-                  <p className="mt-5 text-slate-700 leading-7">
-                    A practical kit for building modern eLearning fast - interaction patterns, accessibility, and production-ready guidance.
-                  </p>
-
-                  <div className="mt-6">
-                    <Link to="/work/elearning-design-system" className={viewSystemClass}>
-                      View the system
-                    </Link>
-                  </div>
-                </div>
-              </div>
+            <div className="mt-6 max-w-[62ch]">
+              <p className="font-heading text-lg sm:text-xl md:text-2xl font-semibold tracking-[0.12em] uppercase text-[var(--text)] opacity-80">
+                Better Learning by Design
+              </p>
+              <p className="mt-3 text-[var(--text)] opacity-75 text-lg leading-7">
+                I specialise in end-to-end learning delivery - strategy, Storyline/Rise builds, and analytics. I help organisations move beyond content-led training with evidence-based learning experiences, supported by xAPI and practical AI.
+              </p>
             </div>
-            <div className="mt-6 flex flex-col items-stretch gap-3 sm:flex-row sm:flex-wrap sm:items-center">
-              <span className="inline-flex w-full max-w-[340px] justify-center text-center items-center rounded-full border border-[rgba(26,20,70,0.18)] bg-[rgba(26,20,70,0.06)] px-4 py-2 text-[12px] font-semibold uppercase tracking-[0.16em] text-[rgba(26,20,70,0.92)] shadow-[0_10px_30px_rgba(2,6,23,0.06)] sm:w-auto sm:max-w-none sm:justify-start sm:text-left sm:px-3 sm:py-1.5 sm:text-[11px] sm:tracking-[0.18em] sm:shadow-[0_8px_20px_rgba(2,6,23,0.05)] dark:border-white/15 dark:bg-white/5 dark:text-white/90">
-                instructional design consultant
-              </span>
-              <span className="inline-flex w-full max-w-[340px] justify-center text-center items-center rounded-full border border-[rgba(26,20,70,0.18)] bg-[rgba(26,20,70,0.06)] px-4 py-2 text-[12px] font-semibold uppercase tracking-[0.16em] text-[rgba(26,20,70,0.92)] shadow-[0_10px_30px_rgba(2,6,23,0.06)] sm:w-auto sm:max-w-none sm:justify-start sm:text-left sm:px-3 sm:py-1.5 sm:text-[11px] sm:tracking-[0.18em] sm:shadow-[0_8px_20px_rgba(2,6,23,0.05)] dark:border-white/15 dark:bg-white/5 dark:text-white/90">
-                Storyline · Rise · Moodle
-              </span>
-              <span className="inline-flex w-full max-w-[340px] justify-center text-center items-center rounded-full border border-[rgba(26,20,70,0.18)] bg-[rgba(26,20,70,0.06)] px-4 py-2 text-[12px] font-semibold uppercase tracking-[0.16em] text-[rgba(26,20,70,0.92)] shadow-[0_10px_30px_rgba(2,6,23,0.06)] sm:w-auto sm:max-w-none sm:justify-start sm:text-left sm:px-3 sm:py-1.5 sm:text-[11px] sm:tracking-[0.18em] sm:shadow-[0_8px_20px_rgba(2,6,23,0.05)] dark:border-white/15 dark:bg-white/5 dark:text-white/90">
-                xAPI - learning analytics
-              </span>
-            </div>
+            
             <div className="mt-7 md:mt-auto md:pt-8">
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
                 <Link to="/services" className={howIWorkClass}>
-                  How I can help
+                  What I do
                 </Link>
               </div>
               <div className="mt-4">
@@ -293,54 +240,11 @@ className="bg-[var(--bg)] !min-h-0 !h-auto"
             </div>
           </div>
 
-          {/* Right - proof + actions card (desktop) */}
-          <div className="hidden md:block w-full md:max-w-[560px] md:ml-auto md:h-full">
-            <div
-              className="
-                rounded-2xl
-                h-full
-                flex flex-col
-                bg-white/90
-                backdrop-blur-sm
-                ring-1 ring-black/10
-                shadow-[0_28px_90px_rgba(2,6,23,0.18)]
-                p-7 md:p-9
-                w-full
-                transform-none
-                hover:transform-none
-                transition-none
-              "
-            >
-              <h2 className="mt-3 font-heading text-3xl font-semibold leading-tight text-slate-900">
-                The design system behind my work
-              </h2>
-
-              <div className="mt-5">
-                <div className="overflow-hidden rounded-xl ring-1 ring-black/10 bg-white shadow-[0_18px_45px_rgba(2,6,23,0.12)]">
-                  <img
-                    src={`${import.meta.env.BASE_URL}images/design-system/glenn-hammond-site-assets-elearning-design-system.jpg`}
-                    alt="eLearning Design System preview"
-                    className="w-full h-auto block"
-                    loading="lazy"
-                    decoding="async"
-                  />
-                </div>
-              </div>
-              <p className="mt-5 text-slate-700 leading-7">
-  A practical kit for modern eLearning - designed to keep the focus on people, not process.
-</p>
-
-         <div className="mt-7 md:mt-auto md:pt-8">
-  <Link to="/work/elearning-design-system" className={viewSystemClass}>
-    View the system
-  </Link>
-</div>
-            </div>
-          </div>
         </div>
 
         
       </HeroShell>
+
 
    
       {/* SERVICES PREVIEW */}
@@ -348,7 +252,7 @@ className="bg-[var(--bg)] !min-h-0 !h-auto"
         <Container className="space-y-8 fade-in-up">
           <div className="space-y-3 max-w-[70ch]">
             <span className="text-xs uppercase tracking-[0.18em] text-[var(--text)] opacity-60">
-              How I can help
+           What I do
             </span>
             <h2 className="font-heading text-2xl text-[var(--text)]">
               Designing the conditions for better learning
@@ -391,6 +295,41 @@ className="bg-[var(--bg)] !min-h-0 !h-auto"
           >
             How I can help →
           </Link>
+        </Container>
+      </Section>
+      {/* DESIGN SYSTEM HIGHLIGHT */}
+      <Section className="bg-[var(--bg-soft)] !pt-6 md:!pt-10">
+        <Container className="fade-in-up">
+          <div className="site-card-strong p-7 md:p-9 overflow-hidden">
+            <div className="grid grid-cols-1 md:grid-cols-[3fr_2fr] gap-8 items-start">
+              <div>
+                <span className="text-xs uppercase tracking-[0.18em] text-[var(--text)] opacity-60">
+                  Design system
+                </span>
+                <h2 className="mt-3 font-heading text-2xl md:text-3xl text-[var(--text)]">
+                  The design system behind my work
+                </h2>
+                <p className="mt-4 text-[var(--text)] opacity-75 leading-7 max-w-[60ch]">
+                  A practical kit for modern eLearning - designed to keep the focus on people, not process. Built from reusable patterns, accessibility guidance, and production-ready components.
+                </p>
+                <div className="mt-6">
+                  <Link to="/work/elearning-design-system" className={viewSystemClass}>
+                    View the system
+                  </Link>
+                </div>
+              </div>
+
+              <div className="overflow-hidden rounded-xl ring-1 ring-black/10 bg-white shadow-[0_18px_45px_rgba(2,6,23,0.12)]">
+                <img
+                  src={`${import.meta.env.BASE_URL}images/design-system/glenn-hammond-site-assets-elearning-design-system.jpg`}
+                  alt="eLearning Design System preview"
+                  className="w-full h-auto block"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </div>
+            </div>
+          </div>
         </Container>
       </Section>
          {/* TRUSTED BY */}
