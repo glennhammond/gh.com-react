@@ -209,7 +209,7 @@ export default function Home() {
             
             <div className="mt-7 md:mt-auto md:pt-8">
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
-                <Link to="/work/wellbeing-studio-platform" className={viewSystemClass}>
+                <Link to="/case-studies/wellbeing-studio" className={viewSystemClass}>
                   View case study
                 </Link>
                 <Link to="/services" className={howIWorkClass}>
@@ -291,7 +291,7 @@ export default function Home() {
       <Section className="bg-[var(--bg-soft)] !pt-8 md:!pt-14">
         <Container className="fade-in-up">
           <Link
-            to="/work/wellbeing-studio-platform"
+            to="/case-studies/wellbeing-studio"
             className="
               block w-full
               overflow-hidden
@@ -326,13 +326,13 @@ export default function Home() {
                   <span className="rounded-xl border border-black/10 dark:border-white/10 bg-[var(--bg-soft)] px-4 py-3">Client-ready deployment workflow</span>
                   <span className="rounded-xl border border-black/10 dark:border-white/10 bg-[var(--bg-soft)] px-4 py-3">Scalable reporting structure</span>
                 </div>
-                <span className="mt-8 inline-flex btn-outline items-center justify-center gap-2 px-5 py-3 text-sm font-heading rounded-xl">
+                <span className="mt-8 inline-flex btn-cta items-center justify-center gap-2 px-5 py-3 text-sm font-heading rounded-xl shadow-[0_14px_34px_rgba(0,0,0,0.20)]">
                   Explore the case study <span aria-hidden>→</span>
                 </span>
               </div>
               <div className="bg-[rgba(26,20,70,0.03)] dark:bg-white/6 p-8 md:p-10 flex items-center justify-center border-t border-black/10 md:border-t-0 md:border-l border-black/10 dark:border-white/10">
                 <img
-                  src={placeholderImg}
+                  src="/images/wellbeing-studio-home.jpg"
                   alt="Wellbeing Studio platform case study preview"
                   className="w-full max-w-[620px] h-auto block rounded-xl shadow-[0_18px_45px_rgba(2,6,23,0.12)]"
                   loading="lazy"

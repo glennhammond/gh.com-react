@@ -170,6 +170,7 @@
   --brand-primary: var(--color-brand-primary);
   --brand-primary-dark: #120F33;       /* deeper for hover */
   --brand-primary-soft: rgba(26, 20, 70, 0.08);
+  --border: var(--card-border);
 
   /* Accent aliases used in components (buttons, links, etc.) */
   --accent: var(--color-brand-primary);
@@ -252,6 +253,7 @@ html.dark {
   --brand-primary: var(--color-brand-primary);
   --brand-primary-dark: rgba(245, 242, 238, 0.88);
   --brand-primary-soft: rgba(245, 242, 238, 0.12);
+  --border: var(--card-border);
 
   /* Accent aliases used in components (lean purple, not blue) */
   --accent: var(--cta);
