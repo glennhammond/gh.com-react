@@ -6,7 +6,6 @@ import Container from "./Container.jsx";
 const navItems = [
   { to: "/services", label: "Services" },
   { to: "/work", label: "Work" },
-  { to: "/blog", label: "Blog" },
   { to: "/about", label: "About" },
     { to: "/contact", label: "Contact" },
 ];

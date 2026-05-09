@@ -152,7 +152,7 @@ export default function Home() {
     <PageWrapper>
       <SEO
         title="Glenn Hammond - eLearning Specialist, Designer & Developer"
-        description="I design learning environments that help people think, decide, and improve - with strategy, Storyline/Rise builds, and xAPI analytics."
+        description="I design and build modern learning systems - combining learning strategy, Moodle platforms, Storyline/Rise development, xAPI reporting, and AI-supported workflows."
         url="https://glennhammond.com/"
       />
 
@@ -177,9 +177,10 @@ export default function Home() {
           <div className="w-full max-w-[880px] mx-auto md:mx-0 md:flex md:flex-col md:h-full md:pb-4">
             <div className="mb-6 flex items-center gap-3">
               <span aria-hidden="true" className="text-3xl leading-none">🏆</span>
-              <span className="text-sm font-semibold tracking-[0.18em] uppercase text-[var(--text)] opacity-70">
-                Award-winning<br></br> eLearning specialist
-              </span>
+<span className="text-sm font-semibold tracking-[0.12em] text-[var(--text)] opacity-70">
+  Award-winning<br />
+  eLearning specialist
+</span>
             </div>
             <h1
               className="
@@ -195,22 +196,24 @@ export default function Home() {
                 drop-shadow-[0_10px_30px_rgba(0,0,0,0.14)]
               "
             >
-              <span className="block">Designing learning systems that change behaviour</span>
-              
+              <span className="block">Better learning by design</span>
             </h1>
             <div className="mt-6 max-w-[62ch]">
               <p className="font-heading text-lg sm:text-xl md:text-2xl font-semibold tracking-[0.12em] uppercase text-[var(--text)] opacity-80">
-                Better Learning by Design
+                Strategy · platforms · courses · analytics
               </p>
               <p className="mt-3 text-[var(--text)] opacity-75 text-lg leading-7">
-                I specialise in end-to-end learning delivery - strategy, Storyline/Rise builds, and analytics. I help organisations move beyond content-led training with evidence-based learning experiences, supported by xAPI and practical AI.
+                I design and build modern learning systems for organisations that need more than a standard LMS. Combining learning strategy, Moodle and React platforms, Storyline/Rise development, xAPI reporting, and AI-supported workflows.
               </p>
             </div>
             
             <div className="mt-7 md:mt-auto md:pt-8">
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
+                <Link to="/work/wellbeing-studio-platform" className={viewSystemClass}>
+                  View case study
+                </Link>
                 <Link to="/services" className={howIWorkClass}>
-                  What I do
+                  Explore services
                 </Link>
               </div>
               <div className="mt-4">
@@ -218,7 +221,7 @@ export default function Home() {
                   to="/contact"
                   className="text-sm text-[var(--link)] hover:text-[var(--link-hover)] hover:underline font-heading"
                 >
-                  Contact →
+                  Start a conversation →
                 </Link>
               </div>
             </div>
@@ -247,18 +250,112 @@ export default function Home() {
 
 
    
+      {/* TRUSTED BY */}
+      <Section className="bg-[var(--bg-soft)] border-y border-black/5 dark:border-white/10">
+        <Container className="pt-6 pb-8 md:pt-7 md:pb-9 fade-in-up">
+          <p className="mb-8 text-center text-xs font-semibold uppercase tracking-[0.18em] text-[var(--text)] opacity-55">
+            Trusted by education, government, health and corporate organisations
+          </p>
+          <div className="w-full max-w-[560px] mx-auto sm:max-w-none">
+            <div className="grid w-full grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-x-8 gap-y-12 place-items-stretch sm:place-items-center">
+              {clients.map((client) => (
+                <div key={client.name} className="flex items-center justify-center w-full">
+                  <div className="w-[68%] max-w-[381px] mx-auto sm:mx-0 sm:w-[162px] md:w-[180px] min-h-12 flex items-center justify-center">
+                    <img
+                      src={client.lightSrc}
+                      alt={client.name}
+                      className={`w-full h-auto max-h-[136px] sm:max-h-[41px] object-contain origin-center opacity-90 block dark:hidden ${
+                        client.className || ""
+                      }`}
+                      loading="lazy"
+                      decoding="async"
+                    />
+                    <img
+                      src={client.darkSrc}
+                      alt={client.name}
+                      className={`w-full h-auto max-h-[136px] sm:max-h-[41px] object-contain origin-center opacity-90 hidden dark:block ${
+                        client.className || ""
+                      }`}
+                      loading="lazy"
+                      decoding="async"
+                    />
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </Container>
+      </Section>
+
+      {/* FEATURED PROJECT */}
+      <Section className="bg-[var(--bg-soft)] !pt-8 md:!pt-14">
+        <Container className="fade-in-up">
+          <Link
+            to="/work/wellbeing-studio-platform"
+            className="
+              block w-full
+              overflow-hidden
+              rounded-2xl
+              ring-1 ring-black/10 dark:ring-white/10
+              bg-white dark:bg-white/5
+              shadow-[0_28px_90px_rgba(2,6,23,0.16)]
+              transition
+              hover:-translate-y-[2px]
+              hover:shadow-[0_34px_110px_rgba(2,6,23,0.20)]
+              focus-visible:outline-none
+              focus-visible:ring-2
+              focus-visible:ring-[var(--secondary)]/40
+            "
+          >
+            <div className="grid grid-cols-1 md:grid-cols-[3fr_2fr]">
+              <div className="p-8 md:p-10 lg:p-12">
+                <p className="text-xs font-semibold tracking-[0.18em] uppercase text-[var(--text)] opacity-65">
+                  Featured project
+                </p>
+                <h2 className="mt-4 font-heading text-3xl md:text-5xl font-semibold leading-tight text-[var(--text)] max-w-[18ch]">
+                  Wellbeing Studio
+                </h2>
+                <p className="mt-4 text-lg text-[var(--text)] opacity-80 leading-8 max-w-[58ch]">
+                  A branded wellbeing learning platform designed for real-world rollout - including custom onboarding, cohort-based access, premium UX, reporting pathways, and scalable delivery for client organisations.
+                </p>
+                <div className="mt-7 grid grid-cols-1 sm:grid-cols-2 gap-3 text-sm text-[var(--text)] opacity-80">
+                  <span className="rounded-xl border border-black/10 dark:border-white/10 bg-[var(--bg-soft)] px-4 py-3">Custom registration system</span>
+                  <span className="rounded-xl border border-black/10 dark:border-white/10 bg-[var(--bg-soft)] px-4 py-3">Cohort-based access</span>
+                  <span className="rounded-xl border border-black/10 dark:border-white/10 bg-[var(--bg-soft)] px-4 py-3">Moodle platform architecture</span>
+                  <span className="rounded-xl border border-black/10 dark:border-white/10 bg-[var(--bg-soft)] px-4 py-3">Premium learner experience</span>
+                  <span className="rounded-xl border border-black/10 dark:border-white/10 bg-[var(--bg-soft)] px-4 py-3">Client-ready deployment workflow</span>
+                  <span className="rounded-xl border border-black/10 dark:border-white/10 bg-[var(--bg-soft)] px-4 py-3">Scalable reporting structure</span>
+                </div>
+                <span className="mt-8 inline-flex btn-outline items-center justify-center gap-2 px-5 py-3 text-sm font-heading rounded-xl">
+                  Explore the case study <span aria-hidden>→</span>
+                </span>
+              </div>
+              <div className="bg-[rgba(26,20,70,0.03)] dark:bg-white/6 p-8 md:p-10 flex items-center justify-center border-t border-black/10 md:border-t-0 md:border-l border-black/10 dark:border-white/10">
+                <img
+                  src={placeholderImg}
+                  alt="Wellbeing Studio platform case study preview"
+                  className="w-full max-w-[620px] h-auto block rounded-xl shadow-[0_18px_45px_rgba(2,6,23,0.12)]"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </div>
+            </div>
+          </Link>
+        </Container>
+      </Section>
+
       {/* SERVICES PREVIEW */}
-      <Section className="bg-[var(--bg-soft)] !pt-4 md:!pt-12">
+      <Section className="bg-[var(--bg-soft)] !pt-6 md:!pt-12">
         <Container className="space-y-8 fade-in-up">
           <div className="space-y-3 max-w-[70ch]">
             <span className="text-xs uppercase tracking-[0.18em] text-[var(--text)] opacity-60">
            What I do
             </span>
             <h2 className="font-heading text-2xl text-[var(--text)]">
-              Designing the conditions for better learning
+              Modern learning systems, not just course builds
             </h2>
             <p className="text-sm text-[var(--text)] opacity-70 leading-7">
-              I focus on environments that respect how people learn - clear goals, good judgement, and practice that transfers to real work. The work is practical, scalable, and measurable.
+              I help organisations connect the pieces that make learning work - strategy, platform architecture, learning experience design, delivery workflows, and evidence-informed improvement.
             </p>
           </div>
 
@@ -267,24 +364,24 @@ export default function Home() {
               title="Learning strategy"
               items={[
                 "Clarify the real-world outcome - what people need to do, not just know",
-                "Audience, constraints, and the real context of work",
-                "Storyboards and scenarios that build judgement, not rote box-ticking",
+                "Shape course direction, learning journeys, scenarios, and review checkpoints",
+                "Turn complex SME content into practical learning that supports judgement",
               ]}
             />
             <ServiceCard
-              title="Learning environments"
+              title="Learning platforms"
               items={[
-                "Design systems for Storyline and Rise - consistent, reusable patterns",
-                "Interaction design that feels human: clarity, pacing, and feedback",
-                "Accessibility and maintainable builds (so teams can keep improving)",
+                "Moodle platform structure, onboarding flows, and learner experience design",
+                "Custom registration, cohort access, reusable layouts, and scalable delivery models",
+                "Branded learning environments that feel clear, credible, and easy to maintain",
               ]}
             />
             <ServiceCard
-              title="Evidence & improvement"
+              title="Analytics & improvement"
               items={[
-                "xAPI strategy, wrappers, and statement design that matches intent",
-                "LRS setup, QA, and debugging so data is trustworthy",
-                "Dashboards that support reflection and iteration - beyond completion",
+                "xAPI strategy, wrappers, and statement design that matches learning intent",
+                "LRS setup, QA, debugging, and reporting pathways so data is trustworthy",
+                "Dashboards and review cycles that support iteration beyond completion rates",
               ]}
             />
           </div>
@@ -328,39 +425,6 @@ export default function Home() {
                   decoding="async"
                 />
               </div>
-            </div>
-          </div>
-        </Container>
-      </Section>
-         {/* TRUSTED BY */}
-      <Section className="bg-[var(--bg-soft)] border-y border-black/5 dark:border-white/10">
-        <Container className="pt-2 pb-6 md:pt-3 md:pb-8 fade-in-up">
-          <div className="w-full max-w-[560px] mx-auto sm:max-w-none">
-            <div className="grid w-full grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-x-8 gap-y-12 place-items-stretch sm:place-items-center">
-              {clients.map((client) => (
-                <div key={client.name} className="flex items-center justify-center w-full">
-                  <div className="w-[68%] max-w-[381px] mx-auto sm:mx-0 sm:w-[162px] md:w-[180px] min-h-12 flex items-center justify-center">
-                    <img
-                      src={client.lightSrc}
-                      alt={client.name}
-                      className={`w-full h-auto max-h-[136px] sm:max-h-[41px] object-contain origin-center opacity-90 block dark:hidden ${
-                        client.className || ""
-                      }`}
-                      loading="lazy"
-                      decoding="async"
-                    />
-                    <img
-                      src={client.darkSrc}
-                      alt={client.name}
-                      className={`w-full h-auto max-h-[136px] sm:max-h-[41px] object-contain origin-center opacity-90 hidden dark:block ${
-                        client.className || ""
-                      }`}
-                      loading="lazy"
-                      decoding="async"
-                    />
-                  </div>
-                </div>
-              ))}
             </div>
           </div>
         </Container>
@@ -418,7 +482,7 @@ export default function Home() {
   </Section>
 */}
       
-      {/* LATEST POSTS */}
+      {/* LATEST POSTS - temporarily hidden
       <Section className="bg-[var(--bg-soft)]">
         <Container className="space-y-8 fade-in-up">
           <div className="space-y-2">
@@ -449,7 +513,6 @@ export default function Home() {
                   focus-visible:ring-black/20
                 "
               >
-                {/* Post thumbnail (placeholder for now) */}
                 <div className="overflow-hidden rounded-xl ring-1 ring-black/10 bg-[rgba(15,23,42,0.04)]">
                   <img
                     src={post.image || placeholderImg}
@@ -486,58 +549,8 @@ export default function Home() {
           </Link>
         </Container>
       </Section>
+      */}
 
-      {/* FLAGSHIP HIGHLIGHT (BOTTOM) */}
-      <Section noPadding className="bg-[var(--bg-soft)]">
-        <Container className="pt-10 pb-10 md:pt-12 md:pb-14">
-          <Link
-            to="/work/react-learning-prototypes"
-            className="
-              block w-full
-              overflow-hidden
-              rounded-2xl
-              ring-1 ring-black/10 dark:ring-white/10
-              bg-white dark:bg-white/5
-              shadow-[0_28px_90px_rgba(2,6,23,0.18)]
-              focus-visible:outline-none
-              focus-visible:ring-2
-              focus-visible:ring-[var(--secondary)]/40
-            "
-          >
-            <div className="grid grid-cols-1 md:grid-cols-[3fr_2fr]">
-              <div className="p-8 md:p-10">
-                <p className="text-xs font-semibold tracking-[0.18em] uppercase text-[var(--text)] opacity-70">
-                  Glenn Hammond · React Learning Prototypes
-                </p>
-                <h2 className="mt-4 font-heading text-3xl md:text-4xl font-semibold leading-tight text-[var(--text)] max-w-[22ch]">
-                  React learning prototypes for modern professional learning
-                </h2>
-                <p className="mt-4 text-[var(--text)] opacity-75 leading-7 max-w-[56ch]">
-                  A small collection of interactive learning apps - built to test ideas fast, prove UX, and explore what learning can feel like beyond slide-based courses.
-                </p>
-                <p className="mt-6 text-xs font-semibold tracking-[0.18em] uppercase text-[var(--text)] opacity-45">
-                  Outcome: faster iteration, clearer stakeholder buy-in, and a stronger path from idea to build.
-                </p>
-                <Link
-                  to="/work/react-learning-prototypes"
-                  className="mt-8 inline-flex btn-outline items-center justify-center gap-2 px-5 py-3 text-sm font-heading rounded-xl"
-                >
-                  View prototypes <span aria-hidden>→</span>
-                </Link>
-              </div>
-              <div className="bg-[rgba(26,20,70,0.03)] md:bg-[rgba(26,20,70,0.03)] dark:bg-white/6 dark:md:bg-white/8 p-8 md:p-10 flex items-center justify-center border-t border-black/10 md:border-t-0 md:border-l border-black/10 dark:border-white/10">
-                <img
-                  src={placeholderImg}
-                  alt="React learning prototypes preview"
-                  className="w-full max-w-[620px] h-auto block rounded-xl shadow-[0_18px_45px_rgba(2,6,23,0.12)]"
-                  loading="lazy"
-                  decoding="async"
-                />
-              </div>
-            </div>
-          </Link>
-        </Container>
-      </Section>
     </PageWrapper>
   );
 }
@@ -560,7 +573,7 @@ function ServiceCard({ title, text, items, icon, tag }) {
             <li key={item} className="relative pl-6">
               <span
                 aria-hidden="true"
-                className="absolute left-0 top-[0.12em] text-[0.95em] leading-none text-[var(--secondary)]"
+                className="absolute left-0 top-[0.12em] text-[0.95em] leading-none text-[var(--brand-purple)]"
               >
                 ★
               </span>
