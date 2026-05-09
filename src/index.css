@@ -59,7 +59,7 @@
     transform: translateY(-50%);
     width: 1.75rem;
     text-align: center;
-    color: #8CB8E7;
+    color: var(--brand-purple);
     font-size: 1em;
     line-height: 1;
     pointer-events: none;
@@ -124,31 +124,33 @@
   --muted: rgba(26, 20, 70, 0.72);
   --text-muted: rgba(26, 20, 70, 0.72);
 
-  /* Palette from your reference */
-  --nostalgia-blue: #8DB9E8;
-  --nostalgia-cream: #F4E8D7;
-  --nostalgia-peach: #EFA892;
-  --nostalgia-red: #E90A0A;
+/* Palette from your reference */
+--nostalgia-blue: #8DB9E8;
+--nostalgia-cream: #F4E8D7;
+--nostalgia-peach: #EFA892;
+--brand-purple: #6D28D9;
+--brand-purple-strong: #4C1D95;
+--brand-purple-soft: #F3E8FF;
 
   /* Heading accents (use sparingly for character) */
-  --heading-accent: var(--nostalgia-red);
-  --heading-accent-2: var(--nostalgia-blue);
-  --heading-underline: color-mix(in srgb, var(--nostalgia-red) 28%, transparent);
+--heading-accent: var(--color-brand-primary);
+--heading-accent-2: var(--nostalgia-blue);
+--heading-underline: color-mix(in srgb, var(--brand-purple) 28%, transparent);
 
-  /* Brand colours */
-  --color-brand-primary: #1A1446;      /* ink navy */
-  --color-brand-accent: var(--nostalgia-red);
-  --color-brand-soft: color-mix(in srgb, var(--nostalgia-red) 14%, transparent);
+/* Brand colours */
+--color-brand-primary: #1A1446;      /* ink navy */
+--color-brand-accent: var(--brand-purple);
+--color-brand-soft: color-mix(in srgb, var(--brand-purple) 14%, transparent);
 
-  /* Link colours (red-led, but not neon) */
-  --link: #C90808;
-  --link-hover: #A00707;
+/* Link colours */
+--link: var(--brand-purple);
+--link-hover: var(--brand-purple-strong);
 
-  /* CTA / emphasis colour (red on paper) */
-  --cta: var(--nostalgia-red);
-  --cta-strong: #B70707;
-  --cta-soft: color-mix(in srgb, var(--nostalgia-red) 18%, transparent);
-  --cta-text: #ffffff;
+/* CTA / emphasis colour */
+--cta: var(--brand-purple);
+--cta-strong: var(--brand-purple-strong);
+--cta-soft: color-mix(in srgb, var(--brand-purple) 18%, transparent);
+--cta-text: #ffffff;
 
   /* Secondary colour (peach for panels/chips) */
   --secondary: var(--nostalgia-peach);
@@ -190,10 +192,10 @@
   --cat-ux: #1a237e;
   --cat-general: #37474f;
 
-  /* Hero accents (balanced red + blue) */
---hero-accent: var(--nostalgia-red);
+  /* Hero accents (balanced purple + blue) */
+--hero-accent: var(--brand-purple);
 --hero-balance: var(--nostalgia-blue);
---hero-accent-soft: color-mix(in srgb, var(--nostalgia-red) 10%, transparent);
+--hero-accent-soft: color-mix(in srgb, var(--brand-purple) 10%, transparent);
 --hero-balance-soft: color-mix(in srgb, var(--nostalgia-blue) 18%, transparent);
 }
 
@@ -201,7 +203,7 @@
    DARK MODE
 ------------------------------------------------------- */
 html.dark {
-  /* Core colour system — warm black (pairs with red CTA) */
+  /* Core colour system — warm black (pairs with purple CTA) */
   --bg: #0F0D0B;               /* warm charcoal */
   --bg-soft: #171310;          /* elevated surface */
   --hero-bg: var(--bg);        /* hero stays flat + clean */
@@ -211,9 +213,9 @@ html.dark {
   --muted: rgba(245, 242, 238, 0.82);
   --text-muted: rgba(245, 242, 238, 0.82);
 
-  /* Brand colours — keep red consistent with light mode */
+  /* Brand colours — keep purple consistent with light mode */
   --color-brand-primary: #F5F2EE;
-  --color-brand-accent: var(--nostalgia-red);
+  --color-brand-accent: var(--brand-purple);
   --color-brand-soft: rgba(245, 242, 238, 0.10);
 
   /* Secondary colour — warm peach/cream (no hot pink, no blue cast) */
@@ -221,24 +223,24 @@ html.dark {
   --secondary-strong: #E98E73;
   --secondary-soft: rgba(239, 168, 146, 0.20);
 
-  /* CTA / emphasis colour — align with light mode red */
-  --cta: var(--nostalgia-red);
-  --cta-strong: #B70707;
-  --cta-soft: rgba(233, 10, 10, 0.22);
+  /* CTA / emphasis colour — align with light mode purple */
+  --cta: var(--brand-purple);
+  --cta-strong: var(--brand-purple-strong);
+  --cta-soft: rgba(109, 40, 217, 0.22);
   --cta-text: #ffffff;
 
-  /* Link colours — align with light mode red */
-  --link: var(--nostalgia-red);
-  --link-hover: color-mix(in srgb, var(--nostalgia-red) 75%, #ffffff);
+  /* Link colours — align with light mode purple */
+  --link: var(--brand-purple);
+  --link-hover: color-mix(in srgb, var(--brand-purple) 75%, #ffffff);
 
   /* Card tokens (dark mode uses warm-white cards on warm charcoal) */
   --card-bg: rgba(255, 255, 255, 0.96);
   --card-bg-strong: #ffffff;
   --card-border: rgba(15, 13, 11, 0.18);
 
-  --heading-accent: var(--nostalgia-red);
+  --heading-accent: var(--heading);
   --heading-accent-2: rgba(244, 232, 215, 0.95); /* cream */
-  --heading-underline: rgba(233, 10, 10, 0.22);
+  --heading-underline: rgba(109, 40, 217, 0.22);
 
   --card-shadow: 0 38px 110px rgba(0, 0, 0, 0.42), 0 14px 34px rgba(0, 0, 0, 0.22);
   --card-title: #1A1446; /* keep ink navy for headings on light cards */
@@ -251,11 +253,11 @@ html.dark {
   --brand-primary-dark: rgba(245, 242, 238, 0.88);
   --brand-primary-soft: rgba(245, 242, 238, 0.12);
 
-  /* Accent aliases used in components (lean red, not blue) */
+  /* Accent aliases used in components (lean purple, not blue) */
   --accent: var(--cta);
   --accent-strong: var(--cta-strong);
-  --accent-soft: rgba(233, 10, 10, 0.14);
-  --accent-soft-2: rgba(233, 10, 10, 0.22);
+  --accent-soft: rgba(109, 40, 217, 0.14);
+  --accent-soft-2: rgba(109, 40, 217, 0.22);
   --accent-warm: var(--secondary);
 
   --shadow-soft: 0 18px 44px rgba(0, 0, 0, 0.48);
@@ -272,10 +274,10 @@ html.dark {
   --cat-ux: #818cf8;
   --cat-general: #94a3b8;
 
-  /* Hero accents (balanced warm + red) */
+  /* Hero accents (balanced warm + purple) */
   --hero-accent: var(--heading-accent);
   --hero-balance: var(--heading-accent-2);
-  --hero-accent-soft: rgba(233, 10, 10, 0.20);
+  --hero-accent-soft: rgba(109, 40, 217, 0.20);
   --hero-balance-soft: rgba(244, 232, 215, 0.18);
 }
 
@@ -600,8 +602,10 @@ html.dark main :is(
   color: var(--heading);
 }
 
-/* Optional: add className="title-red" / "title-blue" to any heading */
-.title-red { color: var(--heading-accent) !important; }
+/* Optional: add className="title-primary" / "title-purple" / "title-blue" to any heading */
+.title-primary { color: var(--color-brand-primary) !important; }
+.title-purple { color: var(--brand-purple) !important; }
+.title-red { color: var(--brand-purple) !important; } /* legacy alias */
 .title-blue { color: var(--heading-accent-2) !important; }
 
 /* Optional: nostalgic underline that feels like print marker */
@@ -632,14 +636,14 @@ html.dark main :is(
 ------------------------------------------------------- */
 
 .hero-title {
-  color: var(--hero-accent) !important;
+  color: var(--heading) !important;
   font-weight: 850;
   letter-spacing: -0.03em;
   line-height: 1.03;
 }
 
 .page-hero h1 {
-  color: var(--hero-accent) !important;
+  color: var(--heading) !important;
   font-weight: 850;
   letter-spacing: -0.03em;
   line-height: 1.03;
@@ -926,7 +930,7 @@ html.dark .btn-outline {
 }
 
 html.dark .btn-outline:hover {
-  background: rgba(255, 62, 127, 0.18);
+  background: rgba(109, 40, 217, 0.18);
   border-color: var(--cta);
 }
 
