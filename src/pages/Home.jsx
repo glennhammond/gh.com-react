@@ -151,8 +151,8 @@ export default function Home() {
   return (
     <PageWrapper>
       <SEO
-        title="Glenn Hammond - eLearning Specialist, Designer & Developer"
-        description="I design and build modern learning systems - combining learning strategy, Moodle platforms, Storyline/Rise development, xAPI reporting, and AI-supported workflows."
+        title="Glenn Hammond - Learning Systems Designer"
+        description="I design scalable learning systems for organisations that need strategy, Storyline/Rise builds, Moodle platforms, xAPI analytics, and practical learning that transfers to real work."
         url="https://glennhammond.com/"
       />
 
@@ -177,10 +177,10 @@ export default function Home() {
           <div className="w-full max-w-[880px] mx-auto md:mx-0 md:flex md:flex-col md:h-full md:pb-4">
             <div className="mb-6 flex items-center gap-3">
               <span aria-hidden="true" className="text-3xl leading-none">🏆</span>
-<span className="text-sm font-semibold tracking-[0.12em] text-[var(--text)] opacity-70">
-  Award-winning<br />
-  eLearning specialist
-</span>
+              <span className="text-sm font-semibold tracking-[0.12em] text-[var(--text)] opacity-70">
+                Learning systems<br />
+                strategy, build & analytics
+              </span>
             </div>
             <h1
               className="
@@ -196,43 +196,29 @@ export default function Home() {
                 drop-shadow-[0_10px_30px_rgba(0,0,0,0.14)]
               "
             >
-              <span className="block">Better learning by design</span>
+              <span className="block">I design scalable learning systems</span>
             </h1>
             <div className="mt-6 max-w-[62ch]">
               <p className="font-heading text-lg sm:text-xl md:text-2xl font-semibold tracking-[0.12em] uppercase text-[var(--text)] opacity-80">
-                Strategy · platforms · courses · analytics
+                Strategy · Storyline/Rise · Moodle · xAPI
               </p>
               <p className="mt-3 text-[var(--text)] opacity-75 text-lg leading-7">
-                I design and build modern learning systems for organisations that need more than a standard LMS. Combining learning strategy, Moodle and React platforms, Storyline/Rise development, xAPI reporting, and AI-supported workflows.
+                Strategy, Storyline/Rise builds, Moodle platforms and xAPI analytics - designed as one connected system.
               </p>
             </div>
             
             <div className="mt-7 md:mt-auto md:pt-8">
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
-                <Link to="/work" className={viewSystemClass}>
-                  View work
+                <Link to="/services" className={viewSystemClass}>
+                  See how I work
                 </Link>
                 <Link to="/contact" className={howIWorkClass}>
-                  Get in touch
+                  Book a 15-minute walkthrough
                 </Link>
               </div>
             </div>
 
            
-            <div className="mt-7 hidden sm:grid md:hidden sm:grid-cols-3 gap-3">
-              <div className="rounded-2xl border border-black/10 bg-white/70 backdrop-blur-sm p-4">
-                <p className="text-xs font-semibold tracking-[0.18em] uppercase text-slate-600">Premium craft</p>
-                <p className="mt-2 text-sm text-slate-800 leading-6">Clean UX, refined typography, and interaction patterns that feel right.</p>
-              </div>
-              <div className="rounded-2xl border border-black/10 bg-white/70 backdrop-blur-sm p-4">
-                <p className="text-xs font-semibold tracking-[0.18em] uppercase text-slate-600">Evidence-informed</p>
-                <p className="mt-2 text-sm text-slate-800 leading-6">Evidence-informed decisions - clarity, retrieval practice, and reduced load.</p>
-              </div>
-              <div className="rounded-2xl border border-black/10 bg-white/70 backdrop-blur-sm p-4">
-                <p className="text-xs font-semibold tracking-[0.18em] uppercase text-slate-600">Production-ready</p>
-                <p className="mt-2 text-sm text-slate-800 leading-6">Reusable components, accessibility, and builds that are easy to maintain.</p>
-              </div>
-            </div>
           </div>
 
         </div>
@@ -279,7 +265,45 @@ export default function Home() {
         </Container>
       </Section>
 
-       {/* FEATURED PROJECT */}
+      {/* POSITIONING */}
+      <Section className="bg-[var(--bg-soft)] !pt-6 md:!pt-10">
+        <Container className="fade-in-up">
+          <div className="rounded-[2rem] border border-black/10 dark:border-white/10 bg-white/72 dark:bg-white/5 p-6 sm:p-8 md:p-10 lg:p-12 shadow-[0_18px_55px_rgba(2,6,23,0.08)]">
+            <div className="grid grid-cols-1 lg:grid-cols-[0.9fr_1.1fr] gap-8 lg:gap-12 items-center">
+              <div>
+                <span className="text-xs uppercase tracking-[0.18em] text-[var(--text)] opacity-60">
+                  The approach
+                </span>
+                <h2 className="mt-3 font-heading text-2xl md:text-3xl lg:text-4xl text-[var(--text)] max-w-[18ch]">
+                  Learning works better when it is designed as a system.
+                </h2>
+              </div>
+
+              <div>
+                <p className="text-[var(--text)] opacity-75 leading-7 max-w-[64ch]">
+                  I connect strategy, learner experience and analytics so learning is easier to build, scale and report.
+                </p>
+                <div className="mt-6 grid grid-cols-1 sm:grid-cols-3 gap-3">
+                  {[
+                    "Strategy",
+                    "Build",
+                    "Measurement",
+                  ].map((item) => (
+                    <div
+                      key={item}
+                      className="rounded-2xl border border-black/10 dark:border-white/10 bg-white/70 dark:bg-white/5 px-4 py-3 text-sm font-semibold text-[var(--text)] text-center"
+                    >
+                      {item}
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+        </Container>
+      </Section>
+
+      {/* FEATURED PROJECT */}
       <Section className="bg-[var(--bg-soft)] !pt-6 md:!pt-10">
         <Container className="fade-in-up">
           <div className="rounded-[2rem] border border-black/10 dark:border-white/10 bg-white/72 dark:bg-white/5 p-6 sm:p-8 md:p-10 lg:p-12 overflow-hidden shadow-[0_18px_55px_rgba(2,6,23,0.08)]">
@@ -292,10 +316,11 @@ export default function Home() {
                   Wellbeing Studio
                 </h2>
                 <p className="mt-4 text-[var(--text)] opacity-75 leading-7 max-w-[60ch]">
-A branded wellbeing learning platform designed for real-world rollout - including custom onboarding, cohort-based access, premium UX, reporting pathways, and scalable delivery for client organisations.                </p>
+                  A premium wellbeing learning platform with custom onboarding, cohort-based access, replay libraries and scalable delivery for client organisations.
+                </p>
                 <div className="mt-6">
                   <Link to="/case-studies/wellbeing-studio" className={viewSystemClass}>
-                    View project
+                    View case study
                   </Link>
                 </div>
               </div>
@@ -314,62 +339,8 @@ A branded wellbeing learning platform designed for real-world rollout - includin
         </Container>
       </Section>
 
-      
-      {/* SERVICES PREVIEW */}
-      <Section className="bg-[var(--bg-soft)] !pt-6 md:!pt-12">
-        <Container className="fade-in-up">
-          <div className="rounded-[2rem] border border-black/10 dark:border-white/10 bg-white/72 dark:bg-white/5 p-6 sm:p-8 md:p-10 lg:p-12 shadow-[0_18px_55px_rgba(2,6,23,0.08)]">
-            <div className="space-y-8">
-              <div className="space-y-3 max-w-[70ch]">
-                <span className="text-xs uppercase tracking-[0.18em] text-[var(--text)] opacity-60">
-                  What I do
-                </span>
-                <h2 className="font-heading text-2xl text-[var(--text)]">
-                  Learning systems that are clear, scalable and built to work
-                </h2>
-                <p className="text-sm text-[var(--text)] opacity-70 leading-7">
-                  I help organisations design the whole learning experience - from strategy and platform structure through to course builds, learner journeys, reporting and ongoing improvement.
-                </p>
-              </div>
-
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
-                <ServiceCard
-                  title="Learning strategy"
-                  items={[
-                    "Define what learners need to do differently, not just what they need to know",
-                    "Shape course direction, learner journeys, scenarios and review checkpoints",
-                    "Turn dense SME content into practical learning that supports better decisions",
-                  ]}
-                />
-                <ServiceCard
-                  title="Learning platforms"
-                  items={[
-                    "Design Moodle structures that make access, navigation and delivery feel simple",
-                    "Build custom registration, cohort access and client-ready delivery workflows",
-                    "Create branded learning environments that feel polished, purposeful and maintainable",
-                  ]}
-                />
-                <ServiceCard
-                  title="Analytics & improvement"
-                  items={[
-                    "Design xAPI statements and tracking plans around meaningful learner actions",
-                    "Set up LRS workflows, QA checks and reporting pathways so data is trustworthy",
-                    "Create dashboards and review cycles that help improve the learning, not just count completions",
-                  ]}
-                />
-              </div>
-
-              <Link
-                to="/services"
-                className="text-sm text-[var(--link)] hover:text-[var(--link-hover)] hover:underline inline-block font-heading"
-              >
-                See how I can help →
-              </Link>
-            </div>
-          </div>
-        </Container>
-      </Section>
       {/* DESIGN SYSTEM HIGHLIGHT */}
+
       <Section className="bg-[var(--bg-soft)] !pt-6 md:!pt-10">
         <Container className="fade-in-up">
           <div className="rounded-[2rem] border border-black/10 dark:border-white/10 bg-white/72 dark:bg-white/5 p-6 sm:p-8 md:p-10 lg:p-12 overflow-hidden shadow-[0_18px_55px_rgba(2,6,23,0.08)]">
@@ -382,11 +353,11 @@ A branded wellbeing learning platform designed for real-world rollout - includin
                   The design system behind my work
                 </h2>
                 <p className="mt-4 text-[var(--text)] opacity-75 leading-7 max-w-[60ch]">
-                  A practical kit for modern eLearning - designed to keep the focus on people, not process. Built from reusable patterns, accessibility guidance, and production-ready components.
+                  Reusable patterns, accessibility guidance and production-ready components designed to improve consistency and speed.
                 </p>
                 <div className="mt-6">
                   <Link to="/work/elearning-design-system" className={viewSystemClass}>
-                    View the system
+                    Explore the design system
                   </Link>
                 </div>
               </div>
@@ -400,6 +371,28 @@ A branded wellbeing learning platform designed for real-world rollout - includin
                   decoding="async"
                 />
               </div>
+            </div>
+          </div>
+        </Container>
+      </Section>
+
+      {/* FINAL CTA */}
+      <Section className="bg-[var(--bg-soft)] !pt-6 md:!pt-10 !pb-12 md:!pb-16">
+        <Container className="fade-in-up">
+          <div className="rounded-[2rem] border border-black/10 dark:border-white/10 bg-white/72 dark:bg-white/5 p-6 sm:p-8 md:p-10 lg:p-12 text-center shadow-[0_18px_55px_rgba(2,6,23,0.08)]">
+            <span className="text-xs uppercase tracking-[0.18em] text-[var(--text)] opacity-60">
+              Work with me
+            </span>
+            <h2 className="mt-3 mx-auto max-w-[18ch] font-heading text-3xl md:text-4xl text-[var(--text)]">
+              Need a learning system that is easier to build, scale and report?
+            </h2>
+            <p className="mt-4 mx-auto max-w-[62ch] text-[var(--text)] opacity-75 leading-7">
+              I can run you through the approach in 15 minutes and talk through the best starting point for your organisation.
+            </p>
+            <div className="mt-7 mx-auto max-w-[360px]">
+              <Link to="/contact" className={viewSystemClass}>
+                Book a 15-minute walkthrough
+              </Link>
             </div>
           </div>
         </Container>
@@ -537,7 +530,7 @@ function ServiceCard({ title, text, items, icon, tag }) {
       <div className="space-y-1">
         <h3 className="font-heading text-xl text-[var(--text)]">{title}</h3>
         {tag && (
-          <span className="inline-flex items-center rounded-full border border-black/10 bg-white/60 px-3 py-0.5 text-[11px] font-semibold uppercase tracking-[0.18em] text-[var(--text)] opacity-70">
+          <span className="inline-flex items-center rounded-full border border-black/10 bg-white/60 px-3 py-0.5 text-[11px] font-semibold uppercase tracking-[0.18em] text-[var(--brand-purple)]">
             {tag}
           </span>
         )}

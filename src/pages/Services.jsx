@@ -69,6 +69,57 @@ export default function Services() {
         </ul>
       </PageHero>
 
+      {/* HOW I WORK */}
+      <Section className="pt-8 md:pt-12">
+        <Container>
+          <div className="rounded-[2rem] border border-black/10 dark:border-white/10 bg-white/72 dark:bg-white/5 p-6 sm:p-8 md:p-10 lg:p-12 shadow-[0_18px_55px_rgba(2,6,23,0.08)] fade-in-up">
+            <div className="space-y-8">
+              <div className="space-y-3 max-w-[70ch]">
+                <span className="text-xs uppercase tracking-[0.18em] text-[var(--text)] opacity-60">
+                  How I work
+                </span>
+                <h2 className="font-heading text-2xl md:text-3xl text-[var(--text)]">
+                  Strategy, build and measurement - connected end to end
+                </h2>
+                <p className="text-sm md:text-base text-[var(--text)] opacity-70 leading-7">
+                  Strategy, learner experience and analytics - designed as one connected system.
+                </p>
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
+                <ServiceCard
+                  title="Strategy"
+                  tag="01"
+                  items={[
+                    "Define outcomes and learner journeys",
+                    "Turn complex content into practical learning",
+                    "Create scalable frameworks for delivery",
+                  ]}
+                />
+                <ServiceCard
+                  title="Build"
+                  tag="02"
+                  items={[
+                    "Storyline and Rise development",
+                    "Moodle platforms and onboarding flows",
+                    "Reusable, production-ready systems",
+                  ]}
+                />
+                <ServiceCard
+                  title="Measurement"
+                  tag="03"
+                  items={[
+                    "xAPI tracking and reporting",
+                    "LRS workflows and QA",
+                    "Insights that support improvement",
+                  ]}
+                />
+              </div>
+            </div>
+          </div>
+        </Container>
+      </Section>
+
       {/* SERVICES GRID */}
       <Section className="pt-10 md:pt-14">
         <Container>
@@ -124,11 +175,16 @@ export default function Services() {
   );
 }
 
-function ServiceCard({ title, blurb, items }) {
+function ServiceCard({ title, blurb, items, tag }) {
   return (
     <div className="site-card p-6 md:p-7 space-y-5">
-      <div>
+      <div className="space-y-2">
         <h3 className="font-heading text-xl text-[var(--text)]">{title}</h3>
+        {tag && (
+          <span className="inline-flex items-center rounded-full border border-black/10 bg-white/60 px-3 py-0.5 text-[11px] font-semibold uppercase tracking-[0.18em] text-[var(--brand-purple)]">
+            {tag}
+          </span>
+        )}
       </div>
 
       {blurb && <p className="text-base leading-7 text-[var(--text)]/75">{blurb}</p>}
