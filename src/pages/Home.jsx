@@ -290,15 +290,14 @@ export default function Home() {
       {/* FEATURED PROJECT */}
       <Section className="bg-[var(--bg-soft)] !pt-8 md:!pt-14">
         <Container className="fade-in-up">
-          <Link
-            to="/case-studies/wellbeing-studio"
+          <div
             className="
               block w-full
               overflow-hidden
-              rounded-2xl
-              ring-1 ring-black/10 dark:ring-white/10
-              bg-white dark:bg-white/5
-              shadow-[0_28px_90px_rgba(2,6,23,0.16)]
+              rounded-[2rem]
+              border border-black/10 dark:border-white/10
+              bg-white/72 dark:bg-white/5
+              shadow-[0_18px_55px_rgba(2,6,23,0.08)]
               transition
               hover:-translate-y-[2px]
               hover:shadow-[0_34px_110px_rgba(2,6,23,0.20)]
@@ -307,97 +306,109 @@ export default function Home() {
               focus-visible:ring-[var(--secondary)]/40
             "
           >
-            <div className="grid grid-cols-1 md:grid-cols-[3fr_2fr]">
-              <div className="p-8 md:p-10 lg:p-12">
-                <p className="text-xs font-semibold tracking-[0.18em] uppercase text-[var(--text)] opacity-65">
+            <div className="grid grid-cols-1 lg:grid-cols-[3fr_2fr]">
+              <div className="p-5 sm:p-7 md:p-10 lg:p-12">
+                <p className="text-[0.7rem] font-semibold tracking-[0.18em] uppercase text-[var(--text)] opacity-65">
                   Featured project
                 </p>
-                <h2 className="mt-4 font-heading text-3xl md:text-5xl font-semibold leading-tight text-[var(--text)] max-w-[18ch]">
+                <h2 className="mt-3 font-heading text-3xl sm:text-4xl md:text-5xl font-semibold leading-[0.95] text-[var(--text)] max-w-[18ch]">
                   Wellbeing Studio
                 </h2>
-                <p className="mt-4 text-lg text-[var(--text)] opacity-80 leading-8 max-w-[58ch]">
+                <p className="mt-4 text-base sm:text-lg text-[var(--text)] opacity-80 leading-7 sm:leading-8 max-w-[58ch]">
                   A branded wellbeing learning platform designed for real-world rollout - including custom onboarding, cohort-based access, premium UX, reporting pathways, and scalable delivery for client organisations.
                 </p>
-                <div className="mt-7 grid grid-cols-1 sm:grid-cols-2 gap-3 text-sm text-[var(--text)] opacity-80">
-                  <span className="rounded-xl border border-black/10 dark:border-white/10 bg-[var(--bg-soft)] px-4 py-3">Custom registration system</span>
-                  <span className="rounded-xl border border-black/10 dark:border-white/10 bg-[var(--bg-soft)] px-4 py-3">Cohort-based access</span>
-                  <span className="rounded-xl border border-black/10 dark:border-white/10 bg-[var(--bg-soft)] px-4 py-3">Moodle platform architecture</span>
-                  <span className="rounded-xl border border-black/10 dark:border-white/10 bg-[var(--bg-soft)] px-4 py-3">Premium learner experience</span>
-                  <span className="rounded-xl border border-black/10 dark:border-white/10 bg-[var(--bg-soft)] px-4 py-3">Client-ready deployment workflow</span>
-                  <span className="rounded-xl border border-black/10 dark:border-white/10 bg-[var(--bg-soft)] px-4 py-3">Scalable reporting structure</span>
+                <div className="mt-6 grid grid-cols-1 sm:grid-cols-2 gap-2.5 sm:gap-3 text-sm text-[var(--text)] opacity-80">
+                  <span className="rounded-[1rem] border border-black/10 dark:border-white/10 bg-white/70 dark:bg-white/5 px-4 py-2.5 sm:py-3 leading-6 shadow-[0_8px_22px_rgba(2,6,23,0.04)]">Custom registration system</span>
+                  <span className="rounded-[1rem] border border-black/10 dark:border-white/10 bg-white/70 dark:bg-white/5 px-4 py-2.5 sm:py-3 leading-6 shadow-[0_8px_22px_rgba(2,6,23,0.04)]">Cohort-based access</span>
+                  <span className="rounded-[1rem] border border-black/10 dark:border-white/10 bg-white/70 dark:bg-white/5 px-4 py-2.5 sm:py-3 leading-6 shadow-[0_8px_22px_rgba(2,6,23,0.04)]">Moodle platform architecture</span>
+                  <span className="rounded-[1rem] border border-black/10 dark:border-white/10 bg-white/70 dark:bg-white/5 px-4 py-2.5 sm:py-3 leading-6 shadow-[0_8px_22px_rgba(2,6,23,0.04)]">Premium learner experience</span>
+                  <span className="rounded-[1rem] border border-black/10 dark:border-white/10 bg-white/70 dark:bg-white/5 px-4 py-2.5 sm:py-3 leading-6 shadow-[0_8px_22px_rgba(2,6,23,0.04)]">Client-ready deployment workflow</span>
+                  <span className="rounded-[1rem] border border-black/10 dark:border-white/10 bg-white/70 dark:bg-white/5 px-4 py-2.5 sm:py-3 leading-6 shadow-[0_8px_22px_rgba(2,6,23,0.04)]">Scalable reporting structure</span>
                 </div>
-                <span className="mt-8 inline-flex btn-cta items-center justify-center gap-2 px-5 py-3 text-sm font-heading rounded-xl shadow-[0_14px_34px_rgba(0,0,0,0.20)]">
-                  Explore the case study <span aria-hidden>→</span>
-                </span>
+                {/* CTA area */}
+                <div className="mt-7 flex flex-col sm:flex-row gap-3 sm:gap-4">
+                  {/* Remove "View the project" button */}
+                  {/* Keep Discuss a similar platform button, make it primary and link to /contact */}
+                  <Link
+                    to="/contact"
+                    className="btn-cta font-heading inline-flex items-center justify-center w-full py-4 text-base font-semibold rounded-xl shadow-[0_14px_34px_rgba(0,0,0,0.20)] transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black/20"
+                  >
+                    Discuss a similar platform
+                  </Link>
+                </div>
               </div>
-              <div className="bg-[rgba(26,20,70,0.03)] dark:bg-white/6 p-8 md:p-10 flex items-center justify-center border-t border-black/10 md:border-t-0 md:border-l border-black/10 dark:border-white/10">
+              <div className="bg-white/45 dark:bg-white/5 p-5 sm:p-7 md:p-10 flex items-center justify-center border-t border-black/10 lg:border-t-0 lg:border-l dark:border-white/10">
                 <img
                   src="/images/wellbeing-studio-home.jpg"
                   alt="Wellbeing Studio platform case study preview"
-                  className="w-full max-w-[620px] h-auto block rounded-xl shadow-[0_18px_45px_rgba(2,6,23,0.12)]"
+                  className="w-full max-w-[620px] h-auto block rounded-xl shadow-[0_14px_34px_rgba(2,6,23,0.10)]"
                   loading="lazy"
                   decoding="async"
                 />
               </div>
             </div>
-          </Link>
+          </div>
         </Container>
       </Section>
 
       {/* SERVICES PREVIEW */}
       <Section className="bg-[var(--bg-soft)] !pt-6 md:!pt-12">
-        <Container className="space-y-8 fade-in-up">
-          <div className="space-y-3 max-w-[70ch]">
-            <span className="text-xs uppercase tracking-[0.18em] text-[var(--text)] opacity-60">
-           What I do
-            </span>
-            <h2 className="font-heading text-2xl text-[var(--text)]">
-              Modern learning systems, not just course builds
-            </h2>
-            <p className="text-sm text-[var(--text)] opacity-70 leading-7">
-              I help organisations connect the pieces that make learning work - strategy, platform architecture, learning experience design, delivery workflows, and evidence-informed improvement.
-            </p>
-          </div>
+        <Container className="fade-in-up">
+          <div className="rounded-[2rem] border border-black/10 dark:border-white/10 bg-white/72 dark:bg-white/5 p-6 sm:p-8 md:p-10 lg:p-12 shadow-[0_18px_55px_rgba(2,6,23,0.08)]">
+            <div className="space-y-8">
+              <div className="space-y-3 max-w-[70ch]">
+                <span className="text-xs uppercase tracking-[0.18em] text-[var(--text)] opacity-60">
+                  What I do
+                </span>
+                <h2 className="font-heading text-2xl text-[var(--text)]">
+                  Learning systems that are clear, scalable and built to work
+                </h2>
+                <p className="text-sm text-[var(--text)] opacity-70 leading-7">
+                  I help organisations design the whole learning experience - from strategy and platform structure through to course builds, learner journeys, reporting and ongoing improvement.
+                </p>
+              </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
-            <ServiceCard
-              title="Learning strategy"
-              items={[
-                "Clarify the real-world outcome - what people need to do, not just know",
-                "Shape course direction, learning journeys, scenarios, and review checkpoints",
-                "Turn complex SME content into practical learning that supports judgement",
-              ]}
-            />
-            <ServiceCard
-              title="Learning platforms"
-              items={[
-                "Moodle platform structure, onboarding flows, and learner experience design",
-                "Custom registration, cohort access, reusable layouts, and scalable delivery models",
-                "Branded learning environments that feel clear, credible, and easy to maintain",
-              ]}
-            />
-            <ServiceCard
-              title="Analytics & improvement"
-              items={[
-                "xAPI strategy, wrappers, and statement design that matches learning intent",
-                "LRS setup, QA, debugging, and reporting pathways so data is trustworthy",
-                "Dashboards and review cycles that support iteration beyond completion rates",
-              ]}
-            />
-          </div>
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
+                <ServiceCard
+                  title="Learning strategy"
+                  items={[
+                    "Define what learners need to do differently, not just what they need to know",
+                    "Shape course direction, learner journeys, scenarios and review checkpoints",
+                    "Turn dense SME content into practical learning that supports better decisions",
+                  ]}
+                />
+                <ServiceCard
+                  title="Learning platforms"
+                  items={[
+                    "Design Moodle structures that make access, navigation and delivery feel simple",
+                    "Build custom registration, cohort access and client-ready delivery workflows",
+                    "Create branded learning environments that feel polished, purposeful and maintainable",
+                  ]}
+                />
+                <ServiceCard
+                  title="Analytics & improvement"
+                  items={[
+                    "Design xAPI statements and tracking plans around meaningful learner actions",
+                    "Set up LRS workflows, QA checks and reporting pathways so data is trustworthy",
+                    "Create dashboards and review cycles that help improve the learning, not just count completions",
+                  ]}
+                />
+              </div>
 
-          <Link
-            to="/services"
-            className="text-sm text-[var(--link)] hover:text-[var(--link-hover)] hover:underline inline-block font-heading"
-          >
-            How I can help →
-          </Link>
+              <Link
+                to="/services"
+                className="text-sm text-[var(--link)] hover:text-[var(--link-hover)] hover:underline inline-block font-heading"
+              >
+                See how I can help →
+              </Link>
+            </div>
+          </div>
         </Container>
       </Section>
       {/* DESIGN SYSTEM HIGHLIGHT */}
       <Section className="bg-[var(--bg-soft)] !pt-6 md:!pt-10">
         <Container className="fade-in-up">
-          <div className="site-card-strong p-7 md:p-9 overflow-hidden">
+          <div className="rounded-[2rem] border border-black/10 dark:border-white/10 bg-white/72 dark:bg-white/5 p-6 sm:p-8 md:p-10 lg:p-12 overflow-hidden shadow-[0_18px_55px_rgba(2,6,23,0.08)]">
             <div className="grid grid-cols-1 md:grid-cols-[3fr_2fr] gap-8 items-start">
               <div>
                 <span className="text-xs uppercase tracking-[0.18em] text-[var(--text)] opacity-60">
@@ -416,7 +427,7 @@ export default function Home() {
                 </div>
               </div>
 
-              <div className="overflow-hidden rounded-xl ring-1 ring-black/10 bg-white shadow-[0_18px_45px_rgba(2,6,23,0.12)]">
+              <div className="overflow-hidden rounded-[1.5rem] border border-black/10 dark:border-white/10 bg-white/82 dark:bg-white/5 shadow-[0_10px_30px_rgba(2,6,23,0.06)]">
                 <img
                   src={`${import.meta.env.BASE_URL}images/design-system/glenn-hammond-site-assets-elearning-design-system.jpg`}
                   alt="eLearning Design System preview"
@@ -557,7 +568,7 @@ export default function Home() {
 
 function ServiceCard({ title, text, items, icon, tag }) {
   return (
-    <div className="site-card-strong p-7 md:p-8 space-y-4 transition hover:-translate-y-[2px] hover:shadow-lg hover:border-[var(--brand-primary)]">
+    <div className="rounded-[1.5rem] border border-black/10 dark:border-white/10 bg-white/82 dark:bg-white/5 p-7 md:p-8 space-y-4 shadow-[0_10px_30px_rgba(2,6,23,0.06)] transition hover:-translate-y-[2px] hover:shadow-[0_18px_45px_rgba(2,6,23,0.10)] hover:border-[var(--brand-primary)]">
       <div className="space-y-1">
         <h3 className="font-heading text-xl text-[var(--text)]">{title}</h3>
         {tag && (

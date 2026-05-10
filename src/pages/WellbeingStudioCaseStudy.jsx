@@ -1,14 +1,10 @@
 import { Link } from "react-router-dom";
 
 const highlights = [
-  "Client-specific registration flow",
-  "Cohort-based access model",
+  "Client-aware registration and cohort access",
   "Branded Moodle participant experience",
-  "Monthly wellbeing program structure",
-  "Replay and resource library",
-  "Mobile-friendly navigation",
-  "Premium homepage and login experience",
-  "Reporting-ready platform foundation",
+  "Program, replay and resource structure",
+  "Reporting-ready delivery foundation",
 ];
 
 const snapshot = [
@@ -48,28 +44,13 @@ export default function WellbeingStudioCaseStudy() {
             </p>
 
             <p className="max-w-3xl text-base leading-8 text-[var(--text)]/68 md:text-lg">
-              Corporate Yoga Australia needed a more scalable way to deliver
+              Corporate Yoga Australia (CYA) needed a scalable way to deliver
               workplace wellbeing programs online. I designed and built
               Wellbeing Studio. <br></br> A branded Moodle platform with tailored
               registration, cohort-based access, program pages, replay libraries
               and a polished participant experience.
             </p>
 
-            <div className="flex flex-col gap-4 sm:flex-row">
-              <a
-                href="#project"
-                className="rounded-full bg-[var(--brand-purple)] px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-black/20 transition hover:bg-[var(--brand-purple-strong)]"
-              >
-                View the project
-              </a>
-
-              <Link
-                to="/contact"
-                className="rounded-full border border-[var(--border)] bg-white/60 px-6 py-3 text-sm font-semibold text-[var(--text)] transition hover:bg-white"
-              >
-                Discuss a similar platform
-              </Link>
-            </div>
           </div>
 
           <div className="hidden md:block">
@@ -114,29 +95,29 @@ export default function WellbeingStudioCaseStudy() {
         </div>
       </section>
 
-      {/* SNAPSHOT */}
+      {/* PROJECT SUMMARY */}
       <section id="project" className="border-y border-[var(--border)] bg-white">
-        <div className="mx-auto max-w-7xl px-6 py-20">
-          <div className="grid gap-10 rounded-[2rem] border border-[var(--border)] bg-[var(--bg-soft)] p-8 shadow-sm md:grid-cols-[0.78fr_1.22fr] md:p-10">
-            <div className="space-y-5">
+        <div className="mx-auto max-w-7xl px-6 py-16">
+          <div className="grid gap-8 rounded-[2rem] border border-[var(--border)] bg-[var(--bg-soft)] p-6 shadow-sm md:grid-cols-[0.78fr_1.22fr] md:p-8">
+            <div className="space-y-4">
               <p className="text-sm uppercase tracking-[0.22em] text-[var(--brand-purple)]/70">
-                Project snapshot
+                Project summary
               </p>
               <h2 className="font-heading text-3xl leading-tight text-[var(--text)] md:text-4xl">
-                The build at a glance
+                A scalable wellbeing platform built on Moodle.
               </h2>
               <p className="text-base leading-7 text-[var(--text)]/65">
-                A practical mix of learning design, platform development, registration logic and participant experience design.
+                Corporate Yoga Australia needed a more polished way to deliver live wellbeing programs, resources and replays across different client groups.
               </p>
             </div>
 
-            <div className="grid gap-4 sm:grid-cols-2">
+            <div className="grid gap-3 sm:grid-cols-2">
               {snapshot.map(([label, value]) => (
                 <div
                   key={label}
-                  className="rounded-2xl border border-[var(--border)] bg-white p-5 shadow-sm"
+                  className="rounded-2xl border border-[var(--border)] bg-white p-4 shadow-sm"
                 >
-                  <p className="mb-2 text-xs uppercase tracking-[0.18em] text-[var(--brand-purple)]/65">
+                  <p className="mb-1.5 text-xs uppercase tracking-[0.18em] text-[var(--brand-purple)]/65">
                     {label}
                   </p>
                   <p className="text-sm leading-6 text-[var(--text)]/82">
@@ -149,182 +130,58 @@ export default function WellbeingStudioCaseStudy() {
         </div>
       </section>
 
-      {/* INTRO */}
+      {/* PLATFORM BUILD */}
       <section className="bg-[var(--bg)]">
-        <div className="mx-auto grid max-w-7xl gap-12 px-6 py-24 md:grid-cols-[0.8fr_1.2fr]">
-          <div>
-            <p className="mb-4 text-sm uppercase tracking-[0.18em] text-[var(--brand-primary)]/70">
-              Overview
-            </p>
-            <h2 className="font-heading text-3xl leading-tight md:text-4xl">
-              From one-off sessions to a scalable digital wellbeing experience.
-            </h2>
-          </div>
-
-          <div className="space-y-6 text-lg leading-8 text-[var(--text)]/75">
-            <p>
-              Corporate Yoga Australia delivers workplace wellbeing programs,
-              live sessions and digital resources. The opportunity was to create
-              a more polished and scalable online experience that could support
-              different clients, buildings, programs and participant groups.
-            </p>
-
-            <p>
-              Wellbeing Studio was created as both a live wellbeing platform and
-              a reusable model for future client-specific learning experiences.
-              It combines learning design, UX, Moodle development, brand design
-              and digital delivery into one practical system.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      {/* CHALLENGE / SOLUTION */}
-      <section className="bg-white">
-        <div className="mx-auto max-w-7xl px-6 py-24">
-          <div className="grid gap-10 rounded-[2rem] border border-[var(--border)] bg-[var(--bg-soft)] p-8 shadow-sm md:grid-cols-[0.78fr_1.22fr] md:p-10">
-            <div className="space-y-5">
-              <p className="text-sm uppercase tracking-[0.22em] text-[var(--brand-purple)]/70">
-                Challenge &amp; solution
-              </p>
-              <h2 className="font-heading text-3xl leading-tight text-[var(--text)] md:text-4xl">
-                Turning a traditional LMS into a polished participant experience.
-              </h2>
-              <p className="text-base leading-7 text-[var(--text)]/65">
-                The goal was not just to configure Moodle. It was to create a calm, branded and repeatable delivery model that could support real client programs.
-              </p>
-            </div>
-
-            <div className="grid gap-4">
-              <article className="rounded-2xl border border-[var(--border)] bg-white p-6 shadow-sm">
-                <p className="mb-3 text-xs uppercase tracking-[0.18em] text-[var(--brand-purple)]/65">
-                  The challenge
+        <div className="mx-auto max-w-7xl px-6 py-16">
+          <div className="rounded-[2rem] border border-[var(--border)] bg-white p-6 shadow-sm md:p-10">
+            <div className="grid gap-10 md:grid-cols-[0.8fr_1.2fr]">
+              <div className="max-w-xl space-y-4">
+                <p className="text-sm uppercase tracking-[0.22em] text-[var(--brand-purple)]/70">
+                  Platform build
                 </p>
-                <h3 className="mb-4 font-heading text-2xl leading-tight text-[var(--text)]">
-                  The LMS needed to feel less like an LMS.
-                </h3>
-                <p className="text-base leading-8 text-[var(--text)]/75">
-                  The platform needed to support client-specific access, simple
-                  registration, polished program pages, replay delivery and future
-                  reporting - without creating a clunky or confusing participant
-                  experience.
+                <h2 className="font-heading text-3xl leading-tight text-[var(--text)] md:text-5xl">
+                  A platform shaped around the participant journey.
+                </h2>
+                <p className="text-base leading-8 text-[var(--text)]/68 md:text-lg">
+                  The work focused on simple access, clear pathways and a structure CYA can reuse for future client programs.
                 </p>
-              </article>
-
-              <article className="rounded-2xl border border-[var(--border)] bg-white p-6 shadow-sm">
-                <p className="mb-3 text-xs uppercase tracking-[0.18em] text-[var(--brand-purple)]/65">
-                  The solution
-                </p>
-                <h3 className="mb-4 font-heading text-2xl leading-tight text-[var(--text)]">
-                  A branded platform model for repeatable delivery.
-                </h3>
-                <p className="text-base leading-8 text-[var(--text)]/75">
-                  I designed and built a client-aware wellbeing environment where
-                  users register through dedicated access links, are assigned to the
-                  correct cohort, and arrive inside a calm, branded program
-                  experience tailored to their organisation or group.
-                </p>
-              </article>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* WHAT I BUILT */}
-      <section className="bg-white">
-        <div className="mx-auto max-w-7xl px-6 py-24">
-          <div className="mb-12 max-w-3xl">
-            <p className="mb-4 text-sm uppercase tracking-[0.18em] text-[var(--brand-primary)]/70">
-              What I built
-            </p>
-            <h2 className="font-heading text-3xl leading-tight md:text-4xl">
-              A complete foundation for client-ready wellbeing delivery.
-            </h2>
-          </div>
-
-          <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
-            {highlights.map((item) => (
-              <div
-                key={item}
-                className="rounded-2xl border border-[var(--border)] bg-[var(--bg)] p-6"
-              >
-                <div className="mb-5 h-10 w-10 rounded-full bg-[var(--brand-primary)]/10" />
-                <h3 className="font-heading text-lg leading-snug">{item}</h3>
               </div>
-            ))}
-          </div>
-        </div>
-      </section>
 
-      {/* DESIGN APPROACH */}
-      <section className="bg-[var(--brand-primary)] text-white">
-        <div className="mx-auto grid max-w-7xl gap-12 px-6 py-24 md:grid-cols-[0.9fr_1.1fr]">
-          <div>
-            <p className="mb-4 text-sm uppercase tracking-[0.18em] text-white/60">
-              Design approach
-            </p>
-            <h2 className="font-heading text-3xl leading-tight md:text-5xl">
-              Designed like a member platform, not a traditional course site.
-            </h2>
-          </div>
-
-          <div className="space-y-6 text-lg leading-8 text-white/75">
-            <p>
-              The visual direction was intentionally calm, spacious and premium.
-              The aim was to reduce Moodle friction and create an experience
-              that felt more like a modern wellbeing membership than a standard
-              learning management system.
-            </p>
-
-            <p>
-              The design uses strong hero sections, generous spacing, clear
-              calls to action, mobile-friendly navigation and consistent content
-              patterns so participants can easily move between the monthly
-              program, replays, resources and support.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      {/* RESULTS */}
-      <section className="bg-[var(--bg)]">
-        <div className="mx-auto max-w-7xl px-6 py-24">
-          <div className="grid gap-8 md:grid-cols-3">
-            <div className="rounded-3xl border border-[var(--border)] bg-white p-8 shadow-sm">
-              <p className="mb-3 text-sm uppercase tracking-[0.16em] text-[var(--brand-primary)]/70">
-                Outcome
-              </p>
-              <h3 className="font-heading text-2xl">Live platform</h3>
-              <p className="mt-4 leading-7 text-[var(--text)]/70">
-                The first version is now live and supporting real participant
-                access.
-              </p>
+              <div className="rounded-3xl border border-[var(--border)] bg-[var(--bg-soft)] p-6 shadow-sm md:p-8">
+                <p className="mb-4 text-xs uppercase tracking-[0.18em] text-[var(--brand-purple)]/65">
+                  Build focus
+                </p>
+                <h3 className="mb-4 font-heading text-2xl leading-tight text-[var(--text)] md:text-3xl">
+                  Simple access, clear pathways and a reusable platform structure.
+                </h3>
+                <p className="text-sm leading-7 text-[var(--text)]/72 md:text-base md:leading-8">
+                  Dedicated access links place participants into the right cohort, program pages guide the monthly experience, and replay/resource areas keep the platform useful beyond live sessions.
+                </p>
+              </div>
             </div>
 
-            <div className="rounded-3xl border border-[var(--border)] bg-white p-8 shadow-sm">
-              <p className="mb-3 text-sm uppercase tracking-[0.16em] text-[var(--brand-primary)]/70">
-                Foundation
+            <div className="mt-10 border-t border-[var(--border)] pt-8">
+              <p className="mb-5 text-xs uppercase tracking-[0.18em] text-[var(--brand-purple)]/65">
+                Core build components
               </p>
-              <h3 className="font-heading text-2xl">Reusable model</h3>
-              <p className="mt-4 leading-7 text-[var(--text)]/70">
-                The structure can be adapted for future clients, conferences,
-                cohorts and digital programs.
-              </p>
-            </div>
-
-            <div className="rounded-3xl border border-[var(--border)] bg-white p-8 shadow-sm">
-              <p className="mb-3 text-sm uppercase tracking-[0.16em] text-[var(--brand-primary)]/70">
-                Value
-              </p>
-              <h3 className="font-heading text-2xl">Scalable delivery</h3>
-              <p className="mt-4 leading-7 text-[var(--text)]/70">
-                CYA now has a stronger platform foundation for digital wellbeing
-                delivery and future client growth.
-              </p>
+              <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+                {highlights.map((item) => (
+                  <div
+                    key={item}
+                    className="rounded-2xl border border-[var(--border)] bg-[var(--bg)] px-4 py-4 shadow-sm"
+                  >
+                    <h4 className="font-heading text-sm leading-snug text-[var(--text)]">
+                      {item}
+                    </h4>
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
         </div>
       </section>
+
+      {/* PLATFORM POTENTIAL */}
 
       {/* PLATFORM POTENTIAL */}
       <section className="bg-white">
