@@ -209,19 +209,11 @@ export default function Home() {
             
             <div className="mt-7 md:mt-auto md:pt-8">
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
-                <Link to="/case-studies/wellbeing-studio" className={viewSystemClass}>
-                  View case study
+                <Link to="/work" className={viewSystemClass}>
+                  View work
                 </Link>
-                <Link to="/services" className={howIWorkClass}>
-                  Explore services
-                </Link>
-              </div>
-              <div className="mt-4">
-                <Link
-                  to="/contact"
-                  className="text-sm text-[var(--link)] hover:text-[var(--link-hover)] hover:underline font-heading"
-                >
-                  Start a conversation →
+                <Link to="/contact" className={howIWorkClass}>
+                  Get in touch
                 </Link>
               </div>
             </div>
@@ -287,61 +279,32 @@ export default function Home() {
         </Container>
       </Section>
 
-      {/* FEATURED PROJECT */}
-      <Section className="bg-[var(--bg-soft)] !pt-8 md:!pt-14">
+       {/* FEATURED PROJECT */}
+      <Section className="bg-[var(--bg-soft)] !pt-6 md:!pt-10">
         <Container className="fade-in-up">
-          <div
-            className="
-              block w-full
-              overflow-hidden
-              rounded-[2rem]
-              border border-black/10 dark:border-white/10
-              bg-white/72 dark:bg-white/5
-              shadow-[0_18px_55px_rgba(2,6,23,0.08)]
-              transition
-              hover:-translate-y-[2px]
-              hover:shadow-[0_34px_110px_rgba(2,6,23,0.20)]
-              focus-visible:outline-none
-              focus-visible:ring-2
-              focus-visible:ring-[var(--secondary)]/40
-            "
-          >
-            <div className="grid grid-cols-1 lg:grid-cols-[3fr_2fr]">
-              <div className="p-5 sm:p-7 md:p-10 lg:p-12">
-                <p className="text-[0.7rem] font-semibold tracking-[0.18em] uppercase text-[var(--text)] opacity-65">
+          <div className="rounded-[2rem] border border-black/10 dark:border-white/10 bg-white/72 dark:bg-white/5 p-6 sm:p-8 md:p-10 lg:p-12 overflow-hidden shadow-[0_18px_55px_rgba(2,6,23,0.08)]">
+            <div className="grid grid-cols-1 md:grid-cols-[3fr_2fr] gap-8 items-start">
+              <div>
+                <span className="text-xs uppercase tracking-[0.18em] text-[var(--text)] opacity-60">
                   Featured project
-                </p>
-                <h2 className="mt-3 font-heading text-3xl sm:text-4xl md:text-5xl font-semibold leading-[0.95] text-[var(--text)] max-w-[18ch]">
+                </span>
+                <h2 className="mt-3 font-heading text-2xl md:text-3xl text-[var(--text)]">
                   Wellbeing Studio
                 </h2>
-                <p className="mt-4 text-base sm:text-lg text-[var(--text)] opacity-80 leading-7 sm:leading-8 max-w-[58ch]">
-                  A branded wellbeing learning platform designed for real-world rollout - including custom onboarding, cohort-based access, premium UX, reporting pathways, and scalable delivery for client organisations.
-                </p>
-                <div className="mt-6 grid grid-cols-1 sm:grid-cols-2 gap-2.5 sm:gap-3 text-sm text-[var(--text)] opacity-80">
-                  <span className="rounded-[1rem] border border-black/10 dark:border-white/10 bg-white/70 dark:bg-white/5 px-4 py-2.5 sm:py-3 leading-6 shadow-[0_8px_22px_rgba(2,6,23,0.04)]">Custom registration system</span>
-                  <span className="rounded-[1rem] border border-black/10 dark:border-white/10 bg-white/70 dark:bg-white/5 px-4 py-2.5 sm:py-3 leading-6 shadow-[0_8px_22px_rgba(2,6,23,0.04)]">Cohort-based access</span>
-                  <span className="rounded-[1rem] border border-black/10 dark:border-white/10 bg-white/70 dark:bg-white/5 px-4 py-2.5 sm:py-3 leading-6 shadow-[0_8px_22px_rgba(2,6,23,0.04)]">Moodle platform architecture</span>
-                  <span className="rounded-[1rem] border border-black/10 dark:border-white/10 bg-white/70 dark:bg-white/5 px-4 py-2.5 sm:py-3 leading-6 shadow-[0_8px_22px_rgba(2,6,23,0.04)]">Premium learner experience</span>
-                  <span className="rounded-[1rem] border border-black/10 dark:border-white/10 bg-white/70 dark:bg-white/5 px-4 py-2.5 sm:py-3 leading-6 shadow-[0_8px_22px_rgba(2,6,23,0.04)]">Client-ready deployment workflow</span>
-                  <span className="rounded-[1rem] border border-black/10 dark:border-white/10 bg-white/70 dark:bg-white/5 px-4 py-2.5 sm:py-3 leading-6 shadow-[0_8px_22px_rgba(2,6,23,0.04)]">Scalable reporting structure</span>
-                </div>
-                {/* CTA area */}
-                <div className="mt-7 flex flex-col sm:flex-row gap-3 sm:gap-4">
-                  {/* Remove "View the project" button */}
-                  {/* Keep Discuss a similar platform button, make it primary and link to /contact */}
-                  <Link
-                    to="/contact"
-                    className="btn-cta font-heading inline-flex items-center justify-center w-full py-4 text-base font-semibold rounded-xl shadow-[0_14px_34px_rgba(0,0,0,0.20)] transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black/20"
-                  >
-                    Discuss a similar platform
+                <p className="mt-4 text-[var(--text)] opacity-75 leading-7 max-w-[60ch]">
+A branded wellbeing learning platform designed for real-world rollout - including custom onboarding, cohort-based access, premium UX, reporting pathways, and scalable delivery for client organisations.                </p>
+                <div className="mt-6">
+                  <Link to="/case-studies/wellbeing-studio" className={viewSystemClass}>
+                    View project
                   </Link>
                 </div>
               </div>
-              <div className="bg-white/45 dark:bg-white/5 p-5 sm:p-7 md:p-10 flex items-center justify-center border-t border-black/10 lg:border-t-0 lg:border-l dark:border-white/10">
+
+              <div className="overflow-hidden rounded-[1.5rem] border border-black/10 dark:border-white/10 bg-white/82 dark:bg-white/5 shadow-[0_10px_30px_rgba(2,6,23,0.06)]">
                 <img
-                  src="/images/wellbeing-studio-home.jpg"
-                  alt="Wellbeing Studio platform case study preview"
-                  className="w-full max-w-[620px] h-auto block rounded-xl shadow-[0_14px_34px_rgba(2,6,23,0.10)]"
+                  src={`${import.meta.env.BASE_URL}images/wellbeing-studio-pause-move-reset.jpg`}
+                  alt="Wellbeing Studio platform preview"
+                  className="w-full h-auto block"
                   loading="lazy"
                   decoding="async"
                 />
@@ -351,6 +314,7 @@ export default function Home() {
         </Container>
       </Section>
 
+      
       {/* SERVICES PREVIEW */}
       <Section className="bg-[var(--bg-soft)] !pt-6 md:!pt-12">
         <Container className="fade-in-up">
@@ -440,6 +404,7 @@ export default function Home() {
           </div>
         </Container>
       </Section>
+
 
 
       {/* 
